@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CONKER | PUBG Store</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#070707;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* الخلفية */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:#ffae00;
+    filter:blur(180px);
+    opacity:.08;
+    top:-200px;
+    right:-150px;
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:350px;
+    height:350px;
+    background:#ff5e00;
+    filter:blur(180px);
+    opacity:.06;
+    bottom:-150px;
+    left:-100px;
+    z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px 7%;
+
+    background:rgba(5,5,5,.88);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid #222;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#ffae00;
+}
+
+nav a{
+    color:#ccc;
+    text-decoration:none;
+    margin-right:20px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ffae00;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:120px 20px 60px;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(255,174,0,.12),
+        transparent 45%
+    );
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:clamp(55px,12vw,100px);
+    letter-spacing:5px;
+    margin-bottom:20px;
+
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #ffae00,
+        #ff6200
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero h2{
+    font-size:25px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#999;
+    font-size:18px;
+    line-height:1.9;
+}
+
+.buttons{
+    margin-top:35px;
+
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius:50px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.primary{
+    background:#ffae00;
+    color:#000;
+}
+
+.secondary{
+    border:1px solid #444;
+    color:#fff;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 7%;
+}
+
+.title{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#777;
+    margin-bottom:45px;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+}
+
+.card{
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.015)
+    );
+
+    border:1px solid #252525;
+
+    border-radius:24px;
+
+    padding:25px;
+
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#ffae00;
+
+    box-shadow:
+    0 15px 40px
+    rgba(255,174,0,.08);
+}
+
+.card-img{
+    height:170px;
+
+    border-radius:18px;
+
+    background:
+    radial-gradient(
+        circle,
+        #292929,
+        #101010
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:65px;
+
+    margin-bottom:20px;
+}
+
+.card h3{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#888;
+    line-height:1.7;
+}
+
+.price{
+    color:#ffae00 !important;
+    font-size:25px !important;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.order{
+    display:block;
+
+    text-align:center;
+
+    background:#ffae00;
+    color:#000;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.order:hover{
+    transform:scale(1.03);
+    background:#ffc340;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact-box{
+    max-width:750px;
+
+    margin:auto;
+
+    background:#111;
+
+    padding:45px 25px;
+
+    border-radius:28px;
+
+    border:1px solid #252525;
+}
+
+.contact-box p{
+    color:#999;
+
+    margin:20px 0 30px;
+
+    line-height:1.9;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+    position:fixed;
+
+    bottom:20px;
+    left:20px;
+
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+
+    background:#25D366;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:30px;
+
+    text-decoration:none;
+
+    z-index:2000;
+
+    box-shadow:
+    0 5px 25px
+    rgba(0,0,0,.5);
+
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.1);
+}
+
+/* TELEGRAM */
+
+.telegram{
+    color:#35aeea !important;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+
+    padding:35px;
+
+    border-top:1px solid #222;
+
+    color:#666;
+}
+
+footer span{
+    color:#ffae00;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav{
+        padding:15px 5%;
+    }
+
+    nav div:last-child{
+        display:none;
+    }
+
+    .hero h2{
+        font-size:21px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:70px 5%;
+    }
+
+    .title{
+        font-size:32px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        CON<span>KER</span>
+    </div>
+
+    <div>
+
+        <a href="#home">الرئيسية</a>
+
+        <a href="#accounts">
+            أكونتات PUBG
+        </a>
+
+        <a href="#uc">
+            شحن UC
+        </a>
+
+        <a href="#contact">
+            تواصل
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>CONKER</h1>
+
+        <h2>
+            🎮 PUBG ACCOUNTS & UC
+        </h2>
+
+        <p>
+            متجر CONKER لأكونتات PUBG وشحن UC.
+            <br>
+            اختار الخدمة المناسبة وتواصل معنا مباشرة.
+        </p>
+
+
+        <div class="buttons">
+
+            <a
+                href="#accounts"
+                class="btn primary">
+
+                🎮 أكونتات PUBG
+
+            </a>
+
+
+            <a
+                href="#uc"
+                class="btn secondary">
+
+                💎 شحن UC
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ACCOUNTS -->
+
+<section id="accounts">
+
+    <h2 class="title">
+        🎮 أكونتات PUBG
+    </h2>
+
+    <p class="subtitle">
+        لعرض الأكونتات المتاحة والشراء تواصل معنا عبر متجر تيليجرام
+    </p>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-img">
+                🎮
+            </div>
+
+            <h3>
+                أكونتات PUBG
+            </h3>
+
+            <p>
+                شاهد الأكونتات المتاحة للبيع
+                والتفاصيل والأسعار على متجرنا.
+            </p>
+
+            <br>
+
+            <a
+                href="https://t.me/CONKER_CON"
+                target="_blank"
+                class="order">
+
+                🛒 دخول متجر تيليجرام
+
+            </a>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="card-img">
+                🔥
+            </div>
+
+            <h3>
+                أكونتات مميزة
+            </h3>
+
+            <p>
+                أكونتات بمميزات مختلفة.
+                لمعرفة المتاح تواصل معنا.
+            </p>
+
+            <br>
+
+            <a
+                href="https://t.me/CONKER_CON"
+                target="_blank"
+                class="order">
+
+                🔥 شاهد المتاح
+
+            </a>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="card-img">
+                👑
+            </div>
+
+            <h3>
+                أكونتات قوية
+            </h3>
+
+            <p>
+                لمعرفة الأكونتات الجديدة
+                والأسعار اضغط هنا.
+            </p>
+
+            <br>
+
+            <a
+                href="https://t.me/CONKER_CON"
+                target="_blank"
+                class="order">
+
+                👑 اطلب الآن
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- UC -->
+
+<section id="uc">
+
+    <h2 class="title">
+        💎 شحن PUBG UC
+    </h2>
+
+    <p class="subtitle">
+        اختار الباقة واضغط "اطلب الشحن"
+        وسيتم فتح واتساب برسالة جاهزة.
+    </p>
+
+
+    <div class="cards">
+
+
+        <!-- 60 UC -->
+
+        <div class="card">
+
+            <div class="card-img">
+                💎
+            </div>
+
+            <h3>
+                60 UC
+            </h3>
+
+            <p class="price">
+                55 جنيه
+            </p>
+
+            <a
+                href="https://wa.me/201027595528?text=مرحباً%20أريد%20شحن%2060%20UC"
+                target="_blank"
+                class="order">
+
+                💬 اطلب الشحن
+
+            </a>
+
+        </div>
+
+
+
+        <!-- 325 UC -->
+
+        <div class="card">
+
+            <div class="card-img">
+                💎
+            </div>
+
+            <h3>
+                325 UC
+            </h3>
+
+            <p class="price">
+                250 جنيه
+            </p>
+
+            <a
+                href="https://wa.me/201027595528?text=مرحباً%20أريد%20شحن%20325%20UC"
+                target="_blank"
+                class="order">
+
+                💬 اطلب الشحن
+
+            </a>
+
+        </div>
+
+
+
+        <!-- 660 UC -->
+
+        <div class="card">
+
+            <div class="card-img">
+                🔥
+            </div>
+
+            <h3>
+                660 UC
+            </h3>
+
+            <p class="price">
+                450 جنيه
+            </p>
+
+            <a
+                href="https://wa.me/201027595528?text=مرحباً%20أريد%20شحن%20660%20UC"
+                target="_blank"
+                class="order">
+
+                💬 اطلب الشحن
+
+            </a>
+
+        </div>
+
+
+
+        <!-- 1800 UC -->
+
+        <div class="card">
+
+            <div class="card-img">
+                🔥
+            </div>
+
+            <h3>
+                1800 UC
+            </h3>
+
+            <p class="price">
+                1300 جنيه
+            </p>
+
+            <a
+                href="https://wa.me/201027595528?text=مرحباً%20أريد%20شحن%201800%20UC"
+                target="_blank"
+                class="order">
+
+                💬 اطلب الشحن
+
+            </a>
+
+        </div>
+
+
+
+        <!-- 3850 UC -->
+
+        <div class="card">
+
+            <div class="card-img">
+                👑
+            </div>
+
+            <h3>
+                3850 UC
+            </h3>
+
+            <p class="price">
+                2500 جنيه
+            </p>
+
+            <a
+                href="https://wa.me/201027595528?text=مرحباً%20أريد%20شحن%203850%20UC"
+                target="_blank"
+                class="order">
+
+                💬 اطلب الشحن
+
+            </a>
+
+        </div>
+
+
+
+        <!-- 8100 UC -->
+
+        <div class="card">
+
+            <div class="card-img">
+                👑
+            </div>
+
+            <h3>
+                8100 UC
+            </h3>
+
+            <p class="price">
+                4500 جنيه
+            </p>
+
+            <a
+                href="https://wa.me/201027595528?text=مرحباً%20أريد%20شحن%208100%20UC"
+                target="_blank"
+                class="order">
+
+                💬 اطلب الشحن
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+    <div class="contact-box">
+
+        <h2 class="title">
+            📞 تواصل معنا
+        </h2>
+
+        <p>
+            للشراء أو الاستفسار عن أكونتات PUBG
+            أو شحن UC تواصل معنا.
+        </p>
+
+
+        <div class="buttons">
+
+
+            <a
+                href="https://t.me/CONKER_CON"
+                target="_blank"
+                class="btn primary">
+
+                🛒 متجر تيليجرام
+
+            </a>
+
+
+            <a
+                href="https://t.me/C_O_N_2"
+                target="_blank"
+                class="btn secondary telegram">
+
+                👤 @C_O_N_2
+
+            </a>
+
+
+            <a
+                href="https://wa.me/201027595528"
+                target="_blank"
+                class="btn secondary">
+
+                💬 واتساب
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+    href="https://wa.me/201027595528"
+    target="_blank"
+    class="whatsapp">
+
+    💬
+
+</a>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026
+    <span>CONKER</span>
+    —
+    جميع الحقوق محفوظة
+
+</footer>
+
+
+</body>
+</html>
