@@ -1,879 +1,1020 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CONKER | PUBG Store</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Tahoma,Arial,sans-serif;
-    background:#070707;
-    color:#fff;
-    overflow-x:hidden;
-}
-
-/* الخلفية */
-
-body::before{
-    content:"";
-    position:fixed;
-    width:450px;
-    height:450px;
-    background:#ffae00;
-    filter:blur(180px);
-    opacity:.08;
-    top:-200px;
-    right:-150px;
-    z-index:-1;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    width:350px;
-    height:350px;
-    background:#ff5e00;
-    filter:blur(180px);
-    opacity:.06;
-    bottom:-150px;
-    left:-100px;
-    z-index:-1;
-}
-
-/* NAVBAR */
-
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:1000;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:16px 7%;
-
-    background:rgba(5,5,5,.88);
-    backdrop-filter:blur(15px);
-
-    border-bottom:1px solid #222;
-}
-
-.logo{
-    font-size:27px;
-    font-weight:bold;
-    letter-spacing:2px;
-}
-
-.logo span{
-    color:#ffae00;
-}
-
-nav a{
-    color:#ccc;
-    text-decoration:none;
-    margin-right:20px;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#ffae00;
-}
-
-/* HERO */
-
-.hero{
-    min-height:100vh;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:120px 20px 60px;
-
-    background:
-    radial-gradient(
-        circle at center,
-        rgba(255,174,0,.12),
-        transparent 45%
-    );
-}
-
-.hero-content{
-    max-width:800px;
-}
-
-.hero h1{
-    font-size:clamp(55px,12vw,100px);
-    letter-spacing:5px;
-    margin-bottom:20px;
-
-    background:linear-gradient(
-        90deg,
-        #fff,
-        #ffae00,
-        #ff6200
-    );
-
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
-.hero h2{
-    font-size:25px;
-    margin-bottom:20px;
-}
-
-.hero p{
-    color:#999;
-    font-size:18px;
-    line-height:1.9;
-}
-
-.buttons{
-    margin-top:35px;
-
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    text-decoration:none;
-    padding:15px 30px;
-    border-radius:50px;
-    font-weight:bold;
-    transition:.3s;
-}
-
-.primary{
-    background:#ffae00;
-    color:#000;
-}
-
-.secondary{
-    border:1px solid #444;
-    color:#fff;
-}
-
-.btn:hover{
-    transform:translateY(-5px);
-}
-
-/* SECTIONS */
-
-section{
-    padding:90px 7%;
-}
-
-.title{
-    text-align:center;
-    font-size:38px;
-    margin-bottom:15px;
-}
-
-.subtitle{
-    text-align:center;
-    color:#777;
-    margin-bottom:45px;
-}
-
-/* CARDS */
-
-.cards{
-    display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(230px,1fr));
-
-    gap:25px;
-}
-
-.card{
-    background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,.05),
-        rgba(255,255,255,.015)
-    );
-
-    border:1px solid #252525;
-
-    border-radius:24px;
-
-    padding:25px;
-
-    transition:.35s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    border-color:#ffae00;
-
-    box-shadow:
-    0 15px 40px
-    rgba(255,174,0,.08);
-}
-
-.card-img{
-    height:170px;
-
-    border-radius:18px;
-
-    background:
-    radial-gradient(
-        circle,
-        #292929,
-        #101010
-    );
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:65px;
-
-    margin-bottom:20px;
-}
-
-.card h3{
-    font-size:22px;
-    margin-bottom:10px;
-}
-
-.card p{
-    color:#888;
-    line-height:1.7;
-}
-
-.price{
-    color:#ffae00 !important;
-    font-size:25px !important;
-    font-weight:bold;
-    margin:15px 0;
-}
-
-.order{
-    display:block;
-
-    text-align:center;
-
-    background:#ffae00;
-    color:#000;
-
-    padding:13px;
-
-    border-radius:12px;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-    transition:.3s;
-}
-
-.order:hover{
-    transform:scale(1.03);
-    background:#ffc340;
-}
-
-/* CONTACT */
-
-.contact{
-    text-align:center;
-}
-
-.contact-box{
-    max-width:750px;
-
-    margin:auto;
-
-    background:#111;
-
-    padding:45px 25px;
-
-    border-radius:28px;
-
-    border:1px solid #252525;
-}
-
-.contact-box p{
-    color:#999;
-
-    margin:20px 0 30px;
-
-    line-height:1.9;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-    position:fixed;
-
-    bottom:20px;
-    left:20px;
-
-    width:62px;
-    height:62px;
-
-    border-radius:50%;
-
-    background:#25D366;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:30px;
-
-    text-decoration:none;
-
-    z-index:2000;
-
-    box-shadow:
-    0 5px 25px
-    rgba(0,0,0,.5);
-
-    transition:.3s;
-}
-
-.whatsapp:hover{
-    transform:scale(1.1);
-}
-
-/* TELEGRAM */
-
-.telegram{
-    color:#35aeea !important;
-}
-
-/* FOOTER */
-
-footer{
-    text-align:center;
-
-    padding:35px;
-
-    border-top:1px solid #222;
-
-    color:#666;
-}
-
-footer span{
-    color:#ffae00;
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-    nav{
-        padding:15px 5%;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090d">
+  <meta name="description" content="CONKER - منصة الشحن والخدمات الرقمية للألعاب">
+  <title>CONKER | Gaming & Digital Services</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #08090d;
+      --bg-2: #0d1018;
+      --card: #111520;
+      --card-hover: #171d2b;
+      --primary: #7c3cff;
+      --primary-2: #a855f7;
+      --cyan: #00e5ff;
+      --gold: #ffd166;
+      --text: #ffffff;
+      --muted: #9ca3af;
+      --border: rgba(255,255,255,.08);
+      --success: #22c55e;
+      --danger: #ef4444;
+      --radius: 20px;
     }
 
-    nav div:last-child{
-        display:none;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .hero h2{
-        font-size:21px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .hero p{
-        font-size:16px;
+    body {
+      font-family: "Cairo", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(124,60,255,.15), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(0,229,255,.08), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      overflow-x: hidden;
     }
 
-    section{
-        padding:70px 5%;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .title{
-        font-size:32px;
+    button,
+    input {
+      font-family: inherit;
     }
-}
-</style>
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(8,9,13,.78);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1250px;
+      margin: auto;
+      min-height: 75px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      box-shadow: 0 0 30px rgba(124,60,255,.35);
+      color: white;
+      font-weight: 900;
+    }
+
+    .logo span {
+      color: var(--primary-2);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #d1d5db;
+      transition: .25s;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-button {
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      font-weight: 800;
+      box-shadow: 0 8px 25px rgba(124,60,255,.25);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      max-width: 1250px;
+      margin: auto;
+      padding: 150px 20px 80px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 50px;
+      border: 1px solid rgba(168,85,247,.3);
+      background: rgba(124,60,255,.08);
+      color: #d8b4fe;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 7vw, 85px);
+      line-height: 1.05;
+      font-weight: 900;
+      margin-bottom: 25px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff, #a855f7, #00e5ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      padding: 14px 24px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 800;
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      box-shadow: 0 12px 35px rgba(124,60,255,.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(124,60,255,.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,.08);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orb {
+      width: 310px;
+      height: 310px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 30%, #ffffff, transparent 4%),
+        radial-gradient(circle, rgba(168,85,247,.8), rgba(124,60,255,.25) 45%, transparent 70%);
+      filter: drop-shadow(0 0 70px rgba(124,60,255,.4));
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .hero-card {
+      position: absolute;
+      width: 230px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      background: rgba(17,21,32,.82);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0,0,0,.35);
+    }
+
+    .hero-card.one {
+      top: 40px;
+      right: 0;
+    }
+
+    .hero-card.two {
+      bottom: 40px;
+      left: 0;
+    }
+
+    .hero-card strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .hero-card small {
+      color: var(--muted);
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      max-width: 1250px;
+      margin: auto;
+      padding: 90px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title .mini {
+      color: var(--primary-2);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(30px, 5vw, 48px);
+      font-weight: 900;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 10px auto;
+    }
+
+    /* =========================
+       FEATURES
+    ========================= */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+      transition: .3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-7px);
+      border-color: rgba(168,85,247,.35);
+    }
+
+    .feature-icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services-tools {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 35px;
+      flex-wrap: wrap;
+    }
+
+    .search {
+      width: min(500px,100%);
+      padding: 15px 20px;
+      border-radius: 15px;
+      border: 1px solid var(--border);
+      outline: none;
+      background: #0f131d;
+      color: white;
+      font-size: 16px;
+    }
+
+    .search:focus {
+      border-color: var(--primary);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      position: relative;
+      padding: 23px;
+      min-height: 190px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      transition: .3s;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: -50px;
+      left: -50px;
+      border-radius: 50%;
+      background: var(--primary);
+      filter: blur(45px);
+      opacity: .18;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      background: var(--card-hover);
+      border-color: rgba(168,85,247,.4);
+    }
+
+    .service-icon {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .service-card h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .service-btn {
+      display: inline-block;
+      padding: 8px 13px;
+      border-radius: 10px;
+      background: rgba(124,60,255,.12);
+      color: #c4b5fd;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .special {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 4px 8px;
+      border-radius: 7px;
+      background: rgba(255,209,102,.12);
+      color: var(--gold);
+      font-size: 11px;
+    }
+
+    /* =========================
+       STATS
+    ========================= */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 18px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 28px 15px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 35px;
+      background: linear-gradient(90deg,#a855f7,#00e5ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .stat span {
+      color: var(--muted);
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-box {
+      padding: 55px 30px;
+      border-radius: 30px;
+      text-align: center;
+      border: 1px solid rgba(168,85,247,.2);
+      background:
+        radial-gradient(circle at center, rgba(124,60,255,.18), transparent 60%),
+        rgba(255,255,255,.025);
+    }
+
+    .contact-box h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: #06070a;
+    }
+
+    .footer-inner {
+      max-width: 1250px;
+      margin: auto;
+      padding: 45px 20px 25px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-inner h3 {
+      margin-bottom: 12px;
+    }
+
+    .footer-inner p,
+    .footer-inner a {
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .copyright {
+      max-width: 1250px;
+      margin: auto;
+      padding: 18px 20px;
+      border-top: 1px solid var(--border);
+      color: #6b7280;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    .mobile-menu {
+      display: none;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: white;
+      border-radius: 10px;
+      padding: 8px 11px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    @media(max-width: 1000px) {
+      .services-grid {
+        grid-template-columns: repeat(3,1fr);
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+
+    @media(max-width: 750px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        right: 15px;
+        left: 15px;
+        padding: 20px;
+        flex-direction: column;
+        background: #10131b;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .nav-button {
+        display: none;
+      }
+
+      .features,
+      .stats,
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width: 500px) {
+      .features,
+      .stats,
+      .services-grid,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 125px;
+      }
+
+      .hero-card {
+        width: 180px;
+      }
+
+      .orb {
+        width: 240px;
+        height: 240px;
+      }
+
+      .contact-box h2 {
+        font-size: 29px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- HEADER -->
+  <header>
+    <nav class="nav">
+      <a href="#home" class="logo">
+        <div class="logo-mark">C</div>
+        CONKER<span>.</span>
+      </a>
 
-<!-- NAVBAR -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#services">الخدمات</a></li>
+        <li><a href="#about">لماذا CONKER؟</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+      </ul>
 
-<nav>
+      <a class="nav-button" href="#services">استكشف الخدمات</a>
 
-    <div class="logo">
-        CON<span>KER</span>
-    </div>
+      <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+    </nav>
+  </header>
 
-    <div>
+  <!-- HERO -->
+  <main id="home">
 
-        <a href="#home">الرئيسية</a>
+    <div class="hero">
 
-        <a href="#accounts">
-            أكونتات PUBG
-        </a>
+      <div>
+        <div class="badge">💎 CONKER — Gaming & Digital Services</div>
 
-        <a href="#uc">
-            شحن UC
-        </a>
-
-        <a href="#contact">
-            تواصل
-        </a>
-
-    </div>
-
-</nav>
-
-
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <h1>CONKER</h1>
-
-        <h2>
-            🎮 PUBG ACCOUNTS & UC
-        </h2>
+        <h1>
+          عالمك الرقمي
+          <br>
+          <span class="gradient-text">يبدأ من CONKER</span>
+        </h1>
 
         <p>
-            متجر CONKER لأكونتات PUBG وشحن UC.
-            <br>
-            اختار الخدمة المناسبة وتواصل معنا مباشرة.
+          منصة عصرية لخدمات الألعاب والشحن الرقمي.
+          تجربة سريعة، واجهة احترافية، وخدمات متعددة للاعبين
+          في مكان واحد.
         </p>
 
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary">
+            اكتشف الخدمات
+          </a>
 
-        <div class="buttons">
-
-            <a
-                href="#accounts"
-                class="btn primary">
-
-                🎮 أكونتات PUBG
-
-            </a>
-
-
-            <a
-                href="#uc"
-                class="btn secondary">
-
-                💎 شحن UC
-
-            </a>
-
+          <a href="#contact" class="btn btn-secondary">
+            تواصل معنا
+          </a>
         </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="orb"></div>
+
+        <div class="hero-card one">
+          <strong>💎 CONKER</strong>
+          <small>Gaming Platform</small>
+        </div>
+
+        <div class="hero-card two">
+          <strong>⚡ سريع</strong>
+          <small>تجربة رقمية عصرية</small>
+        </div>
+      </div>
 
     </div>
 
-</section>
+    <!-- FEATURES -->
+    <section id="about">
 
+      <div class="section-title">
+        <div class="mini">WHY CONKER</div>
+        <h2>لماذا تختار CONKER؟</h2>
+        <p>
+          صممنا CONKER لتكون تجربة رقمية بسيطة وسريعة ومناسبة لعالم الألعاب.
+        </p>
+      </div>
 
+      <div class="features">
 
-<!-- ACCOUNTS -->
-
-<section id="accounts">
-
-    <h2 class="title">
-        🎮 أكونتات PUBG
-    </h2>
-
-    <p class="subtitle">
-        لعرض الأكونتات المتاحة والشراء تواصل معنا عبر متجر تيليجرام
-    </p>
-
-
-    <div class="cards">
-
-
-        <div class="card">
-
-            <div class="card-img">
-                🎮
-            </div>
-
-            <h3>
-                أكونتات PUBG
-            </h3>
-
-            <p>
-                شاهد الأكونتات المتاحة للبيع
-                والتفاصيل والأسعار على متجرنا.
-            </p>
-
-            <br>
-
-            <a
-                href="https://t.me/CONKER_CON"
-                target="_blank"
-                class="order">
-
-                🛒 دخول متجر تيليجرام
-
-            </a>
-
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>سرعة في الخدمة</h3>
+          <p>
+            واجهة سريعة وسهلة للوصول إلى الخدمة التي تبحث عنها.
+          </p>
         </div>
 
-
-
-        <div class="card">
-
-            <div class="card-img">
-                🔥
-            </div>
-
-            <h3>
-                أكونتات مميزة
-            </h3>
-
-            <p>
-                أكونتات بمميزات مختلفة.
-                لمعرفة المتاح تواصل معنا.
-            </p>
-
-            <br>
-
-            <a
-                href="https://t.me/CONKER_CON"
-                target="_blank"
-                class="order">
-
-                🔥 شاهد المتاح
-
-            </a>
-
+        <div class="feature">
+          <div class="feature-icon">🔐</div>
+          <h3>تجربة موثوقة</h3>
+          <p>
+            تصميم واضح ومنظم مع الاهتمام بتجربة المستخدم.
+          </p>
         </div>
 
-
-
-        <div class="card">
-
-            <div class="card-img">
-                👑
-            </div>
-
-            <h3>
-                أكونتات قوية
-            </h3>
-
-            <p>
-                لمعرفة الأكونتات الجديدة
-                والأسعار اضغط هنا.
-            </p>
-
-            <br>
-
-            <a
-                href="https://t.me/CONKER_CON"
-                target="_blank"
-                class="order">
-
-                👑 اطلب الآن
-
-            </a>
-
+        <div class="feature">
+          <div class="feature-icon">🎮</div>
+          <h3>خدمات الألعاب</h3>
+          <p>
+            مجموعة كبيرة من الألعاب والخدمات الرقمية في منصة واحدة.
+          </p>
         </div>
 
+      </div>
+    </section>
 
-    </div>
+    <!-- SERVICES -->
+    <section id="services">
 
-</section>
+      <div class="section-title">
+        <div class="mini">OUR SERVICES</div>
+        <h2>خدمات CONKER</h2>
+        <p>
+          اختر اللعبة أو الخدمة التي تريدها واستكشف الخيارات المتاحة.
+        </p>
+      </div>
 
+      <div class="services-tools">
+        <input
+          id="searchInput"
+          class="search"
+          type="search"
+          placeholder="🔎 ابحث عن لعبة أو خدمة..."
+          oninput="searchServices()"
+        >
+      </div>
 
+      <div class="services-grid" id="servicesGrid">
 
-<!-- UC -->
+        <article class="service-card" data-name="ببجي موبايل PUBG Mobile">
+          <span class="special">🌟 مميز</span>
+          <div class="service-icon">🎮</div>
+          <h3>شحن ببجي موبايل</h3>
+          <p>خدمة شحن PUBG Mobile.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
-<section id="uc">
+        <article class="service-card" data-name="ببجي كورية PUBG Korea">
+          <span class="special">🌟 مميز</span>
+          <div class="service-icon">🇰🇷</div>
+          <h3>شحن ببجي كورية</h3>
+          <p>خدمة شحن PUBG Korea.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
-    <h2 class="title">
-        💎 شحن PUBG UC
-    </h2>
+        <article class="service-card" data-name="ببجي فيتنامية PUBG Vietnam">
+          <span class="special">🌟 مميز</span>
+          <div class="service-icon">🇻🇳</div>
+          <h3>شحن ببجي فيتنامية</h3>
+          <p>خدمة شحن PUBG Vietnam.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
-    <p class="subtitle">
-        اختار الباقة واضغط "اطلب الشحن"
-        وسيتم فتح واتساب برسالة جاهزة.
-    </p>
+        <article class="service-card" data-name="بيس PES eFootball">
+          <div class="service-icon">⚽</div>
+          <h3>شحن بيس</h3>
+          <p>خدمات شحن PES / eFootball.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
+        <article class="service-card" data-name="فيفا FIFA EA FC">
+          <div class="service-icon">⚽</div>
+          <h3>شحن فيفا</h3>
+          <p>خدمات FIFA / EA FC.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
-    <div class="cards">
+        <article class="service-card" data-name="دريم ليج Dream League">
+          <div class="service-icon">🏆</div>
+          <h3>شحن دريم ليج</h3>
+          <p>خدمات Dream League Soccer.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
+        <article class="service-card" data-name="فري فاير Free Fire">
+          <div class="service-icon">🔥</div>
+          <h3>شحن فري فاير</h3>
+          <p>خدمات Free Fire.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
-        <!-- 60 UC -->
+        <article class="service-card" data-name="روبلوكس Roblox">
+          <div class="service-icon">🧱</div>
+          <h3>شحن روبلكس</h3>
+          <p>خدمات Roblox.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
-        <div class="card">
+        <article class="service-card" data-name="كلاش رويال Clash Royale">
+          <div class="service-icon">👑</div>
+          <h3>شحن كلاش رويال</h3>
+          <p>خدمات Clash Royale.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
-            <div class="card-img">
-                💎
-            </div>
+        <article class="service-card" data-name="كلاش اوف كلانس Clash of Clans">
+          <div class="service-icon">⚔️</div>
+          <h3>شحن كلاش أوف كلانس</h3>
+          <p>خدمات Clash of Clans.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
-            <h3>
-                60 UC
-            </h3>
+        <article class="service-card" data-name="تيك توك TikTok Coins">
+          <div class="service-icon">🎵</div>
+          <h3>عملات TikTok</h3>
+          <p>خدمات العملات الرقمية لمنصة TikTok.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
-            <p class="price">
-                55 جنيه
-            </p>
+        <article class="service-card" data-name="Brawlers">
+          <span class="special">🌟 مميز</span>
+          <div class="service-icon">💥</div>
+          <h3>شحن Brawlers</h3>
+          <p>خدمات Brawlers.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
-            <a
-                href="https://wa.me/201027595528?text=مرحباً%20أريد%20شحن%2060%20UC"
-                target="_blank"
-                class="order">
+        <article class="service-card" data-name="Kingshot">
+          <span class="special">🌟 مميز</span>
+          <div class="service-icon">🏰</div>
+          <h3>شحن Kingshot</h3>
+          <p>خدمات Kingshot.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
-                💬 اطلب الشحن
+        <article class="service-card" data-name="Wild">
+          <span class="special">🌟 مميز</span>
+          <div class="service-icon">🌲</div>
+          <h3>شحن Wild</h3>
+          <p>خدمات Wild.</p>
+          <a href="#contact" class="service-btn">اطلب الخدمة</a>
+        </article>
 
-            </a>
+      </div>
+    </section>
 
+    <!-- STATS -->
+    <section>
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong>14+</strong>
+          <span>خدمة متاحة</span>
         </div>
 
-
-
-        <!-- 325 UC -->
-
-        <div class="card">
-
-            <div class="card-img">
-                💎
-            </div>
-
-            <h3>
-                325 UC
-            </h3>
-
-            <p class="price">
-                250 جنيه
-            </p>
-
-            <a
-                href="https://wa.me/201027595528?text=مرحباً%20أريد%20شحن%20325%20UC"
-                target="_blank"
-                class="order">
-
-                💬 اطلب الشحن
-
-            </a>
-
+        <div class="stat">
+          <strong>24/7</strong>
+          <span>منصة رقمية</span>
         </div>
 
-
-
-        <!-- 660 UC -->
-
-        <div class="card">
-
-            <div class="card-img">
-                🔥
-            </div>
-
-            <h3>
-                660 UC
-            </h3>
-
-            <p class="price">
-                450 جنيه
-            </p>
-
-            <a
-                href="https://wa.me/201027595528?text=مرحباً%20أريد%20شحن%20660%20UC"
-                target="_blank"
-                class="order">
-
-                💬 اطلب الشحن
-
-            </a>
-
+        <div class="stat">
+          <strong>100%</strong>
+          <span>تجربة عصرية</span>
         </div>
 
-
-
-        <!-- 1800 UC -->
-
-        <div class="card">
-
-            <div class="card-img">
-                🔥
-            </div>
-
-            <h3>
-                1800 UC
-            </h3>
-
-            <p class="price">
-                1300 جنيه
-            </p>
-
-            <a
-                href="https://wa.me/201027595528?text=مرحباً%20أريد%20شحن%201800%20UC"
-                target="_blank"
-                class="order">
-
-                💬 اطلب الشحن
-
-            </a>
-
+        <div class="stat">
+          <strong>CONKER</strong>
+          <span>علامة واحدة</span>
         </div>
 
+      </div>
+    </section>
 
+    <!-- CONTACT -->
+    <section id="contact">
 
-        <!-- 3850 UC -->
+      <div class="contact-box">
 
-        <div class="card">
-
-            <div class="card-img">
-                👑
-            </div>
-
-            <h3>
-                3850 UC
-            </h3>
-
-            <p class="price">
-                2500 جنيه
-            </p>
-
-            <a
-                href="https://wa.me/201027595528?text=مرحباً%20أريد%20شحن%203850%20UC"
-                target="_blank"
-                class="order">
-
-                💬 اطلب الشحن
-
-            </a>
-
-        </div>
-
-
-
-        <!-- 8100 UC -->
-
-        <div class="card">
-
-            <div class="card-img">
-                👑
-            </div>
-
-            <h3>
-                8100 UC
-            </h3>
-
-            <p class="price">
-                4500 جنيه
-            </p>
-
-            <a
-                href="https://wa.me/201027595528?text=مرحباً%20أريد%20شحن%208100%20UC"
-                target="_blank"
-                class="order">
-
-                💬 اطلب الشحن
-
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- CONTACT -->
-
-<section id="contact" class="contact">
-
-    <div class="contact-box">
-
-        <h2 class="title">
-            📞 تواصل معنا
-        </h2>
+        <h2>جاهز تبدأ؟ 🎮</h2>
 
         <p>
-            للشراء أو الاستفسار عن أكونتات PUBG
-            أو شحن UC تواصل معنا.
+          اختر الخدمة التي تريدها وتواصل مع CONKER لمعرفة التفاصيل.
         </p>
 
+        <a href="mailto:contact@conker.com" class="btn btn-primary">
+          تواصل مع CONKER
+        </a>
 
-        <div class="buttons">
+      </div>
 
+    </section>
 
-            <a
-                href="https://t.me/CONKER_CON"
-                target="_blank"
-                class="btn primary">
+  </main>
 
-                🛒 متجر تيليجرام
+  <!-- FOOTER -->
+  <footer>
 
-            </a>
+    <div class="footer-inner">
 
-
-            <a
-                href="https://t.me/C_O_N_2"
-                target="_blank"
-                class="btn secondary telegram">
-
-                👤 @C_O_N_2
-
-            </a>
-
-
-            <a
-                href="https://wa.me/201027595528"
-                target="_blank"
-                class="btn secondary">
-
-                💬 واتساب
-
-            </a>
-
-
+      <div>
+        <div class="logo">
+          <div class="logo-mark">C</div>
+          CONKER<span>.</span>
         </div>
+
+        <p style="margin-top:15px;">
+          Gaming & Digital Services
+        </p>
+      </div>
+
+      <div>
+        <h3>روابط</h3>
+
+        <div class="footer-links">
+          <a href="#home">الرئيسية</a>
+          <a href="#services">الخدمات</a>
+          <a href="#about">لماذا CONKER؟</a>
+          <a href="#contact">تواصل معنا</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>الخدمات</h3>
+
+        <div class="footer-links">
+          <a href="#services">PUBG</a>
+          <a href="#services">Free Fire</a>
+          <a href="#services">Roblox</a>
+          <a href="#services">TikTok</a>
+        </div>
+      </div>
 
     </div>
 
-</section>
+    <div class="copyright">
+      © <span id="year"></span> CONKER. جميع الحقوق محفوظة.
+    </div>
 
+  </footer>
 
+  <script>
 
-<!-- FLOATING WHATSAPP -->
+    // السنة الحالية
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
-<a
-    href="https://wa.me/201027595528"
-    target="_blank"
-    class="whatsapp">
+    // القائمة في الهاتف
+    function toggleMenu() {
+      document.getElementById("navLinks")
+        .classList.toggle("active");
+    }
 
-    💬
+    // البحث عن الخدمات
+    function searchServices() {
 
-</a>
+      const input =
+        document.getElementById("searchInput")
+          .value
+          .toLowerCase()
+          .trim();
 
+      const cards =
+        document.querySelectorAll(".service-card");
 
+      cards.forEach(card => {
 
-<!-- FOOTER -->
+        const name =
+          card.dataset.name.toLowerCase();
 
-<footer>
+        if (name.includes(input)) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
 
-    © 2026
-    <span>CONKER</span>
-    —
-    جميع الحقوق محفوظة
+      });
 
-</footer>
+    }
 
+  </script>
 
 </body>
-</html>
+            </html>
