@@ -3,36 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#08090d">
-  <meta name="description" content="CONKER - منصة الشحن والخدمات الرقمية للألعاب">
-  <title>CONKER | Gaming & Digital Services</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>CONKER | Gaming Store</title>
+  <meta name="description" content="CONKER - متجر الألعاب والخدمات الرقمية">
 
   <style>
-    :root {
-      --bg: #08090d;
-      --bg-2: #0d1018;
-      --card: #111520;
-      --card-hover: #171d2b;
-      --primary: #7c3cff;
-      --primary-2: #a855f7;
-      --cyan: #00e5ff;
-      --gold: #ffd166;
-      --text: #ffffff;
-      --muted: #9ca3af;
-      --border: rgba(255,255,255,.08);
-      --success: #22c55e;
-      --danger: #ef4444;
-      --radius: 20px;
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #05050a;
+      --bg2: #0a0a12;
+      --card: rgba(18, 18, 31, 0.72);
+      --purple: #7c3cff;
+      --purple2: #a855f7;
+      --blue: #00d9ff;
+      --pink: #ec4899;
+      --white: #ffffff;
+      --text: #f5f5f7;
+      --muted: #9696a9;
+      --border: rgba(255,255,255,.09);
+      --success: #22c55e;
     }
 
     html {
@@ -40,13 +34,12 @@
     }
 
     body {
-      font-family: "Cairo", sans-serif;
       background:
-        radial-gradient(circle at 10% 10%, rgba(124,60,255,.15), transparent 30%),
-        radial-gradient(circle at 90% 20%, rgba(0,229,255,.08), transparent 25%),
+        radial-gradient(circle at 10% 10%, rgba(124,60,255,.18), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(0,217,255,.08), transparent 25%),
         var(--bg);
       color: var(--text);
-      line-height: 1.8;
+      font-family: Arial, Tahoma, sans-serif;
       overflow-x: hidden;
     }
 
@@ -61,79 +54,125 @@
     }
 
     /* =========================
-       HEADER
+       BACKGROUND
+    ========================= */
+
+    .background-grid {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      opacity: .35;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 55px 55px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+    }
+
+    .orb {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: .13;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .orb.one {
+      background: var(--purple);
+      top: 100px;
+      right: -150px;
+    }
+
+    .orb.two {
+      background: var(--blue);
+      bottom: 100px;
+      left: -150px;
+    }
+
+    /* =========================
+       NAVBAR
     ========================= */
 
     header {
       position: fixed;
+      width: 100%;
       top: 0;
-      right: 0;
-      left: 0;
       z-index: 1000;
-      backdrop-filter: blur(18px);
-      background: rgba(8,9,13,.78);
       border-bottom: 1px solid var(--border);
+      background: rgba(5,5,10,.78);
+      backdrop-filter: blur(20px);
     }
 
-    .nav {
+    nav {
       max-width: 1250px;
       margin: auto;
-      min-height: 75px;
+      min-height: 78px;
       padding: 0 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 25px;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       font-size: 25px;
-      font-weight: 900;
-      letter-spacing: 1px;
+      font-weight: 1000;
+      letter-spacing: 3px;
     }
 
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 13px;
+    .logo-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, var(--primary), var(--cyan));
-      box-shadow: 0 0 30px rgba(124,60,255,.35);
-      color: white;
-      font-weight: 900;
+      font-size: 23px;
+      background: linear-gradient(135deg,var(--purple),var(--blue));
+      box-shadow: 0 0 35px rgba(124,60,255,.35);
     }
 
     .logo span {
-      color: var(--primary-2);
+      color: var(--purple2);
     }
 
     .nav-links {
       display: flex;
+      gap: 32px;
       align-items: center;
-      gap: 25px;
-      list-style: none;
     }
 
     .nav-links a {
-      color: #d1d5db;
-      transition: .25s;
-      font-weight: 600;
+      color: #bbb;
+      font-size: 14px;
+      transition: .3s;
     }
 
     .nav-links a:hover {
       color: white;
     }
 
-    .nav-button {
-      padding: 10px 18px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      font-weight: 800;
-      box-shadow: 0 8px 25px rgba(124,60,255,.25);
+    .store-btn {
+      padding: 12px 18px;
+      border-radius: 13px;
+      font-weight: bold;
+      background: linear-gradient(90deg,var(--purple),var(--purple2));
+      box-shadow: 0 10px 30px rgba(124,60,255,.25);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: white;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 20px;
+      cursor: pointer;
     }
 
     /* =========================
@@ -144,35 +183,48 @@
       min-height: 100vh;
       max-width: 1250px;
       margin: auto;
-      padding: 150px 20px 80px;
+      padding: 150px 20px 70px;
       display: grid;
       grid-template-columns: 1.1fr .9fr;
       align-items: center;
-      gap: 50px;
+      gap: 70px;
     }
 
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px;
-      border-radius: 50px;
-      border: 1px solid rgba(168,85,247,.3);
+      padding: 9px 15px;
+      border: 1px solid rgba(168,85,247,.25);
       background: rgba(124,60,255,.08);
-      color: #d8b4fe;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(45px, 7vw, 85px);
-      line-height: 1.05;
-      font-weight: 900;
+      border-radius: 100px;
+      color: #d8c5ff;
+      font-size: 13px;
       margin-bottom: 25px;
     }
 
-    .gradient-text {
-      background: linear-gradient(90deg, #ffffff, #a855f7, #00e5ff);
+    .online-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 13px var(--success);
+    }
+
+    .hero h1 {
+      font-size: clamp(55px,8vw,100px);
+      line-height: .95;
+      font-weight: 1000;
+      letter-spacing: -5px;
+    }
+
+    .gradient {
+      background: linear-gradient(
+        90deg,
+        #fff,
+        var(--purple2),
+        var(--blue)
+      );
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -180,99 +232,131 @@
     .hero p {
       color: var(--muted);
       font-size: 18px;
+      line-height: 2;
       max-width: 650px;
-      margin-bottom: 30px;
+      margin-top: 28px;
     }
 
     .hero-buttons {
+      margin-top: 30px;
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
     }
 
-    .btn {
-      border: 0;
-      cursor: pointer;
-      padding: 14px 24px;
-      border-radius: 14px;
-      font-size: 16px;
-      font-weight: 800;
-      transition: .25s;
+    .primary-btn,
+    .secondary-btn {
+      padding: 15px 23px;
+      border-radius: 15px;
+      font-weight: bold;
+      transition: .3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      color: white;
-      box-shadow: 0 12px 35px rgba(124,60,255,.3);
+    .primary-btn {
+      background: linear-gradient(90deg,var(--purple),var(--purple2));
+      box-shadow: 0 15px 45px rgba(124,60,255,.28);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 40px rgba(124,60,255,.4);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,.04);
+    .secondary-btn {
       border: 1px solid var(--border);
-      color: white;
+      background: rgba(255,255,255,.035);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,.08);
+    .primary-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-3px);
     }
+
+    /* =========================
+       HERO VISUAL
+    ========================= */
 
     .hero-visual {
+      min-height: 480px;
       position: relative;
-      min-height: 430px;
       display: grid;
       place-items: center;
     }
 
-    .orb {
-      width: 310px;
-      height: 310px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 35% 30%, #ffffff, transparent 4%),
-        radial-gradient(circle, rgba(168,85,247,.8), rgba(124,60,255,.25) 45%, transparent 70%);
-      filter: drop-shadow(0 0 70px rgba(124,60,255,.4));
-      animation: float 5s ease-in-out infinite;
-    }
-
-    .hero-card {
+    .hero-glow {
       position: absolute;
-      width: 230px;
-      padding: 22px;
-      border: 1px solid var(--border);
-      background: rgba(17,21,32,.82);
-      backdrop-filter: blur(15px);
-      border-radius: 20px;
-      box-shadow: 0 25px 60px rgba(0,0,0,.35);
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(168,85,247,.75),
+        rgba(124,60,255,.15),
+        transparent 70%
+      );
+      filter: blur(8px);
+      animation: pulse 4s ease-in-out infinite;
     }
 
-    .hero-card.one {
-      top: 40px;
+    .conker-symbol {
+      width: 210px;
+      height: 210px;
+      display: grid;
+      place-items: center;
+      border-radius: 55px;
+      position: relative;
+      z-index: 2;
+      font-size: 100px;
+      font-weight: 1000;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(25px);
+      box-shadow:
+        0 30px 100px rgba(0,0,0,.5),
+        inset 0 0 50px rgba(124,60,255,.08);
+      animation: floating 5s ease-in-out infinite;
+    }
+
+    .floating-card {
+      position: absolute;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(13,13,23,.78);
+      backdrop-filter: blur(18px);
+      z-index: 4;
+      box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    }
+
+    .floating-card.top {
+      top: 50px;
       right: 0;
     }
 
-    .hero-card.two {
-      bottom: 40px;
+    .floating-card.bottom {
+      bottom: 50px;
       left: 0;
     }
 
-    .hero-card strong {
+    .floating-card strong {
       display: block;
-      font-size: 22px;
-      margin-bottom: 4px;
+      font-size: 18px;
+      margin-bottom: 5px;
     }
 
-    .hero-card small {
+    .floating-card small {
       color: var(--muted);
     }
 
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-18px); }
+    @keyframes floating {
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    @keyframes pulse {
+      50% {
+        transform: scale(1.08);
+        opacity: .7;
+      }
     }
 
     /* =========================
@@ -282,165 +366,207 @@
     section {
       max-width: 1250px;
       margin: auto;
-      padding: 90px 20px;
+      padding: 100px 20px;
     }
 
-    .section-title {
+    .section-head {
       text-align: center;
-      margin-bottom: 45px;
+      margin-bottom: 50px;
     }
 
-    .section-title .mini {
-      color: var(--primary-2);
-      font-weight: 800;
-      margin-bottom: 8px;
+    .section-label {
+      color: var(--purple2);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
     }
 
-    .section-title h2 {
-      font-size: clamp(30px, 5vw, 48px);
-      font-weight: 900;
+    .section-head h2 {
+      font-size: clamp(38px,6vw,65px);
+      font-weight: 1000;
     }
 
-    .section-title p {
+    .section-head p {
       color: var(--muted);
       max-width: 650px;
-      margin: 10px auto;
+      margin: 12px auto;
+      line-height: 1.8;
     }
 
     /* =========================
-       FEATURES
+       WHY
     ========================= */
 
-    .features {
+    .why-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
-    .feature {
-      padding: 30px;
-      border-radius: var(--radius);
+    .glass-card {
+      background: var(--card);
       border: 1px solid var(--border);
-      background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
-      transition: .3s;
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 30px;
+      transition: .35s;
     }
 
-    .feature:hover {
+    .glass-card:hover {
       transform: translateY(-7px);
-      border-color: rgba(168,85,247,.35);
+      border-color: rgba(168,85,247,.4);
+      box-shadow: 0 25px 70px rgba(0,0,0,.35);
     }
 
     .feature-icon {
-      font-size: 35px;
-      margin-bottom: 15px;
+      font-size: 40px;
+      margin-bottom: 18px;
     }
 
-    .feature h3 {
-      margin-bottom: 8px;
+    .glass-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
     }
 
-    .feature p {
+    .glass-card p {
       color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
     }
 
     /* =========================
        SERVICES
     ========================= */
 
-    .services-tools {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 35px;
-      flex-wrap: wrap;
+    .search-box {
+      max-width: 700px;
+      margin: 0 auto 35px;
+      position: relative;
     }
 
-    .search {
-      width: min(500px,100%);
-      padding: 15px 20px;
-      border-radius: 15px;
+    .search-box input {
+      width: 100%;
+      padding: 18px 55px 18px 18px;
       border: 1px solid var(--border);
-      outline: none;
-      background: #0f131d;
+      background: rgba(255,255,255,.035);
+      border-radius: 17px;
       color: white;
-      font-size: 16px;
+      outline: none;
+      font-size: 15px;
     }
 
-    .search:focus {
-      border-color: var(--primary);
+    .search-box input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 25px rgba(124,60,255,.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 18px;
+      top: 15px;
+      font-size: 21px;
+      color: #777;
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(4,1fr);
-      gap: 18px;
+      gap: 15px;
     }
 
-    .service-card {
+    .service {
       position: relative;
-      padding: 23px;
-      min-height: 190px;
+      background: linear-gradient(
+        145deg,
+        rgba(20,20,35,.85),
+        rgba(10,10,18,.85)
+      );
       border: 1px solid var(--border);
-      border-radius: 18px;
-      background: var(--card);
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 210px;
       transition: .3s;
       overflow: hidden;
     }
 
-    .service-card::before {
+    .service::before {
       content: "";
       position: absolute;
-      width: 100px;
-      height: 100px;
-      top: -50px;
-      left: -50px;
-      border-radius: 50%;
-      background: var(--primary);
-      filter: blur(45px);
-      opacity: .18;
+      width: 130px;
+      height: 130px;
+      background: var(--purple);
+      filter: blur(80px);
+      opacity: 0;
+      transition: .3s;
+      top: -70px;
+      right: -50px;
     }
 
-    .service-card:hover {
-      transform: translateY(-7px);
-      background: var(--card-hover);
-      border-color: rgba(168,85,247,.4);
+    .service:hover::before {
+      opacity: .3;
+    }
+
+    .service:hover {
+      transform: translateY(-6px);
+      border-color: rgba(168,85,247,.35);
     }
 
     .service-icon {
-      font-size: 34px;
-      margin-bottom: 10px;
+      font-size: 38px;
+      margin-bottom: 15px;
     }
 
-    .service-card h3 {
+    .service h3 {
       font-size: 17px;
       margin-bottom: 8px;
     }
 
-    .service-card p {
+    .service p {
       color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 15px;
+      font-size: 12px;
+      margin-bottom: 18px;
     }
 
-    .service-btn {
-      display: inline-block;
-      padding: 8px 13px;
-      border-radius: 10px;
-      background: rgba(124,60,255,.12);
-      color: #c4b5fd;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .special {
+    .service-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 4px 8px;
-      border-radius: 7px;
-      background: rgba(255,209,102,.12);
-      color: var(--gold);
+      bottom: 18px;
+      left: 18px;
+      right: 18px;
+    }
+
+    .available {
+      color: var(--success);
       font-size: 11px;
+    }
+
+    .order-btn {
+      border: 0;
+      cursor: pointer;
+      color: white;
+      background: rgba(124,60,255,.15);
+      padding: 8px 12px;
+      border-radius: 9px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .order-btn:hover {
+      background: var(--purple);
+    }
+
+    .featured {
+      position: absolute;
+      top: 13px;
+      left: 13px;
+      font-size: 10px;
+      color: #fde68a;
+      background: rgba(250,204,21,.08);
+      padding: 5px 7px;
+      border-radius: 6px;
     }
 
     /* =========================
@@ -450,27 +576,30 @@
     .stats {
       display: grid;
       grid-template-columns: repeat(4,1fr);
-      gap: 18px;
+      gap: 15px;
+      margin-top: 30px;
     }
 
     .stat {
       text-align: center;
-      padding: 28px 15px;
-      border-radius: 18px;
+      padding: 28px;
+      border-radius: 20px;
       border: 1px solid var(--border);
       background: rgba(255,255,255,.025);
     }
 
     .stat strong {
       display: block;
-      font-size: 35px;
-      background: linear-gradient(90deg,#a855f7,#00e5ff);
+      font-size: 30px;
+      font-weight: 1000;
+      background: linear-gradient(90deg,var(--purple2),var(--blue));
       -webkit-background-clip: text;
       color: transparent;
     }
 
     .stat span {
       color: var(--muted);
+      font-size: 13px;
     }
 
     /* =========================
@@ -478,23 +607,35 @@
     ========================= */
 
     .contact-box {
-      padding: 55px 30px;
-      border-radius: 30px;
       text-align: center;
-      border: 1px solid rgba(168,85,247,.2);
+      border: 1px solid var(--border);
+      border-radius: 35px;
+      padding: 70px 25px;
       background:
-        radial-gradient(circle at center, rgba(124,60,255,.18), transparent 60%),
-        rgba(255,255,255,.025);
+        radial-gradient(circle at center,rgba(124,60,255,.15),transparent 60%),
+        rgba(13,13,23,.65);
+      overflow: hidden;
+      position: relative;
     }
 
     .contact-box h2 {
-      font-size: 38px;
-      margin-bottom: 12px;
+      font-size: clamp(40px,6vw,70px);
+      font-weight: 1000;
     }
 
     .contact-box p {
+      max-width: 650px;
+      margin: 20px auto;
       color: var(--muted);
-      margin-bottom: 25px;
+      line-height: 1.8;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
     }
 
     /* =========================
@@ -503,62 +644,55 @@
 
     footer {
       border-top: 1px solid var(--border);
-      background: #06070a;
+      background: rgba(0,0,0,.3);
     }
 
     .footer-inner {
       max-width: 1250px;
       margin: auto;
-      padding: 45px 20px 25px;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 40px;
-    }
-
-    .footer-inner h3 {
-      margin-bottom: 12px;
-    }
-
-    .footer-inner p,
-    .footer-inner a {
-      color: var(--muted);
-    }
-
-    .footer-links {
+      padding: 35px 20px;
       display: flex;
-      flex-direction: column;
-      gap: 7px;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .copyright {
-      max-width: 1250px;
-      margin: auto;
-      padding: 18px 20px;
-      border-top: 1px solid var(--border);
-      color: #6b7280;
-      text-align: center;
-      font-size: 13px;
+    .footer-logo {
+      color: white;
+      font-size: 20px;
+      font-weight: 1000;
+    }
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    .toast {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #171724;
+      border: 1px solid rgba(168,85,247,.35);
+      padding: 15px 20px;
+      border-radius: 14px;
+      transform: translateY(120px);
+      opacity: 0;
+      transition: .4s;
+      z-index: 9999;
+      box-shadow: 0 15px 50px rgba(0,0,0,.4);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     /* =========================
        MOBILE
     ========================= */
 
-    .mobile-menu {
-      display: none;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: white;
-      border-radius: 10px;
-      padding: 8px 11px;
-      cursor: pointer;
-      font-size: 20px;
-    }
-
-    @media(max-width: 1000px) {
-      .services-grid {
-        grid-template-columns: repeat(3,1fr);
-      }
+    @media(max-width:950px) {
 
       .hero {
         grid-template-columns: 1fr;
@@ -573,9 +707,23 @@
       .hero-buttons {
         justify-content: center;
       }
-    }
 
-    @media(max-width: 750px) {
+      .hero-visual {
+        min-height: 400px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .stats {
+        grid-template-columns: repeat(2,1fr);
+      }
+
       .nav-links {
         display: none;
         position: absolute;
@@ -583,58 +731,75 @@
         right: 15px;
         left: 15px;
         padding: 20px;
-        flex-direction: column;
-        background: #10131b;
+        border-radius: 20px;
+        background: #0d0d17;
         border: 1px solid var(--border);
-        border-radius: 16px;
+        flex-direction: column;
+        align-items: stretch;
       }
 
       .nav-links.active {
         display: flex;
       }
 
-      .mobile-menu {
+      .menu-btn {
         display: block;
       }
 
-      .nav-button {
+      nav > .store-btn {
         display: none;
-      }
-
-      .features,
-      .stats,
-      .footer-inner {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr 1fr;
       }
     }
 
-    @media(max-width: 500px) {
-      .features,
-      .stats,
-      .services-grid,
-      .footer-inner {
-        grid-template-columns: 1fr;
-      }
+    @media(max-width:600px) {
 
       .hero {
         padding-top: 125px;
       }
 
-      .hero-card {
-        width: 180px;
+      .hero h1 {
+        font-size: 57px;
+        letter-spacing: -3px;
       }
 
-      .orb {
-        width: 240px;
-        height: 240px;
+      .hero-visual {
+        min-height: 350px;
       }
 
-      .contact-box h2 {
-        font-size: 29px;
+      .conker-symbol {
+        width: 160px;
+        height: 160px;
+        font-size: 75px;
+      }
+
+      .hero-glow {
+        width: 280px;
+        height: 280px;
+      }
+
+      .floating-card {
+        padding: 13px;
+      }
+
+      .floating-card.top {
+        right: 0;
+      }
+
+      .floating-card.bottom {
+        left: 0;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
       }
     }
   </style>
@@ -642,379 +807,1118 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <nav class="nav">
-      <a href="#home" class="logo">
-        <div class="logo-mark">C</div>
-        CONKER<span>.</span>
+<div class="background-grid"></div>
+<div class="orb one"></div>
+<div class="orb two"></div>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+
+  <nav>
+
+    <a href="#home" class="logo">
+      <div class="logo-box">C</div>
+      CONKER<span>.</span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+
+      <a href="#home">الرئيسية</a>
+
+      <a href="#services">الخدمات</a>
+
+      <a href="#why">لماذا CONKER</a>
+
+      <a href="#contact">التواصل</a>
+
+    </div>
+
+    <a
+      href="https://t.me/CONKER_CON"
+      target="_blank"
+      class="store-btn"
+    >
+      🛒 المتجر
+    </a>
+
+    <button
+      class="menu-btn"
+      onclick="toggleMenu()"
+    >
+      ☰
+    </button>
+
+  </nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main>
+
+<section class="hero" id="home">
+
+  <div>
+
+    <div class="badge">
+
+      <span class="online-dot"></span>
+
+      CONKER ONLINE
+
+    </div>
+
+
+    <h1>
+
+      العب أكثر.<br>
+
+      <span class="gradient">
+        اشحن أسرع.
+      </span>
+
+    </h1>
+
+
+    <p>
+
+      أهلاً بك في CONKER — منصتك لخدمات الألعاب والشحن الرقمي.
+      تجربة سريعة، تصميم مختلف، وخدمات متعددة في مكان واحد.
+
+    </p>
+
+
+    <div class="hero-buttons">
+
+      <a
+        href="#services"
+        class="primary-btn"
+      >
+        🎮 اكتشف الخدمات
+        ←
       </a>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#services">الخدمات</a></li>
-        <li><a href="#about">لماذا CONKER؟</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
-      </ul>
 
-      <a class="nav-button" href="#services">استكشف الخدمات</a>
-
-      <button class="mobile-menu" onclick="toggleMenu()">☰</button>
-    </nav>
-  </header>
-
-  <!-- HERO -->
-  <main id="home">
-
-    <div class="hero">
-
-      <div>
-        <div class="badge">💎 CONKER — Gaming & Digital Services</div>
-
-        <h1>
-          عالمك الرقمي
-          <br>
-          <span class="gradient-text">يبدأ من CONKER</span>
-        </h1>
-
-        <p>
-          منصة عصرية لخدمات الألعاب والشحن الرقمي.
-          تجربة سريعة، واجهة احترافية، وخدمات متعددة للاعبين
-          في مكان واحد.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#services" class="btn btn-primary">
-            اكتشف الخدمات
-          </a>
-
-          <a href="#contact" class="btn btn-secondary">
-            تواصل معنا
-          </a>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="orb"></div>
-
-        <div class="hero-card one">
-          <strong>💎 CONKER</strong>
-          <small>Gaming Platform</small>
-        </div>
-
-        <div class="hero-card two">
-          <strong>⚡ سريع</strong>
-          <small>تجربة رقمية عصرية</small>
-        </div>
-      </div>
+      <a
+        href="https://t.me/CONKER_CON"
+        target="_blank"
+        class="secondary-btn"
+      >
+        🛒 متجر CONKER
+      </a>
 
     </div>
 
-    <!-- FEATURES -->
-    <section id="about">
+  </div>
 
-      <div class="section-title">
-        <div class="mini">WHY CONKER</div>
-        <h2>لماذا تختار CONKER؟</h2>
-        <p>
-          صممنا CONKER لتكون تجربة رقمية بسيطة وسريعة ومناسبة لعالم الألعاب.
-        </p>
+
+  <div class="hero-visual">
+
+    <div class="hero-glow"></div>
+
+
+    <div class="conker-symbol">
+      C
+    </div>
+
+
+    <div class="floating-card top">
+
+      <strong>⚡ سريع</strong>
+
+      <small>
+        تجربة رقمية عصرية
+      </small>
+
+    </div>
+
+
+    <div class="floating-card bottom">
+
+      <strong>🎮 Gaming</strong>
+
+      <small>
+        خدمات ألعاب متعددة
+      </small>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     WHY CONKER
+========================= -->
+
+<section id="why">
+
+  <div class="section-head">
+
+    <div class="section-label">
+      WHY CONKER
+    </div>
+
+    <h2>
+      مش مجرد متجر.
+    </h2>
+
+    <p>
+      CONKER مصممة لتكون تجربة Gaming مختلفة
+      وليست مجرد صفحة شحن تقليدية.
+    </p>
+
+  </div>
+
+
+  <div class="why-grid">
+
+
+    <div class="glass-card">
+
+      <div class="feature-icon">
+        ⚡
       </div>
 
-      <div class="features">
+      <h3>
+        سرعة وسهولة
+      </h3>
 
-        <div class="feature">
-          <div class="feature-icon">⚡</div>
-          <h3>سرعة في الخدمة</h3>
-          <p>
-            واجهة سريعة وسهلة للوصول إلى الخدمة التي تبحث عنها.
-          </p>
-        </div>
+      <p>
+        الوصول إلى الخدمة التي تحتاجها
+        بطريقة واضحة وبسيطة.
+      </p>
 
-        <div class="feature">
-          <div class="feature-icon">🔐</div>
-          <h3>تجربة موثوقة</h3>
-          <p>
-            تصميم واضح ومنظم مع الاهتمام بتجربة المستخدم.
-          </p>
-        </div>
+    </div>
 
-        <div class="feature">
-          <div class="feature-icon">🎮</div>
-          <h3>خدمات الألعاب</h3>
-          <p>
-            مجموعة كبيرة من الألعاب والخدمات الرقمية في منصة واحدة.
-          </p>
-        </div>
 
-      </div>
-    </section>
+    <div class="glass-card">
 
-    <!-- SERVICES -->
-    <section id="services">
-
-      <div class="section-title">
-        <div class="mini">OUR SERVICES</div>
-        <h2>خدمات CONKER</h2>
-        <p>
-          اختر اللعبة أو الخدمة التي تريدها واستكشف الخيارات المتاحة.
-        </p>
+      <div class="feature-icon">
+        🎮
       </div>
 
-      <div class="services-tools">
-        <input
-          id="searchInput"
-          class="search"
-          type="search"
-          placeholder="🔎 ابحث عن لعبة أو خدمة..."
-          oninput="searchServices()"
+      <h3>
+        عالم الألعاب
+      </h3>
+
+      <p>
+        مجموعة متنوعة من خدمات الألعاب
+        والمنصات الرقمية.
+      </p>
+
+    </div>
+
+
+    <div class="glass-card">
+
+      <div class="feature-icon">
+        🛡️
+      </div>
+
+      <h3>
+        هوية مختلفة
+      </h3>
+
+      <p>
+        تصميم Gaming حديث وهوية بصرية
+        مميزة لـ CONKER.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section id="services">
+
+  <div class="section-head">
+
+    <div class="section-label">
+      CONKER SERVICES
+    </div>
+
+    <h2>
+      الخدمات
+    </h2>
+
+    <p>
+      كل خدمات الشحن التي تحتاجها في مكان واحد.
+    </p>
+
+  </div>
+
+
+  <div class="search-box">
+
+    <span class="search-icon">
+      🔎
+    </span>
+
+    <input
+      type="text"
+      id="search"
+      placeholder="ابحث عن لعبة أو خدمة..."
+      onkeyup="searchServices()"
+    >
+
+  </div>
+
+
+  <div
+    class="services-grid"
+    id="servicesGrid"
+  >
+
+
+    <!-- PUBG MOBILE -->
+
+    <div
+      class="service"
+      data-name="ببجي موبايل pubg mobile"
+    >
+
+      <span class="featured">
+        🌟 مميز
+      </span>
+
+      <div class="service-icon">
+        🎯
+      </div>
+
+      <h3>
+        شحن ببجي موبايل
+      </h3>
+
+      <p>
+        PUBG Mobile
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن ببجي موبايل')"
         >
-      </div>
+          اطلب
+        </button>
 
-      <div class="services-grid" id="servicesGrid">
-
-        <article class="service-card" data-name="ببجي موبايل PUBG Mobile">
-          <span class="special">🌟 مميز</span>
-          <div class="service-icon">🎮</div>
-          <h3>شحن ببجي موبايل</h3>
-          <p>خدمة شحن PUBG Mobile.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="ببجي كورية PUBG Korea">
-          <span class="special">🌟 مميز</span>
-          <div class="service-icon">🇰🇷</div>
-          <h3>شحن ببجي كورية</h3>
-          <p>خدمة شحن PUBG Korea.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="ببجي فيتنامية PUBG Vietnam">
-          <span class="special">🌟 مميز</span>
-          <div class="service-icon">🇻🇳</div>
-          <h3>شحن ببجي فيتنامية</h3>
-          <p>خدمة شحن PUBG Vietnam.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="بيس PES eFootball">
-          <div class="service-icon">⚽</div>
-          <h3>شحن بيس</h3>
-          <p>خدمات شحن PES / eFootball.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="فيفا FIFA EA FC">
-          <div class="service-icon">⚽</div>
-          <h3>شحن فيفا</h3>
-          <p>خدمات FIFA / EA FC.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="دريم ليج Dream League">
-          <div class="service-icon">🏆</div>
-          <h3>شحن دريم ليج</h3>
-          <p>خدمات Dream League Soccer.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="فري فاير Free Fire">
-          <div class="service-icon">🔥</div>
-          <h3>شحن فري فاير</h3>
-          <p>خدمات Free Fire.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="روبلوكس Roblox">
-          <div class="service-icon">🧱</div>
-          <h3>شحن روبلكس</h3>
-          <p>خدمات Roblox.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="كلاش رويال Clash Royale">
-          <div class="service-icon">👑</div>
-          <h3>شحن كلاش رويال</h3>
-          <p>خدمات Clash Royale.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="كلاش اوف كلانس Clash of Clans">
-          <div class="service-icon">⚔️</div>
-          <h3>شحن كلاش أوف كلانس</h3>
-          <p>خدمات Clash of Clans.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="تيك توك TikTok Coins">
-          <div class="service-icon">🎵</div>
-          <h3>عملات TikTok</h3>
-          <p>خدمات العملات الرقمية لمنصة TikTok.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="Brawlers">
-          <span class="special">🌟 مميز</span>
-          <div class="service-icon">💥</div>
-          <h3>شحن Brawlers</h3>
-          <p>خدمات Brawlers.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="Kingshot">
-          <span class="special">🌟 مميز</span>
-          <div class="service-icon">🏰</div>
-          <h3>شحن Kingshot</h3>
-          <p>خدمات Kingshot.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-        <article class="service-card" data-name="Wild">
-          <span class="special">🌟 مميز</span>
-          <div class="service-icon">🌲</div>
-          <h3>شحن Wild</h3>
-          <p>خدمات Wild.</p>
-          <a href="#contact" class="service-btn">اطلب الخدمة</a>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- STATS -->
-    <section>
-
-      <div class="stats">
-
-        <div class="stat">
-          <strong>14+</strong>
-          <span>خدمة متاحة</span>
-        </div>
-
-        <div class="stat">
-          <strong>24/7</strong>
-          <span>منصة رقمية</span>
-        </div>
-
-        <div class="stat">
-          <strong>100%</strong>
-          <span>تجربة عصرية</span>
-        </div>
-
-        <div class="stat">
-          <strong>CONKER</strong>
-          <span>علامة واحدة</span>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-
-      <div class="contact-box">
-
-        <h2>جاهز تبدأ؟ 🎮</h2>
-
-        <p>
-          اختر الخدمة التي تريدها وتواصل مع CONKER لمعرفة التفاصيل.
-        </p>
-
-        <a href="mailto:contact@conker.com" class="btn btn-primary">
-          تواصل مع CONKER
-        </a>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-
-    <div class="footer-inner">
-
-      <div>
-        <div class="logo">
-          <div class="logo-mark">C</div>
-          CONKER<span>.</span>
-        </div>
-
-        <p style="margin-top:15px;">
-          Gaming & Digital Services
-        </p>
-      </div>
-
-      <div>
-        <h3>روابط</h3>
-
-        <div class="footer-links">
-          <a href="#home">الرئيسية</a>
-          <a href="#services">الخدمات</a>
-          <a href="#about">لماذا CONKER؟</a>
-          <a href="#contact">تواصل معنا</a>
-        </div>
-      </div>
-
-      <div>
-        <h3>الخدمات</h3>
-
-        <div class="footer-links">
-          <a href="#services">PUBG</a>
-          <a href="#services">Free Fire</a>
-          <a href="#services">Roblox</a>
-          <a href="#services">TikTok</a>
-        </div>
       </div>
 
     </div>
 
-    <div class="copyright">
-      © <span id="year"></span> CONKER. جميع الحقوق محفوظة.
+
+    <!-- PUBG KOREA -->
+
+    <div
+      class="service"
+      data-name="ببجي كورية pubg korea"
+    >
+
+      <span class="featured">
+        🌟 مميز
+      </span>
+
+      <div class="service-icon">
+        🇰🇷
+      </div>
+
+      <h3>
+        شحن ببجي كورية
+      </h3>
+
+      <p>
+        PUBG Korea
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن ببجي كورية')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
     </div>
 
-  </footer>
 
-  <script>
+    <!-- PUBG VIETNAM -->
 
-    // السنة الحالية
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    <div
+      class="service"
+      data-name="ببجي فيتنامية pubg vietnam"
+    >
 
-    // القائمة في الهاتف
-    function toggleMenu() {
-      document.getElementById("navLinks")
-        .classList.toggle("active");
+      <span class="featured">
+        🌟 مميز
+      </span>
+
+      <div class="service-icon">
+        🇻🇳
+      </div>
+
+      <h3>
+        شحن ببجي فيتنامية
+      </h3>
+
+      <p>
+        PUBG Vietnam
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن ببجي فيتنامية')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- PES -->
+
+    <div
+      class="service"
+      data-name="بيس pes efootball"
+    >
+
+      <div class="service-icon">
+        ⚽
+      </div>
+
+      <h3>
+        شحن بيس
+      </h3>
+
+      <p>
+        PES / eFootball
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن بيس')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- FIFA -->
+
+    <div
+      class="service"
+      data-name="فيفا fifa ea fc"
+    >
+
+      <div class="service-icon">
+        🥅
+      </div>
+
+      <h3>
+        شحن فيفا
+      </h3>
+
+      <p>
+        FIFA / EA FC
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن فيفا')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- DREAM LEAGUE -->
+
+    <div
+      class="service"
+      data-name="دريم ليج dream league"
+    >
+
+      <div class="service-icon">
+        🏆
+      </div>
+
+      <h3>
+        شحن دريم ليج
+      </h3>
+
+      <p>
+        Dream League Soccer
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن دريم ليج')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- FREE FIRE -->
+
+    <div
+      class="service"
+      data-name="فري فاير free fire"
+    >
+
+      <div class="service-icon">
+        🔥
+      </div>
+
+      <h3>
+        شحن فري فاير
+      </h3>
+
+      <p>
+        Free Fire
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن فري فاير')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- ROBLOX -->
+
+    <div
+      class="service"
+      data-name="روبلوكس roblox"
+    >
+
+      <div class="service-icon">
+        🧱
+      </div>
+
+      <h3>
+        شحن روبلكس
+      </h3>
+
+      <p>
+        Roblox
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن روبلكس')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- CLASH ROYALE -->
+
+    <div
+      class="service"
+      data-name="كلاش رويال clash royale"
+    >
+
+      <div class="service-icon">
+        👑
+      </div>
+
+      <h3>
+        شحن كلاش رويال
+      </h3>
+
+      <p>
+        Clash Royale
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن كلاش رويال')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- CLASH OF CLANS -->
+
+    <div
+      class="service"
+      data-name="كلاش اوف كلانس clash of clans"
+    >
+
+      <div class="service-icon">
+        ⚔️
+      </div>
+
+      <h3>
+        شحن كلاش أوف كلانس
+      </h3>
+
+      <p>
+        Clash of Clans
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن كلاش أوف كلانس')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- TIKTOK -->
+
+    <div
+      class="service"
+      data-name="تيك توك tiktok coins"
+    >
+
+      <div class="service-icon">
+        🎵
+      </div>
+
+      <h3>
+        عملات TikTok
+      </h3>
+
+      <p>
+        TikTok Coins
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('عملات TikTok')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- BRAWLERS -->
+
+    <div
+      class="service"
+      data-name="brawlers براولرز"
+    >
+
+      <span class="featured">
+        🌟 مميز
+      </span>
+
+      <div class="service-icon">
+        💥
+      </div>
+
+      <h3>
+        شحن Brawlers
+      </h3>
+
+      <p>
+        Brawlers
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن Brawlers')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- KINGSHOT -->
+
+    <div
+      class="service"
+      data-name="kingshot كينج شوت"
+    >
+
+      <span class="featured">
+        🌟 مميز
+      </span>
+
+      <div class="service-icon">
+        🏰
+      </div>
+
+      <h3>
+        شحن Kingshot
+      </h3>
+
+      <p>
+        Kingshot
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن Kingshot')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- WILD -->
+
+    <div
+      class="service"
+      data-name="wild وايلد"
+    >
+
+      <span class="featured">
+        🌟 مميز
+      </span>
+
+      <div class="service-icon">
+        🌲
+      </div>
+
+      <h3>
+        شحن Wild
+      </h3>
+
+      <p>
+        Wild
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="available">
+          ● متاح
+        </span>
+
+        <button
+          class="order-btn"
+          onclick="order('شحن Wild')"
+        >
+          اطلب
+        </button>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- =========================
+       STATS
+  ========================= -->
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong>14+</strong>
+      <span>خدمة</span>
+    </div>
+
+    <div class="stat">
+      <strong>24/7</strong>
+      <span>منصة</span>
+    </div>
+
+    <div class="stat">
+      <strong>100%</strong>
+      <span>Gaming</span>
+    </div>
+
+    <div class="stat">
+      <strong>CONKER</strong>
+      <span>Brand</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+  <div class="contact-box">
+
+    <h2>
+      جاهز تدخل عالم
+      <span class="gradient">
+        CONKER؟
+      </span>
+    </h2>
+
+    <p>
+      للطلب والاستفسار عن خدمات الشحن،
+      تواصل معنا من خلال قنوات CONKER الرسمية.
+    </p>
+
+
+    <div class="contact-buttons">
+
+      <a
+        href="https://t.me/CONKER_CON"
+        target="_blank"
+        class="primary-btn"
+      >
+        🛒 متجر CONKER
+      </a>
+
+
+      <a
+        href="https://t.me/C_O_N_2"
+        target="_blank"
+        class="secondary-btn"
+      >
+        💬 @C_O_N_2
+      </a>
+
+
+      <!--
+        ضع رقم الواتساب هنا لاحقاً
+        مثال:
+        https://wa.me/201XXXXXXXXX
+      -->
+
+      <a
+        href="#"
+        onclick="whatsappMessage(); return false;"
+        class="secondary-btn"
+      >
+        📱 واتساب للشحن
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div class="footer-logo">
+      CONKER<span style="color:#a855f7">.</span>
+    </div>
+
+    <div>
+      © 2026 CONKER — جميع الحقوق محفوظة
+    </div>
+
+    <a
+      href="https://t.me/CONKER_CON"
+      target="_blank"
+    >
+      Telegram ↗
+    </a>
+
+  </div>
+
+</footer>
+
+
+<!-- TOAST -->
+
+<div
+  class="toast"
+  id="toast"
+></div>
+
+
+<script>
+
+  /* =========================
+     MOBILE MENU
+  ========================= */
+
+  function toggleMenu() {
+
+    const menu =
+      document.getElementById("navLinks");
+
+    menu.classList.toggle("active");
+
+  }
+
+
+  /* =========================
+     SEARCH
+  ========================= */
+
+  function searchServices() {
+
+    const input =
+      document.getElementById("search");
+
+    const search =
+      input.value.toLowerCase().trim();
+
+    const services =
+      document.querySelectorAll(".service");
+
+    services.forEach(service => {
+
+      const name =
+        service
+        .getAttribute("data-name")
+        .toLowerCase();
+
+      if (name.includes(search)) {
+
+        service.style.display = "";
+
+      } else {
+
+        service.style.display = "none";
+
+      }
+
+    });
+
+  }
+
+
+  /* =========================
+     ORDER
+  ========================= */
+
+  function order(serviceName) {
+
+    const username =
+      "C_O_N_2";
+
+    const message =
+      `مرحباً CONKER 👋%0A%0Aأريد طلب خدمة:%0A${serviceName}`;
+
+    const telegram =
+      `https://t.me/${username}?text=${message}`;
+
+    window.open(
+      telegram,
+      "_blank"
+    );
+
+  }
+
+
+  /* =========================
+     WHATSAPP
+  ========================= */
+
+  function whatsappMessage() {
+
+    /*
+      ضع رقم واتساب الخاص بك هنا
+      بصيغة دولية بدون +
+      
+      مثال:
+      const number = "201XXXXXXXXX";
+    */
+
+    const number = "";
+
+    if (!number) {
+
+      showToast(
+        "📱 سيتم إضافة رقم واتساب الخاص بالشحن هنا"
+      );
+
+      return;
+
     }
 
-    // البحث عن الخدمات
-    function searchServices() {
+    const message =
+      "مرحباً CONKER، أريد الاستفسار عن خدمة شحن.";
 
-      const input =
-        document.getElementById("searchInput")
-          .value
-          .toLowerCase()
-          .trim();
+    window.open(
+      `https://wa.me/${number}?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
 
-      const cards =
-        document.querySelectorAll(".service-card");
+  }
 
-      cards.forEach(card => {
 
-        const name =
-          card.dataset.name.toLowerCase();
+  /* =========================
+     TOAST
+  ========================= */
 
-        if (name.includes(input)) {
-          card.style.display = "";
-        } else {
-          card.style.display = "none";
+  function showToast(message) {
+
+    const toast =
+      document.getElementById("toast");
+
+    toast.textContent =
+      message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+      toast.classList.remove("show");
+
+    }, 3000);
+
+  }
+
+
+  /* =========================
+     CLOSE MENU
+  ========================= */
+
+  document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+      link.addEventListener(
+        "click",
+        () => {
+
+          document
+            .getElementById("navLinks")
+            .classList.remove("active");
+
         }
+      );
 
-      });
+    });
 
-    }
-
-  </script>
+</script>
 
 </body>
-            </html>
+  </html>
