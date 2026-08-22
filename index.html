@@ -1,1706 +1,1331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mohamed Abdullah Ibrahim | Data Analyst</title>
-
-    <meta name="description"
-          content="Mohamed Abdullah Ibrahim — Data Analyst, Accounting & Information Systems student.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Inter", sans-serif;
-            background: #080b12;
-            color: #f5f7fb;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* =========================
-           GLOBAL
-        ========================== */
-
-        .container {
-            width: min(1120px, 90%);
-            margin: auto;
-        }
-
-        .section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 55px;
-        }
-
-        .section-title span {
-            color: #6ea8fe;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .section-title h2 {
-            font-size: clamp(30px, 5vw, 45px);
-            margin-top: 10px;
-        }
-
-        .section-title p {
-            color: #9da7b8;
-            max-width: 650px;
-            margin: 15px auto 0;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 13px 22px;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: .3s;
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        .btn-primary {
-            background: #6ea8fe;
-            color: #07101f;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(110, 168, 254, .25);
-        }
-
-        .btn-outline {
-            border-color: #293241;
-            color: #fff;
-        }
-
-        .btn-outline:hover {
-            background: #111827;
-            transform: translateY(-3px);
-        }
-
-        /* =========================
-           BACKGROUND
-        ========================== */
-
-        body::before {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            background: #2459a6;
-            filter: blur(180px);
-            opacity: .12;
-            top: -200px;
-            right: -150px;
-            pointer-events: none;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            width: 450px;
-            height: 450px;
-            background: #4d2c91;
-            filter: blur(180px);
-            opacity: .10;
-            bottom: -200px;
-            left: -150px;
-            pointer-events: none;
-        }
-
-        /* =========================
-           NAVBAR
-        ========================== */
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(8, 11, 18, .78);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,.05);
-        }
-
-        nav {
-            min-height: 75px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 21px;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .logo span {
-            color: #6ea8fe;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #aeb7c6;
-            font-size: 14px;
-            font-weight: 500;
-            transition: .3s;
-        }
-
-        .nav-links a:hover {
-            color: #6ea8fe;
-        }
-
-        .menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 26px;
-            cursor: pointer;
-        }
-
-        /* =========================
-           HERO
-        ========================== */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 90px;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1.25fr .75fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .hero-text .small-title {
-            color: #6ea8fe;
-            font-weight: 700;
-            font-size: 15px;
-            margin-bottom: 15px;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(42px, 7vw, 78px);
-            line-height: 1.03;
-            letter-spacing: -3px;
-            margin-bottom: 20px;
-        }
-
-        .hero-text h1 span {
-            color: #6ea8fe;
-        }
-
-        .hero-text h2 {
-            font-size: clamp(20px, 3vw, 30px);
-            color: #dbe2ee;
-            margin-bottom: 20px;
-        }
-
-        .hero-text p {
-            max-width: 650px;
-            color: #9da7b8;
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 13px;
-            flex-wrap: wrap;
-        }
-
-        .social-mini {
-            display: flex;
-            gap: 15px;
-            margin-top: 28px;
-            flex-wrap: wrap;
-        }
-
-        .social-mini a {
-            width: 42px;
-            height: 42px;
-            border: 1px solid #293241;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #aeb7c6;
-            font-size: 13px;
-            font-weight: 700;
-            transition: .3s;
-        }
-
-        .social-mini a:hover {
-            border-color: #6ea8fe;
-            color: #6ea8fe;
-            transform: translateY(-3px);
-        }
-
-        .profile-wrapper {
-            display: flex;
-            justify-content: center;
-        }
-
-        .profile-card {
-            position: relative;
-            width: 320px;
-            height: 390px;
-            border-radius: 25px;
-            border: 1px solid #293241;
-            background: linear-gradient(145deg, #101622, #0c1018);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0,0,0,.35);
-        }
-
-        .profile-card::before {
-            content: "";
-            position: absolute;
-            width: 240px;
-            height: 240px;
-            border-radius: 50%;
-            border: 1px solid rgba(110,168,254,.25);
-        }
-
-        .profile-photo {
-            width: 230px;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 18px;
-            position: relative;
-            z-index: 2;
-            border: 1px solid rgba(255,255,255,.1);
-        }
-
-        /* =========================
-           ABOUT
-        ========================== */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .info-card {
-            background: #0e131d;
-            border: 1px solid #202938;
-            border-radius: 16px;
-            padding: 30px;
-            transition: .3s;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            border-color: #35445b;
-        }
-
-        .info-card h3 {
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-
-        .info-card p {
-            color: #9da7b8;
-        }
-
-        .info-list {
-            list-style: none;
-        }
-
-        .info-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #1d2532;
-            color: #aeb7c6;
-        }
-
-        .info-list li:last-child {
-            border-bottom: none;
-        }
-
-        .info-list strong {
-            color: #fff;
-        }
-
-        /* =========================
-           SKILLS
-        ========================== */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .skill-card {
-            padding: 27px;
-            border: 1px solid #202938;
-            border-radius: 16px;
-            background: #0e131d;
-        }
-
-        .skill-card h3 {
-            margin-bottom: 18px;
-            color: #fff;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 9px;
-        }
-
-        .tag {
-            background: #151d2a;
-            color: #b7c0cf;
-            border: 1px solid #263143;
-            padding: 7px 11px;
-            border-radius: 8px;
-            font-size: 12px;
-        }
-
-        /* =========================
-           PROJECTS
-        ========================== */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
-        }
-
-        .project-card {
-            padding: 30px;
-            background: #0e131d;
-            border: 1px solid #202938;
-            border-radius: 17px;
-            transition: .3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: #43536c;
-        }
-
-        .project-number {
-            color: #6ea8fe;
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .project-card h3 {
-            margin: 12px 0;
-            font-size: 21px;
-        }
-
-        .project-card p {
-            color: #929daf;
-            margin-bottom: 20px;
-        }
-
-        /* =========================
-           EDUCATION / COURSES
-        ========================== */
-
-        .timeline {
-            max-width: 800px;
-            margin: auto;
-            border-left: 2px solid #293241;
-            padding-left: 30px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 35px;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -39px;
-            top: 5px;
-            width: 15px;
-            height: 15px;
-            background: #6ea8fe;
-            border-radius: 50%;
-            box-shadow: 0 0 0 5px #080b12;
-        }
-
-        .timeline-item span {
-            color: #6ea8fe;
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .timeline-item h3 {
-            margin: 5px 0;
-        }
-
-        .timeline-item p {
-            color: #9da7b8;
-        }
-
-        /* =========================
-           ACHIEVEMENTS
-        ========================== */
-
-        .simple-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .simple-card {
-            text-align: center;
-            padding: 30px 20px;
-            border: 1px solid #202938;
-            background: #0e131d;
-            border-radius: 15px;
-        }
-
-        .simple-card .icon {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-
-        .simple-card h3 {
-            font-size: 17px;
-        }
-
-        .simple-card p {
-            color: #8f99a9;
-            font-size: 13px;
-            margin-top: 8px;
-        }
-
-        /* =========================
-           LANGUAGES / INTERESTS
-        ========================== */
-
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px;
-        }
-
-        .large-card {
-            background: #0e131d;
-            border: 1px solid #202938;
-            border-radius: 16px;
-            padding: 30px;
-        }
-
-        .large-card h3 {
-            margin-bottom: 18px;
-        }
-
-        /* =========================
-           BOOKS
-        ========================== */
-
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
-        }
-
-        .book-card {
-            padding: 35px;
-            border-radius: 17px;
-            border: 1px solid #202938;
-            background: linear-gradient(145deg, #111722, #0c1018);
-            transition: .3s;
-        }
-
-        .book-card:hover {
-            transform: translateY(-6px);
-            border-color: #44536a;
-        }
-
-        .book-card small {
-            color: #6ea8fe;
-            font-weight: 700;
-        }
-
-        .book-card h3 {
-            margin-top: 10px;
-            font-size: 25px;
-        }
-
-        .book-card p {
-            color: #8f99a9;
-            margin-top: 10px;
-        }
-
-        /* =========================
-           GOALS
-        ========================== */
-
-        .goal-box {
-            text-align: center;
-            max-width: 800px;
-            margin: auto;
-            padding: 45px;
-            border: 1px solid #263143;
-            background: #0e131d;
-            border-radius: 20px;
-        }
-
-        .goal-box h3 {
-            font-size: 27px;
-            margin-bottom: 15px;
-        }
-
-        .goal-box p {
-            color: #9da7b8;
-        }
-
-        /* =========================
-           CONTACT
-        ========================== */
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .contact-card {
-            padding: 22px;
-            border: 1px solid #202938;
-            background: #0e131d;
-            border-radius: 14px;
-            transition: .3s;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-4px);
-            border-color: #6ea8fe;
-        }
-
-        .contact-card small {
-            color: #6ea8fe;
-            font-weight: 700;
-        }
-
-        .contact-card p {
-            margin-top: 7px;
-            color: #c1c8d4;
-            word-break: break-word;
-        }
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        footer {
-            padding: 35px 0;
-            border-top: 1px solid #1c2430;
-            text-align: center;
-            color: #707a8b;
-            font-size: 13px;
-        }
-
-        footer span {
-            color: #6ea8fe;
-        }
-
-        /* =========================
-           RESPONSIVE
-        ========================== */
-
-        @media (max-width: 900px) {
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons,
-            .social-mini {
-                justify-content: center;
-            }
-
-            .profile-wrapper {
-                order: -1;
-            }
-
-            .profile-card {
-                width: 280px;
-                height: 350px;
-            }
-
-            .profile-photo {
-                width: 200px;
-                height: 250px;
-            }
-
-            .skills-grid,
-            .simple-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 700px) {
-
-            .nav-links {
-                position: absolute;
-                top: 75px;
-                left: 0;
-                width: 100%;
-                background: #0a0e15;
-                border-bottom: 1px solid #202938;
-                display: none;
-                flex-direction: column;
-                padding: 25px;
-                gap: 18px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .about-grid,
-            .skills-grid,
-            .projects-grid,
-            .books-grid,
-            .two-column,
-            .simple-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 75px 0;
-            }
-
-            .hero-text h1 {
-                letter-spacing: -2px;
-            }
-
-            .profile-card {
-                width: 250px;
-                height: 320px;
-            }
-
-            .profile-photo {
-                width: 180px;
-                height: 220px;
-            }
-
-            .goal-box {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mohamed Abdullah Ibrahim | Data Analyst</title>
+
+<meta name="description"
+content="Mohamed Abdullah Ibrahim — Data Analyst | Accounting & Information Systems">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#06080d;
+    --surface:#0c1018;
+    --surface2:#111722;
+    --border:rgba(255,255,255,.08);
+    --text:#f4f7fb;
+    --muted:#8b95a7;
+    --accent:#65a8ff;
+    --accent2:#8b7cff;
+    --green:#55d6a5;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:
+        radial-gradient(circle at 80% 10%,rgba(70,130,255,.13),transparent 30%),
+        radial-gradient(circle at 10% 70%,rgba(130,80,255,.09),transparent 28%),
+        var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:60px 60px;
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(1180px,90%);
+    margin:auto;
+}
+
+section{
+    padding:110px 0;
+}
+
+.section-head{
+    margin-bottom:55px;
+}
+
+.section-head .eyebrow{
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.section-head h2{
+    font-size:clamp(34px,5vw,55px);
+    margin-top:12px;
+    letter-spacing:-2px;
+}
+
+.section-head p{
+    max-width:650px;
+    color:var(--muted);
+    margin-top:14px;
+    line-height:1.8;
+}
+
+/* NAV */
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    padding:18px 0;
+    transition:.3s;
+}
+
+.navbar.scrolled{
+    background:rgba(6,8,13,.82);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--accent);
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#aab3c1;
+    font-size:13px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.menu{
+    display:none;
+    border:0;
+    background:none;
+    color:white;
+    font-size:25px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:120px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:80px;
+    align-items:center;
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 13px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.025);
+    border-radius:100px;
+    color:#b7c0cf;
+    font-size:12px;
+    margin-bottom:25px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 12px var(--green);
+}
+
+.hero h1{
+    font-size:clamp(48px,7vw,86px);
+    line-height:.98;
+    letter-spacing:-5px;
+}
+
+.hero h1 .blue{
+    color:var(--accent);
+}
+
+.hero-role{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:25px 0;
+    font-size:22px;
+    font-weight:600;
+}
+
+.hero-role::before{
+    content:"";
+    width:35px;
+    height:2px;
+    background:var(--accent);
+}
+
+.hero-description{
+    max-width:650px;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:15px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:12px;
+    margin-top:32px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 21px;
+    border-radius:11px;
+    font-size:13px;
+    font-weight:700;
+    transition:.3s;
+    border:1px solid var(--border);
+}
+
+.btn-primary{
+    background:white;
+    color:#06080d;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(255,255,255,.12);
+}
+
+.btn-outline:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+    transform:translateY(-4px);
+}
+
+/* PROFILE */
+
+.profile-area{
+    display:flex;
+    justify-content:center;
+}
+
+.profile{
+    width:350px;
+    height:430px;
+    border-radius:28px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        linear-gradient(145deg,#111824,#090c13);
+    border:1px solid var(--border);
+    box-shadow:0 35px 90px rgba(0,0,0,.45);
+}
+
+.profile::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid rgba(101,168,255,.15);
+    border-radius:22px;
+}
+
+.profile::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:var(--accent);
+    filter:blur(100px);
+    opacity:.18;
+}
+
+.profile img{
+    width:260px;
+    height:330px;
+    object-fit:cover;
+    border-radius:20px;
+    position:relative;
+    z-index:2;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+/* QUICK STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:75px;
+}
+
+.stat{
+    padding:25px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.025);
+    border-radius:16px;
+}
+
+.stat-number{
+    font-size:28px;
+    font-weight:800;
+}
+
+.stat-label{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:32px;
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(101,168,255,.3);
+}
+
+.card h3{
+    font-size:20px;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.9;
+}
+
+/* SKILLS */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.skill{
+    padding:27px;
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--border);
+    border-radius:18px;
+}
+
+.skill-icon{
+    width:43px;
+    height:43px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:rgba(101,168,255,.1);
+    color:var(--accent);
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.skill h3{
+    margin-bottom:17px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.tag{
+    font-size:11px;
+    color:#b7c0ce;
+    padding:7px 10px;
+    border-radius:8px;
+    background:#111722;
+    border:1px solid rgba(255,255,255,.06);
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.project{
+    padding:30px;
+    min-height:270px;
+    background:linear-gradient(145deg,#101621,#0a0d13);
+    border:1px solid var(--border);
+    border-radius:21px;
+    position:relative;
+    overflow:hidden;
+    transition:.35s;
+}
+
+.project:hover{
+    transform:translateY(-6px);
+    border-color:rgba(101,168,255,.3);
+}
+
+.project-number{
+    color:var(--accent);
+    font-size:11px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+.project h3{
+    font-size:25px;
+    margin:17px 0 12px;
+}
+
+.project p{
+    color:var(--muted);
+    line-height:1.8;
+    max-width:500px;
+}
+
+.project-footer{
+    position:absolute;
+    bottom:27px;
+    left:30px;
+    right:30px;
+}
+
+/* DATA VISUAL */
+
+.data-panel{
+    margin-top:22px;
+    height:4px;
+    background:#1c2532;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.data-panel span{
+    display:block;
+    width:72%;
+    height:100%;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+}
+
+/* TIMELINE */
+
+.timeline{
+    max-width:850px;
+    border-left:1px solid #293241;
+    margin-left:20px;
+}
+
+.timeline-item{
+    padding:0 0 45px 35px;
+    position:relative;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    left:-5px;
+    top:3px;
+    width:9px;
+    height:9px;
+    background:var(--accent);
+    border-radius:50%;
+    box-shadow:0 0 0 7px var(--bg);
+}
+
+.timeline-date{
+    color:var(--accent);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.timeline h3{
+    margin:8px 0;
+    font-size:20px;
+}
+
+.timeline p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* BOOKS */
+
+.books{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.book{
+    min-height:230px;
+    padding:35px;
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:
+        radial-gradient(circle at 90% 20%,rgba(139,124,255,.12),transparent 35%),
+        var(--surface);
+    position:relative;
+    overflow:hidden;
+}
+
+.book small{
+    color:var(--accent);
+    letter-spacing:2px;
+    font-weight:800;
+    font-size:10px;
+}
+
+.book h3{
+    font-family:serif;
+    font-size:31px;
+    margin-top:22px;
+}
+
+.book p{
+    color:var(--muted);
+    margin-top:10px;
+}
+
+/* CONTACT */
+
+.contact-box{
+    padding:45px;
+    border:1px solid var(--border);
+    border-radius:25px;
+    background:linear-gradient(145deg,#0e141e,#090c12);
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.contact{
+    padding:20px;
+    border:1px solid var(--border);
+    border-radius:13px;
+    transition:.3s;
+}
+
+.contact:hover{
+    border-color:var(--accent);
+    transform:translateY(-3px);
+}
+
+.contact-label{
+    color:var(--accent);
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+.contact p{
+    color:#c1c8d4;
+    font-size:13px;
+    margin-top:6px;
+    word-break:break-word;
+}
+
+/* FOOTER */
+
+footer{
+    padding:35px 0;
+    border-top:1px solid var(--border);
+    color:#687385;
+    text-align:center;
+    font-size:12px;
+}
+
+footer span{
+    color:var(--accent);
+}
+
+/* ANIMATION */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    .hero-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero-actions{
+        justify-content:center;
+    }
+
+    .hero-role{
+        justify-content:center;
+    }
+
+    .hero-description{
+        margin:auto;
+    }
+
+    .profile-area{
+        order:-1;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .skills{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .contact-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+
+    section{
+        padding:80px 0;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        display:none;
+        flex-direction:column;
+        background:#080b11;
+        padding:25px;
+        border-bottom:1px solid var(--border);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .profile{
+        width:270px;
+        height:340px;
+    }
+
+    .profile img{
+        width:205px;
+        height:260px;
+    }
+
+    .stats,
+    .about-grid,
+    .skills,
+    .projects,
+    .books,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-box{
+        padding:25px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<!-- =========================
-     NAVIGATION
-========================== -->
+<!-- NAVIGATION -->
 
-<header>
-    <div class="container">
-        <nav>
+<header class="navbar" id="navbar">
+<div class="container nav">
 
-            <a href="#home" class="logo">
-                Mohamed<span>.</span>
-            </a>
+<a href="#home" class="logo">
+Mohamed<span>.</span>
+</a>
 
-            <button class="menu-btn" id="menuBtn">
-                ☰
-            </button>
+<button class="menu" id="menu">☰</button>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#books">Books</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#books">Books</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 
-        </nav>
-    </div>
+</div>
 </header>
 
 
-<!-- =========================
-     HERO
-========================== -->
+<!-- HERO -->
 
 <section class="hero" id="home">
+<div class="container">
 
-    <div class="container">
+<div class="hero-grid">
 
-        <div class="hero-content">
+<div class="hero-text reveal">
 
-            <div class="hero-text">
+<div class="status">
+<span class="status-dot"></span>
+Building my Data Analytics journey
+</div>
 
-                <div class="small-title">
-                    HELLO, I'M
-                </div>
+<h1>
+Mohamed<br>
+<span class="blue">Abdullah Ibrahim</span>
+</h1>
 
-                <h1>
-                    Mohamed<br>
-                    <span>Abdullah Ibrahim</span>
-                </h1>
+<div class="hero-role">
+Data Analyst
+</div>
 
-                <h2>
-                    Data Analyst
-                </h2>
+<p class="hero-description">
+Accounting & Information Systems student focused on Data Analysis,
+Business Intelligence, Programming and Information Systems.
+I am building practical skills to transform data into meaningful
+business insights.
+</p>
 
-                <p>
-                    Accounting & Information Systems student with a strong
-                    interest in Data Analysis, Business Intelligence,
-                    Programming and Information Systems.
-                </p>
+<div class="hero-actions">
 
-                <div class="hero-buttons">
+<a href="#projects" class="btn btn-primary">
+Explore Projects →
+</a>
 
-                    <a href="#projects" class="btn btn-primary">
-                        View Projects
-                    </a>
+<a href="#contact" class="btn btn-outline">
+Let's Connect
+</a>
 
-                    <a href="#contact" class="btn btn-outline">
-                        Contact Me
-                    </a>
+</div>
 
-                </div>
-
-                <div class="social-mini">
-
-                    <a href="https://www.linkedin.com/in/mohammed-con"
-                       target="_blank"
-                       title="LinkedIn">
-                        IN
-                    </a>
-
-                    <a href="https://www.facebook.com/share/1DsBQE5YmH/"
-                       target="_blank"
-                       title="Facebook">
-                        FB
-                    </a>
-
-                    <a href="https://instagram.com/mhbdllh4861"
-                       target="_blank"
-                       title="Instagram">
-                        IG
-                    </a>
-
-                    <a href="https://t.me/C_O_N_2"
-                       target="_blank"
-                       title="Telegram">
-                        TG
-                    </a>
-
-                    <a href="https://github.com/"
-                       target="_blank"
-                       title="GitHub — Coming Soon">
-                        GH
-                    </a>
-
-                </div>
-
-            </div>
+</div>
 
 
-            <div class="profile-wrapper">
+<div class="profile-area reveal">
 
-                <div class="profile-card">
+<div class="profile">
 
-                    <!--
-                    Replace this file with your real profile photo.
-                    Example:
-                    images/profile.jpg
-                    -->
+<img src="images/profile.jpg"
+alt="Mohamed Abdullah Ibrahim">
 
-                    <img
-                        src="images/profile.jpg"
-                        alt="Mohamed Abdullah Ibrahim"
-                        class="profile-photo"
-                    >
+</div>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-        </div>
 
-    </div>
+<div class="stats reveal">
 
+<div class="stat">
+<div class="stat-number">02</div>
+<div class="stat-label">Academic Year</div>
+</div>
+
+<div class="stat">
+<div class="stat-number">03</div>
+<div class="stat-label">Programming Languages</div>
+</div>
+
+<div class="stat">
+<div class="stat-number">15+</div>
+<div class="stat-label">Technical Skills</div>
+</div>
+
+<div class="stat">
+<div class="stat-number">02</div>
+<div class="stat-label">Published Writing Projects</div>
+</div>
+
+</div>
+
+</div>
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================== -->
+<!-- ABOUT -->
 
-<section class="section" id="about">
+<section id="about">
+<div class="container">
 
-    <div class="container">
-
-        <div class="section-title">
-            <span>About Me</span>
-            <h2>Who I Am</h2>
-            <p>
-                A student building a professional path around data,
-                technology and business information systems.
-            </p>
-        </div>
+<div class="section-head reveal">
+<div class="eyebrow">01 — About</div>
+<h2>More than a student.</h2>
+<p>
+A combination of business knowledge, technology and analytical thinking.
+</p>
+</div>
 
 
-        <div class="about-grid">
+<div class="about-grid">
 
-            <div class="info-card">
+<div class="card reveal">
+<h3>Professional Profile</h3>
+<p>
+I am Mohamed Abdullah Ibrahim, a second-year Accounting & Information
+Systems student developing a professional path in Data Analysis.
+My interests combine data, technology and business decision-making.
+</p>
+</div>
 
-                <h3>Professional Profile</h3>
+<div class="card reveal">
+<h3>My Direction</h3>
+<p>
+My main focus is becoming a strong Data Analyst by developing skills
+in Python, SQL, Excel, Power BI, statistics, visualization and
+Business Intelligence while building real-world projects.
+</p>
+</div>
 
-                <p>
-                    I am Mohamed Abdullah Ibrahim, a second-year
-                    Accounting & Information Systems student with
-                    a growing focus on Data Analysis and Business Intelligence.
-                </p>
+</div>
 
-                <p style="margin-top:15px;">
-                    I am interested in transforming raw data into useful
-                    insights that support better business decisions.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <h3>Quick Information</h3>
-
-                <ul class="info-list">
-
-                    <li>
-                        <strong>Name:</strong>
-                        Mohamed Abdullah Ibrahim
-                    </li>
-
-                    <li>
-                        <strong>Role:</strong>
-                        Data Analyst
-                    </li>
-
-                    <li>
-                        <strong>Education:</strong>
-                        Accounting & Information Systems
-                    </li>
-
-                    <li>
-                        <strong>Academic Level:</strong>
-                        2nd Year
-                    </li>
-
-                    <li>
-                        <strong>Location:</strong>
-                        Egypt
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
 </section>
 
 
-<!-- =========================
-     SKILLS
-========================== -->
+<!-- SKILLS -->
 
-<section class="section" id="skills">
+<section id="skills">
+<div class="container">
 
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>My Skills</span>
-
-            <h2>Technical Expertise</h2>
-
-            <p>
-                A combination of data analysis, programming and
-                business information systems skills.
-            </p>
-
-        </div>
+<div class="section-head reveal">
+<div class="eyebrow">02 — Skills</div>
+<h2>My toolkit.</h2>
+<p>
+Technologies and professional skills supporting my Data Analytics journey.
+</p>
+</div>
 
 
-        <div class="skills-grid">
+<div class="skills">
+
+<div class="skill reveal">
+<div class="skill-icon">DA</div>
+<h3>Data Analysis</h3>
+<div class="tags">
+<span class="tag">Data Analysis</span>
+<span class="tag">Data Cleaning</span>
+<span class="tag">Data Processing</span>
+<span class="tag">EDA</span>
+<span class="tag">Statistical Analysis</span>
+<span class="tag">Data Visualization</span>
+<span class="tag">Data Reporting</span>
+</div>
+</div>
 
 
-            <div class="skill-card">
-
-                <h3>Data Analysis</h3>
-
-                <div class="tags">
-
-                    <span class="tag">Data Analysis</span>
-                    <span class="tag">Data Cleaning</span>
-                    <span class="tag">Data Processing</span>
-                    <span class="tag">EDA</span>
-                    <span class="tag">Statistical Analysis</span>
-                    <span class="tag">Data Visualization</span>
-                    <span class="tag">Data Reporting</span>
-
-                </div>
-
-            </div>
+<div class="skill reveal">
+<div class="skill-icon">PY</div>
+<h3>Data Tools</h3>
+<div class="tags">
+<span class="tag">Pandas</span>
+<span class="tag">NumPy</span>
+<span class="tag">Matplotlib</span>
+<span class="tag">Seaborn</span>
+<span class="tag">SQL</span>
+<span class="tag">Excel</span>
+<span class="tag">Power BI</span>
+</div>
+</div>
 
 
-            <div class="skill-card">
-
-                <h3>Data Tools</h3>
-
-                <div class="tags">
-
-                    <span class="tag">Pandas</span>
-                    <span class="tag">NumPy</span>
-                    <span class="tag">Matplotlib</span>
-                    <span class="tag">Seaborn</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">Excel</span>
-                    <span class="tag">Power BI</span>
-
-                </div>
-
-            </div>
+<div class="skill reveal">
+<div class="skill-icon">DEV</div>
+<h3>Programming</h3>
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Java</span>
+<span class="tag">C++</span>
+<span class="tag">OOP</span>
+<span class="tag">Problem Solving</span>
+<span class="tag">Programming</span>
+</div>
+</div>
 
 
-            <div class="skill-card">
-
-                <h3>Programming</h3>
-
-                <div class="tags">
-
-                    <span class="tag">Python</span>
-                    <span class="tag">Java</span>
-                    <span class="tag">C++</span>
-                    <span class="tag">OOP</span>
-                    <span class="tag">Programming</span>
-                    <span class="tag">Problem Solving</span>
-
-                </div>
-
-            </div>
+<div class="skill reveal">
+<div class="skill-icon">DB</div>
+<h3>Computer Science</h3>
+<div class="tags">
+<span class="tag">Algorithms</span>
+<span class="tag">Data Structures</span>
+<span class="tag">Database Management</span>
+<span class="tag">Logical Thinking</span>
+</div>
+</div>
 
 
-            <div class="skill-card">
-
-                <h3>Computer Science</h3>
-
-                <div class="tags">
-
-                    <span class="tag">Algorithms</span>
-                    <span class="tag">Data Structures</span>
-                    <span class="tag">Database Management</span>
-                    <span class="tag">Logical Thinking</span>
-
-                </div>
-
-            </div>
+<div class="skill reveal">
+<div class="skill-icon">BI</div>
+<h3>Business & Information Systems</h3>
+<div class="tags">
+<span class="tag">Business Analysis</span>
+<span class="tag">Information Systems</span>
+<span class="tag">Accounting Information Systems</span>
+<span class="tag">Business Intelligence</span>
+</div>
+</div>
 
 
-            <div class="skill-card">
+<div class="skill reveal">
+<div class="skill-icon">PRO</div>
+<h3>Professional Skills</h3>
+<div class="tags">
+<span class="tag">Analytical Thinking</span>
+<span class="tag">Critical Thinking</span>
+<span class="tag">Research</span>
+<span class="tag">Communication</span>
+<span class="tag">Continuous Learning</span>
+</div>
+</div>
 
-                <h3>Business & Information Systems</h3>
-
-                <div class="tags">
-
-                    <span class="tag">Business Analysis</span>
-                    <span class="tag">Information Systems</span>
-                    <span class="tag">Accounting Information Systems</span>
-                    <span class="tag">Business Intelligence</span>
-
-                </div>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <h3>Professional Skills</h3>
-
-                <div class="tags">
-
-                    <span class="tag">Analytical Thinking</span>
-                    <span class="tag">Critical Thinking</span>
-                    <span class="tag">Communication</span>
-                    <span class="tag">Research</span>
-                    <span class="tag">Continuous Learning</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
 
 
-<!-- =========================
-     PROJECTS
-========================== -->
+<!-- PROJECTS -->
 
-<section class="section" id="projects">
+<section id="projects">
+<div class="container">
 
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>Portfolio</span>
-
-            <h2>Data Analysis Projects</h2>
-
-            <p>
-                A growing collection of data analysis and
-                business intelligence projects.
-            </p>
-
-        </div>
+<div class="section-head reveal">
+<div class="eyebrow">03 — Projects</div>
+<h2>Turning data into insight.</h2>
+<p>
+A project portfolio designed to grow with my professional experience.
+</p>
+</div>
 
 
-        <div class="projects-grid">
+<div class="projects">
+
+<div class="project reveal">
+<div class="project-number">PROJECT 01</div>
+<h3>Sales Data Analysis</h3>
+<p>
+Analyze sales performance, identify trends and discover
+business opportunities through structured data analysis.
+</p>
+<div class="project-footer">
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Pandas</span>
+<span class="tag">Visualization</span>
+</div>
+<div class="data-panel"><span></span></div>
+</div>
+</div>
 
 
-            <div class="project-card">
-
-                <div class="project-number">
-                    PROJECT 01
-                </div>
-
-                <h3>Sales Data Analysis</h3>
-
-                <p>
-                    Analyzing sales data to identify trends,
-                    performance indicators and business insights.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Pandas</span>
-                    <span class="tag">Data Visualization</span>
-                </div>
-
-            </div>
+<div class="project reveal">
+<div class="project-number">PROJECT 02</div>
+<h3>Customer Data Analysis</h3>
+<p>
+Explore customer behavior and patterns to generate
+useful insights for business decision-making.
+</p>
+<div class="project-footer">
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">SQL</span>
+<span class="tag">EDA</span>
+</div>
+<div class="data-panel"><span></span></div>
+</div>
+</div>
 
 
-            <div class="project-card">
-
-                <div class="project-number">
-                    PROJECT 02
-                </div>
-
-                <h3>Customer Data Analysis</h3>
-
-                <p>
-                    Exploring customer data to discover patterns,
-                    behaviors and useful business insights.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">EDA</span>
-                </div>
-
-            </div>
+<div class="project reveal">
+<div class="project-number">PROJECT 03</div>
+<h3>Business Intelligence Dashboard</h3>
+<p>
+Create clear and interactive dashboards that transform
+raw business data into understandable visual reports.
+</p>
+<div class="project-footer">
+<div class="tags">
+<span class="tag">Power BI</span>
+<span class="tag">Excel</span>
+<span class="tag">BI</span>
+</div>
+<div class="data-panel"><span></span></div>
+</div>
+</div>
 
 
-            <div class="project-card">
+<div class="project reveal">
+<div class="project-number">PROJECT 04</div>
+<h3>Financial Data Analysis</h3>
+<p>
+Analyze financial datasets and identify trends,
+patterns and key performance indicators.
+</p>
+<div class="project-footer">
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Excel</span>
+<span class="tag">Statistics</span>
+</div>
+<div class="data-panel"><span></span></div>
+</div>
+</div>
 
-                <div class="project-number">
-                    PROJECT 03
-                </div>
-
-                <h3>Business Dashboard</h3>
-
-                <p>
-                    Designing an interactive dashboard to transform
-                    business data into understandable visual insights.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">Power BI</span>
-                    <span class="tag">Excel</span>
-                    <span class="tag">Business Intelligence</span>
-                </div>
-
-            </div>
-
-
-            <div class="project-card">
-
-                <div class="project-number">
-                    PROJECT 04
-                </div>
-
-                <h3>Financial Data Analysis</h3>
-
-                <p>
-                    Analyzing financial datasets to identify patterns,
-                    trends and key performance indicators.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Excel</span>
-                    <span class="tag">Statistics</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
 
 
-<!-- =========================
-     EDUCATION
-========================== -->
+<!-- EDUCATION -->
 
-<section class="section" id="education">
+<section id="education">
+<div class="container">
 
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>Education</span>
-
-            <h2>Academic Journey</h2>
-
-        </div>
+<div class="section-head reveal">
+<div class="eyebrow">04 — Education</div>
+<h2>Academic journey.</h2>
+</div>
 
 
-        <div class="timeline">
+<div class="timeline">
 
-            <div class="timeline-item">
-
-                <span>2025 — Present</span>
-
-                <h3>
-                    Accounting & Information Systems
-                </h3>
-
-                <p>
-                    Studying Accounting and Information Systems,
-                    with an increasing focus on Data Analysis,
-                    Business Intelligence and technology.
-                </p>
-
-            </div>
+<div class="timeline-item reveal">
+<div class="timeline-date">CURRENT</div>
+<h3>Accounting & Information Systems — 2nd Year</h3>
+<p>
+Developing knowledge across accounting, business information systems
+and technology while building a specialized path toward Data Analysis.
+</p>
+</div>
 
 
-            <div class="timeline-item">
+<div class="timeline-item reveal">
+<div class="timeline-date">FOCUS</div>
+<h3>Data Analytics</h3>
+<p>
+Building practical knowledge in Python, SQL, Excel, Power BI,
+statistics and data visualization.
+</p>
+</div>
 
-                <span>Current Focus</span>
-
-                <h3>
-                    Data Analytics
-                </h3>
-
-                <p>
-                    Developing practical skills in Python, SQL,
-                    Excel, Power BI, statistics and data visualization.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
 
 
-<!-- =========================
-     COURSES
-========================== -->
+<!-- COURSES -->
 
-<section class="section">
+<section>
+<div class="container">
 
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>Learning</span>
-
-            <h2>Courses & Certifications</h2>
-
-            <p>
-                This section is ready for future certificates,
-                courses and professional achievements.
-            </p>
-
-        </div>
+<div class="section-head reveal">
+<div class="eyebrow">05 — Growth</div>
+<h2>Learning never stops.</h2>
+<p>
+A dedicated area for future courses, certifications and achievements.
+</p>
+</div>
 
 
-        <div class="simple-grid">
+<div class="skills">
 
-            <div class="simple-card">
-                <div class="icon">📊</div>
-                <h3>Data Analysis</h3>
-                <p>Certificates will be added soon.</p>
-            </div>
+<div class="card reveal">
+<h3>Certifications</h3>
+<p>Certificates will be added here as they are earned.</p>
+</div>
 
-            <div class="simple-card">
-                <div class="icon">🐍</div>
-                <h3>Python</h3>
-                <p>Courses and certifications will be added soon.</p>
-            </div>
+<div class="card reveal">
+<h3>Courses</h3>
+<p>Professional courses and learning paths will be added here.</p>
+</div>
 
-            <div class="simple-card">
-                <div class="icon">📈</div>
-                <h3>Power BI</h3>
-                <p>Certificates will be added soon.</p>
-            </div>
+<div class="card reveal">
+<h3>Achievements</h3>
+<p>Future academic and professional achievements will appear here.</p>
+</div>
 
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
 
 
-<!-- =========================
-     ACHIEVEMENTS
-========================== -->
+<!-- BOOKS -->
 
-<section class="section">
+<section id="books">
+<div class="container">
 
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>Achievements</span>
-
-            <h2>Achievements & Milestones</h2>
-
-        </div>
+<div class="section-head reveal">
+<div class="eyebrow">06 — Writing</div>
+<h2>Writing & Books.</h2>
+<p>
+A different side of my work — ideas, words and stories.
+</p>
+</div>
 
 
-        <div class="simple-grid">
+<div class="books">
 
-            <div class="simple-card">
-                <div class="icon">🎯</div>
-                <h3>Data Analytics Journey</h3>
-                <p>Building a professional path in Data Analysis.</p>
-            </div>
+<div class="book reveal">
+<small>BOOK 01</small>
+<h3>على حافة الروح</h3>
+<p>
+More information and the book cover will be added later.
+</p>
+</div>
 
-            <div class="simple-card">
-                <div class="icon">💻</div>
-                <h3>Programming</h3>
-                <p>Developing skills in Python, Java and C++.</p>
-            </div>
 
-            <div class="simple-card">
-                <div class="icon">📚</div>
-                <h3>Writing</h3>
-                <p>Author of original literary works.</p>
-            </div>
+<div class="book reveal">
+<small>BOOK 02</small>
+<h3>حين يتغير الإنسان</h3>
+<p>
+More information and the book cover will be added later.
+</p>
+</div>
 
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
 
 
-<!-- =========================
-     LANGUAGES / INTERESTS
-========================== -->
+<!-- INTERESTS -->
 
-<section class="section">
+<section>
+<div class="container">
 
-    <div class="container">
+<div class="about-grid">
 
-        <div class="two-column">
+<div class="card reveal">
+<h3>Interests</h3>
+<div class="tags">
+<span class="tag">Data Analysis</span>
+<span class="tag">Technology</span>
+<span class="tag">Programming</span>
+<span class="tag">Business</span>
+<span class="tag">Writing</span>
+<span class="tag">Books</span>
+</div>
+</div>
 
+<div class="card reveal">
+<h3>Future Goals</h3>
+<p>
+Building strong expertise in Data Analytics, creating real-world
+projects and continuously expanding my technical and business knowledge.
+</p>
+</div>
 
-            <div class="large-card">
-
-                <h3>Languages</h3>
-
-                <div class="tags">
-
-                    <span class="tag">Arabic — Native</span>
-                    <span class="tag">English — Learning</span>
-
-                </div>
-
-            </div>
-
-
-            <div class="large-card">
-
-                <h3>Interests</h3>
-
-                <div class="tags">
-
-                    <span class="tag">Data Analysis</span>
-                    <span class="tag">Technology</span>
-                    <span class="tag">Programming</span>
-                    <span class="tag">Business</span>
-                    <span class="tag">Writing</span>
-                    <span class="tag">Books</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
 
 
-<!-- =========================
-     BOOKS
-========================== -->
+<!-- CONTACT -->
 
-<section class="section" id="books">
+<section id="contact">
+<div class="container">
 
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>Writing & Books</span>
-
-            <h2>My Books</h2>
-
-            <p>
-                Literary works by Mohamed Abdullah Ibrahim.
-            </p>
-
-        </div>
+<div class="section-head reveal">
+<div class="eyebrow">07 — Contact</div>
+<h2>Let's connect.</h2>
+<p>
+Find me across the platforms below.
+</p>
+</div>
 
 
-        <div class="books-grid">
+<div class="contact-box reveal">
 
+<div class="contact-grid">
 
-            <div class="book-card">
+<a class="contact" href="mailto:cconker63@gmail.com">
+<div class="contact-label">EMAIL</div>
+<p>cconker63@gmail.com</p>
+</a>
 
-                <small>BOOK 01</small>
+<a class="contact" href="https://wa.me/201027595528" target="_blank">
+<div class="contact-label">WHATSAPP</div>
+<p>01027595528</p>
+</a>
 
-                <h3>على حافة الروح</h3>
+<a class="contact" href="https://t.me/C_O_N_2" target="_blank">
+<div class="contact-label">TELEGRAM</div>
+<p>@C_O_N_2</p>
+</a>
 
-                <p>
-                    A literary work.
-                    More details, cover and reading options
-                    will be added later.
-                </p>
+<a class="contact" href="https://www.linkedin.com/in/mohammed-con" target="_blank">
+<div class="contact-label">LINKEDIN</div>
+<p>Mohamed Abdullah</p>
+</a>
 
-            </div>
+<a class="contact" href="https://www.facebook.com/share/1DsBQE5YmH/" target="_blank">
+<div class="contact-label">FACEBOOK</div>
+<p>Facebook Profile</p>
+</a>
 
+<a class="contact" href="https://instagram.com/mhbdllh4861" target="_blank">
+<div class="contact-label">INSTAGRAM</div>
+<p>@mhbdllh4861</p>
+</a>
 
-            <div class="book-card">
+<a class="contact" href="https://github.com/" target="_blank">
+<div class="contact-label">GITHUB</div>
+<p>Coming Soon</p>
+</a>
 
-                <small>BOOK 02</small>
+</div>
+</div>
 
-                <h3>حين يتغير الإنسان</h3>
-
-                <p>
-                    A literary work.
-                    More details, cover and reading options
-                    will be added later.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
 </section>
 
-
-<!-- =========================
-     FUTURE GOALS
-========================== -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>Future</span>
-
-            <h2>Future Goals</h2>
-
-        </div>
-
-
-        <div class="goal-box">
-
-            <h3>
-                Building a Strong Career in Data Analytics
-            </h3>
-
-            <p>
-                Continuously developing technical, analytical and
-                business skills while building real-world projects
-                and expanding professional experience.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CONTACT
-========================== -->
-
-<section class="section" id="contact">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>Contact</span>
-
-            <h2>Let's Connect</h2>
-
-            <p>
-                Feel free to reach out through any of the platforms below.
-            </p>
-
-        </div>
-
-
-        <div class="contact-grid">
-
-
-            <a class="contact-card"
-               href="mailto:cconker63@gmail.com">
-
-                <small>EMAIL</small>
-
-                <p>
-                    cconker63@gmail.com
-                </p>
-
-            </a>
-
-
-            <a class="contact-card"
-               href="https://wa.me/201027595528"
-               target="_blank">
-
-                <small>WHATSAPP</small>
-
-                <p>
-                    01027595528
-                </p>
-
-            </a>
-
-
-            <a class="contact-card"
-               href="https://t.me/C_O_N_2"
-               target="_blank">
-
-                <small>TELEGRAM</small>
-
-                <p>
-                    @C_O_N_2
-                </p>
-
-            </a>
-
-
-            <a class="contact-card"
-               href="https://www.linkedin.com/in/mohammed-con"
-               target="_blank">
-
-                <small>LINKEDIN</small>
-
-                <p>
-                    Mohammed Abdullah
-                </p>
-
-            </a>
-
-
-            <a class="contact-card"
-               href="https://www.facebook.com/share/1DsBQE5YmH/"
-               target="_blank">
-
-                <small>FACEBOOK</small>
-
-                <p>
-                    Facebook Profile
-                </p>
-
-            </a>
-
-
-            <a class="contact-card"
-               href="https://instagram.com/mhbdllh4861"
-               target="_blank">
-
-                <small>INSTAGRAM</small>
-
-                <p>
-                    @mhbdllh4861
-                </p>
-
-            </a>
-
-
-            <a class="contact-card"
-               href="https://github.com/"
-               target="_blank">
-
-                <small>GITHUB</small>
-
-                <p>
-                    Coming Soon
-                </p>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================== -->
 
 <footer>
-
-    <div class="container">
-
-        <p>
-            © <span id="year"></span>
-            Mohamed Abdullah Ibrahim.
-            All Rights Reserved.
-        </p>
-
-    </div>
-
+<div class="container">
+© <span id="year"></span> Mohamed Abdullah Ibrahim — Data Analyst
+</div>
 </footer>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================== -->
-
 <script>
 
-    // Mobile Navigation
+/* NAVBAR */
 
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
+const navbar = document.getElementById("navbar");
 
-    menuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+window.addEventListener("scroll",()=>{
+    navbar.classList.toggle("scrolled",window.scrollY > 30);
+});
+
+
+/* MOBILE MENU */
+
+const menu = document.getElementById("menu");
+const navLinks = document.getElementById("navLinks");
+
+menu.addEventListener("click",()=>{
+    navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        navLinks.classList.remove("active");
     });
+});
 
 
-    // Close menu after clicking a link
+/* REVEAL ANIMATION */
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
-
-        link.addEventListener("click", () => {
-            navLinks.classList.remove("active");
-        });
-
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
     });
+},{
+    threshold:.12
+});
+
+document.querySelectorAll(".reveal").forEach(el=>{
+    observer.observe(el);
+});
 
 
-    // Automatic year
+/* YEAR */
 
-    document.getElementById("year").textContent =
-        new Date().getFullYear();
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
 </script>
 
 </body>
-                  </html>
+    </html>
