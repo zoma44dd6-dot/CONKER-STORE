@@ -2,27 +2,21 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="محمد عبدالله إبراهيم - Android Developer, Programmer, Cybersecurity Enthusiast & Writer">
+        content="محمد عبدالله إبراهيم | Android Developer | Programmer | Cybersecurity Enthusiast | Writer">
 
     <meta name="theme-color" content="#07090f">
 
     <title>محمد عبدالله إبراهيم | Portfolio</title>
 
-
-    <!-- Google Fonts -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+        rel="stylesheet">
 
 
 <style>
@@ -32,40 +26,27 @@
 ========================================================= */
 
 :root {
-
     --bg: #07090f;
-
     --bg-soft: #0b0f18;
-
     --card: #0d121d;
-
     --card-light: #111827;
 
-    --text: #f4f7ff;
-
+    --text: #f5f7ff;
     --muted: #8d98ad;
-
     --muted-2: #687389;
 
     --line: rgba(255,255,255,.08);
 
-    --line-hover: rgba(123,92,255,.45);
-
     --primary: #7657ff;
-
     --primary-light: #9a86ff;
 
     --cyan: #00d4ff;
-
     --green: #45e69b;
-
-    --danger: #ff6584;
 
     --radius: 22px;
 
     --shadow:
-        0 20px 70px rgba(0,0,0,.35);
-
+        0 25px 80px rgba(0,0,0,.38);
 }
 
 
@@ -74,27 +55,17 @@
 ========================================================= */
 
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
 }
-
 
 html {
-
     scroll-behavior: smooth;
-
 }
 
-
 body {
-
     background: var(--bg);
-
     color: var(--text);
 
     font-family: "Cairo", sans-serif;
@@ -102,32 +73,20 @@ body {
     line-height: 1.8;
 
     overflow-x: hidden;
-
 }
 
-
-body::selection {
-
+::selection {
     background: var(--primary);
-
     color: white;
-
 }
-
 
 a {
-
     color: inherit;
-
     text-decoration: none;
-
 }
 
-
 button {
-
     font-family: inherit;
-
 }
 
 
@@ -136,7 +95,6 @@ button {
 ========================================================= */
 
 body::before {
-
     content: "";
 
     position: fixed;
@@ -148,24 +106,24 @@ body::before {
     z-index: -5;
 
     background:
-
         radial-gradient(
-            circle at 15% 10%,
-            rgba(118,87,255,.10),
-            transparent 28%
+            circle at 10% 10%,
+            rgba(118,87,255,.11),
+            transparent 27%
         ),
-
         radial-gradient(
-            circle at 90% 45%,
-            rgba(0,212,255,.06),
-            transparent 25%
+            circle at 90% 40%,
+            rgba(0,212,255,.065),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(118,87,255,.055),
+            transparent 30%
         );
-
 }
 
-
 .grid-bg {
-
     position: fixed;
 
     inset: 0;
@@ -174,18 +132,16 @@ body::before {
 
     z-index: -4;
 
-    opacity: .35;
+    opacity: .30;
 
     background-image:
-
         linear-gradient(
-            rgba(255,255,255,.025) 1px,
+            rgba(255,255,255,.024) 1px,
             transparent 1px
         ),
-
         linear-gradient(
             90deg,
-            rgba(255,255,255,.025) 1px,
+            rgba(255,255,255,.024) 1px,
             transparent 1px
         );
 
@@ -197,7 +153,6 @@ body::before {
             black,
             transparent 90%
         );
-
 }
 
 
@@ -206,22 +161,12 @@ body::before {
 ========================================================= */
 
 .container {
-
-    width:
-        min(
-            1160px,
-            calc(100% - 40px)
-        );
-
+    width: min(1160px, calc(100% - 40px));
     margin: auto;
-
 }
 
-
 .section {
-
     padding: 110px 0;
-
 }
 
 
@@ -230,19 +175,16 @@ body::before {
 ========================================================= */
 
 .header {
-
     position: fixed;
 
     top: 0;
-
     right: 0;
-
     left: 0;
 
     z-index: 100;
 
     background:
-        rgba(7,9,15,.72);
+        rgba(7,9,15,.68);
 
     backdrop-filter:
         blur(18px);
@@ -251,23 +193,17 @@ body::before {
         1px solid transparent;
 
     transition: .3s;
-
 }
 
-
 .header.scrolled {
-
     background:
         rgba(7,9,15,.94);
 
     border-color:
         var(--line);
-
 }
 
-
 .nav {
-
     height: 78px;
 
     display: flex;
@@ -275,12 +211,9 @@ body::before {
     align-items: center;
 
     justify-content: space-between;
-
 }
 
-
 .logo {
-
     display: flex;
 
     align-items: center;
@@ -292,21 +225,14 @@ body::before {
         monospace;
 
     font-weight: 700;
-
 }
 
-
 .logo-icon {
-
     width: 40px;
-
     height: 40px;
 
     display: grid;
-
     place-items: center;
-
-    border-radius: 12px;
 
     border:
         1px solid
@@ -315,53 +241,39 @@ body::before {
     background:
         rgba(118,87,255,.08);
 
+    border-radius: 12px;
+
     color:
         var(--primary-light);
 
     font-size: 12px;
-
 }
-
 
 .logo span span {
-
-    color:
-        var(--cyan);
-
+    color: var(--cyan);
 }
 
-
 .nav-links {
-
     display: flex;
 
     align-items: center;
 
-    gap: 27px;
-
+    gap: 24px;
 }
-
 
 .nav-links a {
-
     color: #aab3c7;
 
-    font-size: 13px;
+    font-size: 12px;
 
     transition: .25s;
-
 }
-
 
 .nav-links a:hover {
-
     color: white;
-
 }
 
-
 .menu {
-
     display: none;
 
     border: 0;
@@ -369,22 +281,17 @@ body::before {
     background: none;
 
     cursor: pointer;
-
 }
 
-
 .menu span {
-
     display: block;
 
     width: 25px;
-
     height: 2px;
 
     background: white;
 
     margin: 5px 0;
-
 }
 
 
@@ -393,7 +300,6 @@ body::before {
 ========================================================= */
 
 .hero {
-
     min-height: 100vh;
 
     display: flex;
@@ -402,47 +308,105 @@ body::before {
 
     padding-top: 130px;
 
+    position: relative;
+
+    isolation: isolate;
 }
 
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    left: -280px;
+    top: 20%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(118,87,255,.10),
+            transparent 68%
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
+}
 
 .hero-grid {
-
     display: grid;
 
     grid-template-columns:
-        1.15fr
-        .85fr;
+        1.15fr .85fr;
 
     gap: 80px;
 
     align-items: center;
-
 }
 
+.status-line {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 20px;
+
+    color: #aeb8cb;
+
+    font-size: 11px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        var(--green);
+
+    box-shadow:
+        0 0 12px
+        rgba(69,230,155,.7);
+}
 
 .hero-small {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 12px;
+
+    border:
+        1px solid
+        rgba(0,212,255,.16);
+
+    border-radius: 9px;
+
+    background:
+        rgba(0,212,255,.035);
 
     color: var(--cyan);
 
     font:
-        700 11px
+        700 10px
         "JetBrains Mono";
 
     letter-spacing: 2px;
 
-    margin-bottom: 12px;
-
+    margin-bottom: 13px;
 }
 
-
 .hero h1 {
-
     font-size:
-        clamp(
-            50px,
-            7vw,
-            88px
-        );
+        clamp(50px, 7vw, 88px);
 
     line-height: 1.05;
 
@@ -450,11 +414,12 @@ body::before {
 
     font-weight: 900;
 
+    text-shadow:
+        0 15px 60px
+        rgba(118,87,255,.12);
 }
 
-
-.hero h1 .gradient {
-
+.gradient {
     background:
         linear-gradient(
             90deg,
@@ -468,12 +433,9 @@ body::before {
     background-clip: text;
 
     color: transparent;
-
 }
 
-
 .hero-role {
-
     margin-top: 18px;
 
     font:
@@ -481,32 +443,22 @@ body::before {
         "JetBrains Mono";
 
     color: #dce3f4;
-
 }
 
-
-.hero-role .cursor {
-
+.cursor {
     color: var(--cyan);
 
-    animation: blink .8s infinite;
-
+    animation:
+        blink .8s infinite;
 }
-
 
 @keyframes blink {
-
     50% {
-
         opacity: 0;
-
     }
-
 }
 
-
 .hero-description {
-
     max-width: 650px;
 
     color: var(--muted);
@@ -516,22 +468,22 @@ body::before {
     margin:
         20px 0 30px;
 
+    border-right:
+        2px solid
+        rgba(118,87,255,.35);
+
+    padding-right: 16px;
 }
 
-
 .hero-buttons {
-
     display: flex;
 
     flex-wrap: wrap;
 
     gap: 11px;
-
 }
 
-
 .btn {
-
     display: inline-flex;
 
     align-items: center;
@@ -550,12 +502,9 @@ body::before {
     font-weight: 700;
 
     transition: .25s;
-
 }
 
-
 .btn-primary {
-
     background:
         linear-gradient(
             135deg,
@@ -566,100 +515,117 @@ body::before {
     box-shadow:
         0 12px 35px
         rgba(118,87,255,.2);
-
 }
 
-
 .btn-primary:hover {
-
     transform:
         translateY(-3px);
 
     box-shadow:
         0 18px 45px
         rgba(118,87,255,.3);
-
 }
 
-
 .btn-outline {
-
     border:
         1px solid var(--line);
 
     background:
         rgba(255,255,255,.025);
-
 }
 
-
 .btn-outline:hover {
-
     border-color:
-        var(--line-hover);
+        rgba(118,87,255,.45);
 
     background:
         rgba(255,255,255,.05);
-
 }
 
+
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
 
 .socials {
-
     display: flex;
 
-    gap: 8px;
+    gap: 10px;
 
-    margin-top: 24px;
-
+    margin-top: 25px;
 }
 
-
 .socials a {
-
-    width: 38px;
-
-    height: 38px;
+    width: 43px;
+    height: 43px;
 
     display: grid;
 
     place-items: center;
 
     border:
-        1px solid var(--line);
+        1px solid
+        rgba(255,255,255,.08);
 
-    border-radius: 10px;
+    border-radius: 13px;
 
-    color: #a4aec3;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.015)
+        );
 
-    font:
-        600 11px
-        "JetBrains Mono";
+    color: #9ca8bc;
 
-    transition: .25s;
+    transition:
+        transform .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        background .25s ease;
 
+    box-shadow:
+        inset
+        0 1px 0
+        rgba(255,255,255,.04);
 }
 
+.socials svg {
+    width: 18px;
+    height: 18px;
+
+    fill: currentColor;
+}
 
 .socials a:hover {
+    transform:
+        translateY(-4px);
 
-    color: white;
+    color: #fff;
 
     border-color:
-        rgba(0,212,255,.35);
+        rgba(118,87,255,.55);
 
-    transform:
-        translateY(-3px);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(118,87,255,.18),
+            rgba(0,212,255,.06)
+        );
 
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.25),
+        0 0 20px
+        rgba(118,87,255,.12);
 }
 
 
 /* =========================================================
-   HERO CODE CARD
+   CODE CARD
 ========================================================= */
 
 .code-card {
-
     background:
         linear-gradient(
             145deg,
@@ -676,12 +642,9 @@ body::before {
         var(--shadow);
 
     overflow: hidden;
-
 }
 
-
 .window-bar {
-
     height: 48px;
 
     border-bottom:
@@ -695,25 +658,18 @@ body::before {
         0 17px;
 
     gap: 7px;
-
 }
 
-
 .window-dot {
-
     width: 9px;
-
     height: 9px;
 
     border-radius: 50%;
 
     background: #4b5569;
-
 }
 
-
 .window-title {
-
     margin-right: auto;
 
     color: #68758e;
@@ -721,14 +677,10 @@ body::before {
     font:
         10px
         "JetBrains Mono";
-
 }
 
-
 .code {
-
-    padding:
-        28px;
+    padding: 28px;
 
     direction: ltr;
 
@@ -740,73 +692,22 @@ body::before {
         monospace;
 
     color: #cdd6e8;
-
 }
-
 
 .key {
-
     color: #c38aff;
-
 }
-
 
 .string {
-
     color: #6ee7a1;
-
 }
-
 
 .number {
-
     color: #ffc86b;
-
 }
-
 
 .comment {
-
     color: #56627a;
-
-}
-
-
-/* =========================================================
-   STATUS
-========================================================= */
-
-.status-line {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    margin-bottom: 20px;
-
-    color: #aeb8cb;
-
-    font-size: 11px;
-
-}
-
-
-.status-dot {
-
-    width: 7px;
-
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: var(--green);
-
-    box-shadow:
-        0 0 12px
-        rgba(69,230,155,.7);
-
 }
 
 
@@ -815,7 +716,6 @@ body::before {
 ========================================================= */
 
 .section-title {
-
     margin-bottom: 55px;
 
     display: flex;
@@ -823,12 +723,9 @@ body::before {
     gap: 18px;
 
     align-items: flex-start;
-
 }
 
-
 .section-number {
-
     color: var(--cyan);
 
     font:
@@ -845,12 +742,9 @@ body::before {
     border-radius: 7px;
 
     margin-top: 8px;
-
 }
 
-
 .section-title small {
-
     display: block;
 
     color: var(--cyan);
@@ -860,23 +754,15 @@ body::before {
         "JetBrains Mono";
 
     letter-spacing: 2px;
-
 }
 
-
 .section-title h2 {
-
     font-size:
-        clamp(
-            32px,
-            4vw,
-            48px
-        );
+        clamp(32px, 4vw, 48px);
 
     line-height: 1.2;
 
     margin-top: 5px;
-
 }
 
 
@@ -885,54 +771,40 @@ body::before {
 ========================================================= */
 
 .about-grid {
-
     display: grid;
 
     grid-template-columns:
-        1.2fr
-        .8fr;
+        1.2fr .8fr;
 
     gap: 70px;
-
 }
 
-
 .about-content p {
-
     color: var(--muted);
 
     font-size: 15px;
 
     margin-bottom: 18px;
-
 }
 
-
 .about-content .lead {
-
     color: #e8edf8;
 
     font-size: 20px;
 
     font-weight: 600;
-
 }
 
-
 .facts {
-
     display: grid;
 
     grid-template-columns:
         1fr 1fr;
 
     gap: 12px;
-
 }
 
-
 .fact {
-
     padding: 25px;
 
     background:
@@ -943,26 +815,29 @@ body::before {
 
     border-radius: 18px;
 
+    transition: .3s;
 }
 
+.fact:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(118,87,255,.35);
+}
 
 .fact strong {
-
     display: block;
 
     font:
         800 32px
         "JetBrains Mono";
-
 }
 
-
 .fact span {
-
     color: var(--muted);
 
     font-size: 11px;
-
 }
 
 
@@ -971,19 +846,15 @@ body::before {
 ========================================================= */
 
 .skills-grid {
-
     display: grid;
 
     grid-template-columns:
         1fr 1fr;
 
     gap: 17px;
-
 }
 
-
 .skill-card {
-
     padding: 30px;
 
     border:
@@ -999,26 +870,20 @@ body::before {
         );
 
     transition: .3s;
-
 }
 
-
 .skill-card:hover {
-
     transform:
         translateY(-5px);
 
     border-color:
-        var(--line-hover);
+        rgba(118,87,255,.45);
 
     box-shadow:
         var(--shadow);
-
 }
 
-
 .skill-number {
-
     color: var(--cyan);
 
     font:
@@ -1026,43 +891,31 @@ body::before {
         "JetBrains Mono";
 
     margin-bottom: 20px;
-
 }
 
-
 .skill-card h3 {
-
     font-size: 20px;
 
     margin-bottom: 7px;
-
 }
 
-
 .skill-card p {
-
     color: var(--muted);
 
     font-size: 12px;
 
     margin-bottom: 20px;
-
 }
 
-
 .tags {
-
     display: flex;
 
     flex-wrap: wrap;
 
     gap: 7px;
-
 }
 
-
 .tags span {
-
     color: #aeb8cc;
 
     background:
@@ -1078,6 +931,264 @@ body::before {
 
     font-size: 10px;
 
+    transition: .2s;
+}
+
+.tags span:hover {
+    border-color:
+        rgba(0,212,255,.25);
+
+    color: white;
+}
+
+
+/* =========================================================
+   CYBERSECURITY
+========================================================= */
+
+.security-layout {
+    display: grid;
+
+    grid-template-columns:
+        .85fr 1.15fr;
+
+    gap: 18px;
+}
+
+.security-terminal {
+    height: 100%;
+
+    min-height: 430px;
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 22px;
+
+    background:
+        #080c14;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.28);
+}
+
+.terminal-head {
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding:
+        0 18px;
+
+    border-bottom:
+        1px solid var(--line);
+
+    color:
+        #67738a;
+
+    font:
+        10px
+        "JetBrains Mono";
+}
+
+.terminal-dots {
+    display: flex;
+
+    gap: 6px;
+
+    margin-left: auto;
+}
+
+.terminal-dots i {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background:
+        #374151;
+}
+
+.terminal-body {
+    padding: 28px;
+
+    direction: ltr;
+
+    text-align: left;
+
+    font:
+        12px/2.4
+        "JetBrains Mono";
+
+    color:
+        #cbd5e1;
+}
+
+.terminal-body p {
+    margin: 0;
+}
+
+.terminal-green {
+    color:
+        var(--green);
+}
+
+.terminal-muted {
+    color:
+        #56627a;
+}
+
+.security-cards {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+}
+
+.security-card {
+    padding: 27px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18,24,38,.8),
+            rgba(10,14,23,.75)
+        );
+
+    transition: .3s;
+}
+
+.security-card:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(0,212,255,.28);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.25);
+}
+
+.security-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 18px;
+
+    border:
+        1px solid
+        rgba(0,212,255,.18);
+
+    border-radius: 12px;
+
+    background:
+        rgba(0,212,255,.04);
+
+    color:
+        var(--cyan);
+
+    font:
+        700 18px
+        "JetBrains Mono";
+}
+
+.security-card h3 {
+    font-size: 17px;
+
+    margin-bottom: 7px;
+}
+
+.security-card p {
+    color:
+        var(--muted);
+
+    font-size: 11px;
+}
+
+.security-status {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding:
+        4px 8px;
+
+    border-radius: 6px;
+
+    background:
+        rgba(69,230,155,.05);
+
+    border:
+        1px solid
+        rgba(69,230,155,.13);
+
+    color:
+        var(--green);
+
+    font:
+        700 8px
+        "JetBrains Mono";
+}
+
+.security-note {
+    margin-top: 17px;
+
+    padding: 18px 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,.02);
+}
+
+.security-note strong {
+    font-size: 12px;
+}
+
+.security-note span {
+    color:
+        var(--muted);
+
+    font:
+        10px
+        "JetBrains Mono";
+}
+
+.security-note em {
+    margin-right: auto;
+
+    color:
+        var(--primary-light);
+
+    font-style: normal;
+
+    font-size: 10px;
 }
 
 
@@ -1086,19 +1197,15 @@ body::before {
 ========================================================= */
 
 .projects-grid {
-
     display: grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
     gap: 17px;
-
 }
 
-
 .project {
-
     border:
         1px solid var(--line);
 
@@ -1110,23 +1217,20 @@ body::before {
     overflow: hidden;
 
     transition: .3s;
-
 }
 
-
 .project:hover {
-
     transform:
         translateY(-5px);
 
     border-color:
-        var(--line-hover);
+        rgba(118,87,255,.45);
 
+    box-shadow:
+        var(--shadow);
 }
 
-
 .project-top {
-
     height: 170px;
 
     display: grid;
@@ -1142,14 +1246,10 @@ body::before {
 
     border-bottom:
         1px solid var(--line);
-
 }
 
-
 .project-placeholder {
-
     width: 65px;
-
     height: 65px;
 
     border:
@@ -1168,49 +1268,34 @@ body::before {
     font:
         700 20px
         "JetBrains Mono";
-
 }
-
 
 .project-content {
-
     padding: 23px;
-
 }
 
-
 .project-label {
-
     color: var(--cyan);
 
     font:
         700 9px
         "JetBrains Mono";
-
 }
 
-
 .project h3 {
-
     font-size: 18px;
 
     margin:
         7px 0;
-
 }
 
-
 .project p {
-
     color: var(--muted);
 
     font-size: 12px;
-
 }
 
-
 .coming-soon {
-
     margin-top: 16px;
 
     display: inline-block;
@@ -1231,7 +1316,6 @@ body::before {
         #b8aaff;
 
     font-size: 10px;
-
 }
 
 
@@ -1240,20 +1324,15 @@ body::before {
 ========================================================= */
 
 .books-grid {
-
     display: grid;
 
     grid-template-columns:
-        1.1fr
-        .9fr;
+        1.1fr .9fr;
 
     gap: 18px;
-
 }
 
-
 .books-card {
-
     padding: 40px;
 
     border:
@@ -1267,30 +1346,21 @@ body::before {
             rgba(22,27,43,.8),
             rgba(10,14,24,.7)
         );
-
 }
 
-
 .books-card h3 {
-
     font-size: 28px;
 
     margin-bottom: 12px;
-
 }
 
-
 .books-card p {
-
     color: var(--muted);
 
     font-size: 14px;
-
 }
 
-
 .books-box {
-
     min-height: 280px;
 
     display: grid;
@@ -1307,32 +1377,22 @@ body::before {
 
     background:
         rgba(118,87,255,.035);
-
 }
 
-
 .books-box .icon {
-
     font-size: 50px;
 
     margin-bottom: 10px;
-
 }
-
 
 .books-box h3 {
-
     font-size: 18px;
-
 }
 
-
 .books-box p {
-
     color: var(--muted);
 
     font-size: 12px;
-
 }
 
 
@@ -1341,19 +1401,15 @@ body::before {
 ========================================================= */
 
 .writing-grid {
-
     display: grid;
 
     grid-template-columns:
         1fr 1fr;
 
     gap: 17px;
-
 }
 
-
 .writing-main {
-
     grid-column:
         1 / -1;
 
@@ -1370,30 +1426,21 @@ body::before {
             rgba(118,87,255,.10),
             rgba(0,212,255,.025)
         );
-
 }
-
 
 .writing-main h3 {
-
     font-size: 27px;
-
 }
 
-
 .writing-main p {
-
     color: var(--muted);
 
     max-width: 750px;
 
     margin-top: 7px;
-
 }
 
-
 .writing-card {
-
     padding: 28px;
 
     border:
@@ -1403,35 +1450,25 @@ body::before {
 
     background:
         rgba(255,255,255,.025);
-
 }
 
-
 .writing-card small {
-
     color: var(--cyan);
 
     font:
         700 9px
         "JetBrains Mono";
-
 }
-
 
 .writing-card h3 {
-
     margin:
         10px 0 5px;
-
 }
 
-
 .writing-card p {
-
     color: var(--muted);
 
     font-size: 12px;
-
 }
 
 
@@ -1440,14 +1477,10 @@ body::before {
 ========================================================= */
 
 .certificates {
-
     padding-top: 80px;
-
 }
 
-
 .cert-box {
-
     padding: 35px;
 
     display: flex;
@@ -1464,14 +1497,10 @@ body::before {
 
     background:
         rgba(118,87,255,.035);
-
 }
 
-
 .cert-icon {
-
     width: 55px;
-
     height: 55px;
 
     flex-shrink: 0;
@@ -1489,28 +1518,19 @@ body::before {
         var(--primary-light);
 
     font-size: 22px;
-
 }
-
 
 .cert-box h3 {
-
     font-size: 18px;
-
 }
 
-
 .cert-box p {
-
     color: var(--muted);
 
     font-size: 12px;
-
 }
 
-
 .cert-status {
-
     margin-right: auto;
 
     color: var(--cyan);
@@ -1518,7 +1538,6 @@ body::before {
     font:
         700 9px
         "JetBrains Mono";
-
 }
 
 
@@ -1527,14 +1546,12 @@ body::before {
 ========================================================= */
 
 .contact-box {
-
     padding: 55px;
 
     display: grid;
 
     grid-template-columns:
-        1fr
-        .9fr;
+        1fr .9fr;
 
     gap: 60px;
 
@@ -1550,55 +1567,36 @@ body::before {
             transparent 40%
         ),
         rgba(255,255,255,.025);
-
 }
 
-
 .contact-box h2 {
-
     font-size:
-        clamp(
-            38px,
-            5vw,
-            58px
-        );
+        clamp(38px, 5vw, 58px);
 
     line-height: 1.2;
 
     margin:
         8px 0 15px;
-
 }
-
 
 .contact-box h2 span {
-
     color:
         var(--primary-light);
-
 }
 
-
 .contact-box p {
-
     color: var(--muted);
 
     font-size: 13px;
-
 }
 
-
 .contact-links {
-
     display: flex;
 
     flex-direction: column;
-
 }
 
-
 .contact-link {
-
     display: flex;
 
     align-items: center;
@@ -1612,35 +1610,25 @@ body::before {
         1px solid var(--line);
 
     transition: .25s;
-
 }
-
 
 .contact-link:hover {
-
     padding-right: 8px;
-
 }
 
-
 .contact-link span:first-child {
-
     color: #dbe2f1;
 
     font-size: 13px;
-
 }
 
-
 .contact-link span:last-child {
-
     color:
         var(--cyan);
 
     font:
-        700 11px
+        700 10px
         "JetBrains Mono";
-
 }
 
 
@@ -1649,7 +1637,6 @@ body::before {
 ========================================================= */
 
 footer {
-
     border-top:
         1px solid var(--line);
 
@@ -1660,26 +1647,19 @@ footer {
         var(--muted-2);
 
     font-size: 10px;
-
 }
 
-
 .footer-inner {
-
     display: flex;
 
     align-items: center;
 
     justify-content: space-between;
-
 }
 
-
 footer strong {
-
     color:
         var(--cyan);
-
 }
 
 
@@ -1688,7 +1668,6 @@ footer strong {
 ========================================================= */
 
 .top-button {
-
     position: fixed;
 
     left: 25px;
@@ -1696,7 +1675,6 @@ footer strong {
     bottom: 25px;
 
     width: 42px;
-
     height: 42px;
 
     display: grid;
@@ -1725,18 +1703,14 @@ footer strong {
     transition: .3s;
 
     z-index: 50;
-
 }
 
-
 .top-button.show {
-
     opacity: 1;
 
     visibility: visible;
 
     transform: none;
-
 }
 
 
@@ -1745,7 +1719,6 @@ footer strong {
 ========================================================= */
 
 .reveal {
-
     opacity: 0;
 
     transform:
@@ -1754,16 +1727,12 @@ footer strong {
     transition:
         opacity .7s ease,
         transform .7s ease;
-
 }
 
-
 .reveal.visible {
-
     opacity: 1;
 
     transform: none;
-
 }
 
 
@@ -1771,16 +1740,27 @@ footer strong {
    RESPONSIVE
 ========================================================= */
 
+@media(max-width: 1000px) {
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .hero-grid {
+        gap: 45px;
+    }
+
+}
+
+
 @media(max-width: 900px) {
 
     .nav-links {
-
         position: fixed;
 
         top: 78px;
 
         right: 20px;
-
         left: 20px;
 
         display: none;
@@ -1798,60 +1778,39 @@ footer strong {
             1px solid var(--line);
 
         border-radius: 18px;
-
     }
-
 
     .nav-links.open {
-
         display: flex;
-
     }
-
 
     .nav-links a {
-
         padding: 9px;
-
     }
-
 
     .menu {
-
         display: block;
-
     }
-
 
     .hero-grid,
     .about-grid,
     .books-grid,
-    .contact-box {
-
+    .contact-box,
+    .security-layout {
         grid-template-columns: 1fr;
-
     }
-
 
     .hero {
-
         padding-top: 120px;
-
     }
-
 
     .hero-code {
-
         margin-top: 20px;
-
     }
 
-
     .projects-grid {
-
         grid-template-columns:
             1fr 1fr;
-
     }
 
 }
@@ -1860,111 +1819,132 @@ footer strong {
 @media(max-width: 650px) {
 
     .container {
-
         width:
             calc(100% - 28px);
-
     }
-
 
     .section {
-
         padding: 85px 0;
-
     }
 
+    .hero {
+        padding-top: 105px;
+    }
 
     .hero h1 {
-
         font-size: 54px;
 
         letter-spacing: -2px;
-
     }
-
 
     .hero-role {
-
         font-size: 16px;
-
     }
-
 
     .hero-description {
-
         font-size: 13px;
-
     }
 
+    .hero-buttons {
+        width: 100%;
+    }
+
+    .btn {
+        flex: 1;
+    }
+
+    .socials {
+        flex-wrap: wrap;
+    }
 
     .code {
-
         padding: 20px;
 
         font-size: 9px;
-
     }
-
 
     .skills-grid,
     .projects-grid,
-    .writing-grid {
-
+    .writing-grid,
+    .security-cards {
         grid-template-columns: 1fr;
-
     }
-
 
     .writing-main {
-
         grid-column: auto;
-
     }
-
 
     .books-card,
     .contact-box {
-
         padding: 28px;
-
     }
 
-
     .cert-box {
-
         align-items: flex-start;
 
         flex-wrap: wrap;
-
     }
 
-
     .cert-status {
-
         margin-right: 0;
 
         width: 100%;
-
     }
 
+    .security-note {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .security-note em {
+        margin-right: 0;
+    }
+
+    .security-terminal {
+        min-height: auto;
+    }
+
+    .terminal-body {
+        padding: 22px;
+
+        font-size: 10px;
+    }
 
     .footer-inner {
-
         flex-direction: column;
 
         gap: 7px;
 
         text-align: center;
-
     }
 
-
     .top-button {
-
         left: 18px;
 
         bottom: 18px;
+    }
 
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width: 380px) {
+
+    .hero h1 {
+        font-size: 47px;
+    }
+
+    .socials a {
+        width: 40px;
+        height: 40px;
+    }
+
+    .code {
+        font-size: 8px;
     }
 
 }
@@ -2004,7 +1984,8 @@ footer strong {
 
         <button
             class="menu"
-            id="menu">
+            id="menu"
+            aria-label="فتح القائمة">
 
             <span></span>
             <span></span>
@@ -2013,7 +1994,9 @@ footer strong {
         </button>
 
 
-        <nav class="nav-links" id="navLinks">
+        <nav
+            class="nav-links"
+            id="navLinks">
 
             <a href="#home">
                 الرئيسية
@@ -2025,6 +2008,10 @@ footer strong {
 
             <a href="#skills">
                 المهارات
+            </a>
+
+            <a href="#security">
+                الأمن السيبراني
             </a>
 
             <a href="#projects">
@@ -2111,9 +2098,11 @@ footer strong {
 
             <p class="hero-description">
 
-                طالب حاسبات ومعلومات، مطور Android،
+                طالب حاسبات ومعلومات،
+                مطور Android،
                 مهتم بالبرمجة والأمن السيبراني،
                 وأحب أيضًا الكتب والروايات والكتابة.
+
                 أسعى دائمًا للتعلم وبناء أشياء حقيقية
                 وتحويل الأفكار إلى مشاريع وتجارب مفيدة.
 
@@ -2121,7 +2110,6 @@ footer strong {
 
 
             <div class="hero-buttons">
-
 
                 <a
                     href="#projects"
@@ -2142,70 +2130,112 @@ footer strong {
 
                 </a>
 
-
             </div>
 
+
+            <!-- SOCIAL ICONS -->
 
             <div class="socials">
 
 
+                <!-- Facebook -->
+
                 <a
                     href="https://www.facebook.com/share/1DsBQE5YmH/"
                     target="_blank"
-                    rel="noopener">
+                    rel="noopener"
+                    aria-label="Facebook">
 
-                    FB
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1z"/>
+
+                    </svg>
 
                 </a>
 
+
+                <!-- WhatsApp -->
 
                 <a
                     href="https://wa.me/201027595528"
                     target="_blank"
-                    rel="noopener">
+                    rel="noopener"
+                    aria-label="WhatsApp">
 
-                    WA
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.4-8.4zM12 21.7h-.1c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.1C2 6.5 6.5 2 12 2c2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.8 7c0 5.4-4.4 9.8-9.7 9.8zM8.1 13.2l10.8-6.8c.5-.3 1-.1.6.2l-8.8 8-.3 3.2-1.7-5.4-3.9-1.2 3.3-1.3z"/>
+
+                    </svg>
 
                 </a>
 
+
+                <!-- Telegram -->
 
                 <a
                     href="https://t.me/C_O_N_2"
                     target="_blank"
-                    rel="noopener">
+                    rel="noopener"
+                    aria-label="Telegram">
 
-                    TG
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M21.5 3.2 2.8 10.4c-1.3.5-1.3 1.3-.2 1.6l4.8 1.5 1.8 5.7c.2.6.1.8.8.8.5 0 .7-.2.9-.4l2.3-2.2 4.8 3.5c.9.5 1.5.3 1.7-.8l3.1-14.7c.3-1.4-.5-2-1.3-1.7zM8.1 13.2l10.8-6.8c.5-.3 1-.1.6.2l-8.8 8-.3 3.2-1.7 3.2-1.7-5.4-3.9-1.2 3.3-1.3z"/>
+
+                    </svg>
 
                 </a>
 
+
+                <!-- Instagram -->
 
                 <a
                     href="https://instagram.com/mhbdllh4861"
                     target="_blank"
-                    rel="noopener">
+                    rel="noopener"
+                    aria-label="Instagram">
 
-                    IG
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.5 6a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
+
+                    </svg>
 
                 </a>
 
+
+                <!-- LinkedIn -->
 
                 <a
                     href="https://www.linkedin.com/in/mohammed-con"
                     target="_blank"
-                    rel="noopener">
+                    rel="noopener"
+                    aria-label="LinkedIn">
 
-                    IN
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M5 3a2.2 2.2 0 1 1 0 4.4A2.2 2.2 0 0 1 5 3zM3 9h4v12H3V9zm6 0h3.8v1.6h.1c.5-.9 1.7-2 3.6-2 3.8 0 4.5 2.5 4.5 5.8V21h-4v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9V9z"/>
+
+                    </svg>
 
                 </a>
 
+
+                <!-- Email -->
 
                 <a
-                    href="mailto:cconker63@gmail.com">
+                    href="mailto:cconker63@gmail.com"
+                    aria-label="Email">
 
-                    @
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M2 5h20v14H2V5zm2 2v.5l8 5 8-5V7l-8 5-8-5zm0 10h16V10l-8 5-8-5v7z"/>
+
+                    </svg>
 
                 </a>
-
 
             </div>
 
@@ -2213,20 +2243,16 @@ footer strong {
 
 
 
-        <!-- CODE WINDOW -->
+        <!-- CODE CARD -->
 
         <div class="hero-code reveal">
 
-
             <div class="code-card">
-
 
                 <div class="window-bar">
 
                     <span class="window-dot"></span>
-
                     <span class="window-dot"></span>
-
                     <span class="window-dot"></span>
 
                     <span class="window-title">
@@ -2239,12 +2265,9 @@ footer strong {
                 <div class="code">
 
                     <div>
-                        <span class="key">
-                            const
-                        </span>
+                        <span class="key">const</span>
                         developer = {
                     </div>
-
 
                     <div>
                         &nbsp;&nbsp;name:
@@ -2253,14 +2276,12 @@ footer strong {
                         </span>,
                     </div>
 
-
                     <div>
                         &nbsp;&nbsp;age:
                         <span class="number">
                             19
                         </span>,
                     </div>
-
 
                     <div>
                         &nbsp;&nbsp;education:
@@ -2269,7 +2290,6 @@ footer strong {
                         </span>,
                     </div>
 
-
                     <div>
                         &nbsp;&nbsp;role:
                         <span class="string">
@@ -2277,11 +2297,9 @@ footer strong {
                         </span>,
                     </div>
 
-
                     <div>
                         &nbsp;&nbsp;interests: [
                     </div>
-
 
                     <div>
                         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -2290,14 +2308,12 @@ footer strong {
                         </span>,
                     </div>
 
-
                     <div>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="string">
                             "Cybersecurity"
                         </span>,
                     </div>
-
 
                     <div>
                         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -2306,7 +2322,6 @@ footer strong {
                         </span>,
                     </div>
 
-
                     <div>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="string">
@@ -2314,11 +2329,9 @@ footer strong {
                         </span>
                     </div>
 
-
                     <div>
                         &nbsp;&nbsp;],
                     </div>
-
 
                     <div>
                         &nbsp;&nbsp;status:
@@ -2327,21 +2340,16 @@ footer strong {
                         </span>
                     </div>
 
-
                     <div>
                         };
                     </div>
 
-
                     <br>
 
-
                     <div class="comment">
-
                         // learn.
                         // build.
                         // improve.
-
                     </div>
 
                 </div>
@@ -2364,9 +2372,7 @@ footer strong {
     class="section"
     id="about">
 
-
     <div class="container">
-
 
         <div class="section-title reveal">
 
@@ -2389,12 +2395,10 @@ footer strong {
         </div>
 
 
-
         <div class="about-grid">
 
 
             <div class="about-content reveal">
-
 
                 <p class="lead">
 
@@ -2405,16 +2409,14 @@ footer strong {
 
                 </p>
 
-
                 <p>
 
                     أحب بناء التطبيقات وتجربة الأفكار
                     وتحويل المشاكل إلى حلول برمجية.
                     أعمل على تطوير نفسي في Android
-                    والبرمجة بشكل عام.
+                    والبرمجة بشكل مستمر.
 
                 </p>
-
 
                 <p>
 
@@ -2425,7 +2427,6 @@ footer strong {
 
                 </p>
 
-
                 <p>
 
                     وبعيدًا عن التقنية،
@@ -2435,13 +2436,10 @@ footer strong {
 
                 </p>
 
-
             </div>
 
 
-
             <div class="facts reveal">
-
 
                 <div class="fact">
 
@@ -2494,7 +2492,6 @@ footer strong {
 
                 </div>
 
-
             </div>
 
         </div>
@@ -2512,7 +2509,6 @@ footer strong {
 <section
     class="section"
     id="skills">
-
 
     <div class="container">
 
@@ -2538,11 +2534,8 @@ footer strong {
         </div>
 
 
-
         <div class="skills-grid">
 
-
-            <!-- ANDROID -->
 
             <article class="skill-card reveal">
 
@@ -2558,7 +2551,6 @@ footer strong {
                     تطوير تطبيقات Android
                     وبناء واجهات وتجارب استخدام حديثة.
                 </p>
-
 
                 <div class="tags">
 
@@ -2582,9 +2574,6 @@ footer strong {
             </article>
 
 
-
-            <!-- PROGRAMMING -->
-
             <article class="skill-card reveal">
 
                 <div class="skill-number">
@@ -2599,7 +2588,6 @@ footer strong {
                     البرمجة وحل المشكلات
                     وبناء أساس قوي لتطوير البرمجيات.
                 </p>
-
 
                 <div class="tags">
 
@@ -2623,9 +2611,6 @@ footer strong {
             </article>
 
 
-
-            <!-- CYBERSECURITY -->
-
             <article class="skill-card reveal">
 
                 <div class="skill-number">
@@ -2641,7 +2626,6 @@ footer strong {
                     وأمن التطبيقات والأنظمة
                     والتعلم في مجال الـ Ethical Hacking.
                 </p>
-
 
                 <div class="tags">
 
@@ -2662,9 +2646,6 @@ footer strong {
             </article>
 
 
-
-            <!-- TOOLS -->
-
             <article class="skill-card reveal">
 
                 <div class="skill-number">
@@ -2679,7 +2660,6 @@ footer strong {
                     أدوات وتقنيات أستخدمها
                     في التطوير وتنظيم المشاريع والتعلم.
                 </p>
-
 
                 <div class="tags">
 
@@ -2708,13 +2688,12 @@ footer strong {
 
 
 <!-- =========================================================
-     PROJECTS
+     CYBERSECURITY
 ========================================================= -->
 
 <section
     class="section"
-    id="projects">
-
+    id="security">
 
     <div class="container">
 
@@ -2723,6 +2702,256 @@ footer strong {
 
             <span class="section-number">
                 03
+            </span>
+
+            <div>
+
+                <small>
+                    CYBERSECURITY
+                </small>
+
+                <h2>
+                    الأمن السيبراني
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="security-layout">
+
+
+            <div class="security-intro reveal">
+
+                <div class="security-terminal">
+
+                    <div class="terminal-head">
+
+                        <span>
+                            security.lab
+                        </span>
+
+                        <div class="terminal-dots">
+
+                            <i></i>
+                            <i></i>
+                            <i></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="terminal-body">
+
+                        <p>
+                            <span class="terminal-green">
+                                $
+                            </span>
+                            learning_security
+                        </p>
+
+                        <p class="terminal-muted">
+                            Building knowledge...
+                        </p>
+
+                        <p>
+                            <span class="terminal-green">
+                                ✓
+                            </span>
+                            Linux fundamentals
+                        </p>
+
+                        <p>
+                            <span class="terminal-green">
+                                ✓
+                            </span>
+                            Networking
+                        </p>
+
+                        <p>
+                            <span class="terminal-green">
+                                ✓
+                            </span>
+                            Web Security
+                        </p>
+
+                        <p>
+                            <span class="terminal-green">
+                                ✓
+                            </span>
+                            Android Security
+                        </p>
+
+                        <p>
+                            <span class="terminal-green">
+                                ✓
+                            </span>
+                            Secure Coding
+                        </p>
+
+                        <p>
+                            <span class="terminal-green">
+                                ✓
+                            </span>
+                            OWASP
+                        </p>
+
+                        <p>
+                            <span class="terminal-green">
+                                $
+                            </span>
+                            status:
+                            <span class="terminal-green">
+                                learning...
+                            </span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="security-cards">
+
+
+                <article class="security-card reveal">
+
+                    <span class="security-icon">
+                        ◈
+                    </span>
+
+                    <h3>
+                        Web Security
+                    </h3>
+
+                    <p>
+                        دراسة أساسيات أمن تطبيقات الويب
+                        وفهم أشهر المخاطر الأمنية
+                        وطرق الحماية منها.
+                    </p>
+
+                    <span class="security-status">
+                        LEARNING
+                    </span>
+
+                </article>
+
+
+                <article class="security-card reveal">
+
+                    <span class="security-icon">
+                        ◉
+                    </span>
+
+                    <h3>
+                        Android Security
+                    </h3>
+
+                    <p>
+                        الاهتمام بأمن تطبيقات Android
+                        وحماية البيانات وكتابة كود
+                        أكثر أمانًا.
+                    </p>
+
+                    <span class="security-status">
+                        LEARNING
+                    </span>
+
+                </article>
+
+
+                <article class="security-card reveal">
+
+                    <span class="security-icon">
+                        #
+                    </span>
+
+                    <h3>
+                        Linux & Networking
+                    </h3>
+
+                    <p>
+                        تطوير المعرفة بأنظمة Linux
+                        والشبكات والبروتوكولات
+                        المستخدمة في الأمن السيبراني.
+                    </p>
+
+                    <span class="security-status">
+                        LEARNING
+                    </span>
+
+                </article>
+
+
+                <article class="security-card reveal">
+
+                    <span class="security-icon">
+                        ⌁
+                    </span>
+
+                    <h3>
+                        Ethical Hacking
+                    </h3>
+
+                    <p>
+                        التعلم في مجال اختبار الأنظمة
+                        واكتشاف نقاط الضعف
+                        بشكل قانوني وأخلاقي.
+                    </p>
+
+                    <span class="security-status">
+                        LEARNING
+                    </span>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="security-note reveal">
+
+            <strong>
+                Security Journey
+            </strong>
+
+            <span>
+                CTFs • Labs • Certifications • Security Projects
+            </span>
+
+            <em>
+                سيتم الإضافة لاحقًا
+            </em>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section
+    class="section"
+    id="projects">
+
+    <div class="container">
+
+
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                04
             </span>
 
             <div>
@@ -2740,7 +2969,6 @@ footer strong {
         </div>
 
 
-
         <div class="projects-grid">
 
 
@@ -2753,7 +2981,6 @@ footer strong {
                     </div>
 
                 </div>
-
 
                 <div class="project-content">
 
@@ -2780,7 +3007,6 @@ footer strong {
             </article>
 
 
-
             <article class="project reveal">
 
                 <div class="project-top">
@@ -2790,7 +3016,6 @@ footer strong {
                     </div>
 
                 </div>
-
 
                 <div class="project-content">
 
@@ -2816,7 +3041,6 @@ footer strong {
             </article>
 
 
-
             <article class="project reveal">
 
                 <div class="project-top">
@@ -2826,7 +3050,6 @@ footer strong {
                     </div>
 
                 </div>
-
 
                 <div class="project-content">
 
@@ -2867,14 +3090,13 @@ footer strong {
     class="section"
     id="books">
 
-
     <div class="container">
 
 
         <div class="section-title reveal">
 
             <span class="section-number">
-                04
+                05
             </span>
 
             <div>
@@ -2890,7 +3112,6 @@ footer strong {
             </div>
 
         </div>
-
 
 
         <div class="books-grid">
@@ -2927,7 +3148,6 @@ footer strong {
                 </span>
 
             </div>
-
 
 
             <div class="books-box reveal">
@@ -2967,14 +3187,13 @@ footer strong {
     class="section"
     id="writing">
 
-
     <div class="container">
 
 
         <div class="section-title reveal">
 
             <span class="section-number">
-                05
+                06
             </span>
 
             <div>
@@ -2990,7 +3209,6 @@ footer strong {
             </div>
 
         </div>
-
 
 
         <div class="writing-grid">
@@ -3012,13 +3230,11 @@ footer strong {
 
                 </p>
 
-
                 <span class="coming-soon">
                     سيتم الإضافة لاحقًا
                 </span>
 
             </div>
-
 
 
             <article class="writing-card reveal">
@@ -3041,7 +3257,6 @@ footer strong {
                 </span>
 
             </article>
-
 
 
             <article class="writing-card reveal">
@@ -3081,14 +3296,13 @@ footer strong {
     class="section certificates"
     id="certificates">
 
-
     <div class="container">
 
 
         <div class="section-title reveal">
 
             <span class="section-number">
-                06
+                07
             </span>
 
             <div>
@@ -3106,14 +3320,11 @@ footer strong {
         </div>
 
 
-
         <div class="cert-box reveal">
-
 
             <div class="cert-icon">
                 ✦
             </div>
-
 
             <div>
 
@@ -3131,7 +3342,6 @@ footer strong {
                 </p>
 
             </div>
-
 
             <span class="cert-status">
                 سيتم الإضافة لاحقًا
@@ -3153,7 +3363,6 @@ footer strong {
     class="section"
     id="contact">
 
-
     <div class="container">
 
 
@@ -3162,15 +3371,12 @@ footer strong {
 
             <div>
 
-                <small
-                    style="
+                <small style="
                     color:var(--cyan);
                     font:700 10px 'JetBrains Mono';
                     letter-spacing:2px;
-                    ">
-
+                ">
                     CONTACT ME
-
                 </small>
 
 
@@ -3196,7 +3402,6 @@ footer strong {
                 </p>
 
             </div>
-
 
 
             <div class="contact-links">
@@ -3238,7 +3443,7 @@ footer strong {
 
                 <a
                     class="contact-link"
-                    href="https://www.instagram.com/mhbdllh4861/"
+                    href="https://instagram.com/mhbdllh4861"
                     target="_blank"
                     rel="noopener">
 
@@ -3328,7 +3533,6 @@ footer strong {
             محمد عبدالله إبراهيم
         </span>
 
-
         <span>
             Built with
             <strong>
@@ -3343,7 +3547,9 @@ footer strong {
 
 
 
-<!-- TOP -->
+<!-- =========================================================
+     BACK TO TOP
+========================================================= -->
 
 <button
     class="top-button"
@@ -3382,237 +3588,3 @@ navLinks
 
         link.addEventListener(
             "click",
-            () => {
-
-                navLinks.classList.remove(
-                    "open"
-                );
-
-            }
-        );
-
-    });
-
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-const header =
-    document.querySelector(".header");
-
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        header.classList.toggle(
-            "scrolled",
-            window.scrollY > 20
-        );
-
-    }
-);
-
-
-
-/* =========================================================
-   BACK TO TOP
-========================================================= */
-
-const topButton =
-    document.getElementById("topButton");
-
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        topButton.classList.toggle(
-            "show",
-            window.scrollY > 500
-        );
-
-    }
-);
-
-
-topButton.addEventListener(
-    "click",
-    () => {
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
-
-        });
-
-    }
-);
-
-
-
-/* =========================================================
-   TYPING EFFECT
-========================================================= */
-
-const typed =
-    document.getElementById("typed");
-
-
-const roles = [
-
-    "Android Developer",
-
-    "Programmer",
-
-    "Cybersecurity Enthusiast",
-
-    "Writer & Reader"
-
-];
-
-
-let roleIndex = 0;
-
-let characterIndex = 0;
-
-let deleting = false;
-
-
-function typeEffect() {
-
-    const current =
-        roles[roleIndex];
-
-
-    if (!deleting) {
-
-        typed.textContent =
-            current.substring(
-                0,
-                characterIndex + 1
-            );
-
-        characterIndex++;
-
-
-        if (
-            characterIndex ===
-            current.length
-        ) {
-
-            deleting = true;
-
-            setTimeout(
-                typeEffect,
-                1300
-            );
-
-            return;
-
-        }
-
-    } else {
-
-        typed.textContent =
-            current.substring(
-                0,
-                characterIndex - 1
-            );
-
-        characterIndex--;
-
-
-        if (
-            characterIndex === 0
-        ) {
-
-            deleting = false;
-
-            roleIndex =
-                (roleIndex + 1)
-                % roles.length;
-
-        }
-
-    }
-
-
-    setTimeout(
-        typeEffect,
-        deleting ? 45 : 80
-    );
-
-}
-
-
-typeEffect();
-
-
-
-/* =========================================================
-   REVEAL ANIMATION
-========================================================= */
-
-const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
-
-
-const observer =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold: .1
-        }
-    );
-
-
-revealElements.forEach(
-    element => {
-
-        observer.observe(element);
-
-    }
-);
-
-
-
-/* =========================================================
-   YEAR
-========================================================= */
-
-document.getElementById(
-    "year"
-).textContent =
-    new Date().getFullYear();
-
-</script>
-
-
-</body>
-
-  </html>
