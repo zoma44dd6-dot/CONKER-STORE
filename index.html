@@ -3,19 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-        content="محمد عبدالله إبراهيم | Android Developer | Programmer | Cybersecurity Enthusiast | Writer">
+        content="محمد عبدالله إبراهيم — Android Developer, Programmer, Cybersecurity Enthusiast & Writer">
 
-    <meta name="theme-color" content="#07090f">
+    <meta name="keywords"
+        content="Mohammed Abdullah, Android Developer, Kotlin, Java, Programming, Cybersecurity, Ethical Hacking, Linux, Android Security, Writer">
+
+    <meta name="author" content="محمد عبدالله إبراهيم">
+
+    <meta name="theme-color" content="#070a11">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="محمد عبدالله إبراهيم | Portfolio">
+    <meta property="og:description"
+        content="Android Developer • Programmer • Cybersecurity Enthusiast • Writer">
+    <meta property="og:type" content="website">
 
     <title>محمد عبدالله إبراهيم | Portfolio</title>
 
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%237b5cff'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='45' fill='white' font-family='Arial'%3EM%3C/text%3E%3C/svg%3E">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
 
@@ -26,27 +44,31 @@
 ========================================================= */
 
 :root {
-    --bg: #07090f;
-    --bg-soft: #0b0f18;
-    --card: #0d121d;
-    --card-light: #111827;
+
+    --bg: #070a11;
+    --bg2: #0a0f18;
+    --card: #0d131f;
+    --card2: #111927;
 
     --text: #f5f7ff;
-    --muted: #8d98ad;
-    --muted-2: #687389;
+    --muted: #8e9ab0;
+    --muted2: #647087;
 
-    --line: rgba(255,255,255,.08);
+    --primary: #765cff;
+    --primary2: #9b88ff;
 
-    --primary: #7657ff;
-    --primary-light: #9a86ff;
+    --cyan: #00d9ff;
+    --green: #49e69a;
 
-    --cyan: #00d4ff;
-    --green: #45e69b;
+    --line: rgba(255,255,255,.075);
+
+    --line2: rgba(118,92,255,.35);
 
     --radius: 22px;
 
     --shadow:
         0 25px 80px rgba(0,0,0,.38);
+
 }
 
 
@@ -65,7 +87,9 @@ html {
 }
 
 body {
+
     background: var(--bg);
+
     color: var(--text);
 
     font-family: "Cairo", sans-serif;
@@ -73,6 +97,7 @@ body {
     line-height: 1.8;
 
     overflow-x: hidden;
+
 }
 
 ::selection {
@@ -95,53 +120,61 @@ button {
 ========================================================= */
 
 body::before {
+
     content: "";
 
     position: fixed;
 
     inset: 0;
 
+    z-index: -10;
+
     pointer-events: none;
 
-    z-index: -5;
-
     background:
+
         radial-gradient(
             circle at 10% 10%,
-            rgba(118,87,255,.11),
+            rgba(118,92,255,.12),
             transparent 27%
         ),
+
         radial-gradient(
-            circle at 90% 40%,
-            rgba(0,212,255,.065),
-            transparent 27%
+            circle at 90% 30%,
+            rgba(0,217,255,.06),
+            transparent 25%
         ),
+
         radial-gradient(
             circle at 50% 90%,
-            rgba(118,87,255,.055),
+            rgba(118,92,255,.06),
             transparent 30%
         );
+
 }
 
 .grid-bg {
+
     position: fixed;
 
     inset: 0;
 
+    z-index: -9;
+
     pointer-events: none;
 
-    z-index: -4;
-
-    opacity: .30;
+    opacity: .32;
 
     background-image:
+
         linear-gradient(
-            rgba(255,255,255,.024) 1px,
+            rgba(255,255,255,.022) 1px,
             transparent 1px
         ),
+
         linear-gradient(
             90deg,
-            rgba(255,255,255,.024) 1px,
+            rgba(255,255,255,.022) 1px,
             transparent 1px
         );
 
@@ -150,23 +183,40 @@ body::before {
     mask-image:
         linear-gradient(
             to bottom,
-            black,
-            transparent 90%
+            black 0%,
+            transparent 92%
         );
+
 }
 
 
 /* =========================================================
-   CONTAINER
+   GLOBAL
 ========================================================= */
 
 .container {
-    width: min(1160px, calc(100% - 40px));
+
+    width: min(
+        1160px,
+        calc(100% - 40px)
+    );
+
     margin: auto;
+
 }
 
 .section {
+
     padding: 110px 0;
+
+}
+
+.mono {
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
 }
 
 
@@ -175,16 +225,19 @@ body::before {
 ========================================================= */
 
 .header {
+
     position: fixed;
 
     top: 0;
+
     right: 0;
+
     left: 0;
 
-    z-index: 100;
+    z-index: 1000;
 
     background:
-        rgba(7,9,15,.68);
+        rgba(7,10,17,.65);
 
     backdrop-filter:
         blur(18px);
@@ -193,105 +246,128 @@ body::before {
         1px solid transparent;
 
     transition: .3s;
+
 }
 
 .header.scrolled {
+
     background:
-        rgba(7,9,15,.94);
+        rgba(7,10,17,.94);
 
     border-color:
         var(--line);
+
 }
 
 .nav {
-    height: 78px;
+
+    min-height: 78px;
 
     display: flex;
 
     align-items: center;
 
     justify-content: space-between;
+
 }
 
 .logo {
+
     display: flex;
 
     align-items: center;
 
-    gap: 11px;
+    gap: 10px;
 
-    font-family:
-        "JetBrains Mono",
-        monospace;
+    font:
+        700 14px
+        "JetBrains Mono";
 
-    font-weight: 700;
 }
 
-.logo-icon {
+.logo-mark {
+
     width: 40px;
+
     height: 40px;
 
     display: grid;
+
     place-items: center;
-
-    border:
-        1px solid
-        rgba(118,87,255,.5);
-
-    background:
-        rgba(118,87,255,.08);
 
     border-radius: 12px;
 
-    color:
-        var(--primary-light);
+    color: white;
 
-    font-size: 12px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #4d86ff
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(118,92,255,.22);
+
 }
 
-.logo span span {
+.logo-text span {
+
     color: var(--cyan);
+
 }
 
 .nav-links {
+
     display: flex;
 
     align-items: center;
 
-    gap: 24px;
+    gap: 25px;
+
 }
 
 .nav-links a {
-    color: #aab3c7;
+
+    color: #aab5c9;
 
     font-size: 12px;
 
     transition: .25s;
+
 }
 
 .nav-links a:hover {
+
     color: white;
+
 }
 
 .menu {
+
     display: none;
 
     border: 0;
 
-    background: none;
+    background: transparent;
 
     cursor: pointer;
+
 }
 
 .menu span {
+
     display: block;
 
     width: 25px;
+
     height: 2px;
 
     background: white;
 
     margin: 5px 0;
+
 }
 
 
@@ -300,6 +376,7 @@ body::before {
 ========================================================= */
 
 .hero {
+
     min-height: 100vh;
 
     display: flex;
@@ -308,124 +385,93 @@ body::before {
 
     padding-top: 130px;
 
-    position: relative;
-
-    isolation: isolate;
-}
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    width: 520px;
-    height: 520px;
-
-    left: -280px;
-    top: 20%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(118,87,255,.10),
-            transparent 68%
-        );
-
-    pointer-events: none;
-
-    z-index: -1;
 }
 
 .hero-grid {
+
     display: grid;
 
     grid-template-columns:
-        1.15fr .85fr;
+        1.15fr
+        .85fr;
 
-    gap: 80px;
+    gap: 70px;
 
     align-items: center;
+
 }
 
-.status-line {
+.availability {
+
     display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    margin-bottom: 20px;
-
-    color: #aeb8cb;
-
-    font-size: 11px;
-}
-
-.status-dot {
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background:
-        var(--green);
-
-    box-shadow:
-        0 0 12px
-        rgba(69,230,155,.7);
-}
-
-.hero-small {
-    display: inline-flex;
 
     align-items: center;
 
     gap: 8px;
 
-    padding: 7px 12px;
+    margin-bottom: 18px;
 
-    border:
-        1px solid
-        rgba(0,212,255,.16);
+    color: #b3bed0;
 
-    border-radius: 9px;
+    font-size: 11px;
 
-    background:
-        rgba(0,212,255,.035);
+}
+
+.availability-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow:
+        0 0 15px
+        rgba(73,230,154,.7);
+
+}
+
+.hero-kicker {
 
     color: var(--cyan);
 
     font:
-        700 10px
+        700 11px
         "JetBrains Mono";
 
     letter-spacing: 2px;
 
-    margin-bottom: 13px;
+    margin-bottom: 12px;
+
 }
 
 .hero h1 {
+
     font-size:
-        clamp(50px, 7vw, 88px);
+        clamp(
+            48px,
+            7vw,
+            88px
+        );
 
-    line-height: 1.05;
-
-    letter-spacing: -3px;
+    line-height: 1.04;
 
     font-weight: 900;
 
-    text-shadow:
-        0 15px 60px
-        rgba(118,87,255,.12);
+    letter-spacing: -3px;
+
 }
 
 .gradient {
+
     background:
         linear-gradient(
             90deg,
-            #ffffff,
-            #9e8cff,
-            #00d4ff
+            white,
+            #a394ff,
+            #00d9ff
         );
 
     -webkit-background-clip: text;
@@ -433,113 +479,192 @@ body::before {
     background-clip: text;
 
     color: transparent;
+
 }
 
 .hero-role {
-    margin-top: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 20px;
 
     font:
-        600 20px
+        600 18px
         "JetBrains Mono";
 
-    color: #dce3f4;
+}
+
+.role-main {
+
+    color: white;
+
+}
+
+.role-separator {
+
+    color: var(--primary2);
+
+}
+
+#typed {
+
+    color: var(--cyan);
+
 }
 
 .cursor {
+
     color: var(--cyan);
 
-    animation:
-        blink .8s infinite;
+    animation: blink .8s infinite;
+
 }
 
 @keyframes blink {
+
     50% {
         opacity: 0;
     }
+
 }
 
 .hero-description {
-    max-width: 650px;
+
+    max-width: 680px;
+
+    margin:
+        20px 0 28px;
 
     color: var(--muted);
 
-    font-size: 15px;
+    font-size: 14px;
 
-    margin:
-        20px 0 30px;
-
-    border-right:
-        2px solid
-        rgba(118,87,255,.35);
-
-    padding-right: 16px;
 }
 
-.hero-buttons {
+.hero-specialties {
+
     display: flex;
 
     flex-wrap: wrap;
 
-    gap: 11px;
+    gap: 7px;
+
+    margin-bottom: 28px;
+
+}
+
+.hero-specialties span {
+
+    padding:
+        6px 10px;
+
+    border:
+        1px solid var(--line);
+
+    background:
+        rgba(255,255,255,.025);
+
+    border-radius: 9px;
+
+    color: #aab6ca;
+
+    font:
+        10px
+        "JetBrains Mono";
+
+}
+
+.hero-specialties b {
+
+    color: var(--cyan);
+
+    margin-left: 4px;
+
+}
+
+.hero-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
 }
 
 .btn {
+
     display: inline-flex;
 
     align-items: center;
 
     justify-content: center;
 
-    gap: 9px;
+    gap: 8px;
+
+    min-height: 44px;
 
     padding:
-        12px 19px;
+        0 18px;
 
     border-radius: 12px;
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: 700;
 
     transition: .25s;
+
 }
 
 .btn-primary {
+
+    color: white;
+
     background:
         linear-gradient(
             135deg,
             var(--primary),
-            #4d80ff
+            #4e86ff
         );
 
     box-shadow:
-        0 12px 35px
-        rgba(118,87,255,.2);
+        0 15px 35px
+        rgba(118,92,255,.18);
+
 }
 
 .btn-primary:hover {
+
     transform:
         translateY(-3px);
 
-    box-shadow:
-        0 18px 45px
-        rgba(118,87,255,.3);
 }
 
 .btn-outline {
+
     border:
         1px solid var(--line);
 
     background:
         rgba(255,255,255,.025);
+
 }
 
 .btn-outline:hover {
-    border-color:
-        rgba(118,87,255,.45);
 
-    background:
-        rgba(255,255,255,.05);
+    border-color:
+        var(--line2);
+
+    transform:
+        translateY(-3px);
+
 }
 
 
@@ -548,166 +673,167 @@ body::before {
 ========================================================= */
 
 .socials {
+
     display: flex;
 
-    gap: 10px;
+    gap: 8px;
 
-    margin-top: 25px;
+    margin-top: 24px;
+
 }
 
 .socials a {
-    width: 43px;
-    height: 43px;
+
+    width: 39px;
+
+    height: 39px;
 
     display: grid;
 
     place-items: center;
 
     border:
-        1px solid
-        rgba(255,255,255,.08);
+        1px solid var(--line);
 
-    border-radius: 13px;
+    border-radius: 11px;
+
+    color: #a8b3c6;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.06),
-            rgba(255,255,255,.015)
-        );
+        rgba(255,255,255,.018);
 
-    color: #9ca8bc;
+    transition: .25s;
 
-    transition:
-        transform .25s ease,
-        color .25s ease,
-        border-color .25s ease,
-        background .25s ease;
-
-    box-shadow:
-        inset
-        0 1px 0
-        rgba(255,255,255,.04);
-}
-
-.socials svg {
-    width: 18px;
-    height: 18px;
-
-    fill: currentColor;
 }
 
 .socials a:hover {
-    transform:
-        translateY(-4px);
 
-    color: #fff;
+    color: white;
 
     border-color:
-        rgba(118,87,255,.55);
+        rgba(0,217,255,.35);
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(118,87,255,.18),
-            rgba(0,212,255,.06)
-        );
+    transform:
+        translateY(-3px);
 
-    box-shadow:
-        0 12px 30px
-        rgba(0,0,0,.25),
-        0 0 20px
-        rgba(118,87,255,.12);
+}
+
+.socials svg {
+
+    width: 17px;
+
+    height: 17px;
+
+    fill: currentColor;
+
 }
 
 
 /* =========================================================
-   CODE CARD
+   HERO CODE
 ========================================================= */
 
 .code-card {
-    background:
-        linear-gradient(
-            145deg,
-            #111827,
-            #090d15
-        );
+
+    overflow: hidden;
 
     border:
         1px solid var(--line);
 
-    border-radius: 22px;
+    border-radius: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111827,
+            #080c14
+        );
 
     box-shadow:
         var(--shadow);
 
-    overflow: hidden;
 }
 
 .window-bar {
-    height: 48px;
 
-    border-bottom:
-        1px solid var(--line);
+    height: 48px;
 
     display: flex;
 
     align-items: center;
 
+    gap: 7px;
+
     padding:
         0 17px;
 
-    gap: 7px;
+    border-bottom:
+        1px solid var(--line);
+
 }
 
 .window-dot {
+
     width: 9px;
+
     height: 9px;
 
     border-radius: 50%;
 
-    background: #4b5569;
+    background: #465166;
+
 }
 
 .window-title {
+
     margin-right: auto;
 
-    color: #68758e;
+    color: #64718a;
 
     font:
         10px
         "JetBrains Mono";
+
 }
 
 .code {
-    padding: 28px;
 
     direction: ltr;
 
     text-align: left;
 
-    font:
-        12px/2.25
-        "JetBrains Mono",
-        monospace;
+    padding: 28px;
 
-    color: #cdd6e8;
+    color: #d3dced;
+
+    font:
+        11px/2.35
+        "JetBrains Mono";
+
 }
 
 .key {
+
     color: #c38aff;
+
 }
 
 .string {
+
     color: #6ee7a1;
+
 }
 
 .number {
-    color: #ffc86b;
+
+    color: #ffc66d;
+
 }
 
 .comment {
-    color: #56627a;
+
+    color: #56647d;
+
 }
 
 
@@ -716,36 +842,29 @@ body::before {
 ========================================================= */
 
 .section-title {
-    margin-bottom: 55px;
 
     display: flex;
 
-    gap: 18px;
-
     align-items: flex-start;
+
+    gap: 16px;
+
+    margin-bottom: 48px;
+
 }
 
 .section-number {
-    color: var(--cyan);
 
-    font:
-        700 11px
-        "JetBrains Mono";
-
-    border:
-        1px solid
-        rgba(0,212,255,.22);
+    margin-top: 8px;
 
     padding:
         5px 8px;
 
+    border:
+        1px solid
+        rgba(0,217,255,.2);
+
     border-radius: 7px;
-
-    margin-top: 8px;
-}
-
-.section-title small {
-    display: block;
 
     color: var(--cyan);
 
@@ -753,16 +872,35 @@ body::before {
         700 10px
         "JetBrains Mono";
 
+}
+
+.section-title small {
+
+    display: block;
+
+    color: var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
     letter-spacing: 2px;
+
 }
 
 .section-title h2 {
+
+    margin-top: 4px;
+
     font-size:
-        clamp(32px, 4vw, 48px);
+        clamp(
+            31px,
+            4vw,
+            47px
+        );
 
-    line-height: 1.2;
+    line-height: 1.25;
 
-    margin-top: 5px;
 }
 
 
@@ -771,73 +909,163 @@ body::before {
 ========================================================= */
 
 .about-grid {
+
     display: grid;
 
     grid-template-columns:
-        1.2fr .8fr;
+        1.2fr
+        .8fr;
 
     gap: 70px;
+
 }
 
-.about-content p {
-    color: var(--muted);
+.about-lead {
 
-    font-size: 15px;
+    color: #e7edf9;
 
-    margin-bottom: 18px;
-}
-
-.about-content .lead {
-    color: #e8edf8;
-
-    font-size: 20px;
+    font-size: 19px;
 
     font-weight: 600;
+
+    margin-bottom: 17px;
+
+}
+
+.about-content p:not(.about-lead) {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 14px;
+
 }
 
 .facts {
+
     display: grid;
 
     grid-template-columns:
         1fr 1fr;
 
     gap: 12px;
+
 }
 
 .fact {
-    padding: 25px;
 
-    background:
-        rgba(255,255,255,.025);
+    padding: 25px;
 
     border:
         1px solid var(--line);
 
     border-radius: 18px;
 
-    transition: .3s;
-}
+    background:
+        rgba(255,255,255,.022);
 
-.fact:hover {
-    transform:
-        translateY(-4px);
-
-    border-color:
-        rgba(118,87,255,.35);
 }
 
 .fact strong {
+
     display: block;
 
+    color: white;
+
     font:
-        800 32px
+        800 29px
         "JetBrains Mono";
+
 }
 
 .fact span {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.journey {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 12px;
+
+}
+
+.journey-card {
+
+    position: relative;
+
+    padding: 25px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.022);
+
+}
+
+.journey-card::before {
+
+    content: "";
+
+    display: block;
+
+    width: 8px;
+
+    height: 8px;
+
+    margin-bottom: 18px;
+
+    border-radius: 50%;
+
+    background: var(--primary2);
+
+    box-shadow:
+        0 0 15px
+        rgba(118,92,255,.5);
+
+}
+
+.journey-card span {
+
+    color: var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+}
+
+.journey-card h3 {
+
+    margin:
+        6px 0;
+
+    font-size: 17px;
+
+}
+
+.journey-card p {
+
     color: var(--muted);
 
     font-size: 11px;
+
 }
 
 
@@ -846,214 +1074,19 @@ body::before {
 ========================================================= */
 
 .skills-grid {
-    display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 17px;
-}
-
-.skill-card {
-    padding: 30px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: var(--radius);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(18,24,38,.82),
-            rgba(10,14,23,.72)
-        );
-
-    transition: .3s;
-}
-
-.skill-card:hover {
-    transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(118,87,255,.45);
-
-    box-shadow:
-        var(--shadow);
-}
-
-.skill-number {
-    color: var(--cyan);
-
-    font:
-        700 10px
-        "JetBrains Mono";
-
-    margin-bottom: 20px;
-}
-
-.skill-card h3 {
-    font-size: 20px;
-
-    margin-bottom: 7px;
-}
-
-.skill-card p {
-    color: var(--muted);
-
-    font-size: 12px;
-
-    margin-bottom: 20px;
-}
-
-.tags {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 7px;
-}
-
-.tags span {
-    color: #aeb8cc;
-
-    background:
-        rgba(255,255,255,.025);
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 7px;
-
-    padding:
-        5px 8px;
-
-    font-size: 10px;
-
-    transition: .2s;
-}
-
-.tags span:hover {
-    border-color:
-        rgba(0,212,255,.25);
-
-    color: white;
-}
-
-
-/* =========================================================
-   CYBERSECURITY
-========================================================= */
-
-.security-layout {
-    display: grid;
-
-    grid-template-columns:
-        .85fr 1.15fr;
-
-    gap: 18px;
-}
-
-.security-terminal {
-    height: 100%;
-
-    min-height: 430px;
-
-    overflow: hidden;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 22px;
-
-    background:
-        #080c14;
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.28);
-}
-
-.terminal-head {
-    height: 52px;
-
-    display: flex;
-
-    align-items: center;
-
-    padding:
-        0 18px;
-
-    border-bottom:
-        1px solid var(--line);
-
-    color:
-        #67738a;
-
-    font:
-        10px
-        "JetBrains Mono";
-}
-
-.terminal-dots {
-    display: flex;
-
-    gap: 6px;
-
-    margin-left: auto;
-}
-
-.terminal-dots i {
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background:
-        #374151;
-}
-
-.terminal-body {
-    padding: 28px;
-
-    direction: ltr;
-
-    text-align: left;
-
-    font:
-        12px/2.4
-        "JetBrains Mono";
-
-    color:
-        #cbd5e1;
-}
-
-.terminal-body p {
-    margin: 0;
-}
-
-.terminal-green {
-    color:
-        var(--green);
-}
-
-.terminal-muted {
-    color:
-        #56627a;
-}
-
-.security-cards {
     display: grid;
 
     grid-template-columns:
         1fr 1fr;
 
     gap: 15px;
+
 }
 
-.security-card {
-    padding: 27px;
+.skill-card {
+
+    padding: 28px;
 
     border:
         1px solid var(--line);
@@ -1063,132 +1096,378 @@ body::before {
     background:
         linear-gradient(
             145deg,
-            rgba(18,24,38,.8),
-            rgba(10,14,23,.75)
+            rgba(16,23,36,.88),
+            rgba(8,12,20,.8)
         );
 
     transition: .3s;
+
 }
 
-.security-card:hover {
+.skill-card:hover {
+
     transform:
-        translateY(-4px);
+        translateY(-5px);
 
     border-color:
-        rgba(0,212,255,.28);
+        var(--line2);
 
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.25);
 }
 
-.security-icon {
-    width: 42px;
-    height: 42px;
+.skill-code {
+
+    color: var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+    margin-bottom: 16px;
+
+}
+
+.skill-card h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 6px;
+
+}
+
+.skill-card p {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-bottom: 18px;
+
+}
+
+.tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+}
+
+.tags span {
+
+    padding:
+        5px 8px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 7px;
+
+    color: #aab5c9;
+
+    background:
+        rgba(255,255,255,.02);
+
+    font-size: 9px;
+
+}
+
+
+/* =========================================================
+   CYBERSECURITY
+========================================================= */
+
+.cyber-intro {
+
+    max-width: 850px;
+
+    margin-bottom: 35px;
+
+}
+
+.cyber-badge {
+
+    display: inline-block;
+
+    margin-bottom: 13px;
+
+    padding:
+        6px 10px;
+
+    border:
+        1px solid
+        rgba(0,217,255,.2);
+
+    border-radius: 7px;
+
+    background:
+        rgba(0,217,255,.035);
+
+    color: var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+}
+
+.cyber-intro h3 {
+
+    font-size:
+        clamp(
+            25px,
+            4vw,
+            38px
+        );
+
+    line-height: 1.35;
+
+}
+
+.cyber-intro p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-top: 11px;
+
+}
+
+.cyber-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 14px;
+
+}
+
+.cyber-card {
+
+    min-height: 245px;
+
+    padding: 25px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 19px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(14,21,34,.9),
+            rgba(8,12,20,.78)
+        );
+
+    transition: .3s;
+
+}
+
+.cyber-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(0,217,255,.3);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.24);
+
+}
+
+.cyber-icon {
+
+    width: 43px;
+
+    height: 43px;
 
     display: grid;
 
     place-items: center;
 
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 
     border:
         1px solid
-        rgba(0,212,255,.18);
+        rgba(0,217,255,.18);
 
-    border-radius: 12px;
-
-    background:
-        rgba(0,212,255,.04);
-
-    color:
-        var(--cyan);
-
-    font:
-        700 18px
-        "JetBrains Mono";
-}
-
-.security-card h3 {
-    font-size: 17px;
-
-    margin-bottom: 7px;
-}
-
-.security-card p {
-    color:
-        var(--muted);
-
-    font-size: 11px;
-}
-
-.security-status {
-    display: inline-block;
-
-    margin-top: 15px;
-
-    padding:
-        4px 8px;
-
-    border-radius: 6px;
+    border-radius: 11px;
 
     background:
-        rgba(69,230,155,.05);
+        rgba(0,217,255,.045);
 
-    border:
-        1px solid
-        rgba(69,230,155,.13);
-
-    color:
-        var(--green);
+    color: var(--cyan);
 
     font:
-        700 8px
+        700 9px
         "JetBrains Mono";
+
 }
 
-.security-note {
-    margin-top: 17px;
+.cyber-card h3 {
 
-    padding: 18px 22px;
+    font-size: 18px;
+
+    margin-bottom: 5px;
+
+}
+
+.cyber-card p {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    margin-bottom: 15px;
+
+}
+
+.cyber-card .tags span {
+
+    font-size: 8px;
+
+}
+
+.cyber-learning {
+
+    margin-top: 16px;
+
+    padding: 24px;
 
     display: flex;
 
     align-items: center;
 
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border:
+        1px dashed
+        rgba(118,92,255,.4);
+
+    border-radius: 18px;
+
+    background:
+        rgba(118,92,255,.035);
+
+}
+
+.cyber-learning span {
+
+    color: var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+}
+
+.cyber-learning h3 {
+
+    margin-top: 5px;
+
+    font-size: 16px;
+
+}
+
+.cyber-learning strong {
+
+    color: var(--primary2);
+
+    font:
+        700 11px
+        "JetBrains Mono";
+
+}
+
+
+/* =========================================================
+   ANDROID
+========================================================= */
+
+.android-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
     gap: 15px;
+
+}
+
+.android-card {
+
+    padding: 30px;
 
     border:
         1px solid var(--line);
 
-    border-radius: 15px;
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17,25,39,.9),
+            rgba(8,12,20,.8)
+        );
+
+}
+
+.android-card h3 {
+
+    font-size: 21px;
+
+    margin-bottom: 8px;
+
+}
+
+.android-card p {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-bottom: 20px;
+
+}
+
+.stack {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 8px;
+
+}
+
+.stack-item {
+
+    padding: 11px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 10px;
 
     background:
         rgba(255,255,255,.02);
-}
 
-.security-note strong {
-    font-size: 12px;
-}
-
-.security-note span {
-    color:
-        var(--muted);
-
-    font:
-        10px
-        "JetBrains Mono";
-}
-
-.security-note em {
-    margin-right: auto;
-
-    color:
-        var(--primary-light);
-
-    font-style: normal;
+    color: #bbc5d6;
 
     font-size: 10px;
+
 }
 
 
@@ -1197,171 +1476,263 @@ body::before {
 ========================================================= */
 
 .projects-grid {
+
     display: grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap: 17px;
+    gap: 15px;
+
 }
 
 .project {
+
+    overflow: hidden;
+
     border:
         1px solid var(--line);
 
     border-radius: 20px;
 
     background:
-        rgba(255,255,255,.025);
-
-    overflow: hidden;
+        rgba(255,255,255,.022);
 
     transition: .3s;
+
 }
 
 .project:hover {
+
     transform:
         translateY(-5px);
 
     border-color:
-        rgba(118,87,255,.45);
+        var(--line2);
 
-    box-shadow:
-        var(--shadow);
 }
 
-.project-top {
+.project-preview {
+
     height: 170px;
 
     display: grid;
 
     place-items: center;
 
+    border-bottom:
+        1px solid var(--line);
+
     background:
         radial-gradient(
             circle,
-            rgba(118,87,255,.14),
+            rgba(118,92,255,.13),
             transparent 65%
         );
 
-    border-bottom:
-        1px solid var(--line);
 }
 
 .project-placeholder {
-    width: 65px;
-    height: 65px;
 
-    border:
-        1px dashed
-        rgba(118,87,255,.5);
+    width: 66px;
 
-    border-radius: 17px;
+    height: 66px;
 
     display: grid;
 
     place-items: center;
 
-    color:
-        var(--primary-light);
+    border:
+        1px dashed
+        rgba(118,92,255,.5);
+
+    border-radius: 17px;
+
+    color: var(--primary2);
 
     font:
-        700 20px
+        700 19px
         "JetBrains Mono";
+
 }
 
 .project-content {
+
     padding: 23px;
+
 }
 
 .project-label {
+
     color: var(--cyan);
 
     font:
         700 9px
         "JetBrains Mono";
+
 }
 
 .project h3 {
+
     font-size: 18px;
 
     margin:
         7px 0;
+
 }
 
 .project p {
+
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 11px;
+
 }
 
 .coming-soon {
-    margin-top: 16px;
 
     display: inline-block;
+
+    margin-top: 14px;
 
     padding:
         5px 9px;
 
+    border:
+        1px solid
+        rgba(118,92,255,.2);
+
     border-radius: 7px;
 
     background:
-        rgba(118,87,255,.08);
+        rgba(118,92,255,.07);
 
-    border:
-        1px solid
-        rgba(118,87,255,.2);
+    color: #b7aaff;
 
-    color:
-        #b8aaff;
+    font-size: 9px;
 
-    font-size: 10px;
 }
 
 
 /* =========================================================
-   BOOKS
+   GITHUB
 ========================================================= */
 
-.books-grid {
+.github-box {
+
+    padding: 35px;
+
     display: grid;
 
     grid-template-columns:
-        1.1fr .9fr;
+        1fr
+        auto;
 
-    gap: 18px;
-}
+    align-items: center;
 
-.books-card {
-    padding: 40px;
+    gap: 30px;
 
     border:
         1px solid var(--line);
 
-    border-radius: var(--radius);
+    border-radius: 22px;
 
     background:
         linear-gradient(
-            145deg,
-            rgba(22,27,43,.8),
-            rgba(10,14,24,.7)
+            100deg,
+            rgba(118,92,255,.09),
+            rgba(0,217,255,.025)
         );
+
 }
 
-.books-card h3 {
-    font-size: 28px;
+.github-box h3 {
 
-    margin-bottom: 12px;
+    font-size: 25px;
+
 }
 
-.books-card p {
+.github-box p {
+
     color: var(--muted);
 
-    font-size: 14px;
+    font-size: 12px;
+
+    margin-top: 5px;
+
 }
 
-.books-box {
-    min-height: 280px;
+.github-status {
+
+    color: var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+}
+
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        .35fr;
+
+    gap: 15px;
+
+}
+
+.education-main {
+
+    padding: 35px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 21px;
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+.education-main small {
+
+    color: var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+}
+
+.education-main h3 {
+
+    font-size: 27px;
+
+    margin:
+        7px 0;
+
+}
+
+.education-main p {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+.age-card {
+
+    padding: 35px;
 
     display: grid;
 
@@ -1370,29 +1741,125 @@ body::before {
     text-align: center;
 
     border:
-        1px dashed
-        rgba(118,87,255,.35);
+        1px solid var(--line);
 
-    border-radius: var(--radius);
+    border-radius: 21px;
 
     background:
-        rgba(118,87,255,.035);
+        rgba(118,92,255,.05);
+
 }
 
-.books-box .icon {
-    font-size: 50px;
+.age-card strong {
+
+    font:
+        800 52px
+        "JetBrains Mono";
+
+}
+
+.age-card span {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   BOOKS
+========================================================= */
+
+.books-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr
+        .9fr;
+
+    gap: 15px;
+
+}
+
+.books-card {
+
+    padding: 38px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,25,41,.85),
+            rgba(8,12,20,.8)
+        );
+
+}
+
+.books-card h3 {
+
+    font-size: 28px;
 
     margin-bottom: 10px;
+
+}
+
+.books-card p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+.books-box {
+
+    min-height: 270px;
+
+    display: grid;
+
+    place-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    border:
+        1px dashed
+        rgba(118,92,255,.35);
+
+    border-radius: 22px;
+
+    background:
+        rgba(118,92,255,.035);
+
+}
+
+.book-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 5px;
+
 }
 
 .books-box h3 {
+
     font-size: 18px;
+
 }
 
 .books-box p {
+
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 11px;
+
 }
 
 
@@ -1401,15 +1868,18 @@ body::before {
 ========================================================= */
 
 .writing-grid {
+
     display: grid;
 
     grid-template-columns:
         1fr 1fr;
 
-    gap: 17px;
+    gap: 15px;
+
 }
 
 .writing-main {
+
     grid-column:
         1 / -1;
 
@@ -1418,57 +1888,129 @@ body::before {
     border:
         1px solid var(--line);
 
-    border-radius: var(--radius);
+    border-radius: 22px;
 
     background:
         linear-gradient(
             100deg,
-            rgba(118,87,255,.10),
-            rgba(0,212,255,.025)
+            rgba(118,92,255,.1),
+            rgba(0,217,255,.025)
         );
+
 }
 
 .writing-main h3 {
-    font-size: 27px;
+
+    font-size: 28px;
+
 }
 
 .writing-main p {
+
+    max-width: 780px;
+
     color: var(--muted);
 
-    max-width: 750px;
+    font-size: 12px;
 
     margin-top: 7px;
+
 }
 
 .writing-card {
-    padding: 28px;
+
+    padding: 27px;
 
     border:
         1px solid var(--line);
 
-    border-radius: 20px;
+    border-radius: 19px;
 
     background:
-        rgba(255,255,255,.025);
+        rgba(255,255,255,.022);
+
 }
 
 .writing-card small {
+
     color: var(--cyan);
 
     font:
         700 9px
         "JetBrains Mono";
+
 }
 
 .writing-card h3 {
+
     margin:
-        10px 0 5px;
+        7px 0;
+
 }
 
 .writing-card p {
+
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   LEARNING
+========================================================= */
+
+.learning-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 10px;
+
+}
+
+.learning-card {
+
+    padding: 22px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,255,255,.02);
+
+}
+
+.learning-card span {
+
+    color: var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+}
+
+.learning-card h3 {
+
+    font-size: 16px;
+
+    margin:
+        7px 0 3px;
+
+}
+
+.learning-card p {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
 }
 
 
@@ -1476,32 +2018,32 @@ body::before {
    CERTIFICATES
 ========================================================= */
 
-.certificates {
-    padding-top: 80px;
-}
-
 .cert-box {
-    padding: 35px;
+
+    padding: 30px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 20px;
+    gap: 18px;
 
     border:
         1px dashed
-        rgba(118,87,255,.4);
+        rgba(118,92,255,.4);
 
     border-radius: 20px;
 
     background:
-        rgba(118,87,255,.035);
+        rgba(118,92,255,.035);
+
 }
 
 .cert-icon {
-    width: 55px;
-    height: 55px;
+
+    width: 52px;
+
+    height: 52px;
 
     flex-shrink: 0;
 
@@ -1509,28 +2051,33 @@ body::before {
 
     place-items: center;
 
-    border-radius: 15px;
+    border-radius: 14px;
 
     background:
-        rgba(118,87,255,.12);
+        rgba(118,92,255,.1);
 
-    color:
-        var(--primary-light);
+    color: var(--primary2);
 
-    font-size: 22px;
+    font-size: 21px;
+
 }
 
 .cert-box h3 {
+
     font-size: 18px;
+
 }
 
 .cert-box p {
+
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 11px;
+
 }
 
 .cert-status {
+
     margin-right: auto;
 
     color: var(--cyan);
@@ -1538,6 +2085,7 @@ body::before {
     font:
         700 9px
         "JetBrains Mono";
+
 }
 
 
@@ -1546,57 +2094,84 @@ body::before {
 ========================================================= */
 
 .contact-box {
+
     padding: 55px;
 
     display: grid;
 
     grid-template-columns:
-        1fr .9fr;
+        1fr
+        .9fr;
 
     gap: 60px;
 
     border:
         1px solid var(--line);
 
-    border-radius: 28px;
+    border-radius: 27px;
 
     background:
         radial-gradient(
             circle at 90% 10%,
-            rgba(118,87,255,.14),
+            rgba(118,92,255,.14),
             transparent 40%
         ),
-        rgba(255,255,255,.025);
+        rgba(255,255,255,.023);
+
+}
+
+.contact-box > div:first-child small {
+
+    color: var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+    letter-spacing: 2px;
+
 }
 
 .contact-box h2 {
+
     font-size:
-        clamp(38px, 5vw, 58px);
+        clamp(
+            38px,
+            5vw,
+            60px
+        );
 
     line-height: 1.2;
 
     margin:
-        8px 0 15px;
+        8px 0 14px;
+
 }
 
 .contact-box h2 span {
-    color:
-        var(--primary-light);
+
+    color: var(--primary2);
+
 }
 
 .contact-box p {
+
     color: var(--muted);
 
-    font-size: 13px;
+    font-size: 12px;
+
 }
 
 .contact-links {
+
     display: flex;
 
     flex-direction: column;
+
 }
 
 .contact-link {
+
     display: flex;
 
     align-items: center;
@@ -1604,31 +2179,72 @@ body::before {
     justify-content: space-between;
 
     padding:
-        16px 0;
+        14px 0;
 
     border-bottom:
         1px solid var(--line);
 
     transition: .25s;
+
 }
 
 .contact-link:hover {
+
     padding-right: 8px;
+
 }
 
-.contact-link span:first-child {
-    color: #dbe2f1;
+.contact-name {
 
-    font-size: 13px;
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #dce4f2;
+
+    font-size: 12px;
+
 }
 
-.contact-link span:last-child {
-    color:
-        var(--cyan);
+.contact-icon {
+
+    width: 32px;
+
+    height: 32px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 9px;
+
+    color: var(--cyan);
+
+}
+
+.contact-icon svg {
+
+    width: 15px;
+
+    height: 15px;
+
+    fill: currentColor;
+
+}
+
+.contact-value {
+
+    color: var(--cyan);
 
     font:
-        700 10px
+        700 9px
         "JetBrains Mono";
+
 }
 
 
@@ -1637,45 +2253,51 @@ body::before {
 ========================================================= */
 
 footer {
+
+    padding:
+        27px 0;
+
     border-top:
         1px solid var(--line);
 
-    padding:
-        25px 0;
-
-    color:
-        var(--muted-2);
+    color: var(--muted2);
 
     font-size: 10px;
+
 }
 
 .footer-inner {
+
     display: flex;
 
     align-items: center;
 
     justify-content: space-between;
+
 }
 
-footer strong {
-    color:
-        var(--cyan);
+.footer-inner strong {
+
+    color: var(--cyan);
+
 }
 
 
 /* =========================================================
-   TOP BUTTON
+   TOP
 ========================================================= */
 
 .top-button {
+
     position: fixed;
 
-    left: 25px;
+    left: 23px;
 
-    bottom: 25px;
+    bottom: 23px;
 
-    width: 42px;
-    height: 42px;
+    width: 43px;
+
+    height: 43px;
 
     display: grid;
 
@@ -1687,7 +2309,7 @@ footer strong {
     border-radius: 12px;
 
     background:
-        rgba(10,14,23,.9);
+        rgba(8,12,20,.92);
 
     color: white;
 
@@ -1702,15 +2324,18 @@ footer strong {
 
     transition: .3s;
 
-    z-index: 50;
+    z-index: 500;
+
 }
 
 .top-button.show {
+
     opacity: 1;
 
     visibility: visible;
 
     transform: none;
+
 }
 
 
@@ -1719,20 +2344,24 @@ footer strong {
 ========================================================= */
 
 .reveal {
+
     opacity: 0;
 
     transform:
-        translateY(20px);
+        translateY(18px);
 
     transition:
         opacity .7s ease,
         transform .7s ease;
+
 }
 
 .reveal.visible {
+
     opacity: 1;
 
     transform: none;
+
 }
 
 
@@ -1743,24 +2372,13 @@ footer strong {
 @media(max-width: 1000px) {
 
     .nav-links {
-        gap: 14px;
-    }
 
-    .hero-grid {
-        gap: 45px;
-    }
-
-}
-
-
-@media(max-width: 900px) {
-
-    .nav-links {
         position: fixed;
 
         top: 78px;
 
         right: 20px;
+
         left: 20px;
 
         display: none;
@@ -1769,182 +2387,286 @@ footer strong {
 
         align-items: stretch;
 
-        padding: 18px;
+        padding: 17px;
 
         background:
-            rgba(8,11,18,.97);
+            rgba(7,10,17,.97);
 
         border:
             1px solid var(--line);
 
         border-radius: 18px;
+
     }
 
     .nav-links.open {
+
         display: flex;
+
     }
 
     .nav-links a {
-        padding: 9px;
+
+        padding: 8px;
+
     }
 
     .menu {
+
         display: block;
+
     }
 
-    .hero-grid,
-    .about-grid,
-    .books-grid,
-    .contact-box,
-    .security-layout {
-        grid-template-columns: 1fr;
-    }
+    .hero-grid {
 
-    .hero {
-        padding-top: 120px;
+        grid-template-columns:
+            1fr;
+
     }
 
     .hero-code {
-        margin-top: 20px;
+
+        max-width: 720px;
+
     }
 
-    .projects-grid {
+    .journey {
+
         grid-template-columns:
             1fr 1fr;
+
+    }
+
+    .cyber-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+    .learning-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
     }
 
 }
 
 
-@media(max-width: 650px) {
+@media(max-width: 720px) {
 
     .container {
+
         width:
             calc(100% - 28px);
+
     }
 
     .section {
-        padding: 85px 0;
+
+        padding: 82px 0;
+
     }
 
     .hero {
-        padding-top: 105px;
+
+        padding-top: 115px;
+
     }
 
     .hero h1 {
-        font-size: 54px;
+
+        font-size: 53px;
 
         letter-spacing: -2px;
-    }
 
-    .hero-role {
-        font-size: 16px;
     }
 
     .hero-description {
-        font-size: 13px;
+
+        font-size: 12px;
+
     }
 
-    .hero-buttons {
-        width: 100%;
-    }
+    .hero-role {
 
-    .btn {
-        flex: 1;
-    }
+        font-size: 15px;
 
-    .socials {
-        flex-wrap: wrap;
     }
 
     .code {
+
         padding: 20px;
 
         font-size: 9px;
+
+    }
+
+    .about-grid,
+    .android-grid,
+    .books-grid,
+    .contact-box,
+    .education {
+
+        grid-template-columns:
+            1fr;
+
     }
 
     .skills-grid,
     .projects-grid,
-    .writing-grid,
-    .security-cards {
-        grid-template-columns: 1fr;
+    .writing-grid {
+
+        grid-template-columns:
+            1fr;
+
     }
 
     .writing-main {
+
         grid-column: auto;
+
     }
 
-    .books-card,
+    .cyber-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .journey {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+    .learning-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+    .github-box {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
     .contact-box {
-        padding: 28px;
+
+        padding: 29px;
+
+        gap: 35px;
+
     }
 
     .cert-box {
+
         align-items: flex-start;
 
         flex-wrap: wrap;
+
     }
 
     .cert-status {
-        margin-right: 0;
 
         width: 100%;
-    }
 
-    .security-note {
-        align-items: flex-start;
-
-        flex-direction: column;
-    }
-
-    .security-note em {
         margin-right: 0;
+
     }
 
-    .security-terminal {
-        min-height: auto;
+}
+
+
+@media(max-width: 480px) {
+
+    .hero h1 {
+
+        font-size: 45px;
+
     }
 
-    .terminal-body {
-        padding: 22px;
+    .hero-specialties span {
 
-        font-size: 10px;
+        font-size: 8px;
+
+    }
+
+    .facts {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+    .journey {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .learning-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .stack {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .socials a {
+
+        width: 37px;
+
+        height: 37px;
+
     }
 
     .footer-inner {
+
         flex-direction: column;
 
         gap: 7px;
 
         text-align: center;
-    }
 
-    .top-button {
-        left: 18px;
-
-        bottom: 18px;
     }
 
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   REDUCED MOTION
 ========================================================= */
 
-@media(max-width: 380px) {
+@media(prefers-reduced-motion: reduce) {
 
-    .hero h1 {
-        font-size: 47px;
+    html {
+        scroll-behavior: auto;
     }
 
-    .socials a {
-        width: 40px;
-        height: 40px;
-    }
+    *,
+    *::before,
+    *::after {
 
-    .code {
-        font-size: 8px;
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+
     }
 
 }
@@ -1955,7 +2677,6 @@ footer strong {
 
 
 <body>
-
 
 <div class="grid-bg"></div>
 
@@ -1968,14 +2689,13 @@ footer strong {
 
     <div class="container nav">
 
-
         <a href="#home" class="logo">
 
-            <span class="logo-icon">
+            <span class="logo-mark">
                 &lt;/&gt;
             </span>
 
-            <span>
+            <span class="logo-text">
                 Mohammed<span>.dev</span>
             </span>
 
@@ -1994,41 +2714,23 @@ footer strong {
         </button>
 
 
-        <nav
-            class="nav-links"
-            id="navLinks">
+        <nav class="nav-links" id="navLinks">
 
-            <a href="#home">
-                الرئيسية
-            </a>
+            <a href="#home">الرئيسية</a>
 
-            <a href="#about">
-                من أنا
-            </a>
+            <a href="#about">من أنا</a>
 
-            <a href="#skills">
-                المهارات
-            </a>
+            <a href="#skills">المهارات</a>
 
-            <a href="#security">
-                الأمن السيبراني
-            </a>
+            <a href="#cybersecurity">Cybersecurity</a>
 
-            <a href="#projects">
-                المشاريع
-            </a>
+            <a href="#android">Android</a>
 
-            <a href="#books">
-                الكتب
-            </a>
+            <a href="#projects">المشاريع</a>
 
-            <a href="#writing">
-                الكتابة
-            </a>
+            <a href="#books">الكتب</a>
 
-            <a href="#contact">
-                تواصل
-            </a>
+            <a href="#contact">تواصل</a>
 
         </nav>
 
@@ -2046,9 +2748,8 @@ footer strong {
 ========================================================= -->
 
 <section
-    class="hero section"
+    class="hero"
     id="home">
-
 
     <div class="container hero-grid">
 
@@ -2056,18 +2757,18 @@ footer strong {
         <div class="reveal">
 
 
-            <div class="status-line">
+            <div class="availability">
 
-                <span class="status-dot"></span>
+                <span class="availability-dot"></span>
 
                 متاح للتواصل والتعاون
 
             </div>
 
 
-            <p class="hero-small">
+            <div class="hero-kicker">
                 HELLO, I'M
-            </p>
+            </div>
 
 
             <h1>
@@ -2085,8 +2786,16 @@ footer strong {
 
             <div class="hero-role">
 
-                <span id="typed">
+                <span class="role-main">
                     Android Developer
+                </span>
+
+                <span class="role-separator">
+                    /
+                </span>
+
+                <span id="typed">
+                    Cybersecurity
                 </span>
 
                 <span class="cursor">
@@ -2098,15 +2807,37 @@ footer strong {
 
             <p class="hero-description">
 
-                طالب حاسبات ومعلومات،
-                مطور Android،
-                مهتم بالبرمجة والأمن السيبراني،
-                وأحب أيضًا الكتب والروايات والكتابة.
-
-                أسعى دائمًا للتعلم وبناء أشياء حقيقية
-                وتحويل الأفكار إلى مشاريع وتجارب مفيدة.
+                طالب حاسبات ومعلومات ومطور Android،
+                مهتم بالبرمجة والأمن السيبراني وأمن التطبيقات،
+                وأجد شغفًا أيضًا في الكتب والروايات والكتابة.
+                أتعلم باستمرار وأحوّل الأفكار إلى مشاريع حقيقية.
 
             </p>
+
+
+            <div class="hero-specialties">
+
+                <span>
+                    <b>01</b>
+                    Android
+                </span>
+
+                <span>
+                    <b>02</b>
+                    Cybersecurity
+                </span>
+
+                <span>
+                    <b>03</b>
+                    Programming
+                </span>
+
+                <span>
+                    <b>04</b>
+                    Writing
+                </span>
+
+            </div>
 
 
             <div class="hero-buttons">
@@ -2115,12 +2846,10 @@ footer strong {
                     href="#projects"
                     class="btn btn-primary">
 
-                    استكشف أعمالي
-
+                    استكشف مشاريعي
                     ↗
 
                 </a>
-
 
                 <a
                     href="#contact"
@@ -2147,9 +2876,7 @@ footer strong {
                     aria-label="Facebook">
 
                     <svg viewBox="0 0 24 24">
-
-                        <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1z"/>
-
+                        <path d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1z"/>
                     </svg>
 
                 </a>
@@ -2165,7 +2892,7 @@ footer strong {
 
                     <svg viewBox="0 0 24 24">
 
-                        <path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.4-8.4zM12 21.7h-.1c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.1C2 6.5 6.5 2 12 2c2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.8 7c0 5.4-4.4 9.8-9.7 9.8zM8.1 13.2l10.8-6.8c.5-.3 1-.1.6.2l-8.8 8-.3 3.2-1.7-5.4-3.9-1.2 3.3-1.3z"/>
+                        <path d="M20 4.1A9.9 9.9 0 0 0 3.2 16.2L2 21.5l5.4-1.2A10 10 0 1 0 20 4.1zm-8 16a8.2 8.2 0 0 1-4.1-1.1l-.3-.2-3.2.7.7-3.1-.2-.3a8.1 8.1 0 1 1 7.1 4zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-1.3-.6-2.2-1.1-3.1-2.5-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5 1.5.7 2.1.7 2.9.6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.2-.2-.2-.4-.3z"/>
 
                     </svg>
 
@@ -2182,7 +2909,7 @@ footer strong {
 
                     <svg viewBox="0 0 24 24">
 
-                        <path d="M21.5 3.2 2.8 10.4c-1.3.5-1.3 1.3-.2 1.6l4.8 1.5 1.8 5.7c.2.6.1.8.8.8.5 0 .7-.2.9-.4l2.3-2.2 4.8 3.5c.9.5 1.5.3 1.7-.8l3.1-14.7c.3-1.4-.5-2-1.3-1.7zM8.1 13.2l10.8-6.8c.5-.3 1-.1.6.2l-8.8 8-.3 3.2-1.7 3.2-1.7-5.4-3.9-1.2 3.3-1.3z"/>
+                        <path d="M21.5 4.5 18.3 20c-.2 1.1-.8 1.4-1.7.9l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.4-.1-.6-.6-.2L6.2 14.1l-4.6-1.5c-1-.3-1-1 .2-1.5L19.8 4c.8-.3 1.9.2 1.7.5z"/>
 
                     </svg>
 
@@ -2199,7 +2926,29 @@ footer strong {
 
                     <svg viewBox="0 0 24 24">
 
-                        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.5 6a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
+                        <rect
+                            x="3"
+                            y="3"
+                            width="18"
+                            height="18"
+                            rx="5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"/>
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"/>
+
+                        <circle
+                            cx="17.5"
+                            cy="6.5"
+                            r="1"
+                            fill="currentColor"/>
 
                     </svg>
 
@@ -2216,7 +2965,7 @@ footer strong {
 
                     <svg viewBox="0 0 24 24">
 
-                        <path d="M5 3a2.2 2.2 0 1 1 0 4.4A2.2 2.2 0 0 1 5 3zM3 9h4v12H3V9zm6 0h3.8v1.6h.1c.5-.9 1.7-2 3.6-2 3.8 0 4.5 2.5 4.5 5.8V21h-4v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9V9z"/>
+                        <path d="M5 3.5A2.5 2.5 0 1 1 5 8a2.5 2.5 0 0 1 0-4.5zM3 9h4v12H3zm6 0h3.8v1.7h.1c.5-1 1.8-2.1 3.8-2.1 4 0 4.7 2.6 4.7 6v6.4h-4v-5.7c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9z"/>
 
                     </svg>
 
@@ -2231,7 +2980,21 @@ footer strong {
 
                     <svg viewBox="0 0 24 24">
 
-                        <path d="M2 5h20v14H2V5zm2 2v.5l8 5 8-5V7l-8 5-8-5zm0 10h16V10l-8 5-8-5v7z"/>
+                        <rect
+                            x="3"
+                            y="5"
+                            width="18"
+                            height="14"
+                            rx="2"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"/>
+
+                        <path
+                            d="m4 7 8 6 8-6"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"/>
 
                     </svg>
 
@@ -2278,9 +3041,7 @@ footer strong {
 
                     <div>
                         &nbsp;&nbsp;age:
-                        <span class="number">
-                            19
-                        </span>,
+                        <span class="number">19</span>,
                     </div>
 
                     <div>
@@ -2298,6 +3059,13 @@ footer strong {
                     </div>
 
                     <div>
+                        &nbsp;&nbsp;security:
+                        <span class="string">
+                            "Cybersecurity"
+                        </span>,
+                    </div>
+
+                    <div>
                         &nbsp;&nbsp;interests: [
                     </div>
 
@@ -2311,6 +3079,13 @@ footer strong {
                     <div>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="string">
+                            "Mobile Development"
+                        </span>,
+                    </div>
+
+                    <div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="string">
                             "Cybersecurity"
                         </span>,
                     </div>
@@ -2318,14 +3093,7 @@ footer strong {
                     <div>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="string">
-                            "Books"
-                        </span>,
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="string">
-                            "Writing"
+                            "Books & Writing"
                         </span>
                     </div>
 
@@ -2347,9 +3115,7 @@ footer strong {
                     <br>
 
                     <div class="comment">
-                        // learn.
-                        // build.
-                        // improve.
+                        // learn. build. secure. create.
                     </div>
 
                 </div>
@@ -2382,9 +3148,7 @@ footer strong {
 
             <div>
 
-                <small>
-                    ABOUT ME
-                </small>
+                <small>ABOUT ME</small>
 
                 <h2>
                     من أنا؟
@@ -2397,42 +3161,42 @@ footer strong {
 
         <div class="about-grid">
 
-
             <div class="about-content reveal">
 
-                <p class="lead">
+                <p class="about-lead">
 
-                    أنا محمد عبدالله إبراهيم،
-                    طالب في مجال حاسبات ومعلومات،
-                    أبلغ من العمر 19 عامًا،
-                    ومطور Android شغوف بالتقنية.
+                    محمد عبدالله إبراهيم —
+                    طالب حاسبات ومعلومات،
+                    مطور Android، ومهتم بالأمن السيبراني
+                    والبرمجة والكتابة.
 
                 </p>
+
 
                 <p>
 
                     أحب بناء التطبيقات وتجربة الأفكار
-                    وتحويل المشاكل إلى حلول برمجية.
-                    أعمل على تطوير نفسي في Android
-                    والبرمجة بشكل مستمر.
+                    وتحويل المشاكل إلى حلول برمجية
+                    عملية وقابلة للتطوير.
 
                 </p>
 
+
                 <p>
 
-                    لدي أيضًا اهتمام كبير بالأمن السيبراني
-                    والـ Ethical Hacking،
-                    خصوصًا فهم الأنظمة والشبكات
-                    وأساسيات حماية التطبيقات والبيانات.
+                    في المجال الأمني أهتم بفهم الأنظمة
+                    والشبكات وأمن التطبيقات والموبايل
+                    والـ Secure Coding، مع التعلم المستمر
+                    في مجال الـ Ethical Hacking.
 
                 </p>
 
+
                 <p>
 
-                    وبعيدًا عن التقنية،
-                    أجد مساحة مختلفة في الكتب والروايات
-                    والكتابة، وأحب اكتشاف الأفكار
-                    والقصص وصناعة المحتوى المكتوب.
+                    وخارج عالم التقنية أجد مساحة مختلفة
+                    في الكتب والروايات والكتابة،
+                    وأهتم بالأفكار والقصص والمحتوى المكتوب.
 
                 </p>
 
@@ -2443,9 +3207,7 @@ footer strong {
 
                 <div class="fact">
 
-                    <strong>
-                        19
-                    </strong>
+                    <strong>19</strong>
 
                     <span>
                         العمر
@@ -2453,12 +3215,9 @@ footer strong {
 
                 </div>
 
-
                 <div class="fact">
 
-                    <strong>
-                        CS
-                    </strong>
+                    <strong>CS</strong>
 
                     <span>
                         حاسبات ومعلومات
@@ -2466,25 +3225,19 @@ footer strong {
 
                 </div>
 
-
                 <div class="fact">
 
-                    <strong>
-                        ANDROID
-                    </strong>
+                    <strong>APP</strong>
 
                     <span>
-                        المجال الأساسي
+                        Android Development
                     </span>
 
                 </div>
 
-
                 <div class="fact">
 
-                    <strong>
-                        ∞
-                    </strong>
+                    <strong>∞</strong>
 
                     <span>
                         تعلم مستمر
@@ -2503,15 +3256,12 @@ footer strong {
 
 
 <!-- =========================================================
-     SKILLS
+     JOURNEY
 ========================================================= -->
 
-<section
-    class="section"
-    id="skills">
+<section class="section">
 
     <div class="container">
-
 
         <div class="section-title reveal">
 
@@ -2521,12 +3271,114 @@ footer strong {
 
             <div>
 
-                <small>
-                    SKILLS
-                </small>
+                <small>MY JOURNEY</small>
 
                 <h2>
-                    المهارات
+                    رحلتي
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="journey">
+
+
+            <article class="journey-card reveal">
+
+                <span>01 / FOUNDATION</span>
+
+                <h3>
+                    حاسبات ومعلومات
+                </h3>
+
+                <p>
+                    بناء أساس قوي في علوم الحاسب
+                    والبرمجة وحل المشكلات.
+                </p>
+
+            </article>
+
+
+            <article class="journey-card reveal">
+
+                <span>02 / DEVELOPMENT</span>
+
+                <h3>
+                    Android
+                </h3>
+
+                <p>
+                    التعمق في تطوير تطبيقات Android
+                    وبناء تطبيقات عملية.
+                </p>
+
+            </article>
+
+
+            <article class="journey-card reveal">
+
+                <span>03 / SECURITY</span>
+
+                <h3>
+                    Cybersecurity
+                </h3>
+
+                <p>
+                    توسيع المعرفة في الشبكات والأنظمة
+                    وأمن التطبيقات.
+                </p>
+
+            </article>
+
+
+            <article class="journey-card reveal">
+
+                <span>04 / CREATIVE</span>
+
+                <h3>
+                    Books & Writing
+                </h3>
+
+                <p>
+                    مساحة للقراءة والكتابة
+                    وصناعة الأفكار والقصص.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROGRAMMING SKILLS
+========================================================= -->
+
+<section
+    class="section"
+    id="skills">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                03
+            </span>
+
+            <div>
+
+                <small>PROGRAMMING</small>
+
+                <h2>
+                    المهارات البرمجية
                 </h2>
 
             </div>
@@ -2539,54 +3391,17 @@ footer strong {
 
             <article class="skill-card reveal">
 
-                <div class="skill-number">
-                    01 / MOBILE
+                <div class="skill-code">
+                    01 / LANGUAGES
                 </div>
 
                 <h3>
-                    Android Development
+                    Programming Languages
                 </h3>
 
                 <p>
-                    تطوير تطبيقات Android
-                    وبناء واجهات وتجارب استخدام حديثة.
-                </p>
-
-                <div class="tags">
-
-                    <span>Kotlin</span>
-                    <span>Java</span>
-                    <span>Android SDK</span>
-                    <span>Android Studio</span>
-                    <span>Jetpack</span>
-                    <span>Jetpack Compose</span>
-                    <span>XML</span>
-                    <span>Material Design</span>
-                    <span>Firebase</span>
-                    <span>REST API</span>
-                    <span>JSON</span>
-                    <span>Room</span>
-                    <span>SQLite</span>
-                    <span>Gradle</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-number">
-                    02 / CODE
-                </div>
-
-                <h3>
-                    Programming
-                </h3>
-
-                <p>
-                    البرمجة وحل المشكلات
-                    وبناء أساس قوي لتطوير البرمجيات.
+                    أساسيات ومهارات في مجموعة
+                    من لغات البرمجة.
                 </p>
 
                 <div class="tags">
@@ -2594,17 +3409,10 @@ footer strong {
                     <span>C</span>
                     <span>C++</span>
                     <span>Java</span>
+                    <span>Kotlin</span>
                     <span>Python</span>
                     <span>JavaScript</span>
-                    <span>HTML</span>
-                    <span>CSS</span>
                     <span>SQL</span>
-                    <span>OOP</span>
-                    <span>Algorithms</span>
-                    <span>Data Structures</span>
-                    <span>Problem Solving</span>
-                    <span>Git</span>
-                    <span>GitHub</span>
 
                 </div>
 
@@ -2613,33 +3421,26 @@ footer strong {
 
             <article class="skill-card reveal">
 
-                <div class="skill-number">
-                    03 / SECURITY
+                <div class="skill-code">
+                    02 / ENGINEERING
                 </div>
 
                 <h3>
-                    Cybersecurity
+                    Software Development
                 </h3>
 
                 <p>
-                    اهتمام بالأمن السيبراني
-                    وأمن التطبيقات والأنظمة
-                    والتعلم في مجال الـ Ethical Hacking.
+                    مفاهيم تطوير البرمجيات وحل المشكلات.
                 </p>
 
                 <div class="tags">
 
-                    <span>Cybersecurity</span>
-                    <span>Ethical Hacking</span>
-                    <span>Linux</span>
-                    <span>Networking</span>
-                    <span>OWASP</span>
-                    <span>Web Security</span>
-                    <span>Secure Coding</span>
-                    <span>Cryptography Basics</span>
-                    <span>Security Analysis</span>
-                    <span>Vulnerability Assessment</span>
-                    <span>Privacy</span>
+                    <span>OOP</span>
+                    <span>Data Structures</span>
+                    <span>Algorithms</span>
+                    <span>Problem Solving</span>
+                    <span>Debugging</span>
+                    <span>Testing</span>
 
                 </div>
 
@@ -2648,7 +3449,35 @@ footer strong {
 
             <article class="skill-card reveal">
 
-                <div class="skill-number">
+                <div class="skill-code">
+                    03 / WEB & API
+                </div>
+
+                <h3>
+                    Web & APIs
+                </h3>
+
+                <p>
+                    التعامل مع تقنيات الويب والـ APIs.
+                </p>
+
+                <div class="tags">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>REST API</span>
+                    <span>JSON</span>
+                    <span>HTTP</span>
+
+                </div>
+
+            </article>
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-code">
                     04 / TOOLS
                 </div>
 
@@ -2657,27 +3486,22 @@ footer strong {
                 </h3>
 
                 <p>
-                    أدوات وتقنيات أستخدمها
-                    في التطوير وتنظيم المشاريع والتعلم.
+                    أدوات التطوير وإدارة المشاريع.
                 </p>
 
                 <div class="tags">
 
                     <span>Git</span>
                     <span>GitHub</span>
-                    <span>VS Code</span>
-                    <span>Android Studio</span>
-                    <span>Firebase</span>
                     <span>Linux</span>
+                    <span>VS Code</span>
                     <span>CLI</span>
-                    <span>Debugging</span>
-                    <span>Testing</span>
-                    <span>APIs</span>
-                    <span>UI/UX</span>
+                    <span>Firebase</span>
 
                 </div>
 
             </article>
+
 
         </div>
 
@@ -2693,7 +3517,7 @@ footer strong {
 
 <section
     class="section"
-    id="security">
+    id="cybersecurity">
 
     <div class="container">
 
@@ -2701,7 +3525,7 @@ footer strong {
         <div class="section-title reveal">
 
             <span class="section-number">
-                03
+                04
             </span>
 
             <div>
@@ -2719,215 +3543,402 @@ footer strong {
         </div>
 
 
-        <div class="security-layout">
+        <div class="cyber-intro reveal">
+
+            <div class="cyber-badge">
+                SECURITY / RESEARCH / DEFENSE
+            </div>
+
+            <h3>
+                اهتمام ببناء فهم حقيقي
+                للأمن السيبراني.
+            </h3>
+
+            <p>
+
+                أتعلم الأمن السيبراني من أساسيات
+                الشبكات والأنظمة إلى أمن التطبيقات
+                والموبايل والـ APIs، مع التركيز على
+                التفكير الأمني وتحليل المخاطر
+                والحماية والـ Secure Coding.
+
+            </p>
+
+        </div>
 
 
-            <div class="security-intro reveal">
-
-                <div class="security-terminal">
-
-                    <div class="terminal-head">
-
-                        <span>
-                            security.lab
-                        </span>
-
-                        <div class="terminal-dots">
-
-                            <i></i>
-                            <i></i>
-                            <i></i>
-
-                        </div>
-
-                    </div>
+        <div class="cyber-grid">
 
 
-                    <div class="terminal-body">
+            <article class="cyber-card reveal">
 
-                        <p>
-                            <span class="terminal-green">
-                                $
-                            </span>
-                            learning_security
-                        </p>
+                <div class="cyber-icon">
+                    NET
+                </div>
 
-                        <p class="terminal-muted">
-                            Building knowledge...
-                        </p>
+                <h3>
+                    Networking
+                </h3>
 
-                        <p>
-                            <span class="terminal-green">
-                                ✓
-                            </span>
-                            Linux fundamentals
-                        </p>
+                <p>
+                    فهم أساسيات الشبكات والبروتوكولات
+                    وأمن الاتصالات.
+                </p>
 
-                        <p>
-                            <span class="terminal-green">
-                                ✓
-                            </span>
-                            Networking
-                        </p>
+                <div class="tags">
 
-                        <p>
-                            <span class="terminal-green">
-                                ✓
-                            </span>
-                            Web Security
-                        </p>
-
-                        <p>
-                            <span class="terminal-green">
-                                ✓
-                            </span>
-                            Android Security
-                        </p>
-
-                        <p>
-                            <span class="terminal-green">
-                                ✓
-                            </span>
-                            Secure Coding
-                        </p>
-
-                        <p>
-                            <span class="terminal-green">
-                                ✓
-                            </span>
-                            OWASP
-                        </p>
-
-                        <p>
-                            <span class="terminal-green">
-                                $
-                            </span>
-                            status:
-                            <span class="terminal-green">
-                                learning...
-                            </span>
-                        </p>
-
-                    </div>
+                    <span>TCP/IP</span>
+                    <span>HTTP</span>
+                    <span>DNS</span>
+                    <span>VPN</span>
+                    <span>Firewalls</span>
+                    <span>Network Security</span>
 
                 </div>
 
+            </article>
+
+
+            <article class="cyber-card reveal">
+
+                <div class="cyber-icon">
+                    WEB
+                </div>
+
+                <h3>
+                    Web Security
+                </h3>
+
+                <p>
+                    فهم مخاطر تطبيقات الويب
+                    وأساسيات الحماية.
+                </p>
+
+                <div class="tags">
+
+                    <span>OWASP</span>
+                    <span>XSS</span>
+                    <span>CSRF</span>
+                    <span>SQL Injection</span>
+                    <span>Sessions</span>
+                    <span>Headers</span>
+
+                </div>
+
+            </article>
+
+
+            <article class="cyber-card reveal">
+
+                <div class="cyber-icon">
+                    APP
+                </div>
+
+                <h3>
+                    Application Security
+                </h3>
+
+                <p>
+                    تطوير تطبيقات أكثر أمانًا
+                    وتحليل المخاطر.
+                </p>
+
+                <div class="tags">
+
+                    <span>Secure Coding</span>
+                    <span>Input Validation</span>
+                    <span>Authentication</span>
+                    <span>Authorization</span>
+                    <span>Threat Modeling</span>
+
+                </div>
+
+            </article>
+
+
+            <article class="cyber-card reveal">
+
+                <div class="cyber-icon">
+                    MOB
+                </div>
+
+                <h3>
+                    Mobile Security
+                </h3>
+
+                <p>
+                    أمن تطبيقات Android وحماية
+                    البيانات والـ APIs.
+                </p>
+
+                <div class="tags">
+
+                    <span>Android Security</span>
+                    <span>Secure Storage</span>
+                    <span>Permissions</span>
+                    <span>API Security</span>
+                    <span>Privacy</span>
+
+                </div>
+
+            </article>
+
+
+            <article class="cyber-card reveal">
+
+                <div class="cyber-icon">
+                    LNX
+                </div>
+
+                <h3>
+                    Linux & Systems
+                </h3>
+
+                <p>
+                    التعامل مع Linux والـ CLI
+                    وفهم الأنظمة والصلاحيات.
+                </p>
+
+                <div class="tags">
+
+                    <span>Linux</span>
+                    <span>Bash</span>
+                    <span>CLI</span>
+                    <span>Permissions</span>
+                    <span>Processes</span>
+
+                </div>
+
+            </article>
+
+
+            <article class="cyber-card reveal">
+
+                <div class="cyber-icon">
+                    ETH
+                </div>
+
+                <h3>
+                    Ethical Hacking
+                </h3>
+
+                <p>
+                    التعلم في اختبار الاختراق
+                    والتقييم الأمني ضمن بيئات مصرح بها.
+                </p>
+
+                <div class="tags">
+
+                    <span>Reconnaissance</span>
+                    <span>OSINT</span>
+                    <span>Security Testing</span>
+                    <span>CTF</span>
+                    <span>Vulnerability Assessment</span>
+
+                </div>
+
+            </article>
+
+
+            <article class="cyber-card reveal">
+
+                <div class="cyber-icon">
+                    CRY
+                </div>
+
+                <h3>
+                    Cryptography
+                </h3>
+
+                <p>
+                    أساسيات التشفير وحماية البيانات.
+                </p>
+
+                <div class="tags">
+
+                    <span>Hashing</span>
+                    <span>Encryption</span>
+                    <span>Keys</span>
+                    <span>Digital Signatures</span>
+                    <span>Certificates</span>
+
+                </div>
+
+            </article>
+
+
+            <article class="cyber-card reveal">
+
+                <div class="cyber-icon">
+                    DF
+                </div>
+
+                <h3>
+                    Digital Forensics
+                </h3>
+
+                <p>
+                    اهتمام بتحليل الأدلة الرقمية
+                    والآثار الإلكترونية.
+                </p>
+
+                <div class="tags">
+
+                    <span>Digital Evidence</span>
+                    <span>Log Analysis</span>
+                    <span>File Analysis</span>
+                    <span>Incident Response</span>
+
+                </div>
+
+            </article>
+
+
+            <article class="cyber-card reveal">
+
+                <div class="cyber-icon">
+                    SEC
+                </div>
+
+                <h3>
+                    Security Research
+                </h3>
+
+                <p>
+                    تحليل المخاطر والتقنيات الأمنية
+                    والبحث في الثغرات ضمن بيئات قانونية.
+                </p>
+
+                <div class="tags">
+
+                    <span>Threat Analysis</span>
+                    <span>Risk Assessment</span>
+                    <span>Security Research</span>
+                    <span>Vulnerability Research</span>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <div class="cyber-learning reveal">
+
+            <div>
+
+                <span>
+                    CURRENT FOCUS
+                </span>
+
+                <h3>
+                    سيتم إضافة الشهادات والـ CTFs
+                    والمختبرات والمشاريع الأمنية لاحقًا.
+                </h3>
+
             </div>
 
+            <strong>
+                LEARNING
+            </strong>
 
-            <div class="security-cards">
+        </div>
 
+    </div>
 
-                <article class="security-card reveal">
-
-                    <span class="security-icon">
-                        ◈
-                    </span>
-
-                    <h3>
-                        Web Security
-                    </h3>
-
-                    <p>
-                        دراسة أساسيات أمن تطبيقات الويب
-                        وفهم أشهر المخاطر الأمنية
-                        وطرق الحماية منها.
-                    </p>
-
-                    <span class="security-status">
-                        LEARNING
-                    </span>
-
-                </article>
+</section>
 
 
-                <article class="security-card reveal">
 
-                    <span class="security-icon">
-                        ◉
-                    </span>
+<!-- =========================================================
+     ANDROID
+========================================================= -->
 
-                    <h3>
-                        Android Security
-                    </h3>
+<section
+    class="section"
+    id="android">
 
-                    <p>
-                        الاهتمام بأمن تطبيقات Android
-                        وحماية البيانات وكتابة كود
-                        أكثر أمانًا.
-                    </p>
-
-                    <span class="security-status">
-                        LEARNING
-                    </span>
-
-                </article>
+    <div class="container">
 
 
-                <article class="security-card reveal">
+        <div class="section-title reveal">
 
-                    <span class="security-icon">
-                        #
-                    </span>
+            <span class="section-number">
+                05
+            </span>
 
-                    <h3>
-                        Linux & Networking
-                    </h3>
+            <div>
 
-                    <p>
-                        تطوير المعرفة بأنظمة Linux
-                        والشبكات والبروتوكولات
-                        المستخدمة في الأمن السيبراني.
-                    </p>
+                <small>
+                    ANDROID DEVELOPMENT
+                </small>
 
-                    <span class="security-status">
-                        LEARNING
-                    </span>
-
-                </article>
-
-
-                <article class="security-card reveal">
-
-                    <span class="security-icon">
-                        ⌁
-                    </span>
-
-                    <h3>
-                        Ethical Hacking
-                    </h3>
-
-                    <p>
-                        التعلم في مجال اختبار الأنظمة
-                        واكتشاف نقاط الضعف
-                        بشكل قانوني وأخلاقي.
-                    </p>
-
-                    <span class="security-status">
-                        LEARNING
-                    </span>
-
-                </article>
-
+                <h2>
+                    تطوير Android
+                </h2>
 
             </div>
 
         </div>
 
 
-        <div class="security-note reveal">
+        <div class="android-grid">
 
-            <strong>
-                Security Journey
-            </strong>
 
-            <span>
-                CTFs • Labs • Certifications • Security Projects
-            </span>
+            <article class="android-card reveal">
 
-            <em>
-                سيتم الإضافة لاحقًا
-            </em>
+                <h3>
+                    Android Stack
+                </h3>
+
+                <p>
+                    التقنيات والمفاهيم المرتبطة
+                    بتطوير تطبيقات Android.
+                </p>
+
+                <div class="tags">
+
+                    <span>Kotlin</span>
+                    <span>Java</span>
+                    <span>Android SDK</span>
+                    <span>Android Studio</span>
+                    <span>Jetpack</span>
+                    <span>Compose</span>
+                    <span>XML</span>
+                    <span>Material Design</span>
+                    <span>Gradle</span>
+
+                </div>
+
+            </article>
+
+
+            <article class="android-card reveal">
+
+                <h3>
+                    Backend & Data
+                </h3>
+
+                <p>
+                    التعامل مع البيانات والخدمات
+                    الخلفية داخل التطبيقات.
+                </p>
+
+                <div class="tags">
+
+                    <span>Firebase</span>
+                    <span>REST API</span>
+                    <span>JSON</span>
+                    <span>Room</span>
+                    <span>SQLite</span>
+                    <span>Authentication</span>
+                    <span>Cloud Services</span>
+
+                </div>
+
+            </article>
+
 
         </div>
 
@@ -2951,14 +3962,12 @@ footer strong {
         <div class="section-title reveal">
 
             <span class="section-number">
-                04
+                06
             </span>
 
             <div>
 
-                <small>
-                    PROJECTS
-                </small>
+                <small>PROJECTS</small>
 
                 <h2>
                     المشاريع
@@ -2974,7 +3983,7 @@ footer strong {
 
             <article class="project reveal">
 
-                <div class="project-top">
+                <div class="project-preview">
 
                     <div class="project-placeholder">
                         01
@@ -2985,7 +3994,7 @@ footer strong {
                 <div class="project-content">
 
                     <span class="project-label">
-                        PROJECT
+                        ANDROID
                     </span>
 
                     <h3>
@@ -2993,9 +4002,8 @@ footer strong {
                     </h3>
 
                     <p>
-                        سيتم إضافة تفاصيل المشروع
-                        والتقنيات المستخدمة ورابط GitHub
-                        عند جاهزيته.
+                        سيتم إضافة مشروع Android
+                        مع التقنيات والصور والرابط.
                     </p>
 
                     <span class="coming-soon">
@@ -3009,7 +4017,7 @@ footer strong {
 
             <article class="project reveal">
 
-                <div class="project-top">
+                <div class="project-preview">
 
                     <div class="project-placeholder">
                         02
@@ -3020,7 +4028,7 @@ footer strong {
                 <div class="project-content">
 
                     <span class="project-label">
-                        PROJECT
+                        SECURITY
                     </span>
 
                     <h3>
@@ -3028,8 +4036,8 @@ footer strong {
                     </h3>
 
                     <p>
-                        مساحة مخصصة لمشروع جديد
-                        سيتم عرضه هنا بالتفاصيل والروابط.
+                        مساحة لمشروع أو مختبر
+                        متعلق بالأمن السيبراني.
                     </p>
 
                     <span class="coming-soon">
@@ -3043,7 +4051,7 @@ footer strong {
 
             <article class="project reveal">
 
-                <div class="project-top">
+                <div class="project-preview">
 
                     <div class="project-placeholder">
                         03
@@ -3054,7 +4062,7 @@ footer strong {
                 <div class="project-content">
 
                     <span class="project-label">
-                        PROJECT
+                        PROGRAMMING
                     </span>
 
                     <h3>
@@ -3062,8 +4070,8 @@ footer strong {
                     </h3>
 
                     <p>
-                        سيتم إضافة المزيد من المشاريع
-                        والتجارب البرمجية مستقبلًا.
+                        سيتم إضافة مشروع برمجي
+                        وتفاصيله مستقبلًا.
                     </p>
 
                     <span class="coming-soon">
@@ -3073,6 +4081,123 @@ footer strong {
                 </div>
 
             </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GITHUB
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="github-box reveal">
+
+            <div>
+
+                <h3>
+                    GitHub
+                </h3>
+
+                <p>
+                    سيتم إضافة رابط GitHub
+                    والمشاريع والمساهمات هنا لاحقًا.
+                </p>
+
+            </div>
+
+            <span class="github-status">
+                سيتم الإضافة لاحقًا
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EDUCATION
+========================================================= -->
+
+<section
+    class="section"
+    id="education">
+
+    <div class="container">
+
+
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                07
+            </span>
+
+            <div>
+
+                <small>
+                    EDUCATION
+                </small>
+
+                <h2>
+                    التعليم
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="education">
+
+
+            <div class="education-main reveal">
+
+                <small>
+                    COMPUTER SCIENCE
+                </small>
+
+                <h3>
+                    حاسبات ومعلومات
+                </h3>
+
+                <p>
+
+                    طالب في مجال حاسبات ومعلومات،
+                    مع اهتمام بالبرمجة وتطوير التطبيقات
+                    والأمن السيبراني.
+
+                </p>
+
+                <span class="coming-soon">
+                    تفاصيل الجامعة والفرقة سيتم إضافتها لاحقًا
+                </span>
+
+            </div>
+
+
+            <div class="age-card reveal">
+
+                <strong>
+                    19
+                </strong>
+
+                <span>
+                    سنة
+                </span>
+
+            </div>
+
 
         </div>
 
@@ -3096,7 +4221,7 @@ footer strong {
         <div class="section-title reveal">
 
             <span class="section-number">
-                05
+                08
             </span>
 
             <div>
@@ -3120,26 +4245,21 @@ footer strong {
             <div class="books-card reveal">
 
                 <h3>
-                    ما وراء الكود
+                    ما وراء الكود 📚
                 </h3>
 
                 <p>
 
-                    التقنية جزء من حياتي،
-                    لكن الكتب والروايات تفتح لي
-                    عوالم وأفكارًا مختلفة.
+                    التقنية ليست كل شيء.
+                    الكتب والروايات تمنحني مساحة
+                    مختلفة للتفكير واكتشاف الأفكار
+                    والعوالم والشخصيات.
 
                     <br><br>
 
-                    هذا القسم مخصص للكتب التي قرأتها،
-                    الروايات المفضلة،
-                    الاقتباسات،
-                    وقائمة القراءة المستقبلية.
-
-                    <br><br>
-
-                    سيتم إضافة المحتوى والكتب
-                    لاحقًا.
+                    هذا القسم سيكون مخصصًا للكتب
+                    التي قرأتها، الروايات المفضلة،
+                    الاقتباسات وقائمة القراءة.
 
                 </p>
 
@@ -3154,8 +4274,8 @@ footer strong {
 
                 <div>
 
-                    <div class="icon">
-                        📚
+                    <div class="book-icon">
+                        📖
                     </div>
 
                     <h3>
@@ -3163,13 +4283,14 @@ footer strong {
                     </h3>
 
                     <p>
-                        سيتم إضافة الكتب والروايات
-                        لاحقًا.
+                        الكتب والروايات والاقتباسات
+                        سيتم إضافتها لاحقًا.
                     </p>
 
                 </div>
 
             </div>
+
 
         </div>
 
@@ -3193,7 +4314,7 @@ footer strong {
         <div class="section-title reveal">
 
             <span class="section-number">
-                06
+                09
             </span>
 
             <div>
@@ -3222,11 +4343,8 @@ footer strong {
 
                 <p>
 
-                    مساحة خاصة للمقالات،
-                    الخواطر،
-                    القصص،
-                    الروايات،
-                    والأفكار التي سيتم نشرها مستقبلًا.
+                    مساحة مستقبلية للمقالات والخواطر
+                    والقصص والروايات والأفكار.
 
                 </p>
 
@@ -3248,8 +4366,8 @@ footer strong {
                 </h3>
 
                 <p>
-                    سيتم إضافة المقالات
-                    والمحتوى التقني لاحقًا.
+                    سيتم إضافة المقالات التقنية
+                    والأفكار لاحقًا.
                 </p>
 
                 <span class="coming-soon">
@@ -3280,6 +4398,119 @@ footer strong {
 
             </article>
 
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CURRENTLY LEARNING
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                10
+            </span>
+
+            <div>
+
+                <small>
+                    CURRENTLY LEARNING
+                </small>
+
+                <h2>
+                    أتعلم حاليًا
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="learning-grid">
+
+
+            <article class="learning-card reveal">
+
+                <span>
+                    MOBILE
+                </span>
+
+                <h3>
+                    Advanced Android
+                </h3>
+
+                <p>
+                    تطوير تطبيقات Android
+                    بشكل أكثر احترافية.
+                </p>
+
+            </article>
+
+
+            <article class="learning-card reveal">
+
+                <span>
+                    SECURITY
+                </span>
+
+                <h3>
+                    Cybersecurity
+                </h3>
+
+                <p>
+                    الشبكات وأمن التطبيقات
+                    والأنظمة.
+                </p>
+
+            </article>
+
+
+            <article class="learning-card reveal">
+
+                <span>
+                    CODE
+                </span>
+
+                <h3>
+                    Problem Solving
+                </h3>
+
+                <p>
+                    Algorithms وData Structures.
+                </p>
+
+            </article>
+
+
+            <article class="learning-card reveal">
+
+                <span>
+                    CREATIVE
+                </span>
+
+                <h3>
+                    Writing
+                </h3>
+
+                <p>
+                    القراءة والكتابة
+                    وصناعة الأفكار.
+                </p>
+
+            </article>
+
+
         </div>
 
     </div>
@@ -3293,7 +4524,7 @@ footer strong {
 ========================================================= -->
 
 <section
-    class="section certificates"
+    class="section"
     id="certificates">
 
     <div class="container">
@@ -3302,7 +4533,7 @@ footer strong {
         <div class="section-title reveal">
 
             <span class="section-number">
-                07
+                11
             </span>
 
             <div>
@@ -3322,9 +4553,11 @@ footer strong {
 
         <div class="cert-box reveal">
 
+
             <div class="cert-icon">
                 ✦
             </div>
+
 
             <div>
 
@@ -3334,18 +4567,19 @@ footer strong {
 
                 <p>
 
-                    سيتم إضافة الشهادات،
-                    الدورات التدريبية،
-                    المسابقات،
-                    الجوائز والإنجازات لاحقًا.
+                    سيتم إضافة الشهادات والدورات
+                    والمسابقات والجوائز والإنجازات
+                    مع روابط التحقق لاحقًا.
 
                 </p>
 
             </div>
 
+
             <span class="cert-status">
                 سيتم الإضافة لاحقًا
             </span>
+
 
         </div>
 
@@ -3371,18 +4605,14 @@ footer strong {
 
             <div>
 
-                <small style="
-                    color:var(--cyan);
-                    font:700 10px 'JetBrains Mono';
-                    letter-spacing:2px;
-                ">
+                <small>
                     CONTACT ME
                 </small>
-
 
                 <h2>
 
                     خلينا
+
                     <br>
 
                     <span>
@@ -3394,10 +4624,9 @@ footer strong {
 
                 <p>
 
-                    للتواصل أو التعاون
-                    أو مشاركة فكرة،
-                    يمكنك استخدام أي وسيلة من وسائل
-                    التواصل الموجودة هنا.
+                    للتواصل أو التعاون أو مشاركة
+                    فكرة، يمكنك استخدام أي وسيلة
+                    من وسائل التواصل التالية.
 
                 </p>
 
@@ -3407,22 +4636,36 @@ footer strong {
             <div class="contact-links">
 
 
+                <!-- WhatsApp -->
+
                 <a
                     class="contact-link"
                     href="https://wa.me/201027595528"
                     target="_blank"
                     rel="noopener">
 
-                    <span>
+                    <span class="contact-name">
+
+                        <span class="contact-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 4.1A9.9 9.9 0 0 0 3.2 16.2L2 21.5l5.4-1.2A10 10 0 1 0 20 4.1zm-8 16a8.2 8.2 0 0 1-4.1-1.1l-.3-.2-3.2.7.7-3.1-.2-.3a8.1 8.1 0 1 1 7.1 4zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-1.3-.6-2.2-1.1-3.1-2.5-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5 1.5.7 2.1.7 2.9.6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.2-.2-.2-.4-.3z"/>
+                            </svg>
+
+                        </span>
+
                         WhatsApp
+
                     </span>
 
-                    <span>
+                    <span class="contact-value">
                         01027595528 ↗
                     </span>
 
                 </a>
 
+
+                <!-- Telegram -->
 
                 <a
                     class="contact-link"
@@ -3430,16 +4673,28 @@ footer strong {
                     target="_blank"
                     rel="noopener">
 
-                    <span>
+                    <span class="contact-name">
+
+                        <span class="contact-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M21.5 4.5 18.3 20c-.2 1.1-.8 1.4-1.7.9l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.4-.1-.6-.6-.2L6.2 14.1l-4.6-1.5c-1-.3-1-1 .2-1.5L19.8 4c.8-.3 1.9.2 1.7.5z"/>
+                            </svg>
+
+                        </span>
+
                         Telegram
+
                     </span>
 
-                    <span>
+                    <span class="contact-value">
                         @C_O_N_2 ↗
                     </span>
 
                 </a>
 
+
+                <!-- Instagram -->
 
                 <a
                     class="contact-link"
@@ -3447,16 +4702,52 @@ footer strong {
                     target="_blank"
                     rel="noopener">
 
-                    <span>
+                    <span class="contact-name">
+
+                        <span class="contact-icon">
+
+                            <svg viewBox="0 0 24 24">
+
+                                <rect
+                                    x="3"
+                                    y="3"
+                                    width="18"
+                                    height="18"
+                                    rx="5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"/>
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"/>
+
+                                <circle
+                                    cx="17.5"
+                                    cy="6.5"
+                                    r="1"
+                                    fill="currentColor"/>
+
+                            </svg>
+
+                        </span>
+
                         Instagram
+
                     </span>
 
-                    <span>
+                    <span class="contact-value">
                         @mhbdllh4861 ↗
                     </span>
 
                 </a>
 
+
+                <!-- LinkedIn -->
 
                 <a
                     class="contact-link"
@@ -3464,16 +4755,28 @@ footer strong {
                     target="_blank"
                     rel="noopener">
 
-                    <span>
+                    <span class="contact-name">
+
+                        <span class="contact-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 3.5A2.5 2.5 0 1 1 5 8a2.5 2.5 0 0 1 0-4.5zM3 9h4v12H3zm6 0h3.8v1.7h.1c.5-1 1.8-2.1 3.8-2.1 4 0 4.7 2.6 4.7 6v6.4h-4v-5.7c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9z"/>
+                            </svg>
+
+                        </span>
+
                         LinkedIn
+
                     </span>
 
-                    <span>
+                    <span class="contact-value">
                         Mohammed Con ↗
                     </span>
 
                 </a>
 
+
+                <!-- Facebook -->
 
                 <a
                     class="contact-link"
@@ -3481,30 +4784,69 @@ footer strong {
                     target="_blank"
                     rel="noopener">
 
-                    <span>
+                    <span class="contact-name">
+
+                        <span class="contact-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1z"/>
+                            </svg>
+
+                        </span>
+
                         Facebook
+
                     </span>
 
-                    <span>
+                    <span class="contact-value">
                         Profile ↗
                     </span>
 
                 </a>
 
 
+                <!-- Email -->
+
                 <a
                     class="contact-link"
                     href="mailto:cconker63@gmail.com">
 
-                    <span>
+                    <span class="contact-name">
+
+                        <span class="contact-icon">
+
+                            <svg viewBox="0 0 24 24">
+
+                                <rect
+                                    x="3"
+                                    y="5"
+                                    width="18"
+                                    height="14"
+                                    rx="2"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"/>
+
+                                <path
+                                    d="m4 7 8 6 8-6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"/>
+
+                            </svg>
+
+                        </span>
+
                         Email
+
                     </span>
 
-                    <span>
+                    <span class="contact-value">
                         cconker63@gmail.com ↗
                     </span>
 
                 </a>
+
 
             </div>
 
@@ -3535,9 +4877,7 @@ footer strong {
 
         <span>
             Built with
-            <strong>
-                &lt;/&gt;
-            </strong>
+            <strong>&lt;/&gt;</strong>
             & passion.
         </span>
 
@@ -3548,7 +4888,7 @@ footer strong {
 
 
 <!-- =========================================================
-     BACK TO TOP
+     TOP BUTTON
 ========================================================= -->
 
 <button
@@ -3565,7 +4905,7 @@ footer strong {
 <script>
 
 /* =========================================================
-   MENU
+   MOBILE MENU
 ========================================================= */
 
 const menu =
@@ -3588,3 +4928,267 @@ navLinks
 
         link.addEventListener(
             "click",
+            () => {
+
+                navLinks.classList.remove("open");
+
+            }
+        );
+
+    });
+
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+const header =
+    document.querySelector(".header");
+
+
+function updateHeader() {
+
+    header.classList.toggle(
+        "scrolled",
+        window.scrollY > 20
+    );
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateHeader
+);
+
+updateHeader();
+
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+const topButton =
+    document.getElementById("topButton");
+
+
+function updateTopButton() {
+
+    topButton.classList.toggle(
+        "show",
+        window.scrollY > 500
+    );
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateTopButton
+);
+
+
+topButton.addEventListener(
+    "click",
+    () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+);
+
+
+
+/* =========================================================
+   TYPING EFFECT
+========================================================= */
+
+const typed =
+    document.getElementById("typed");
+
+
+const roles = [
+
+    "Cybersecurity Enthusiast",
+
+    "Mobile Security Learner",
+
+    "Programmer",
+
+    "Security Researcher"
+
+];
+
+
+let roleIndex = 0;
+
+let charIndex = 0;
+
+let deleting = false;
+
+
+function typeEffect() {
+
+    const current =
+        roles[roleIndex];
+
+
+    if (!deleting) {
+
+        typed.textContent =
+            current.substring(
+                0,
+                charIndex + 1
+            );
+
+        charIndex++;
+
+
+        if (
+            charIndex ===
+            current.length
+        ) {
+
+            deleting = true;
+
+            setTimeout(
+                typeEffect,
+                1300
+            );
+
+            return;
+
+        }
+
+    } else {
+
+        typed.textContent =
+            current.substring(
+                0,
+                charIndex - 1
+            );
+
+        charIndex--;
+
+
+        if (charIndex === 0) {
+
+            deleting = false;
+
+            roleIndex =
+                (roleIndex + 1)
+                % roles.length;
+
+        }
+
+    }
+
+
+    setTimeout(
+        typeEffect,
+        deleting ? 40 : 75
+    );
+
+}
+
+
+typeEffect();
+
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold: .08
+        }
+
+    );
+
+
+revealElements.forEach(
+    element => {
+
+        revealObserver.observe(element);
+
+    }
+);
+
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById(
+    "year"
+).textContent =
+    new Date().getFullYear();
+
+
+
+/* =========================================================
+   ESCAPE MENU WITH ESC
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "Escape") {
+
+            navLinks.classList.remove(
+                "open"
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+    </html>
