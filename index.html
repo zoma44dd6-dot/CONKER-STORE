@@ -1,1 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Mohamed Abdullah Ibrahim | Data Analyst</title>
+
+<meta name="description"
+content="Mohamed Abdullah Ibrahim — Data Analyst | Accounting & Information Systems">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#06080d;
+    --surface:#0c1018;
+    --surface2:#111722;
+    --border:rgba(255,255,255,.08);
+    --text:#f4f7fb;
+    --muted:#8b95a7;
+    --accent:#65a8ff;
+    --accent2:#8b7cff;
+    --green:#55d6a5;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:
+        radial-gradient(circle at 80% 10%,rgba(70,130,255,.13),transparent 30%),
+        radial-gradient(circle at 10% 70%,rgba(130,80,255,.09),transparent 28%),
+        var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:60px 60px;
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(1180px,90%);
+    margin:auto;
+}
+
+section{
+    padding:110px 0;
+}
+
+.section-head{
+    margin-bottom:55px;
+}
+
+.section-head .eyebrow{
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.section-head h2{
+    font-size:clamp(34px,5vw,55px);
+    margin-top:12px;
+    letter-spacing:-2px;
+}
+
+.section-head p{
+    max-width:650px;
+    color:var(--muted);
+    margin-top:14px;
+    line-height:1.8;
+}
+
+/* NAV */
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    padding:18px 0;
+    transition:.3s;
+}
+
+.navbar.scrolled{
+    background:rgba(6,8,13,.82);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--accent);
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#aab3c1;
+    font-size:13px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.menu{
+    display:none;
+    border:0;
+    background:none;
+    color:white;
+    font-size:25px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:120px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:80px;
+    align-items:center;
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 13px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.025);
+    border-radius:100px;
+    color:#b7c0cf;
+    font-size:12px;
+    margin-bottom:25px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 12px var(--green);
+}
+
+.hero h1{
+    font-size:clamp(48px,7vw,86px);
+    line-height:.98;
+    letter-spacing:-5px;
+}
+
+.hero h1 .blue{
+    color:var(--accent);
+}
+
+.hero-role{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:25px 0;
+    font-size:22px;
+    font-weight:600;
+}
+
+.hero-role::before{
+    content:"";
+    width:35px;
+    height:2px;
+    background:var(--accent);
+}
+
+.hero-description{
+    max-width:650px;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:15px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:12px;
+    margin-top:32px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 21px;
+    border-radius:11px;
+    font-size:13px;
+    font-weight:700;
+    transition:.3s;
+    border:1px solid var(--border);
+}
+
+.btn-primary{
+    background:white;
+    color:#06080d;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(255,255,255,.12);
+}
+
+.btn-outline:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+    transform:translateY(-4px);
+}
+
+/* PROFILE */
+
+.profile-area{
+    display:flex;
+    justify-content:center;
+}
+
+.profile{
+    width:350px;
+    height:430px;
+    border-radius:28px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        linear-gradient(145deg,#111824,#090c13);
+    border:1px solid var(--border);
+    box-shadow:0 35px 90px rgba(0,0,0,.45);
+}
+
+.profile::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid rgba(101,168,255,.15);
+    border-radius:22px;
+}
+
+.profile::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:var(--accent);
+    filter:blur(100px);
+    opacity:.18;
+}
+
+.profile img{
+    width:260px;
+    height:330px;
+    object-fit:cover;
+    border-radius:20px;
+    position:relative;
+    z-index:2;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+/* QUICK STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:75px;
+}
+
+.stat{
+    padding:25px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.025);
+    border-radius:16px;
+}
+
+.stat-number{
+    font-size:28px;
+    font-weight:800;
+}
+
+.stat-label{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:32px;
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(101,168,255,.3);
+}
+
+.card h3{
+    font-size:20px;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.9;
+}
+
+/* SKILLS */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.skill{
+    padding:27px;
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--border);
+    border-radius:18px;
+}
+
+.skill-icon{
+    width:43px;
+    height:43px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:rgba(101,168,255,.1);
+    color:var(--accent);
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.skill h3{
+    margin-bottom:17px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.tag{
+    font-size:11px;
+    color:#b7c0ce;
+    padding:7px 10px;
+    border-radius:8px;
+    background:#111722;
+    border:1px solid rgba(255,255,255,.06);
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.project{
+    padding:30px;
+    min-height:270px;
+    background:linear-gradient(145deg,#101621,#0a0d13);
+    border:1px solid var(--border);
+    border-radius:21px;
+    position:relative;
+    overflow:hidden;
+    transition:.35s;
+}
+
+.project:hover{
+    transform:translateY(-6px);
+    border-color:rgba(101,168,255,.3);
+}
+
+.project-number{
+    color:var(--accent);
+    font-size:11px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+.project h3{
+    font-size:25px;
+    margin:17px 0 12px;
+}
+
+.project p{
+    color:var(--muted);
+    line-height:1.8;
+    max-width:500px;
+}
+
+.project-footer{
+    position:absolute;
+    bottom:27px;
+    left:30px;
+    right:30px;
+}
+
+/* DATA VISUAL */
+
+.data-panel{
+    margin-top:22px;
+    height:4px;
+    background:#1c2532;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.data-panel span{
+    display:block;
+    width:72%;
+    height:100%;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+}
+
+/* TIMELINE */
+
+.timeline{
+    max-width:850px;
+    border-left:1px solid #293241;
+    margin-left:20px;
+}
+
+.timeline-item{
+    padding:0 0 45px 35px;
+    position:relative;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    left:-5px;
+    top:3px;
+    width:9px;
+    height:9px;
+    background:var(--accent);
+    border-radius:50%;
+    box-shadow:0 0 0 7px var(--bg);
+}
+
+.timeline-date{
+    color:var(--accent);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.timeline h3{
+    margin:8px 0;
+    font-size:20px;
+}
+
+.timeline p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* BOOKS */
+
+.books{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.book{
+    min-height:230px;
+    padding:35px;
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:
+        radial-gradient(circle at 90% 20%,rgba(139,124,255,.12),transparent 35%),
+        var(--surface);
+    position:relative;
+    overflow:hidden;
+}
+
+.book small{
+    color:var(--accent);
+    letter-spacing:2px;
+    font-weight:800;
+    font-size:10px;
+}
+
+.book h3{
+    font-family:serif;
+    font-size:31px;
+    margin-top:22px;
+}
+
+.book p{
+    color:var(--muted);
+    margin-top:10px;
+}
+
+/* CONTACT */
+
+.contact-box{
+    padding:45px;
+    border:1px solid var(--border);
+    border-radius:25px;
+    background:linear-gradient(145deg,#0e141e,#090c12);
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.contact{
+    padding:20px;
+    border:1px solid var(--border);
+    border-radius:13px;
+    transition:.3s;
+}
+
+.contact:hover{
+    border-color:var(--accent);
+    transform:translateY(-3px);
+}
+
+.contact-label{
+    color:var(--accent);
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+.contact p{
+    color:#c1c8d4;
+    font-size:13px;
+    margin-top:6px;
+    word-break:break-word;
+}
+
+/* FOOTER */
+
+footer{
+    padding:35px 0;
+    border-top:1px solid var(--border);
+    color:#687385;
+    text-align:center;
+    font-size:12px;
+}
+
+footer span{
+    color:var(--accent);
+}
+
+/* ANIMATION */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    .hero-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero-actions{
+        justify-content:center;
+    }
+
+    .hero-role{
+        justify-content:center;
+    }
+
+    .hero-description{
+        margin:auto;
+    }
+
+    .profile-area{
+        order:-1;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .skills{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .contact-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+
+    section{
+        padding:80px 0;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        display:none;
+        flex-direction:column;
+        background:#080b11;
+        padding:25px;
+        border-bottom:1px solid var(--border);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .profile{
+        width:270px;
+        height:340px;
+    }
+
+    .profile img{
+        width:205px;
+        height:260px;
+    }
+
+    .stats,
+    .about-grid,
+    .skills,
+    .projects,
+    .books,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-box{
+        padding:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header class="navbar" id="navbar">
+<div class="container nav">
+
+<a href="#home" class="logo">
+Mohamed<span>.</span>
+</a>
+
+<button class="menu" id="menu">☰</button>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#books">Books</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+<div class="container">
+
+<div class="hero-grid">
+
+<div class="hero-text reveal">
+
+<div class="status">
+<span class="status-dot"></span>
+Building my Data Analytics journey
+</div>
+
+<h1>
+Mohamed<br>
+<span class="blue">Abdullah Ibrahim</span>
+</h1>
+
+<div class="hero-role">
+Data Analyst
+</div>
+
+<p class="hero-description">
+Accounting & Information Systems student focused on Data Analysis,
+Business Intelligence, Programming and Information Systems.
+I am building practical skills to transform data into meaningful
+business insights.
+</p>
+
+<div class="hero-actions">
+
+<a href="#projects" class="btn btn-primary">
+Explore Projects →
+</a>
+
+<a href="#contact" class="btn btn-outline">
+Let's Connect
+</a>
+
+</div>
+
+</div>
+
+
+<div class="profile-area reveal">
+
+<div class="profile">
+
+<img src="images/profile.jpg"
+alt="Mohamed Abdullah Ibrahim">
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="stats reveal">
+
+<div class="stat">
+<div class="stat-number">02</div>
+<div class="stat-label">Academic Year</div>
+</div>
+
+<div class="stat">
+<div class="stat-number">03</div>
+<div class="stat-label">Programming Languages</div>
+</div>
+
+<div class="stat">
+<div class="stat-number">15+</div>
+<div class="stat-label">Technical Skills</div>
+</div>
+
+<div class="stat">
+<div class="stat-number">02</div>
+<div class="stat-label">Published Writing Projects</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+<div class="container">
+
+<div class="section-head reveal">
+<div class="eyebrow">01 — About</div>
+<h2>More than a student.</h2>
+<p>
+A combination of business knowledge, technology and analytical thinking.
+</p>
+</div>
+
+
+<div class="about-grid">
+
+<div class="card reveal">
+<h3>Professional Profile</h3>
+<p>
+I am Mohamed Abdullah Ibrahim, a second-year Accounting & Information
+Systems student developing a professional path in Data Analysis.
+My interests combine data, technology and business decision-making.
+</p>
+</div>
+
+<div class="card reveal">
+<h3>My Direction</h3>
+<p>
+My main focus is becoming a strong Data Analyst by developing skills
+in Python, SQL, Excel, Power BI, statistics, visualization and
+Business Intelligence while building real-world projects.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+<div class="container">
+
+<div class="section-head reveal">
+<div class="eyebrow">02 — Skills</div>
+<h2>My toolkit.</h2>
+<p>
+Technologies and professional skills supporting my Data Analytics journey.
+</p>
+</div>
+
+
+<div class="skills">
+
+<div class="skill reveal">
+<div class="skill-icon">DA</div>
+<h3>Data Analysis</h3>
+<div class="tags">
+<span class="tag">Data Analysis</span>
+<span class="tag">Data Cleaning</span>
+<span class="tag">Data Processing</span>
+<span class="tag">EDA</span>
+<span class="tag">Statistical Analysis</span>
+<span class="tag">Data Visualization</span>
+<span class="tag">Data Reporting</span>
+</div>
+</div>
+
+
+<div class="skill reveal">
+<div class="skill-icon">PY</div>
+<h3>Data Tools</h3>
+<div class="tags">
+<span class="tag">Pandas</span>
+<span class="tag">NumPy</span>
+<span class="tag">Matplotlib</span>
+<span class="tag">Seaborn</span>
+<span class="tag">SQL</span>
+<span class="tag">Excel</span>
+<span class="tag">Power BI</span>
+</div>
+</div>
+
+
+<div class="skill reveal">
+<div class="skill-icon">DEV</div>
+<h3>Programming</h3>
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Java</span>
+<span class="tag">C++</span>
+<span class="tag">OOP</span>
+<span class="tag">Problem Solving</span>
+<span class="tag">Programming</span>
+</div>
+</div>
+
+
+<div class="skill reveal">
+<div class="skill-icon">DB</div>
+<h3>Computer Science</h3>
+<div class="tags">
+<span class="tag">Algorithms</span>
+<span class="tag">Data Structures</span>
+<span class="tag">Database Management</span>
+<span class="tag">Logical Thinking</span>
+</div>
+</div>
+
+
+<div class="skill reveal">
+<div class="skill-icon">BI</div>
+<h3>Business & Information Systems</h3>
+<div class="tags">
+<span class="tag">Business Analysis</span>
+<span class="tag">Information Systems</span>
+<span class="tag">Accounting Information Systems</span>
+<span class="tag">Business Intelligence</span>
+</div>
+</div>
+
+
+<div class="skill reveal">
+<div class="skill-icon">PRO</div>
+<h3>Professional Skills</h3>
+<div class="tags">
+<span class="tag">Analytical Thinking</span>
+<span class="tag">Critical Thinking</span>
+<span class="tag">Research</span>
+<span class="tag">Communication</span>
+<span class="tag">Continuous Learning</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+<div class="container">
+
+<div class="section-head reveal">
+<div class="eyebrow">03 — Projects</div>
+<h2>Turning data into insight.</h2>
+<p>
+A project portfolio designed to grow with my professional experience.
+</p>
+</div>
+
+
+<div class="projects">
+
+<div class="project reveal">
+<div class="project-number">PROJECT 01</div>
+<h3>Sales Data Analysis</h3>
+<p>
+Analyze sales performance, identify trends and discover
+business opportunities through structured data analysis.
+</p>
+<div class="project-footer">
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Pandas</span>
+<span class="tag">Visualization</span>
+</div>
+<div class="data-panel"><span></span></div>
+</div>
+</div>
+
+
+<div class="project reveal">
+<div class="project-number">PROJECT 02</div>
+<h3>Customer Data Analysis</h3>
+<p>
+Explore customer behavior and patterns to generate
+useful insights for business decision-making.
+</p>
+<div class="project-footer">
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">SQL</span>
+<span class="tag">EDA</span>
+</div>
+<div class="data-panel"><span></span></div>
+</div>
+</div>
+
+
+<div class="project reveal">
+<div class="project-number">PROJECT 03</div>
+<h3>Business Intelligence Dashboard</h3>
+<p>
+Create clear and interactive dashboards that transform
+raw business data into understandable visual reports.
+</p>
+<div class="project-footer">
+<div class="tags">
+<span class="tag">Power BI</span>
+<span class="tag">Excel</span>
+<span class="tag">BI</span>
+</div>
+<div class="data-panel"><span></span></div>
+</div>
+</div>
+
+
+<div class="project reveal">
+<div class="project-number">PROJECT 04</div>
+<h3>Financial Data Analysis</h3>
+<p>
+Analyze financial datasets and identify trends,
+patterns and key performance indicators.
+</p>
+<div class="project-footer">
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Excel</span>
+<span class="tag">Statistics</span>
+</div>
+<div class="data-panel"><span></span></div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+<div class="container">
+
+<div class="section-head reveal">
+<div class="eyebrow">04 — Education</div>
+<h2>Academic journey.</h2>
+</div>
+
+
+<div class="timeline">
+
+<div class="timeline-item reveal">
+<div class="timeline-date">CURRENT</div>
+<h3>Accounting & Information Systems — 2nd Year</h3>
+<p>
+Developing knowledge across accounting, business information systems
+and technology while building a specialized path toward Data Analysis.
+</p>
+</div>
+
+
+<div class="timeline-item reveal">
+<div class="timeline-date">FOCUS</div>
+<h3>Data Analytics</h3>
+<p>
+Building practical knowledge in Python, SQL, Excel, Power BI,
+statistics and data visualization.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- COURSES -->
+
+<section>
+<div class="container">
+
+<div class="section-head reveal">
+<div class="eyebrow">05 — Growth</div>
+<h2>Learning never stops.</h2>
+<p>
+A dedicated area for future courses, certifications and achievements.
+</p>
+</div>
+
+
+<div class="skills">
+
+<div class="card reveal">
+<h3>Certifications</h3>
+<p>Certificates will be added here as they are earned.</p>
+</div>
+
+<div class="card reveal">
+<h3>Courses</h3>
+<p>Professional courses and learning paths will be added here.</p>
+</div>
+
+<div class="card reveal">
+<h3>Achievements</h3>
+<p>Future academic and professional achievements will appear here.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- BOOKS -->
+
+<section id="books">
+<div class="container">
+
+<div class="section-head reveal">
+<div class="eyebrow">06 — Writing</div>
+<h2>Writing & Books.</h2>
+<p>
+A different side of my work — ideas, words and stories.
+</p>
+</div>
+
+
+<div class="books">
+
+<div class="book reveal">
+<small>BOOK 01</small>
+<h3>على حافة الروح</h3>
+<p>
+More information and the book cover will be added later.
+</p>
+</div>
+
+
+<div class="book reveal">
+<small>BOOK 02</small>
+<h3>حين يتغير الإنسان</h3>
+<p>
+More information and the book cover will be added later.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- INTERESTS -->
+
+<section>
+<div class="container">
+
+<div class="about-grid">
+
+<div class="card reveal">
+<h3>Interests</h3>
+<div class="tags">
+<span class="tag">Data Analysis</span>
+<span class="tag">Technology</span>
+<span class="tag">Programming</span>
+<span class="tag">Business</span>
+<span class="tag">Writing</span>
+<span class="tag">Books</span>
+</div>
+</div>
+
+<div class="card reveal">
+<h3>Future Goals</h3>
+<p>
+Building strong expertise in Data Analytics, creating real-world
+projects and continuously expanding my technical and business knowledge.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+<div class="container">
+
+<div class="section-head reveal">
+<div class="eyebrow">07 — Contact</div>
+<h2>Let's connect.</h2>
+<p>
+Find me across the platforms below.
+</p>
+</div>
+
+
+<div class="contact-box reveal">
+
+<div class="contact-grid">
+
+<a class="contact" href="mailto:cconker63@gmail.com">
+<div class="contact-label">EMAIL</div>
+<p>cconker63@gmail.com</p>
+</a>
+
+<a class="contact" href="https://wa.me/201027595528" target="_blank">
+<div class="contact-label">WHATSAPP</div>
+<p>01027595528</p>
+</a>
+
+<a class="contact" href="https://t.me/C_O_N_2" target="_blank">
+<div class="contact-label">TELEGRAM</div>
+<p>@C_O_N_2</p>
+</a>
+
+<a class="contact" href="https://www.linkedin.com/in/mohammed-con" target="_blank">
+<div class="contact-label">LINKEDIN</div>
+<p>Mohamed Abdullah</p>
+</a>
+
+<a class="contact" href="https://www.facebook.com/share/1DsBQE5YmH/" target="_blank">
+<div class="contact-label">FACEBOOK</div>
+<p>Facebook Profile</p>
+</a>
+
+<a class="contact" href="https://instagram.com/mhbdllh4861" target="_blank">
+<div class="contact-label">INSTAGRAM</div>
+<p>@mhbdllh4861</p>
+</a>
+
+<a class="contact" href="https://github.com/" target="_blank">
+<div class="contact-label">GITHUB</div>
+<p>Coming Soon</p>
+</a>
+
+</div>
+</div>
+
+</div>
+</section>
+
+
+<footer>
+<div class="container">
+© <span id="year"></span> Mohamed Abdullah Ibrahim — Data Analyst
+</div>
+</footer>
+
+
+<script>
+
+/* NAVBAR */
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll",()=>{
+    navbar.classList.toggle("scrolled",window.scrollY > 30);
+});
+
+
+/* MOBILE MENU */
+
+const menu = document.getElementById("menu");
+const navLinks = document.getElementById("navLinks");
+
+menu.addEventListener("click",()=>{
+    navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        navLinks.classList.remove("active");
+    });
+});
+
+
+/* REVEAL ANIMATION */
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+},{
+    threshold:.12
+});
+
+document.querySelectorAll(".reveal").forEach(el=>{
+    observer.observe(el);
+});
+
+
+/* YEAR */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
+
+الملفات المطلوبة:
+
+portfolio/
+│
+├── index.html
+│
+└── images/
+    └── profile.jpg
+
+الصورة الشخصية تتحط في "images/profile.jpg".
+
+والنسخة دي متعمدة إنها ما تعتبرش المشاريع المنفذة فعليًا أو الشهادات المكتسبة حقائق؛ هي أماكن جاهزة تضيف فيها إنجازاتك الحقيقية بعدين. كمان GitHub موجود كـ Coming Soon لحد ما تضيف حسابك.
