@@ -1,101 +1,87 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>محمد عبدالله إبراهيم | Android Developer</title>
 
-  <meta
-    name="description"
-    content="محمد عبدالله إبراهيم - Android Developer من القاهرة، مصر، مهتم بتطوير تطبيقات Android وCybersecurity."
-  />
+  <meta name="description"
+        content="محمد عبدالله إبراهيم - Android Developer من القاهرة، مصر، مهتم بتطوير تطبيقات Android وCybersecurity.">
 
-  <meta
-    name="keywords"
-    content="محمد عبدالله إبراهيم, Android Developer, Kotlin, Java, Android, Cybersecurity, Egypt"
-  />
+  <meta name="author" content="Mohamed Abdullah Ibrahim">
+  <meta name="theme-color" content="#080b14">
 
-  <meta name="author" content="Mohamed Abdullah Ibrahim" />
-
-  <meta property="og:title" content="محمد عبدالله إبراهيم | Android Developer" />
-  <meta
-    property="og:description"
-    content="Android Developer & Cybersecurity Enthusiast from Cairo, Egypt."
-  />
-  <meta property="og:type" content="website" />
-
-  <meta name="theme-color" content="#0b1020" />
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet"
-  />
+  >
 
-  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
+  >
 
   <style>
 
     /* =========================================================
-       ROOT
+       VARIABLES
     ========================================================= */
 
     :root {
-      --bg: #070b16;
-      --bg-soft: #0d1324;
-      --card: rgba(17, 24, 39, 0.72);
+      --bg: #060810;
+      --bg2: #0a0e18;
+      --surface: rgba(16, 21, 34, .72);
+      --surface2: rgba(255,255,255,.045);
 
-      --text: #f7f9ff;
-      --text-soft: #aab4ca;
-      --border: rgba(255, 255, 255, 0.09);
+      --text: #f8faff;
+      --muted: #9ba6bb;
 
-      --blue: #4f8cff;
-      --cyan: #20d9ff;
-      --purple: #9b6cff;
-      --green: #3ddc84;
-      --orange: #ff9f43;
+      --border: rgba(255,255,255,.09);
 
-      --gradient:
-        linear-gradient(
-          120deg,
-          #4f8cff,
-          #9b6cff,
-          #20d9ff
-        );
-
-      --shadow:
-        0 25px 80px rgba(0, 0, 0, 0.35);
+      --blue: #5b8cff;
+      --cyan: #25d9ff;
+      --purple: #a16cff;
+      --green: #43df86;
+      --pink: #ff5f9e;
+      --orange: #ffad5a;
 
       --radius: 24px;
 
-      --nav-bg: rgba(7, 11, 22, 0.72);
+      --gradient:
+        linear-gradient(
+          115deg,
+          #5b8cff,
+          #a16cff 45%,
+          #25d9ff
+        );
+
+      --shadow:
+        0 30px 100px rgba(0,0,0,.40);
+
+      --nav:
+        rgba(6,8,16,.72);
     }
 
     body.light {
-      --bg: #f5f7fb;
-      --bg-soft: #ffffff;
-      --card: rgba(255, 255, 255, 0.82);
+      --bg: #f5f7fc;
+      --bg2: #ffffff;
+      --surface: rgba(255,255,255,.78);
+      --surface2: rgba(15,23,42,.04);
 
       --text: #101828;
-      --text-soft: #667085;
-      --border: rgba(16, 24, 40, 0.10);
+      --muted: #667085;
 
-      --nav-bg: rgba(255, 255, 255, 0.78);
+      --border: rgba(15,23,42,.10);
+
+      --nav:
+        rgba(255,255,255,.76);
 
       --shadow:
-        0 25px 70px rgba(31, 41, 55, 0.12);
+        0 30px 90px rgba(31,41,55,.13);
     }
 
     /* =========================================================
@@ -113,42 +99,28 @@
     }
 
     body {
-      font-family: "Cairo", "Inter", sans-serif;
+      font-family: Cairo, Inter, sans-serif;
       background:
         radial-gradient(
-          circle at 15% 10%,
-          rgba(79, 140, 255, 0.12),
-          transparent 30%
+          circle at 10% 10%,
+          rgba(91,140,255,.13),
+          transparent 28%
         ),
         radial-gradient(
-          circle at 85% 20%,
-          rgba(155, 108, 255, 0.10),
+          circle at 90% 15%,
+          rgba(161,108,255,.12),
           transparent 28%
         ),
         var(--bg);
 
       color: var(--text);
-      line-height: 1.8;
       overflow-x: hidden;
-
-      transition:
-        background 0.4s ease,
-        color 0.4s ease;
+      transition: .4s;
     }
 
-    body.light {
-      background:
-        radial-gradient(
-          circle at 10% 10%,
-          rgba(79, 140, 255, 0.08),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 90% 20%,
-          rgba(155, 108, 255, 0.07),
-          transparent 28%
-        ),
-        var(--bg);
+    body::selection {
+      background: var(--blue);
+      color: white;
     }
 
     a {
@@ -157,63 +129,67 @@
     }
 
     button {
-      font: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    section {
-      position: relative;
-      padding: 110px 0;
-    }
-
-    .container {
-      width: min(1180px, 92%);
-      margin: auto;
+      font-family: inherit;
     }
 
     /* =========================================================
-       SCROLL PROGRESS
+       CURSOR GLOW
     ========================================================= */
 
-    #progressBar {
+    .cursor-glow {
+      position: fixed;
+      width: 280px;
+      height: 280px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(91,140,255,.10),
+          transparent 70%
+        );
+
+      transform:
+        translate(-50%, -50%);
+
+      pointer-events: none;
+
+      z-index: 0;
+      transition: opacity .3s;
+    }
+
+    /* =========================================================
+       PROGRESS
+    ========================================================= */
+
+    #progress {
       position: fixed;
       top: 0;
       right: 0;
-      height: 3px;
+
       width: 0%;
+      height: 3px;
+
       background: var(--gradient);
+
       z-index: 9999;
     }
 
     /* =========================================================
-       BACKGROUND BLOBS
+       CONTAINER
     ========================================================= */
 
-    .blob {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.18;
-      pointer-events: none;
-      z-index: -1;
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+      position: relative;
+      z-index: 2;
     }
 
-    .blob.blue {
-      background: var(--blue);
-    }
-
-    .blob.purple {
-      background: var(--purple);
-    }
-
-    .blob.green {
-      background: var(--green);
+    section {
+      padding: 120px 0;
+      position: relative;
     }
 
     /* =========================================================
@@ -222,117 +198,171 @@
 
     .navbar {
       position: fixed;
+
       top: 18px;
       left: 50%;
       transform: translateX(-50%);
-      width: min(1120px, 92%);
-      padding: 12px 18px;
 
-      background: var(--nav-bg);
+      width: min(1150px, 92%);
+
+      background: var(--nav);
+
       border: 1px solid var(--border);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
 
-      border-radius: 20px;
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+
+      border-radius: 22px;
+
       z-index: 1000;
 
-      box-shadow: var(--shadow);
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
     }
 
     .nav-inner {
+      min-height: 68px;
+
+      padding: 8px 12px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+
+      gap: 15px;
     }
 
-    .logo {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 18px;
+      gap: 11px;
+
+      font-weight: 900;
       white-space: nowrap;
     }
 
-    .logo-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 13px;
+    .brand-icon {
+      width: 44px;
+      height: 44px;
 
       display: grid;
       place-items: center;
 
-      background: var(--gradient);
+      border-radius: 15px;
+
       color: white;
 
+      background: var(--gradient);
+
       box-shadow:
-        0 10px 30px rgba(79, 140, 255, 0.25);
+        0 12px 35px rgba(91,140,255,.25);
+
+      transition: .35s;
+    }
+
+    .brand:hover .brand-icon {
+      transform:
+        rotate(-7deg)
+        scale(1.08);
+
+      box-shadow:
+        0 15px 45px rgba(161,108,255,.35);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 25px;
     }
 
     .nav-links a {
-      color: var(--text-soft);
-      font-size: 14px;
-      transition: 0.3s;
       position: relative;
+
+      color: var(--muted);
+
+      font-size: 13px;
+      font-weight: 600;
+
+      padding: 10px 0;
+
+      transition: .3s;
+    }
+
+    .nav-links a::before {
+      content: "";
+
+      position: absolute;
+
+      bottom: 0;
+      right: 0;
+
+      width: 0;
+      height: 2px;
+
+      border-radius: 10px;
+
+      background: var(--gradient);
+
+      transition: .35s;
     }
 
     .nav-links a:hover {
       color: var(--text);
     }
 
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      bottom: -6px;
-      right: 0;
-      width: 0;
-      height: 2px;
-      border-radius: 2px;
-      background: var(--gradient);
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover::after {
+    .nav-links a:hover::before {
       width: 100%;
     }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
     }
 
-    .icon-btn {
-      width: 40px;
-      height: 40px;
+    .nav-btn {
+      width: 41px;
+      height: 41px;
 
-      border-radius: 12px;
       border: 1px solid var(--border);
 
-      background: rgba(255, 255, 255, 0.03);
+      border-radius: 13px;
+
+      background: var(--surface2);
+
       color: var(--text);
 
-      cursor: pointer;
       display: grid;
       place-items: center;
 
-      transition: 0.3s;
+      cursor: pointer;
+
+      transition:
+        background .25s,
+        color .25s,
+        border .25s,
+        transform .2s;
     }
 
-    .icon-btn:hover {
+    .nav-btn:hover {
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--purple)
+        );
+
+      border-color: transparent;
+
       transform: translateY(-2px);
-      border-color: rgba(79, 140, 255, 0.45);
-      background: rgba(79, 140, 255, 0.10);
     }
 
-    .menu-btn {
+    .nav-btn:active {
+      transform: scale(.90);
+    }
+
+    .menu {
       display: none;
     }
 
@@ -342,461 +372,755 @@
 
     .hero {
       min-height: 100vh;
+
       display: flex;
       align-items: center;
-      padding-top: 150px;
+
+      padding-top: 155px;
+
       overflow: hidden;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
+
+      grid-template-columns: 1.08fr .92fr;
+
       gap: 70px;
+
+      align-items: center;
     }
 
     [dir="rtl"] .hero-grid {
-      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-columns: .92fr 1.08fr;
     }
 
     .hero-content {
-      animation: heroIn 0.9s ease both;
+      position: relative;
     }
 
-    @keyframes heroIn {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .eyebrow {
+    .status {
       display: inline-flex;
+
       align-items: center;
-      gap: 8px;
+      gap: 9px;
 
-      padding: 7px 13px;
+      padding: 8px 14px;
 
-      border: 1px solid var(--border);
       border-radius: 999px;
 
-      color: var(--text-soft);
-      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(67,223,134,.18);
 
-      font-size: 13px;
-      margin-bottom: 22px;
+      background:
+        rgba(67,223,134,.055);
+
+      color: var(--green);
+
+      font-size: 12px;
+      font-weight: 700;
+
+      margin-bottom: 25px;
     }
 
-    .eyebrow i {
-      color: var(--green);
-      font-size: 8px;
+    .status-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      box-shadow:
+        0 0 0 6px rgba(67,223,134,.09);
     }
 
     .hero h1 {
-      font-size: clamp(42px, 6vw, 78px);
-      line-height: 1.12;
-      letter-spacing: -2px;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
+      font-size: clamp(45px, 7vw, 88px);
 
-    .gradient-text {
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+      line-height: 1.06;
 
-    .hero-role {
-      font-size: clamp(21px, 3vw, 32px);
-      font-weight: 700;
+      font-weight: 900;
+
+      letter-spacing: -3px;
+
       margin-bottom: 18px;
     }
 
+    .gradient {
+      background: var(--gradient);
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+
+      background-size: 200% 200%;
+
+      animation:
+        gradientMove 5s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0%,100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .role {
+      font-size: clamp(22px, 3vw, 34px);
+
+      font-weight: 800;
+
+      margin-bottom: 18px;
+    }
+
+    .role span {
+      color: var(--green);
+    }
+
     .hero-description {
-      max-width: 650px;
-      color: var(--text-soft);
+      max-width: 670px;
+
+      color: var(--muted);
+
       font-size: 17px;
+
+      line-height: 2;
+
       margin-bottom: 30px;
     }
 
-    .hero-buttons {
+    .buttons {
       display: flex;
+
       flex-wrap: wrap;
-      gap: 13px;
+
+      gap: 12px;
     }
 
     .btn {
+      position: relative;
+
       display: inline-flex;
+
       align-items: center;
       justify-content: center;
+
       gap: 10px;
 
-      padding: 13px 21px;
-      border-radius: 14px;
+      padding: 14px 21px;
+
+      border-radius: 15px;
 
       border: 1px solid var(--border);
 
-      cursor: pointer;
-      transition: 0.3s;
+      font-size: 13px;
+      font-weight: 800;
 
-      font-weight: 700;
-      font-size: 14px;
+      cursor: pointer;
+
+      overflow: hidden;
+
+      transition:
+        transform .25s,
+        box-shadow .25s,
+        background .25s;
     }
 
-    .btn-primary {
-      background: var(--gradient);
+    .btn::after {
+      content: "";
+
+      position: absolute;
+
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.35);
+
+      transform: scale(0);
+
+      opacity: 0;
+    }
+
+    .btn:active::after {
+      animation: ripple .5s ease;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(30);
+        opacity: 0;
+      }
+    }
+
+    .primary {
       color: white;
+
+      background: var(--gradient);
+
       border: none;
 
       box-shadow:
-        0 12px 35px rgba(79, 140, 255, 0.20);
+        0 15px 40px rgba(91,140,255,.22);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-3px);
+    .primary:hover {
+      transform: translateY(-4px);
+
       box-shadow:
-        0 18px 45px rgba(79, 140, 255, 0.32);
+        0 22px 55px rgba(91,140,255,.35);
     }
 
-    .btn-outline {
-      background: rgba(255, 255, 255, 0.025);
+    .primary:active {
+      transform: scale(.96);
+    }
+
+    .secondary {
+      background: var(--surface2);
+
       color: var(--text);
     }
 
-    .btn-outline:hover {
-      transform: translateY(-3px);
-      border-color: rgba(79, 140, 255, 0.45);
+    .secondary:hover {
+      background:
+        rgba(37,217,255,.09);
+
+      border-color:
+        rgba(37,217,255,.35);
+
+      color: var(--cyan);
+
+      transform: translateY(-4px);
     }
 
-    .hero-meta {
+    .secondary:active {
+      transform: scale(.96);
+    }
+
+    .meta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+
+      gap: 9px;
+
       margin-top: 28px;
     }
 
     .meta {
-      color: var(--text-soft);
-      font-size: 13px;
+      display: inline-flex;
+
+      align-items: center;
+      gap: 8px;
 
       padding: 8px 12px;
 
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid var(--border);
       border-radius: 12px;
+
+      border: 1px solid var(--border);
+
+      background: var(--surface2);
+
+      color: var(--muted);
+
+      font-size: 12px;
     }
 
-    /* HERO VISUAL */
+    .meta i {
+      color: var(--blue);
+    }
 
-    .hero-visual {
-      min-height: 470px;
-      position: relative;
+    /* =========================================================
+       HERO VISUAL
+    ========================================================= */
+
+    .hero-art {
+      min-height: 500px;
 
       display: grid;
       place-items: center;
 
-      animation: visualIn 1s ease 0.2s both;
+      position: relative;
     }
 
-    @keyframes visualIn {
-      from {
-        opacity: 0;
-        transform: scale(0.92);
-      }
+    .halo {
+      position: absolute;
 
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .visual-orbit {
-      width: 350px;
-      height: 350px;
+      width: 390px;
+      height: 390px;
 
       border-radius: 50%;
 
-      border: 1px solid rgba(79, 140, 255, 0.22);
+      background:
+        radial-gradient(
+          circle,
+          rgba(91,140,255,.17),
+          transparent 65%
+        );
+
+      filter: blur(8px);
+    }
+
+    .phone {
+      width: 250px;
+      height: 480px;
+
+      border-radius: 38px;
 
       position: relative;
-
-      animation: rotate 22s linear infinite;
-    }
-
-    @keyframes rotate {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .visual-orbit::before {
-      content: "";
-      position: absolute;
-      inset: 35px;
-
-      border-radius: 50%;
-
-      border: 1px dashed rgba(155, 108, 255, 0.25);
-    }
-
-    .visual-core {
-      position: absolute;
-      inset: 50%;
-      transform: translate(-50%, -50%);
-
-      width: 170px;
-      height: 170px;
-
-      border-radius: 45px;
-
-      display: grid;
-      place-items: center;
 
       background:
         linear-gradient(
           145deg,
-          rgba(79, 140, 255, 0.18),
-          rgba(155, 108, 255, 0.14)
+          #111827,
+          #070a12
         );
 
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255,255,255,.16);
 
       box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.35),
-        inset 0 0 50px rgba(79, 140, 255, 0.08);
+        0 45px 100px rgba(0,0,0,.55),
+        0 0 70px rgba(91,140,255,.12);
 
-      animation: float 4s ease-in-out infinite;
+      transform:
+        rotate(-6deg)
+        perspective(800px)
+        rotateY(7deg);
+
+      animation: phoneFloat 5s ease-in-out infinite;
+
+      overflow: hidden;
     }
 
-    @keyframes float {
-      0%, 100% {
-        transform: translate(-50%, -50%) translateY(0);
+    @keyframes phoneFloat {
+      0%,100% {
+        transform:
+          translateY(0)
+          rotate(-6deg)
+          perspective(800px)
+          rotateY(7deg);
       }
 
       50% {
-        transform: translate(-50%, -50%) translateY(-12px);
+        transform:
+          translateY(-13px)
+          rotate(-4deg)
+          perspective(800px)
+          rotateY(7deg);
       }
     }
 
-    .visual-core i {
-      font-size: 65px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+    .phone::before {
+      content: "";
 
-    .orbit-icon {
       position: absolute;
 
-      width: 56px;
-      height: 56px;
+      top: 12px;
+      left: 50%;
 
-      border-radius: 18px;
+      transform: translateX(-50%);
+
+      width: 90px;
+      height: 24px;
+
+      border-radius: 0 0 16px 16px;
+
+      background: #020307;
+
+      z-index: 3;
+    }
+
+    .phone-screen {
+      position: absolute;
+
+      inset: 8px;
+
+      border-radius: 31px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(91,140,255,.28),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(161,108,255,.23),
+          transparent 35%
+        ),
+        #080c17;
+
+      padding: 70px 22px 25px;
+    }
+
+    .screen-logo {
+      width: 62px;
+      height: 62px;
+
+      border-radius: 20px;
 
       display: grid;
       place-items: center;
 
-      background: var(--bg-soft);
+      color: white;
 
-      border: 1px solid var(--border);
+      font-size: 27px;
 
-      box-shadow: var(--shadow);
+      background:
+        linear-gradient(
+          135deg,
+          var(--green),
+          #26c76f
+        );
 
-      color: var(--text);
+      box-shadow:
+        0 15px 35px rgba(67,223,134,.20);
 
-      animation:
-        counterRotate 22s linear infinite;
+      margin-bottom: 28px;
     }
 
-    @keyframes counterRotate {
-      to {
-        transform: rotate(-360deg);
-      }
-    }
+    .screen-title {
+      font-size: 23px;
+      font-weight: 900;
 
-    .orbit-icon:nth-child(1) {
-      top: -15px;
-      left: 50%;
-      color: var(--green);
-    }
-
-    .orbit-icon:nth-child(2) {
-      right: -10px;
-      top: 50%;
-      color: var(--blue);
-    }
-
-    .orbit-icon:nth-child(3) {
-      bottom: -15px;
-      left: 50%;
-      color: var(--purple);
-    }
-
-    .orbit-icon:nth-child(4) {
-      left: -10px;
-      top: 50%;
-      color: var(--cyan);
-    }
-
-    /* =========================================================
-       SECTION HEAD
-    ========================================================= */
-
-    .section-head {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 55px;
-    }
-
-    .section-kicker {
-      color: var(--blue);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 1px;
       margin-bottom: 8px;
     }
 
+    .screen-subtitle {
+      color: #94a3b8;
+
+      font-size: 11px;
+
+      line-height: 1.8;
+
+      margin-bottom: 25px;
+    }
+
+    .screen-line {
+      height: 9px;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--purple)
+        );
+
+      margin-bottom: 12px;
+
+      opacity: .85;
+    }
+
+    .screen-line.small {
+      width: 55%;
+      opacity: .4;
+    }
+
+    .floating-chip {
+      position: absolute;
+
+      padding: 12px 14px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      border-radius: 15px;
+
+      background: rgba(15,20,33,.8);
+
+      border: 1px solid var(--border);
+
+      backdrop-filter: blur(15px);
+
+      box-shadow: var(--shadow);
+
+      font-size: 12px;
+      font-weight: 700;
+
+      animation:
+        chipFloat 4s ease-in-out infinite;
+    }
+
+    .floating-chip i {
+      font-size: 17px;
+    }
+
+    .chip-one {
+      top: 100px;
+      right: 15px;
+
+      color: var(--green);
+    }
+
+    .chip-two {
+      bottom: 90px;
+      left: 0;
+
+      color: var(--purple);
+
+      animation-delay: 1s;
+    }
+
+    .chip-three {
+      top: 270px;
+      right: -25px;
+
+      color: var(--cyan);
+
+      animation-delay: 2s;
+    }
+
+    @keyframes chipFloat {
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-9px);
+      }
+    }
+
+    /* =========================================================
+       SECTION TITLES
+    ========================================================= */
+
+    .section-head {
+      max-width: 720px;
+
+      margin: 0 auto 55px;
+
+      text-align: center;
+    }
+
+    .kicker {
+      color: var(--blue);
+
+      font-size: 12px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.5px;
+
+      margin-bottom: 10px;
+    }
+
     .section-title {
-      font-size: clamp(30px, 4vw, 48px);
+      font-size: clamp(31px, 4vw, 50px);
+
       line-height: 1.25;
+
+      font-weight: 900;
+
       margin-bottom: 13px;
     }
 
     .section-description {
-      color: var(--text-soft);
+      color: var(--muted);
+
+      line-height: 1.9;
     }
 
     /* =========================================================
        ABOUT
     ========================================================= */
 
-    .about-grid {
+    .about-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
+
+      grid-template-columns: 1.15fr .85fr;
+
+      gap: 22px;
     }
 
-    .glass-card {
-      background: var(--card);
+    .glass {
+      background: var(--surface);
+
       border: 1px solid var(--border);
 
       border-radius: var(--radius);
 
-      padding: 30px;
-
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(18px);
 
       box-shadow: var(--shadow);
 
-      transition: 0.35s;
+      transition:
+        transform .35s,
+        border .35s,
+        box-shadow .35s;
     }
 
-    .glass-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(79, 140, 255, 0.25);
+    .glass:hover {
+      transform: translateY(-7px);
+
+      border-color:
+        rgba(91,140,255,.28);
+
+      box-shadow:
+        0 35px 100px rgba(0,0,0,.32),
+        0 0 40px rgba(91,140,255,.05);
     }
 
-    .about-text {
-      color: var(--text-soft);
-      line-height: 2;
+    .about-main {
+      padding: 35px;
     }
 
-    .info-list {
-      display: grid;
-      gap: 14px;
+    .about-main p {
+      color: var(--muted);
+
+      line-height: 2.15;
+
+      font-size: 15px;
     }
 
-    .info-item {
+    .info {
+      padding: 25px;
+    }
+
+    .info-row {
       display: flex;
-      align-items: center;
+
       justify-content: space-between;
-      gap: 20px;
 
-      padding: 14px;
+      gap: 15px;
 
-      background: rgba(255, 255, 255, 0.025);
+      padding: 15px;
+
+      border-radius: 14px;
+
+      background: var(--surface2);
 
       border: 1px solid var(--border);
-      border-radius: 14px;
+
+      margin-bottom: 10px;
+
+      font-size: 13px;
     }
 
-    .info-item span:first-child {
-      color: var(--text-soft);
+    .info-row:last-child {
+      margin-bottom: 0;
     }
 
-    .info-item strong {
-      color: var(--text);
+    .info-row span {
+      color: var(--muted);
+    }
+
+    .info-row strong {
+      text-align: left;
     }
 
     /* =========================================================
        SKILLS
     ========================================================= */
 
-    .skills-grid {
+    .skills {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 20px;
     }
 
-    .skill-card {
+    .skill {
+      --accent: var(--blue);
+
+      padding: 30px;
+
       position: relative;
+
       overflow: hidden;
+
+      transition: .35s;
     }
 
-    .skill-card::before {
+    .skill::after {
       content: "";
+
       position: absolute;
 
-      width: 120px;
-      height: 120px;
+      width: 180px;
+      height: 180px;
 
       border-radius: 50%;
 
       background: var(--accent);
 
-      filter: blur(60px);
+      opacity: .08;
 
-      opacity: 0.12;
+      filter: blur(70px);
 
-      top: -60px;
-      right: -50px;
+      top: -90px;
+      right: -80px;
+
+      transition: .4s;
+    }
+
+    .skill:hover::after {
+      opacity: .18;
+
+      transform: scale(1.3);
+    }
+
+    .skill:hover {
+      border-color:
+        color-mix(
+          in srgb,
+          var(--accent) 40%,
+          transparent
+        );
+
+      box-shadow:
+        0 25px 80px rgba(0,0,0,.28),
+        0 0 40px
+        color-mix(
+          in srgb,
+          var(--accent) 10%,
+          transparent
+        );
     }
 
     .skill-head {
       display: flex;
+
       align-items: center;
-      gap: 15px;
+
+      gap: 14px;
 
       margin-bottom: 22px;
     }
 
     .skill-icon {
-      width: 55px;
-      height: 55px;
-
-      border-radius: 17px;
+      width: 58px;
+      height: 58px;
 
       display: grid;
       place-items: center;
+
+      border-radius: 18px;
 
       color: var(--accent);
 
       background:
         color-mix(
           in srgb,
-          var(--accent) 12%,
+          var(--accent) 10%,
           transparent
         );
 
-      border: 1px solid
+      border:
+        1px solid
         color-mix(
           in srgb,
           var(--accent) 25%,
@@ -804,43 +1128,77 @@
         );
 
       font-size: 22px;
+
+      transition: .3s;
     }
 
-    .skill-head h3 {
-      font-size: 19px;
+    .skill:hover .skill-icon {
+      color: white;
+
+      background: var(--accent);
+
+      transform:
+        rotate(-5deg)
+        scale(1.06);
+
+      box-shadow:
+        0 12px 35px
+        color-mix(
+          in srgb,
+          var(--accent) 25%,
+          transparent
+        );
     }
 
-    .skill-head p {
-      color: var(--text-soft);
-      font-size: 13px;
+    .skill h3 {
+      font-size: 18px;
+    }
+
+    .skill p {
+      color: var(--muted);
+
+      font-size: 12px;
     }
 
     .tags {
       display: flex;
+
       flex-wrap: wrap;
-      gap: 9px;
+
+      gap: 8px;
     }
 
     .tag {
-      padding: 8px 12px;
+      padding: 8px 11px;
 
       border-radius: 10px;
 
-      background: rgba(255, 255, 255, 0.035);
+      color: var(--muted);
+
+      background: var(--surface2);
 
       border: 1px solid var(--border);
 
-      color: var(--text-soft);
+      font-size: 11px;
 
-      font-size: 12px;
+      cursor: default;
 
-      transition: 0.25s;
+      transition: .25s;
     }
 
     .tag:hover {
-      color: var(--text);
-      transform: translateY(-2px);
-      border-color: rgba(79, 140, 255, 0.35);
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--purple)
+        );
+
+      border-color: transparent;
+
+      transform: translateY(-3px);
     }
 
     /* =========================================================
@@ -848,19 +1206,22 @@
     ========================================================= */
 
     .timeline {
-      position: relative;
       max-width: 850px;
+
       margin: auto;
+
+      position: relative;
     }
 
     .timeline::before {
       content: "";
+
       position: absolute;
 
       top: 0;
       bottom: 0;
 
-      right: 22px;
+      right: 19px;
 
       width: 2px;
 
@@ -873,7 +1234,7 @@
     }
 
     [dir="ltr"] .timeline::before {
-      left: 22px;
+      left: 19px;
       right: auto;
     }
 
@@ -882,7 +1243,7 @@
 
       padding-right: 65px;
 
-      margin-bottom: 35px;
+      margin-bottom: 25px;
     }
 
     [dir="ltr"] .timeline-item {
@@ -893,11 +1254,14 @@
     .timeline-dot {
       position: absolute;
 
-      right: 8px;
-      top: 4px;
+      top: 22px;
+      right: 4px;
 
-      width: 30px;
-      height: 30px;
+      width: 31px;
+      height: 31px;
+
+      display: grid;
+      place-items: center;
 
       border-radius: 50%;
 
@@ -905,342 +1269,392 @@
 
       border: 2px solid var(--blue);
 
-      display: grid;
-      place-items: center;
-
       box-shadow:
-        0 0 0 7px rgba(79, 140, 255, 0.08);
+        0 0 0 7px rgba(91,140,255,.08);
     }
 
     [dir="ltr"] .timeline-dot {
-      left: 8px;
+      left: 4px;
       right: auto;
     }
 
     .timeline-dot::after {
       content: "";
+
       width: 8px;
       height: 8px;
+
       border-radius: 50%;
+
       background: var(--blue);
     }
 
     .timeline-card {
-      padding: 24px;
+      padding: 25px;
 
-      background: var(--card);
+      background: var(--surface);
+
       border: 1px solid var(--border);
 
       border-radius: 20px;
+
+      transition: .3s;
     }
 
-    .timeline-year {
+    .timeline-card:hover {
+      transform: translateX(-5px);
+
+      border-color:
+        rgba(161,108,255,.32);
+
+      box-shadow:
+        0 20px 70px rgba(0,0,0,.24);
+    }
+
+    [dir="ltr"] .timeline-card:hover {
+      transform: translateX(5px);
+    }
+
+    .year {
       color: var(--blue);
-      font-size: 13px;
-      font-weight: 800;
+
+      font-size: 11px;
+
+      font-weight: 900;
+
       margin-bottom: 5px;
     }
 
-    .timeline-card h3 {
-      margin-bottom: 7px;
-    }
-
     .timeline-card p {
-      color: var(--text-soft);
-      font-size: 14px;
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 5px;
     }
 
     /* =========================================================
-       LEARNING
+       PROJECT
     ========================================================= */
 
-    .learning-grid {
+    .project {
+      min-height: 360px;
+
+      border-radius: 30px;
+
+      position: relative;
+
+      overflow: hidden;
+
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
 
-    .learning-item {
-      padding: 22px;
+      place-items: center;
 
       text-align: center;
 
-      border-radius: 18px;
-
-      background: var(--card);
-      border: 1px solid var(--border);
-
-      transition: 0.3s;
-    }
-
-    .learning-item:hover {
-      transform: translateY(-5px);
-      border-color: rgba(61, 220, 132, 0.35);
-    }
-
-    .learning-item i {
-      font-size: 25px;
-      color: var(--green);
-      margin-bottom: 10px;
-    }
-
-    .learning-item h4 {
-      font-size: 14px;
-    }
-
-    /* =========================================================
-       PROJECTS
-    ========================================================= */
-
-    .project-card {
-      min-height: 320px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      text-align: center;
+      padding: 40px;
 
       background:
         radial-gradient(
           circle at 50% 20%,
-          rgba(79, 140, 255, 0.13),
+          rgba(91,140,255,.15),
           transparent 40%
         ),
-        var(--card);
+        radial-gradient(
+          circle at 30% 90%,
+          rgba(161,108,255,.12),
+          transparent 35%
+        ),
+        var(--surface);
 
       border: 1px solid var(--border);
-      border-radius: 28px;
 
       box-shadow: var(--shadow);
-
-      padding: 35px;
     }
 
     .project-icon {
-      width: 80px;
-      height: 80px;
+      width: 86px;
+      height: 86px;
+
+      border-radius: 26px;
 
       display: grid;
       place-items: center;
 
-      border-radius: 24px;
+      color: white;
+
+      font-size: 34px;
 
       background: var(--gradient);
 
-      color: white;
-
-      font-size: 32px;
+      box-shadow:
+        0 20px 55px rgba(91,140,255,.25);
 
       margin-bottom: 22px;
 
-      box-shadow:
-        0 18px 50px rgba(79, 140, 255, 0.22);
+      animation:
+        projectFloat 4s ease-in-out infinite;
     }
 
-    .project-card p {
-      color: var(--text-soft);
-      max-width: 550px;
-      margin: 8px auto 20px;
+    @keyframes projectFloat {
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .project p {
+      color: var(--muted);
+
+      max-width: 620px;
+
+      margin: 10px auto 20px;
     }
 
     .coming {
-      padding: 8px 14px;
+      display: inline-block;
+
+      padding: 8px 15px;
+
       border-radius: 999px;
 
       color: var(--orange);
 
-      border: 1px solid rgba(255, 159, 67, 0.2);
+      background:
+        rgba(255,173,90,.07);
 
-      background: rgba(255, 159, 67, 0.06);
+      border:
+        1px solid rgba(255,173,90,.20);
 
-      font-size: 12px;
-      font-weight: 700;
-    }
+      font-size: 11px;
 
-    /* =========================================================
-       GOALS
-    ========================================================= */
-
-    .goals-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .goal {
-      padding: 22px;
-
-      border-radius: 20px;
-
-      background: var(--card);
-      border: 1px solid var(--border);
-
-      transition: 0.3s;
-    }
-
-    .goal:hover {
-      transform: translateY(-5px);
-      border-color: rgba(155, 108, 255, 0.3);
-    }
-
-    .goal i {
-      color: var(--purple);
-      font-size: 22px;
-      margin-bottom: 14px;
-    }
-
-    .goal h4 {
-      margin-bottom: 7px;
-    }
-
-    .goal p {
-      color: var(--text-soft);
-      font-size: 13px;
+      font-weight: 800;
     }
 
     /* =========================================================
        CONTACT
     ========================================================= */
 
-    .contact-box {
+    .contact-grid {
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 25px;
-      align-items: stretch;
+
+      grid-template-columns: .75fr 1.25fr;
+
+      gap: 22px;
     }
 
     .contact-intro {
       padding: 35px;
-      border-radius: var(--radius);
 
       background:
         linear-gradient(
           145deg,
-          rgba(79, 140, 255, 0.12),
-          rgba(155, 108, 255, 0.08)
+          rgba(91,140,255,.12),
+          rgba(161,108,255,.08)
         );
 
       border: 1px solid var(--border);
+
+      border-radius: var(--radius);
     }
 
     .contact-intro h3 {
       font-size: 28px;
-      margin-bottom: 12px;
+
+      line-height: 1.4;
+
+      margin-bottom: 13px;
     }
 
     .contact-intro p {
-      color: var(--text-soft);
+      color: var(--muted);
+
+      line-height: 2;
+
       margin-bottom: 25px;
     }
 
     .available {
       display: inline-flex;
+
       align-items: center;
+
       gap: 9px;
+
+      color: var(--green);
+
+      background:
+        rgba(67,223,134,.07);
+
+      border:
+        1px solid rgba(67,223,134,.18);
 
       padding: 8px 13px;
 
       border-radius: 999px;
 
-      background: rgba(61, 220, 132, 0.08);
+      font-size: 11px;
 
-      border: 1px solid rgba(61, 220, 132, 0.2);
-
-      color: var(--green);
-
-      font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
-    .available span {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 5px rgba(61, 220, 132, 0.08);
+    .available i {
+      font-size: 7px;
     }
 
-    .social-grid {
+    .socials {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 13px;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 12px;
     }
 
     .social {
       display: flex;
+
       align-items: center;
-      gap: 14px;
+
+      gap: 13px;
 
       padding: 16px;
 
-      border-radius: 17px;
+      border-radius: 18px;
 
-      background: var(--card);
+      background: var(--surface);
 
       border: 1px solid var(--border);
 
-      transition: 0.3s;
+      transition: .3s;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .social::before {
+      content: "";
+
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          120deg,
+          transparent,
+          rgba(255,255,255,.06),
+          transparent
+        );
+
+      transform:
+        translateX(-100%);
+
+      transition: .5s;
+    }
+
+    .social:hover::before {
+      transform:
+        translateX(100%);
     }
 
     .social:hover {
-      transform: translateY(-4px);
-      border-color: rgba(79, 140, 255, 0.35);
+      transform: translateY(-5px);
+
+      border-color:
+        var(--social);
+
+      box-shadow:
+        0 18px 55px
+        color-mix(
+          in srgb,
+          var(--social) 10%,
+          transparent
+        );
     }
 
     .social-icon {
-      width: 45px;
-      height: 45px;
+      width: 46px;
+      height: 46px;
 
-      border-radius: 14px;
+      flex-shrink: 0;
 
       display: grid;
       place-items: center;
 
+      border-radius: 14px;
+
+      color: var(--social);
+
+      background:
+        color-mix(
+          in srgb,
+          var(--social) 10%,
+          transparent
+        );
+
       font-size: 19px;
+
+      transition: .3s;
     }
 
-    .social-info small {
-      display: block;
-      color: var(--text-soft);
-      font-size: 11px;
+    .social:hover .social-icon {
+      color: white;
+
+      background: var(--social);
+
+      transform:
+        rotate(-6deg)
+        scale(1.08);
     }
 
-    .social-info strong {
+    .social small {
+      color: var(--muted);
+
       display: block;
-      font-size: 13px;
+
+      font-size: 10px;
+    }
+
+    .social strong {
+      display: block;
+
+      font-size: 12px;
+
       word-break: break-word;
     }
 
-    .facebook .social-icon {
-      color: #1877f2;
-      background: rgba(24, 119, 242, 0.10);
+    /* Social Colors */
+
+    .facebook {
+      --social: #1877f2;
     }
 
-    .whatsapp .social-icon {
-      color: #25d366;
-      background: rgba(37, 211, 102, 0.10);
+    .whatsapp {
+      --social: #25d366;
     }
 
-    .telegram .social-icon {
-      color: #229ed9;
-      background: rgba(34, 158, 217, 0.10);
+    .telegram {
+      --social: #229ed9;
     }
 
-    .instagram .social-icon {
-      color: #e4405f;
-      background: rgba(228, 64, 95, 0.10);
+    .instagram {
+      --social: #e4405f;
     }
 
-    .linkedin .social-icon {
-      color: #0a66c2;
-      background: rgba(10, 102, 194, 0.10);
+    .linkedin {
+      --social: #0a66c2;
     }
 
-    .email .social-icon {
-      color: var(--orange);
-      background: rgba(255, 159, 67, 0.10);
+    .email {
+      --social: #ffad5a;
     }
 
     /* =========================================================
@@ -1248,29 +1662,28 @@
     ========================================================= */
 
     footer {
-      padding: 35px 0 30px;
-
       border-top: 1px solid var(--border);
 
-      color: var(--text-soft);
+      padding: 35px 0;
 
       text-align: center;
-    }
 
-    footer strong {
-      color: var(--text);
+      color: var(--muted);
     }
 
     .footer-socials {
       display: flex;
+
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 17px;
+
+      gap: 8px;
+
+      margin-bottom: 16px;
     }
 
     .footer-socials a {
-      width: 38px;
-      height: 38px;
+      width: 39px;
+      height: 39px;
 
       display: grid;
       place-items: center;
@@ -1279,33 +1692,28 @@
 
       border: 1px solid var(--border);
 
-      transition: 0.3s;
+      background: var(--surface2);
+
+      transition: .3s;
     }
 
     .footer-socials a:hover {
-      transform: translateY(-3px);
-      border-color: rgba(79, 140, 255, 0.35);
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--purple)
+        );
+
+      border-color: transparent;
+
+      transform: translateY(-4px) rotate(-3deg);
     }
 
     /* =========================================================
-       REVEAL ANIMATION
-    ========================================================= */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* =========================================================
-       BACK TO TOP
+       BACK TOP
     ========================================================= */
 
     #backTop {
@@ -1314,14 +1722,15 @@
       bottom: 22px;
       left: 22px;
 
-      width: 45px;
-      height: 45px;
+      width: 46px;
+      height: 46px;
 
       border-radius: 14px;
 
       border: 1px solid var(--border);
 
-      background: var(--card);
+      background: var(--surface);
+
       color: var(--text);
 
       display: grid;
@@ -1330,64 +1739,111 @@
       cursor: pointer;
 
       opacity: 0;
+
       visibility: hidden;
 
       transform: translateY(15px);
 
-      transition: 0.3s;
+      transition: .3s;
 
-      z-index: 500;
+      z-index: 900;
     }
 
     #backTop.show {
       opacity: 1;
+
       visibility: visible;
+
       transform: translateY(0);
+    }
+
+    #backTop:hover {
+      color: white;
+
+      background: var(--gradient);
+
+      border-color: transparent;
+
+      transform:
+        translateY(-4px);
+    }
+
+    /* =========================================================
+       REVEAL
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform:
+        translateY(35px);
+
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+
+      transform:
+        translateY(0);
     }
 
     /* =========================================================
        MOBILE
     ========================================================= */
 
-    @media (max-width: 950px) {
+    @media(max-width: 950px) {
 
       .nav-links {
         position: absolute;
 
         top: calc(100% + 10px);
+
         right: 0;
 
         width: 100%;
 
-        padding: 18px;
+        padding: 15px;
+
+        display: flex;
 
         flex-direction: column;
+
         align-items: stretch;
 
-        background: var(--nav-bg);
+        background: var(--nav);
+
         backdrop-filter: blur(20px);
 
         border: 1px solid var(--border);
+
         border-radius: 18px;
 
         opacity: 0;
+
         visibility: hidden;
+
         transform: translateY(-10px);
 
-        transition: 0.3s;
+        transition: .3s;
       }
 
       .nav-links.open {
         opacity: 1;
+
         visibility: visible;
-        transform: translateY(0);
+
+        transform:
+          translateY(0);
       }
 
       .nav-links a {
-        padding: 10px;
+        padding: 11px;
       }
 
-      .menu-btn {
+      .menu {
         display: grid;
       }
 
@@ -1404,37 +1860,32 @@
         margin-inline: auto;
       }
 
-      .hero-buttons,
-      .hero-meta {
+      .buttons,
+      .meta-row {
         justify-content: center;
       }
 
-      .hero-visual {
-        min-height: 350px;
+      .hero-art {
+        min-height: 430px;
       }
 
-      .about-grid,
-      .contact-box {
+      .about-layout,
+      .contact-grid {
         grid-template-columns: 1fr;
-      }
-
-      .learning-grid,
-      .goals-grid {
-        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 650px) {
+    @media(max-width: 700px) {
 
       section {
-        padding: 80px 0;
+        padding: 85px 0;
       }
 
       .navbar {
         top: 10px;
       }
 
-      .logo span {
+      .brand span:last-child {
         display: none;
       }
 
@@ -1443,74 +1894,110 @@
       }
 
       .hero h1 {
-        letter-spacing: -1px;
+        letter-spacing: -2px;
       }
 
-      .hero-visual {
-        min-height: 290px;
+      .hero-art {
+        min-height: 360px;
       }
 
-      .visual-orbit {
-        width: 260px;
-        height: 260px;
+      .phone {
+        width: 200px;
+        height: 390px;
       }
 
-      .visual-core {
-        width: 125px;
-        height: 125px;
-        border-radius: 34px;
+      .halo {
+        width: 300px;
+        height: 300px;
       }
 
-      .visual-core i {
-        font-size: 45px;
+      .chip-one {
+        right: -3px;
+        top: 70px;
       }
 
-      .orbit-icon {
-        width: 45px;
-        height: 45px;
-        border-radius: 14px;
+      .chip-two {
+        left: -5px;
+        bottom: 55px;
       }
 
-      .skills-grid {
+      .chip-three {
+        right: -8px;
+        top: 230px;
+      }
+
+      .skills {
         grid-template-columns: 1fr;
       }
 
-      .learning-grid,
-      .goals-grid {
+      .socials {
         grid-template-columns: 1fr;
-      }
-
-      .social-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .glass-card,
-      .contact-intro {
-        padding: 23px;
       }
 
       .timeline-item {
-        padding-right: 50px;
+        padding-right: 52px;
       }
 
       [dir="ltr"] .timeline-item {
-        padding-left: 50px;
+        padding-right: 0;
+        padding-left: 52px;
       }
 
       .timeline::before {
-        right: 15px;
+        right: 14px;
       }
 
       [dir="ltr"] .timeline::before {
-        left: 15px;
+        left: 14px;
       }
 
       .timeline-dot {
-        right: 1px;
+        right: -1px;
       }
 
       [dir="ltr"] .timeline-dot {
-        left: 1px;
+        left: -1px;
+      }
+    }
+
+    @media(max-width: 480px) {
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .role {
+        font-size: 22px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .buttons .btn {
+        width: 100%;
+      }
+
+      .meta-row {
+        flex-direction: column;
+      }
+
+      .meta {
+        justify-content: center;
+      }
+
+      .phone {
+        width: 180px;
+        height: 350px;
+      }
+
+      .floating-chip {
+        padding: 9px 10px;
+        font-size: 10px;
+      }
+
+      .chip-three {
+        display: none;
       }
     }
 
@@ -1519,45 +2006,65 @@
 
 <body>
 
-  <!-- Scroll Progress -->
-  <div id="progressBar"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-  <!-- =======================================================
+  <div id="progress"></div>
+
+  <!-- ========================================================
        NAVBAR
-  ======================================================== -->
+  ========================================================= -->
 
   <header class="navbar">
 
     <div class="nav-inner">
 
-      <a href="#home" class="logo">
-        <span class="logo-mark">MA</span>
-        <span>Mohamed Abdullah</span>
+      <a href="#home" class="brand">
+
+        <span class="brand-icon">
+          MA
+        </span>
+
+        <span>
+          Mohamed Abdullah
+        </span>
+
       </a>
 
       <nav class="nav-links" id="navLinks">
 
-        <a href="#home" data-ar="الرئيسية" data-en="Home">
+        <a href="#home"
+           data-ar="الرئيسية"
+           data-en="Home">
           الرئيسية
         </a>
 
-        <a href="#about" data-ar="عني" data-en="About">
+        <a href="#about"
+           data-ar="عني"
+           data-en="About">
           عني
         </a>
 
-        <a href="#skills" data-ar="المهارات" data-en="Skills">
+        <a href="#skills"
+           data-ar="المهارات"
+           data-en="Skills">
           المهارات
         </a>
 
-        <a href="#journey" data-ar="رحلتي" data-en="Journey">
+        <a href="#journey"
+           data-ar="رحلتي"
+           data-en="Journey">
           رحلتي
         </a>
 
-        <a href="#projects" data-ar="المشاريع" data-en="Projects">
+        <a href="#projects"
+           data-ar="المشاريع"
+           data-en="Projects">
           المشاريع
         </a>
 
-        <a href="#contact" data-ar="تواصل" data-en="Contact">
+        <a href="#contact"
+           data-ar="تواصل"
+           data-en="Contact">
           تواصل
         </a>
 
@@ -1565,29 +2072,21 @@
 
       <div class="nav-actions">
 
-        <button
-          class="icon-btn"
-          id="langBtn"
-          title="Language"
-          aria-label="Change language"
-        >
+        <button class="nav-btn"
+                id="language"
+                aria-label="Change language">
           EN
         </button>
 
-        <button
-          class="icon-btn"
-          id="themeBtn"
-          title="Theme"
-          aria-label="Change theme"
-        >
+        <button class="nav-btn"
+                id="theme"
+                aria-label="Change theme">
           <i class="fa-solid fa-moon"></i>
         </button>
 
-        <button
-          class="icon-btn menu-btn"
-          id="menuBtn"
-          aria-label="Open menu"
-        >
+        <button class="nav-btn menu"
+                id="menu"
+                aria-label="Menu">
           <i class="fa-solid fa-bars"></i>
         </button>
 
@@ -1598,165 +2097,196 @@
   </header>
 
 
-  <!-- =======================================================
+  <!-- ========================================================
        HERO
-  ======================================================== -->
+  ========================================================= -->
 
   <main>
 
     <section class="hero" id="home">
 
-      <div class="blob blue" style="top: 10%; right: 5%;"></div>
-      <div class="blob purple" style="bottom: 5%; left: 8%;"></div>
-
       <div class="container">
 
         <div class="hero-grid">
 
-          <div class="hero-content">
+          <div class="hero-content reveal">
 
-            <div class="eyebrow">
-              <i class="fa-solid fa-circle"></i>
+            <div class="status">
+
+              <span class="status-dot"></span>
 
               <span
                 data-ar="متاح للفرص والتعاون"
-                data-en="Available for opportunities"
-              >
+                data-en="Available for opportunities">
                 متاح للفرص والتعاون
               </span>
+
             </div>
 
             <h1>
+
               <span
                 data-ar="محمد عبدالله"
-                data-en="Mohamed Abdullah"
-              >
+                data-en="Mohamed Abdullah">
                 محمد عبدالله
               </span>
 
-              <br />
+              <br>
 
-              <span class="gradient-text">
-                <span
-                  data-ar="إبراهيم"
-                  data-en="Ibrahim"
-                >
-                  إبراهيم
-                </span>
+              <span class="gradient"
+                    data-ar="إبراهيم"
+                    data-en="Ibrahim">
+                إبراهيم
               </span>
+
             </h1>
 
-            <div class="hero-role">
-              <span
-                data-ar="Android Developer"
-                data-en="Android Developer"
-              >
-                Android Developer
-              </span>
+            <div class="role">
+
+              <span>Android Developer</span>
+
             </div>
 
-            <p
-              class="hero-description"
-              data-ar="طالب في كلية حاسبات ومعلومات من القاهرة، مهتم بتطوير تطبيقات Android واستكشاف مجال Cybersecurity، وأسعى باستمرار لتطوير مهاراتي وبناء حلول تقنية حديثة."
-              data-en="A Computer Science student from Cairo, passionate about Android development and exploring cybersecurity, continuously improving my skills and building modern technology solutions."
-            >
+            <p class="hero-description"
+               data-ar="طالب في كلية حاسبات ومعلومات من القاهرة، مهتم بتطوير تطبيقات Android واستكشاف مجال Cybersecurity، وأسعى باستمرار لتطوير مهاراتي وبناء حلول تقنية حديثة."
+               data-en="A Computer Science student from Cairo, passionate about Android development and exploring cybersecurity, continuously improving my skills and building modern technology solutions.">
+
               طالب في كلية حاسبات ومعلومات من القاهرة، مهتم بتطوير تطبيقات Android واستكشاف مجال Cybersecurity، وأسعى باستمرار لتطوير مهاراتي وبناء حلول تقنية حديثة.
+
             </p>
 
-            <div class="hero-buttons">
+            <div class="buttons">
 
-              <a
-                href="#skills"
-                class="btn btn-primary"
-              >
+              <a href="#skills"
+                 class="btn primary">
+
                 <span
                   data-ar="استكشف مهاراتي"
-                  data-en="Explore My Skills"
-                >
+                  data-en="Explore My Skills">
                   استكشف مهاراتي
                 </span>
 
                 <i class="fa-solid fa-arrow-down"></i>
+
               </a>
 
-              <a
-                href="#contact"
-                class="btn btn-outline"
-              >
+              <a href="#contact"
+                 class="btn secondary">
+
                 <span
                   data-ar="تواصل معي"
-                  data-en="Contact Me"
-                >
+                  data-en="Contact Me">
                   تواصل معي
                 </span>
 
                 <i class="fa-regular fa-paper-plane"></i>
+
               </a>
 
             </div>
 
-            <div class="hero-meta">
+            <div class="meta-row">
 
-              <span class="meta">
+              <div class="meta">
+
                 <i class="fa-solid fa-location-dot"></i>
+
                 <span
                   data-ar="القاهرة، مصر"
-                  data-en="Cairo, Egypt"
-                >
+                  data-en="Cairo, Egypt">
                   القاهرة، مصر
                 </span>
-              </span>
 
-              <span class="meta">
+              </div>
+
+              <div class="meta">
+
                 <i class="fa-solid fa-graduation-cap"></i>
+
                 <span
                   data-ar="حاسبات ومعلومات"
-                  data-en="Computer Science"
-                >
+                  data-en="Computer Science">
                   حاسبات ومعلومات
                 </span>
-              </span>
 
-              <span class="meta">
+              </div>
+
+              <div class="meta">
+
                 <i class="fa-solid fa-code"></i>
+
                 <span
                   data-ar="الفرقة الثانية"
-                  data-en="2nd Year"
-                >
+                  data-en="2nd Year">
                   الفرقة الثانية
                 </span>
-              </span>
+
+              </div>
 
             </div>
 
           </div>
 
 
-          <!-- Visual -->
+          <!-- HERO ART -->
 
-          <div class="hero-visual">
+          <div class="hero-art reveal">
 
-            <div class="visual-orbit">
+            <div class="halo"></div>
 
-              <div class="orbit-icon">
-                <i class="fa-brands fa-android"></i>
+            <div class="phone">
+
+              <div class="phone-screen">
+
+                <div class="screen-logo">
+
+                  <i class="fa-brands fa-android"></i>
+
+                </div>
+
+                <div class="screen-title">
+                  Android
+                </div>
+
+                <div class="screen-subtitle">
+                  Build. Learn. Create.
+                </div>
+
+                <div class="screen-line"></div>
+
+                <div class="screen-line small"></div>
+
+                <div class="screen-line"></div>
+
+                <div class="screen-line small"></div>
+
+                <div class="screen-line"></div>
+
               </div>
 
-              <div class="orbit-icon">
-                <i class="fa-solid fa-code"></i>
-              </div>
+            </div>
 
-              <div class="orbit-icon">
-                <i class="fa-solid fa-shield-halved"></i>
-              </div>
+            <div class="floating-chip chip-one">
 
-              <div class="orbit-icon">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-              </div>
+              <i class="fa-brands fa-android"></i>
 
-              <div class="visual-core">
-                <i class="fa-brands fa-android"></i>
-              </div>
+              Android
+
+            </div>
+
+            <div class="floating-chip chip-two">
+
+              <i class="fa-solid fa-shield-halved"></i>
+
+              Cybersecurity
+
+            </div>
+
+            <div class="floating-chip chip-three">
+
+              <i class="fa-solid fa-code"></i>
+
+              Kotlin
 
             </div>
 
@@ -1769,9 +2299,9 @@
     </section>
 
 
-    <!-- =====================================================
+    <!-- ========================================================
          ABOUT
-    ====================================================== -->
+    ========================================================= -->
 
     <section id="about">
 
@@ -1779,101 +2309,104 @@
 
         <div class="section-head reveal">
 
-          <div
-            class="section-kicker"
-            data-ar="نبذة عني"
-            data-en="ABOUT ME"
-          >
+          <div class="kicker"
+               data-ar="نبذة عني"
+               data-en="ABOUT ME">
             نبذة عني
           </div>
 
-          <h2
-            class="section-title"
-            data-ar="أبني مهاراتي اليوم لأصنع شيئًا أكبر غدًا."
-            data-en="Building my skills today to create something bigger tomorrow."
-          >
+          <h2 class="section-title"
+              data-ar="أبني مهاراتي اليوم لأصنع شيئًا أكبر غدًا."
+              data-en="Building my skills today to create something bigger tomorrow.">
+
             أبني مهاراتي اليوم لأصنع شيئًا أكبر غدًا.
+
           </h2>
 
         </div>
 
 
-        <div class="about-grid">
+        <div class="about-layout">
 
-          <div class="glass-card reveal">
+          <div class="glass about-main reveal">
 
             <p
-              class="about-text"
-              data-ar="أنا محمد عبدالله إبراهيم، طالب في الفرقة الثانية بكلية حاسبات ومعلومات في القاهرة. مهتم بتطوير تطبيقات Android وبناء حلول تقنية عملية وحديثة، وبجانب البرمجة لدي اهتمام كبير بمجال Cybersecurity وEthical Hacking. أؤمن بالتعلم المستمر والتطبيق العملي، وأسعى إلى تطوير نفسي وبناء خبرة حقيقية من خلال المشاريع والتجارب التقنية."
-              data-en="I am Mohamed Abdullah Ibrahim, a second-year Computer Science student in Cairo. I am passionate about Android development and building practical modern solutions. Alongside programming, I have a strong interest in cybersecurity and ethical hacking. I believe in continuous learning and practical experience, and I am working toward building real-world skills through projects and technical exploration."
-            >
-              أنا محمد عبدالله إبراهيم، طالب في الفرقة الثانية بكلية حاسبات ومعلومات في القاهرة. مهتم بتطوير تطبيقات Android وبناء حلول تقنية عملية وحديثة، وبجانب البرمجة لدي اهتمام كبير بمجال Cybersecurity وEthical Hacking. أؤمن بالتعلم المستمر والتطبيق العملي، وأسعى إلى تطوير نفسي وبناء خبرة حقيقية من خلال المشاريع والتجارب التقنية.
+              data-ar="أنا محمد عبدالله إبراهيم، طالب في الفرقة الثانية بكلية حاسبات ومعلومات في القاهرة. مهتم بتطوير تطبيقات Android وبناء حلول تقنية عملية وحديثة. بجانب البرمجة، لدي اهتمام كبير بمجال Cybersecurity وEthical Hacking، وأسعى باستمرار إلى التعلم والتطبيق وبناء خبرة تقنية حقيقية."
+              data-en="I am Mohamed Abdullah Ibrahim, a second-year Computer Science student in Cairo. I am passionate about Android development and building practical modern solutions. Alongside programming, I have a strong interest in cybersecurity and ethical hacking. I continuously learn, experiment, and work toward building real-world technical experience.">
+
+              أنا محمد عبدالله إبراهيم، طالب في الفرقة الثانية بكلية حاسبات ومعلومات في القاهرة. مهتم بتطوير تطبيقات Android وبناء حلول تقنية عملية وحديثة. بجانب البرمجة، لدي اهتمام كبير بمجال Cybersecurity وEthical Hacking، وأسعى باستمرار إلى التعلم والتطبيق وبناء خبرة تقنية حقيقية.
+
             </p>
 
           </div>
 
 
-          <div class="glass-card reveal">
+          <div class="glass info reveal">
 
-            <div class="info-list">
+            <div class="info-row">
 
-              <div class="info-item">
-                <span data-ar="العمر" data-en="Age">
-                  العمر
+              <span data-ar="العمر" data-en="Age">
+                العمر
+              </span>
+
+              <strong>19</strong>
+
+            </div>
+
+            <div class="info-row">
+
+              <span data-ar="الموقع" data-en="Location">
+                الموقع
+              </span>
+
+              <strong>
+                القاهرة 🇪🇬
+              </strong>
+
+            </div>
+
+            <div class="info-row">
+
+              <span data-ar="الدراسة" data-en="Education">
+                الدراسة
+              </span>
+
+              <strong
+                data-ar="حاسبات ومعلومات"
+                data-en="Computer Science">
+                حاسبات ومعلومات
+              </strong>
+
+            </div>
+
+            <div class="info-row">
+
+              <span data-ar="الفرقة" data-en="Year">
+                الفرقة
+              </span>
+
+              <strong
+                data-ar="الثانية"
+                data-en="Second Year">
+                الثانية
+              </strong>
+
+            </div>
+
+            <div class="info-row">
+
+              <span data-ar="الحالة" data-en="Status">
+                الحالة
+              </span>
+
+              <strong style="color:var(--green)">
+                ●
+                <span
+                  data-ar="متاح للفرص"
+                  data-en="Available">
+                  متاح للفرص
                 </span>
-                <strong>19</strong>
-              </div>
-
-              <div class="info-item">
-                <span data-ar="الموقع" data-en="Location">
-                  الموقع
-                </span>
-                <strong
-                  data-ar="القاهرة، مصر 🇪🇬"
-                  data-en="Cairo, Egypt 🇪🇬"
-                >
-                  القاهرة، مصر 🇪🇬
-                </strong>
-              </div>
-
-              <div class="info-item">
-                <span data-ar="التخصص" data-en="Field">
-                  التخصص
-                </span>
-                <strong
-                  data-ar="Android Development"
-                  data-en="Android Development"
-                >
-                  Android Development
-                </strong>
-              </div>
-
-              <div class="info-item">
-                <span data-ar="الدراسة" data-en="Education">
-                  الدراسة
-                </span>
-                <strong
-                  data-ar="حاسبات ومعلومات"
-                  data-en="Computer Science"
-                >
-                  حاسبات ومعلومات
-                </strong>
-              </div>
-
-              <div class="info-item">
-                <span data-ar="الحالة" data-en="Status">
-                  الحالة
-                </span>
-                <strong style="color: var(--green);">
-                  ●
-                  <span
-                    data-ar="متاح للفرص"
-                    data-en="Available"
-                  >
-                    متاح للفرص
-                  </span>
-                </strong>
-              </div>
+              </strong>
 
             </div>
 
@@ -1886,53 +2419,45 @@
     </section>
 
 
-    <!-- =====================================================
+    <!-- ========================================================
          SKILLS
-    ====================================================== -->
+    ========================================================= -->
 
     <section id="skills">
-
-      <div class="blob green" style="top: 15%; left: -100px;"></div>
 
       <div class="container">
 
         <div class="section-head reveal">
 
-          <div
-            class="section-kicker"
-            data-ar="مهاراتي"
-            data-en="MY SKILLS"
-          >
-            مهاراتي
+          <div class="kicker"
+               data-ar="المهارات"
+               data-en="SKILLS">
+            المهارات
           </div>
 
-          <h2
-            class="section-title"
-            data-ar="التقنيات التي أتعلمها وأطور نفسي فيها"
-            data-en="Technologies I am learning and developing"
-          >
-            التقنيات التي أتعلمها وأطور نفسي فيها
+          <h2 class="section-title"
+              data-ar="مجالاتي وتقنياتي"
+              data-en="My skills & technologies">
+
+            مجالاتي وتقنياتي
+
           </h2>
 
-          <p
-            class="section-description"
-            data-ar="مجموعة من التقنيات والمجالات التي أركز عليها في رحلتي التقنية."
-            data-en="A collection of technologies and fields I am focusing on in my technical journey."
-          >
-            مجموعة من التقنيات والمجالات التي أركز عليها في رحلتي التقنية.
+          <p class="section-description"
+             data-ar="مجموعة من التقنيات والمجالات التي أتعلمها وأطور نفسي فيها."
+             data-en="Technologies and fields I am currently learning and developing.">
+
+            مجموعة من التقنيات والمجالات التي أتعلمها وأطور نفسي فيها.
+
           </p>
 
         </div>
 
 
-        <div class="skills-grid">
+        <div class="skills">
 
-          <!-- Android -->
-
-          <div
-            class="glass-card skill-card reveal"
-            style="--accent: #3ddc84;"
-          >
+          <div class="glass skill reveal"
+               style="--accent:#43df86">
 
             <div class="skill-head">
 
@@ -1941,14 +2466,17 @@
               </div>
 
               <div>
-                <h3>Android Development</h3>
+
+                <h3>
+                  Android Development
+                </h3>
 
                 <p
                   data-ar="تطوير تطبيقات Android"
-                  data-en="Android application development"
-                >
+                  data-en="Android application development">
                   تطوير تطبيقات Android
                 </p>
+
               </div>
 
             </div>
@@ -1970,12 +2498,8 @@
           </div>
 
 
-          <!-- Architecture -->
-
-          <div
-            class="glass-card skill-card reveal"
-            style="--accent: #4f8cff;"
-          >
+          <div class="glass skill reveal"
+               style="--accent:#5b8cff">
 
             <div class="skill-head">
 
@@ -1984,14 +2508,17 @@
               </div>
 
               <div>
-                <h3>Architecture & APIs</h3>
+
+                <h3>
+                  Architecture & APIs
+                </h3>
 
                 <p
-                  data-ar="بناء التطبيقات وربط الخدمات"
-                  data-en="Application architecture and services"
-                >
-                  بناء التطبيقات وربط الخدمات
+                  data-ar="بناء وربط التطبيقات بالخدمات"
+                  data-en="Application architecture & APIs">
+                  بناء وربط التطبيقات بالخدمات
                 </p>
+
               </div>
 
             </div>
@@ -2012,12 +2539,8 @@
           </div>
 
 
-          <!-- Programming -->
-
-          <div
-            class="glass-card skill-card reveal"
-            style="--accent: #9b6cff;"
-          >
+          <div class="glass skill reveal"
+               style="--accent:#a16cff">
 
             <div class="skill-head">
 
@@ -2026,19 +2549,19 @@
               </div>
 
               <div>
+
                 <h3
                   data-ar="البرمجة والأدوات"
-                  data-en="Programming & Tools"
-                >
+                  data-en="Programming & Tools">
                   البرمجة والأدوات
                 </h3>
 
                 <p
                   data-ar="أساسيات وأدوات التطوير"
-                  data-en="Development fundamentals and tools"
-                >
+                  data-en="Development fundamentals">
                   أساسيات وأدوات التطوير
                 </p>
+
               </div>
 
             </div>
@@ -2049,7 +2572,6 @@
               <span class="tag">Data Structures</span>
               <span class="tag">Algorithms</span>
               <span class="tag">Debugging</span>
-              <span class="tag">Performance</span>
               <span class="tag">Linux</span>
               <span class="tag">Networking</span>
 
@@ -2058,12 +2580,8 @@
           </div>
 
 
-          <!-- Cybersecurity -->
-
-          <div
-            class="glass-card skill-card reveal"
-            style="--accent: #ff6b81;"
-          >
+          <div class="glass skill reveal"
+               style="--accent:#ff5f9e">
 
             <div class="skill-head">
 
@@ -2072,21 +2590,24 @@
               </div>
 
               <div>
-                <h3>Cybersecurity</h3>
+
+                <h3>
+                  Cybersecurity
+                </h3>
 
                 <p
-                  data-ar="الأمن السيبراني بشكل أخلاقي وتعليمي"
-                  data-en="Ethical and educational cybersecurity"
-                >
-                  الأمن السيبراني بشكل أخلاقي وتعليمي
+                  data-ar="الأمن السيبراني بشكل أخلاقي"
+                  data-en="Ethical cybersecurity">
+                  الأمن السيبراني بشكل أخلاقي
                 </p>
+
               </div>
 
             </div>
 
             <div class="tags">
 
-              <span class="tag">Cybersecurity Fundamentals</span>
+              <span class="tag">Cybersecurity</span>
               <span class="tag">Ethical Hacking</span>
               <span class="tag">Linux</span>
               <span class="tag">Networking</span>
@@ -2106,9 +2627,9 @@
     </section>
 
 
-    <!-- =====================================================
+    <!-- ========================================================
          JOURNEY
-    ====================================================== -->
+    ========================================================= -->
 
     <section id="journey">
 
@@ -2116,20 +2637,18 @@
 
         <div class="section-head reveal">
 
-          <div
-            class="section-kicker"
-            data-ar="رحلتي"
-            data-en="MY JOURNEY"
-          >
+          <div class="kicker"
+               data-ar="رحلتي"
+               data-en="MY JOURNEY">
             رحلتي
           </div>
 
-          <h2
-            class="section-title"
-            data-ar="رحلة تقنية ما زالت في بدايتها"
-            data-en="A technical journey that is just beginning"
-          >
-            رحلة تقنية ما زالت في بدايتها
+          <h2 class="section-title"
+              data-ar="رحلة ما زالت في بدايتها"
+              data-en="A journey that is just beginning">
+
+            رحلة ما زالت في بدايتها
+
           </h2>
 
         </div>
@@ -2143,20 +2662,20 @@
 
             <div class="timeline-card">
 
-              <div class="timeline-year">2026</div>
+              <div class="year">
+                2026
+              </div>
 
               <h3
                 data-ar="حاسبات ومعلومات"
-                data-en="Computer Science"
-              >
+                data-en="Computer Science">
                 حاسبات ومعلومات
               </h3>
 
               <p
-                data-ar="طالب في الفرقة الثانية بكلية حاسبات ومعلومات في القاهرة، وأعمل على بناء أساس قوي في علوم الحاسب."
-                data-en="A second-year Computer Science student in Cairo, building a strong foundation in computer science."
-              >
-                طالب في الفرقة الثانية بكلية حاسبات ومعلومات في القاهرة، وأعمل على بناء أساس قوي في علوم الحاسب.
+                data-ar="الفرقة الثانية وبناء أساس قوي في علوم الحاسب والبرمجة."
+                data-en="Second year, building a strong foundation in computer science and programming.">
+                الفرقة الثانية وبناء أساس قوي في علوم الحاسب والبرمجة.
               </p>
 
             </div>
@@ -2170,15 +2689,18 @@
 
             <div class="timeline-card">
 
-              <div class="timeline-year">NOW</div>
+              <div class="year">
+                NOW
+              </div>
 
-              <h3>Android Development</h3>
+              <h3>
+                Android Development
+              </h3>
 
               <p
-                data-ar="التركيز على تطوير تطبيقات Android وتعلم Kotlin وJava وAndroid Studio والتقنيات الحديثة."
-                data-en="Focusing on Android development and learning Kotlin, Java, Android Studio, and modern Android technologies."
-              >
-                التركيز على تطوير تطبيقات Android وتعلم Kotlin وJava وAndroid Studio والتقنيات الحديثة.
+                data-ar="التركيز على Kotlin وJava وAndroid Studio والتقنيات الحديثة."
+                data-en="Focusing on Kotlin, Java, Android Studio, and modern Android technologies.">
+                التركيز على Kotlin وJava وAndroid Studio والتقنيات الحديثة.
               </p>
 
             </div>
@@ -2192,20 +2714,18 @@
 
             <div class="timeline-card">
 
-              <div class="timeline-year">NEXT</div>
+              <div class="year">
+                NEXT
+              </div>
 
-              <h3
-                data-ar="Cybersecurity"
-                data-en="Cybersecurity"
-              >
+              <h3>
                 Cybersecurity
               </h3>
 
               <p
-                data-ar="التوسع في دراسة الأمن السيبراني والشبكات والـ Ethical Hacking بشكل قانوني وأخلاقي."
-                data-en="Expanding into cybersecurity, networking, and ethical hacking in a legal and responsible way."
-              >
-                التوسع في دراسة الأمن السيبراني والشبكات والـ Ethical Hacking بشكل قانوني وأخلاقي.
+                data-ar="التوسع في الأمن السيبراني والشبكات والـ Ethical Hacking بشكل قانوني وأخلاقي."
+                data-en="Expanding into cybersecurity, networking, and ethical hacking responsibly.">
+                التوسع في الأمن السيبراني والشبكات والـ Ethical Hacking بشكل قانوني وأخلاقي.
               </p>
 
             </div>
@@ -2219,67 +2739,9 @@
     </section>
 
 
-    <!-- =====================================================
-         CURRENTLY LEARNING
-    ====================================================== -->
-
-    <section>
-
-      <div class="container">
-
-        <div class="section-head reveal">
-
-          <div
-            class="section-kicker"
-            data-ar="أتعلم حاليًا"
-            data-en="CURRENTLY LEARNING"
-          >
-            أتعلم حاليًا
-          </div>
-
-          <h2
-            class="section-title"
-            data-ar="التعلم المستمر جزء من الرحلة"
-            data-en="Continuous learning is part of the journey"
-          >
-            التعلم المستمر جزء من الرحلة
-          </h2>
-
-        </div>
-
-
-        <div class="learning-grid">
-
-          <div class="learning-item reveal">
-            <i class="fa-brands fa-android"></i>
-            <h4>Advanced Android</h4>
-          </div>
-
-          <div class="learning-item reveal">
-            <i class="fa-solid fa-code"></i>
-            <h4>Kotlin</h4>
-          </div>
-
-          <div class="learning-item reveal">
-            <i class="fa-solid fa-network-wired"></i>
-            <h4>Networking</h4>
-          </div>
-
-          <div class="learning-item reveal">
-            <i class="fa-solid fa-shield-halved"></i>
-            <h4>Cybersecurity</h4>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
+    <!-- ========================================================
          PROJECTS
-    ====================================================== -->
+    ========================================================= -->
 
     <section id="projects">
 
@@ -2287,179 +2749,48 @@
 
         <div class="section-head reveal">
 
-          <div
-            class="section-kicker"
-            data-ar="أعمالي"
-            data-en="MY WORK"
-          >
-            أعمالي
+          <div class="kicker"
+               data-ar="المشاريع"
+               data-en="PROJECTS">
+            المشاريع
           </div>
 
-          <h2
-            class="section-title"
-            data-ar="المشاريع قادمة"
-            data-en="Projects are coming"
-          >
-            المشاريع قادمة
-          </h2>
+          <h2 class="section-title"
+              data-ar="القادم أقوى"
+              data-en="More is coming">
 
-          <p
-            class="section-description"
-            data-ar="هذا القسم جاهز لعرض المشاريع والتطبيقات القادمة."
-            data-en="This section is ready for upcoming projects and applications."
-          >
-            هذا القسم جاهز لعرض المشاريع والتطبيقات القادمة.
-          </p>
+            القادم أقوى
 
-        </div>
-
-
-        <div class="project-card reveal">
-
-          <div class="project-icon">
-            <i class="fa-solid fa-rocket"></i>
-          </div>
-
-          <h3
-            data-ar="مشاريع قوية قريبًا"
-            data-en="Powerful projects coming soon"
-          >
-            مشاريع قوية قريبًا
-          </h3>
-
-          <p
-            data-ar="يتم حاليًا تطوير المهارات والأفكار، وسيتم عرض المشاريع والتطبيقات هنا بمجرد جاهزيتها."
-            data-en="Skills and ideas are currently being developed. Projects and applications will be showcased here as they become ready."
-          >
-            يتم حاليًا تطوير المهارات والأفكار، وسيتم عرض المشاريع والتطبيقات هنا بمجرد جاهزيتها.
-          </p>
-
-          <span
-            class="coming"
-            data-ar="Coming Soon"
-            data-en="Coming Soon"
-          >
-            Coming Soon
-          </span>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         GOALS
-    ====================================================== -->
-
-    <section>
-
-      <div class="container">
-
-        <div class="section-head reveal">
-
-          <div
-            class="section-kicker"
-            data-ar="الأهداف"
-            data-en="GOALS"
-          >
-            الأهداف
-          </div>
-
-          <h2
-            class="section-title"
-            data-ar="إلى أين أتجه؟"
-            data-en="Where am I heading?"
-          >
-            إلى أين أتجه؟
           </h2>
 
         </div>
 
 
-        <div class="goals-grid">
+        <div class="project reveal">
 
-          <div class="goal reveal">
+          <div>
 
-            <i class="fa-solid fa-mobile-screen-button"></i>
+            <div class="project-icon">
 
-            <h4
-              data-ar="تطوير تطبيقات قوية"
-              data-en="Build great apps"
-            >
-              تطوير تطبيقات قوية
-            </h4>
+              <i class="fa-solid fa-rocket"></i>
 
-            <p
-              data-ar="بناء تطبيقات Android عملية وحديثة."
-              data-en="Build practical and modern Android applications."
-            >
-              بناء تطبيقات Android عملية وحديثة.
-            </p>
+            </div>
 
-          </div>
-
-
-          <div class="goal reveal">
-
-            <i class="fa-solid fa-shield-halved"></i>
-
-            <h4
-              data-ar="تطوير مهارات الأمن"
-              data-en="Grow security skills"
-            >
-              تطوير مهارات الأمن
-            </h4>
+            <h2
+              data-ar="مشاريع قادمة قريبًا"
+              data-en="Projects coming soon">
+              مشاريع قادمة قريبًا
+            </h2>
 
             <p
-              data-ar="التعمق في Cybersecurity بطريقة مسؤولة."
-              data-en="Deepen cybersecurity knowledge responsibly."
-            >
-              التعمق في Cybersecurity بطريقة مسؤولة.
+              data-ar="القسم جاهز لعرض تطبيقات Android والمشاريع التقنية بمجرد اكتمالها."
+              data-en="This section is ready for upcoming Android applications and technical projects.">
+              القسم جاهز لعرض تطبيقات Android والمشاريع التقنية بمجرد اكتمالها.
             </p>
 
-          </div>
-
-
-          <div class="goal reveal">
-
-            <i class="fa-solid fa-laptop-code"></i>
-
-            <h4
-              data-ar="مشاريع حقيقية"
-              data-en="Real-world projects"
-            >
-              مشاريع حقيقية
-            </h4>
-
-            <p
-              data-ar="تحويل المعرفة إلى مشاريع قابلة للاستخدام."
-              data-en="Turn knowledge into useful real-world projects."
-            >
-              تحويل المعرفة إلى مشاريع قابلة للاستخدام.
-            </p>
-
-          </div>
-
-
-          <div class="goal reveal">
-
-            <i class="fa-solid fa-arrow-trend-up"></i>
-
-            <h4
-              data-ar="التطور المستمر"
-              data-en="Continuous growth"
-            >
-              التطور المستمر
-            </h4>
-
-            <p
-              data-ar="التعلم والتجربة وبناء خبرة حقيقية."
-              data-en="Learn, experiment, and build real experience."
-            >
-              التعلم والتجربة وبناء خبرة حقيقية.
-            </p>
+            <span class="coming">
+              Coming Soon
+            </span>
 
           </div>
 
@@ -2470,9 +2801,9 @@
     </section>
 
 
-    <!-- =====================================================
+    <!-- ========================================================
          CONTACT
-    ====================================================== -->
+    ========================================================= -->
 
     <section id="contact">
 
@@ -2480,59 +2811,54 @@
 
         <div class="section-head reveal">
 
-          <div
-            class="section-kicker"
-            data-ar="تواصل معي"
-            data-en="CONTACT"
-          >
+          <div class="kicker"
+               data-ar="تواصل معي"
+               data-en="CONTACT">
             تواصل معي
           </div>
 
-          <h2
-            class="section-title"
-            data-ar="خلينا نتكلم"
-            data-en="Let's connect"
-          >
+          <h2 class="section-title"
+              data-ar="خلينا نتكلم"
+              data-en="Let's connect">
+
             خلينا نتكلم
+
           </h2>
 
-          <p
-            class="section-description"
-            data-ar="متاح للتواصل والفرص والتعاون."
-            data-en="Available for communication, opportunities, and collaboration."
-          >
+          <p class="section-description"
+             data-ar="متاح للتواصل والفرص والتعاون."
+             data-en="Available for communication, opportunities, and collaboration.">
+
             متاح للتواصل والفرص والتعاون.
+
           </p>
 
         </div>
 
 
-        <div class="contact-box">
+        <div class="contact-grid">
 
           <div class="contact-intro reveal">
 
             <h3
-              data-ar="جاهز لخطوتك القادمة؟"
-              data-en="Ready for your next opportunity?"
-            >
-              جاهز لخطوتك القادمة؟
+              data-ar="عندك فرصة أو فكرة؟"
+              data-en="Have an opportunity or an idea?">
+              عندك فرصة أو فكرة؟
             </h3>
 
             <p
-              data-ar="يمكنك التواصل معي من خلال أي وسيلة من وسائل التواصل التالية."
-              data-en="You can reach me through any of the following platforms."
-            >
-              يمكنك التواصل معي من خلال أي وسيلة من وسائل التواصل التالية.
+              data-ar="يسعدني التواصل معك والتعرف على فرص أو أفكار جديدة."
+              data-en="I would be happy to connect and explore new opportunities or ideas.">
+              يسعدني التواصل معك والتعرف على فرص أو أفكار جديدة.
             </p>
 
             <div class="available">
 
-              <span></span>
+              <i class="fa-solid fa-circle"></i>
 
               <span
                 data-ar="متاح للفرص"
-                data-en="Available for opportunities"
-              >
+                data-en="Available for opportunities">
                 متاح للفرص
               </span>
 
@@ -2541,131 +2867,102 @@
           </div>
 
 
-          <div class="social-grid reveal">
-
-            <!-- Facebook -->
+          <div class="socials reveal">
 
             <a
               class="social facebook"
               href="https://www.facebook.com/share/1DsBQE5YmH/"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
 
               <div class="social-icon">
                 <i class="fa-brands fa-facebook-f"></i>
               </div>
 
-              <div class="social-info">
-
+              <div>
                 <small>Facebook</small>
-
-                <strong>
-                  Mohamed Abdullah
-                </strong>
-
+                <strong>Mohamed Abdullah</strong>
               </div>
 
             </a>
 
 
-            <!-- WhatsApp -->
-
             <a
               class="social whatsapp"
               href="https://wa.me/201027595528"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
 
               <div class="social-icon">
                 <i class="fa-brands fa-whatsapp"></i>
               </div>
 
-              <div class="social-info">
-
+              <div>
                 <small>WhatsApp</small>
-
                 <strong>01027595528</strong>
-
               </div>
 
             </a>
 
 
-            <!-- Telegram -->
-
             <a
               class="social telegram"
               href="https://t.me/C_O_N_2"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
 
               <div class="social-icon">
                 <i class="fa-brands fa-telegram"></i>
               </div>
 
-              <div class="social-info">
-
+              <div>
                 <small>Telegram</small>
-
                 <strong>@C_O_N_2</strong>
-
               </div>
 
             </a>
 
 
-            <!-- Instagram -->
-
             <a
               class="social instagram"
               href="https://instagram.com/mhbdllh4861"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
 
               <div class="social-icon">
                 <i class="fa-brands fa-instagram"></i>
               </div>
 
-              <div class="social-info">
-
+              <div>
                 <small>Instagram</small>
-
                 <strong>@mhbdllh4861</strong>
-
               </div>
 
             </a>
 
 
-            <!-- LinkedIn -->
-
             <a
               class="social linkedin"
               href="https://www.linkedin.com/in/mohammed-con"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
             >
 
               <div class="social-icon">
                 <i class="fa-brands fa-linkedin-in"></i>
               </div>
 
-              <div class="social-info">
-
+              <div>
                 <small>LinkedIn</small>
-
                 <strong>Mohammed CON</strong>
-
               </div>
 
             </a>
 
-
-            <!-- Email -->
 
             <a
               class="social email"
@@ -2676,12 +2973,9 @@
                 <i class="fa-solid fa-envelope"></i>
               </div>
 
-              <div class="social-info">
-
+              <div>
                 <small>Email</small>
-
                 <strong>cconker63@gmail.com</strong>
-
               </div>
 
             </a>
@@ -2697,9 +2991,9 @@
   </main>
 
 
-  <!-- =======================================================
+  <!-- ========================================================
        FOOTER
-  ======================================================== -->
+  ========================================================= -->
 
   <footer>
 
@@ -2707,43 +3001,33 @@
 
       <div class="footer-socials">
 
-        <a
-          href="https://www.facebook.com/share/1DsBQE5YmH/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://www.facebook.com/share/1DsBQE5YmH/"
+           target="_blank"
+           rel="noopener">
           <i class="fa-brands fa-facebook-f"></i>
         </a>
 
-        <a
-          href="https://wa.me/201027595528"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://wa.me/201027595528"
+           target="_blank"
+           rel="noopener">
           <i class="fa-brands fa-whatsapp"></i>
         </a>
 
-        <a
-          href="https://t.me/C_O_N_2"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://t.me/C_O_N_2"
+           target="_blank"
+           rel="noopener">
           <i class="fa-brands fa-telegram"></i>
         </a>
 
-        <a
-          href="https://instagram.com/mhbdllh4861"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://instagram.com/mhbdllh4861"
+           target="_blank"
+           rel="noopener">
           <i class="fa-brands fa-instagram"></i>
         </a>
 
-        <a
-          href="https://www.linkedin.com/in/mohammed-con"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://www.linkedin.com/in/mohammed-con"
+           target="_blank"
+           rel="noopener">
           <i class="fa-brands fa-linkedin-in"></i>
         </a>
 
@@ -2754,7 +3038,6 @@
       </div>
 
       <p>
-
         © <span id="year"></span>
 
         <strong>
@@ -2765,11 +3048,9 @@
 
         <span
           data-ar="جميع الحقوق محفوظة."
-          data-en="All rights reserved."
-        >
+          data-en="All rights reserved.">
           جميع الحقوق محفوظة.
         </span>
-
       </p>
 
     </div>
@@ -2777,19 +3058,10 @@
   </footer>
 
 
-  <!-- Back To Top -->
-
-  <button
-    id="backTop"
-    aria-label="Back to top"
-  >
+  <button id="backTop">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-
-  <!-- =======================================================
-       JAVASCRIPT
-  ======================================================== -->
 
   <script>
 
@@ -2802,35 +3074,55 @@
 
 
     /* =========================================================
+       CURSOR GLOW
+    ========================================================= */
+
+    const cursorGlow =
+      document.getElementById("cursorGlow");
+
+    window.addEventListener("mousemove", e => {
+
+      cursorGlow.style.left =
+        e.clientX + "px";
+
+      cursorGlow.style.top =
+        e.clientY + "px";
+
+    });
+
+
+    /* =========================================================
        THEME
     ========================================================= */
 
-    const themeBtn =
-      document.getElementById("themeBtn");
+    const theme =
+      document.getElementById("theme");
 
     const savedTheme =
       localStorage.getItem("theme");
 
     if (savedTheme === "light") {
+
       document.body.classList.add("light");
 
-      themeBtn.innerHTML =
+      theme.innerHTML =
         '<i class="fa-solid fa-sun"></i>';
+
     }
 
-    themeBtn.addEventListener("click", () => {
+    theme.addEventListener("click", () => {
 
       document.body.classList.toggle("light");
 
-      const isLight =
+      const light =
         document.body.classList.contains("light");
 
       localStorage.setItem(
         "theme",
-        isLight ? "light" : "dark"
+        light ? "light" : "dark"
       );
 
-      themeBtn.innerHTML = isLight
+      theme.innerHTML = light
         ? '<i class="fa-solid fa-sun"></i>'
         : '<i class="fa-solid fa-moon"></i>';
 
@@ -2841,18 +3133,20 @@
        LANGUAGE
     ========================================================= */
 
-    const langBtn =
-      document.getElementById("langBtn");
+    const language =
+      document.getElementById("language");
 
-    let currentLang =
-      localStorage.getItem("lang") || "ar";
+    let currentLanguage =
+      localStorage.getItem("language")
+      || "ar";
 
 
-    function setLanguage(lang) {
+    function changeLanguage(lang) {
 
-      currentLang = lang;
+      currentLanguage = lang;
 
-      document.documentElement.lang = lang;
+      document.documentElement.lang =
+        lang;
 
       document.documentElement.dir =
         lang === "ar"
@@ -2861,34 +3155,38 @@
 
       document
         .querySelectorAll("[data-ar]")
-        .forEach(element => {
+        .forEach(el => {
 
-          element.textContent =
-            element.getAttribute(
+          const value =
+            el.getAttribute(
               `data-${lang}`
             );
 
+          if (value !== null) {
+            el.textContent = value;
+          }
+
         });
 
-      langBtn.textContent =
+      language.textContent =
         lang === "ar"
           ? "EN"
           : "AR";
 
       localStorage.setItem(
-        "lang",
+        "language",
         lang
       );
 
     }
 
 
-    langBtn.addEventListener(
+    language.addEventListener(
       "click",
       () => {
 
-        setLanguage(
-          currentLang === "ar"
+        changeLanguage(
+          currentLanguage === "ar"
             ? "en"
             : "ar"
         );
@@ -2897,58 +3195,46 @@
     );
 
 
-    setLanguage(currentLang);
+    changeLanguage(
+      currentLanguage
+    );
 
 
     /* =========================================================
        MOBILE MENU
     ========================================================= */
 
-    const menuBtn =
-      document.getElementById("menuBtn");
+    const menu =
+      document.getElementById("menu");
 
-    const navLinks =
+    const nav =
       document.getElementById("navLinks");
 
-    menuBtn.addEventListener(
-      "click",
-      () => {
+    menu.addEventListener("click", () => {
 
-        navLinks.classList.toggle("open");
+      nav.classList.toggle("open");
 
-        const icon =
-          menuBtn.querySelector("i");
+      const icon =
+        menu.querySelector("i");
 
-        if (
-          navLinks.classList.contains("open")
-        ) {
+      icon.className =
+        nav.classList.contains("open")
+          ? "fa-solid fa-xmark"
+          : "fa-solid fa-bars";
 
-          icon.className =
-            "fa-solid fa-xmark";
-
-        } else {
-
-          icon.className =
-            "fa-solid fa-bars";
-
-        }
-
-      }
-    );
+    });
 
 
-    navLinks
-      .querySelectorAll("a")
+    nav.querySelectorAll("a")
       .forEach(link => {
 
         link.addEventListener(
           "click",
           () => {
 
-            navLinks.classList.remove("open");
+            nav.classList.remove("open");
 
-            menuBtn
-              .querySelector("i")
+            menu.querySelector("i")
               .className =
               "fa-solid fa-bars";
 
@@ -2962,7 +3248,7 @@
        SCROLL REVEAL
     ========================================================= */
 
-    const observer =
+    const revealObserver =
       new IntersectionObserver(
         entries => {
 
@@ -2974,7 +3260,7 @@
                 "active"
               );
 
-              observer.unobserve(
+              revealObserver.unobserve(
                 entry.target
               );
 
@@ -2984,29 +3270,26 @@
 
         },
         {
-          threshold: 0.12
+          threshold: .12
         }
       );
 
 
     document
       .querySelectorAll(".reveal")
-      .forEach(element => {
+      .forEach(el => {
 
-        observer.observe(element);
+        revealObserver.observe(el);
 
       });
 
 
     /* =========================================================
-       PROGRESS BAR
+       PROGRESS
     ========================================================= */
 
-    const progressBar =
-      document.getElementById(
-        "progressBar"
-      );
-
+    const progress =
+      document.getElementById("progress");
 
     window.addEventListener(
       "scroll",
@@ -3015,17 +3298,18 @@
         const scrollTop =
           window.scrollY;
 
-        const documentHeight =
+        const height =
           document.documentElement
-            .scrollHeight -
-          window.innerHeight;
+            .scrollHeight
+          - window.innerHeight;
 
-        const percentage =
-          (scrollTop / documentHeight) *
-          100;
+        const percent =
+          height > 0
+            ? (scrollTop / height) * 100
+            : 0;
 
-        progressBar.style.width =
-          percentage + "%";
+        progress.style.width =
+          percent + "%";
 
       }
     );
@@ -3036,26 +3320,19 @@
     ========================================================= */
 
     const backTop =
-      document.getElementById(
-        "backTop"
-      );
-
+      document.getElementById("backTop");
 
     window.addEventListener(
       "scroll",
       () => {
 
-        if (window.scrollY > 600) {
+        if (window.scrollY > 650) {
 
-          backTop.classList.add(
-            "show"
-          );
+          backTop.classList.add("show");
 
         } else {
 
-          backTop.classList.remove(
-            "show"
-          );
+          backTop.classList.remove("show");
 
         }
 
@@ -3077,30 +3354,156 @@
 
 
     /* =========================================================
-       CLOSE MOBILE MENU WHEN RESIZING
+       MOUSE PARALLAX HERO
     ========================================================= */
 
-    window.addEventListener(
-      "resize",
-      () => {
+    const phone =
+      document.querySelector(".phone");
 
-        if (window.innerWidth > 950) {
+    const heroArt =
+      document.querySelector(".hero-art");
 
-          navLinks.classList.remove(
-            "open"
-          );
+    if (window.innerWidth > 950) {
 
-          menuBtn
-            .querySelector("i")
-            .className =
-            "fa-solid fa-bars";
+      heroArt.addEventListener(
+        "mousemove",
+        e => {
+
+          const rect =
+            heroArt.getBoundingClientRect();
+
+          const x =
+            e.clientX - rect.left;
+
+          const y =
+            e.clientY - rect.top;
+
+          const centerX =
+            rect.width / 2;
+
+          const centerY =
+            rect.height / 2;
+
+          const rotateY =
+            (x - centerX) / 35;
+
+          const rotateX =
+            (centerY - y) / 35;
+
+          phone.style.animation =
+            "none";
+
+          phone.style.transform =
+            `rotate(-6deg)
+             perspective(800px)
+             rotateY(${7 + rotateY}deg)
+             rotateX(${rotateX}deg)
+             translateY(-5px)`;
 
         }
+      );
 
-      }
-    );
+      heroArt.addEventListener(
+        "mouseleave",
+        () => {
+
+          phone.style.animation =
+            "";
+
+          phone.style.transform =
+            "";
+
+        }
+      );
+
+    }
+
+
+    /* =========================================================
+       RIPPLE FOR BUTTONS
+    ========================================================= */
+
+    document
+      .querySelectorAll(".btn")
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          function(e) {
+
+            const ripple =
+              document.createElement("span");
+
+            const rect =
+              this.getBoundingClientRect();
+
+            const size =
+              Math.max(
+                rect.width,
+                rect.height
+              );
+
+            ripple.style.position =
+              "absolute";
+
+            ripple.style.width =
+              size + "px";
+
+            ripple.style.height =
+              size + "px";
+
+            ripple.style.borderRadius =
+              "50%";
+
+            ripple.style.background =
+              "rgba(255,255,255,.22)";
+
+            ripple.style.left =
+              (e.clientX - rect.left - size / 2)
+              + "px";
+
+            ripple.style.top =
+              (e.clientY - rect.top - size / 2)
+              + "px";
+
+            ripple.style.pointerEvents =
+              "none";
+
+            ripple.style.transform =
+              "scale(0)";
+
+            ripple.style.animation =
+              "rippleReal .6s ease-out";
+
+            this.appendChild(ripple);
+
+            setTimeout(() => {
+
+              ripple.remove();
+
+            }, 600);
+
+          }
+        );
+
+      });
+
 
   </script>
 
+
+  <style>
+
+    @keyframes rippleReal {
+
+      to {
+        transform: scale(2.5);
+        opacity: 0;
+      }
+
+    }
+
+  </style>
+
 </body>
-    </html>
+  </html>
