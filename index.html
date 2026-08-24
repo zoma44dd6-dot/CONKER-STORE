@@ -1,128 +1,76 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+<meta name="description" content="Mohammed Abdullah — Android Developer, Programmer and Cybersecurity Enthusiast.">
+<meta name="theme-color" content="#0b0d12">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Mohammed Abdullah — Android Developer">
+<meta property="og:description" content="Android Engineering, Cybersecurity, Programming and Writing.">
+<meta property="og:type" content="website">
 
-    <meta name="description"
-          content="Mohammed Abdullah — Android Developer, Programmer, Cybersecurity Enthusiast & Writer">
+<title>Mohammed Abdullah — Android Developer</title>
 
-    <meta name="theme-color" content="#07090f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <meta property="og:title"
-          content="Mohammed Abdullah | Android Developer">
-
-    <meta property="og:description"
-          content="Android Engineering, Cybersecurity, Programming & Writing">
-
-    <title>
-        Mohammed Abdullah | Android Developer
-    </title>
-
-
-    <!-- =====================================================
-         FONTS
-    ====================================================== -->
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 /* =========================================================
-   ROOT
+   DESIGN SYSTEM
 ========================================================= */
 
 :root {
+    --bg: #080a0f;
+    --bg-2: #0d1017;
+    --surface: #11151d;
+    --surface-2: #151a23;
 
-    --bg: #07090f;
-    --bg-soft: #0b0f18;
-
-    --card: #0d121d;
-    --card-light: #111827;
-
-    --text: #f4f7ff;
-
-    --muted: #8d98ad;
-    --muted-2: #687389;
+    --text: #f4f6fa;
+    --muted: #8992a3;
+    --muted-2: #5f6878;
 
     --line: rgba(255,255,255,.08);
+    --line-strong: rgba(255,255,255,.14);
 
-    --line-hover:
-        rgba(123,92,255,.45);
+    --accent: #7c6cff;
+    --accent-2: #9b91ff;
+    --cyan: #35d8ff;
+    --green: #49d99a;
+    --orange: #ffb86b;
 
-    --primary: #7657ff;
+    --danger: #ff718c;
 
-    --primary-light:
-        #9a86ff;
-
-    --cyan: #00d4ff;
-
-    --green:
-        #45e69b;
-
-    --danger:
-        #ff6584;
-
-    --radius:
-        22px;
+    --radius: 20px;
 
     --shadow:
-        0 25px 80px rgba(0,0,0,.35);
+        0 30px 100px rgba(0,0,0,.35);
 
+    --max: 1180px;
+
+    --transition:
+        240ms cubic-bezier(.2,.8,.2,1);
 }
 
-
-/* =========================================================
-   LIGHT MODE
-========================================================= */
-
-[data-theme="light"] {
-
+body.light {
     --bg: #f5f7fb;
+    --bg-2: #eef1f6;
+    --surface: #ffffff;
+    --surface-2: #f7f8fb;
 
-    --bg-soft: #edf1f7;
+    --text: #11141b;
+    --muted: #5f6775;
+    --muted-2: #7c8492;
 
-    --card: #ffffff;
-
-    --card-light: #f8fafc;
-
-    --text: #101522;
-
-    --muted: #596579;
-
-    --muted-2: #7a8495;
-
-    --line:
-        rgba(16,21,34,.10);
-
-    --line-hover:
-        rgba(98,71,232,.40);
-
-    --primary:
-        #6247e8;
-
-    --primary-light:
-        #5339d4;
-
-    --cyan:
-        #007f9e;
+    --line: rgba(15,20,30,.09);
+    --line-strong: rgba(15,20,30,.16);
 
     --shadow:
-        0 25px 70px
-        rgba(30,40,65,.12);
-
+        0 25px 70px rgba(40,45,60,.12);
 }
 
 
@@ -131,165 +79,133 @@
 ========================================================= */
 
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
 }
-
 
 html {
-
-    scroll-behavior:
-        smooth;
-
+    scroll-behavior: smooth;
 }
-
 
 body {
-
-    background:
-        var(--bg);
-
-    color:
-        var(--text);
-
-    font-family:
-        "Cairo",
-        sans-serif;
-
-    line-height:
-        1.8;
-
-    overflow-x:
-        hidden;
-
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", "Noto Sans Arabic", sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
     transition:
-        background .3s,
-        color .3s;
-
+        background .35s ease,
+        color .35s ease;
 }
 
+body[dir="rtl"] {
+    font-family:
+        "Noto Sans Arabic",
+        "Inter",
+        sans-serif;
+}
 
 ::selection {
-
-    background:
-        var(--primary);
-
-    color:
-        white;
-
+    background: var(--accent);
+    color: white;
 }
-
 
 a {
-
-    color:
-        inherit;
-
-    text-decoration:
-        none;
-
+    color: inherit;
+    text-decoration: none;
 }
 
-
 button {
+    font: inherit;
+}
 
-    font-family:
-        inherit;
-
+img {
+    max-width: 100%;
+    display: block;
 }
 
 
 /* =========================================================
-   BACKGROUND
+   GLOBAL BACKGROUND
 ========================================================= */
 
-body::before {
-
-    content:
-        "";
-
-    position:
-        fixed;
-
-    inset:
-        0;
-
-    pointer-events:
-        none;
-
-    z-index:
-        -6;
-
-    background:
-
-        radial-gradient(
-            circle at 12% 10%,
-            rgba(118,87,255,.11),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 90% 45%,
-            rgba(0,212,255,.06),
-            transparent 27%
-        );
-
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    pointer-events: none;
+    overflow: hidden;
 }
 
+.background::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    left: -300px;
+    top: -300px;
 
-.grid-bg {
+    background:
+        radial-gradient(
+            circle,
+            rgba(124,108,255,.14),
+            transparent 68%
+        );
+}
 
-    position:
-        fixed;
+.background::after {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    right: -300px;
+    top: 30%;
 
-    inset:
-        0;
+    background:
+        radial-gradient(
+            circle,
+            rgba(53,216,255,.07),
+            transparent 68%
+        );
+}
 
-    pointer-events:
-        none;
-
-    z-index:
-        -5;
-
-    opacity:
-        .32;
+.grid {
+    position: absolute;
+    inset: 0;
 
     background-image:
-
         linear-gradient(
-            rgba(255,255,255,.025) 1px,
+            rgba(255,255,255,.018) 1px,
             transparent 1px
         ),
-
         linear-gradient(
             90deg,
-            rgba(255,255,255,.025) 1px,
+            rgba(255,255,255,.018) 1px,
             transparent 1px
         );
 
-    background-size:
-        45px 45px;
+    background-size: 50px 50px;
 
     mask-image:
         linear-gradient(
             to bottom,
             black,
-            transparent 90%
+            transparent 85%
         );
-
 }
 
-
-[data-theme="light"] .grid-bg {
-
-    opacity:
-        .14;
-
+.light .grid {
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.025) 1px,
+            transparent 1px
+        );
 }
 
 
@@ -298,24 +214,16 @@ body::before {
 ========================================================= */
 
 .container {
+    width: min(
+        var(--max),
+        calc(100% - 40px)
+    );
 
-    width:
-        min(
-            1160px,
-            calc(100% - 40px)
-        );
-
-    margin:
-        auto;
-
+    margin-inline: auto;
 }
 
-
 .section {
-
-    padding:
-        110px 0;
-
+    padding: 120px 0;
 }
 
 
@@ -324,284 +232,222 @@ body::before {
 ========================================================= */
 
 .header {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 1000;
 
-    position:
-        fixed;
-
-    top:
-        0;
-
-    right:
-        0;
-
-    left:
-        0;
-
-    z-index:
-        100;
+    border-bottom: 1px solid transparent;
 
     background:
-        rgba(7,9,15,.68);
+        rgba(8,10,15,.55);
 
-    backdrop-filter:
-        blur(18px);
-
-    border-bottom:
-        1px solid transparent;
+    backdrop-filter: blur(18px);
 
     transition:
-        .3s;
-
+        background .3s ease,
+        border-color .3s ease;
 }
 
-
-[data-theme="light"] .header {
-
+.light .header {
     background:
-        rgba(245,247,251,.75);
-
+        rgba(245,247,251,.68);
 }
-
 
 .header.scrolled {
-
     background:
-        rgba(7,9,15,.94);
+        rgba(8,10,15,.88);
 
-    border-color:
-        var(--line);
-
+    border-color: var(--line);
 }
 
-
-[data-theme="light"]
-.header.scrolled {
-
+.light .header.scrolled {
     background:
-        rgba(245,247,251,.95);
-
+        rgba(245,247,251,.9);
 }
-
 
 .nav {
+    min-height: 76px;
 
-    height:
-        78px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 
+/* LOGO */
+
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-    display:
-        flex;
+    white-space: nowrap;
+}
 
-    align-items:
-        center;
+.logo-mark {
+    width: 38px;
+    height: 38px;
 
-    gap:
-        11px;
+    display: grid;
+    place-items: center;
 
+    border:
+        1px solid
+        rgba(124,108,255,.45);
+
+    border-radius: 11px;
+
+    color: var(--accent-2);
+
+    font:
+        700 11px
+        "JetBrains Mono";
+
+    background:
+        rgba(124,108,255,.07);
+}
+
+.logo-name {
     font:
         700 14px
         "JetBrains Mono";
+}
 
+.logo-name span {
+    color: var(--cyan);
 }
 
 
-.logo-icon {
+/* NAV */
 
-    width:
-        40px;
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
 
-    height:
-        40px;
+.nav-links a {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
 
-    display:
-        grid;
+    transition: color var(--transition);
+}
 
-    place-items:
-        center;
+.nav-links a:hover {
+    color: var(--text);
+}
 
-    border-radius:
-        12px;
 
-    border:
-        1px solid
-        rgba(118,87,255,.5);
+/* HEADER CONTROLS */
 
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-btn {
+    height: 38px;
+    padding: 0 12px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    border: 1px solid var(--line);
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    color: var(--text);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+}
+
+
+/* LANGUAGE DIFFERENT COLOR */
+
+.language-btn {
     background:
-        rgba(118,87,255,.08);
+        rgba(53,216,255,.08);
 
-    color:
-        var(--primary-light);
-
-    font-size:
-        12px;
-
-}
-
-
-.logo span span {
+    border-color:
+        rgba(53,216,255,.28);
 
     color:
         var(--cyan);
-
 }
 
-
-.nav-right {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        18px;
-
-}
-
-
-.nav-links {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        25px;
-
-}
-
-
-.nav-links a {
-
-    color:
-        #aab3c7;
-
-    font-size:
-        12px;
-
-    transition:
-        .25s;
-
-}
-
-
-[data-theme="light"]
-.nav-links a {
-
-    color:
-        #596579;
-
-}
-
-
-.nav-links a:hover {
-
-    color:
-        var(--text);
-
-}
-
-
-.controls {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        7px;
-
-}
-
-
-.control {
-
-    height:
-        35px;
-
-    border:
-        1px solid
-        var(--line);
-
+.language-btn:hover {
     background:
-        rgba(255,255,255,.025);
+        rgba(53,216,255,.14);
 
-    border-radius:
-        10px;
-
-    padding:
-        0 9px;
-
-    cursor:
-        pointer;
-
-    font-size:
-        10px;
-
+    transform: translateY(-2px);
 }
 
 
-.lang {
+/* THEME DIFFERENT COLOR */
 
+.theme-btn {
+    background:
+        rgba(255,184,107,.08);
+
+    border-color:
+        rgba(255,184,107,.27);
+
+    color:
+        var(--orange);
+}
+
+.theme-btn:hover {
+    background:
+        rgba(255,184,107,.14);
+
+    transform: translateY(-2px);
+}
+
+.control-icon {
+    font-size: 14px;
+}
+
+.control-text {
     font:
         700 10px
         "JetBrains Mono";
-
 }
-
 
 .menu {
+    display: none;
 
-    display:
-        none;
+    width: 40px;
+    height: 40px;
 
     border:
-        0;
+        1px solid var(--line);
 
-    background:
-        none;
+    background: var(--surface);
 
-    cursor:
-        pointer;
+    border-radius: 11px;
 
+    cursor: pointer;
 }
 
-
 .menu span {
+    display: block;
 
-    display:
-        block;
+    width: 20px;
+    height: 2px;
 
-    width:
-        25px;
+    margin: 4px auto;
 
-    height:
-        2px;
-
-    background:
-        var(--text);
-
-    margin:
-        5px 0;
-
+    background: var(--text);
 }
 
 
@@ -610,353 +456,224 @@ body::before {
 ========================================================= */
 
 .hero {
+    min-height: 100vh;
 
-    min-height:
-        100vh;
+    padding-top: 150px;
 
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    padding-top:
-        125px;
-
+    display: flex;
+    align-items: center;
 }
-
 
 .hero-grid {
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        1.1fr .9fr;
+        1.08fr
+        .92fr;
 
-    gap:
-        75px;
+    gap: 85px;
 
-    align-items:
-        center;
-
+    align-items: center;
 }
 
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
 
-.status {
+    margin-bottom: 18px;
 
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        9px;
-
-    color:
-        #aeb8cb;
-
-    font-size:
-        11px;
-
-    margin-bottom:
-        20px;
-
-}
-
-
-.status-dot {
-
-    width:
-        7px;
-
-    height:
-        7px;
-
-    border-radius:
-        50%;
-
-    background:
-        var(--green);
-
-    box-shadow:
-        0 0 12px
-        rgba(69,230,155,.7);
-
-}
-
-
-.kicker {
-
-    color:
-        var(--cyan);
+    color: var(--cyan);
 
     font:
-        700 11px
+        700 10px
         "JetBrains Mono";
 
-    letter-spacing:
-        2px;
+    letter-spacing: 2px;
+}
 
-    margin-bottom:
-        11px;
+.eyebrow-dot {
+    width: 7px;
+    height: 7px;
 
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow:
+        0 0 14px
+        rgba(73,217,154,.7);
 }
 
 
-.hero h1 {
+/*
+   IMPORTANT:
+   Smaller name + one line
+*/
 
+.hero-name {
     font-size:
         clamp(
-            42px,
-            5.6vw,
+            38px,
+            5.1vw,
             70px
         );
 
-    line-height:
-        1.08;
+    line-height: 1;
 
     letter-spacing:
-        -2.5px;
+        -2.8px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
-    white-space:
-        nowrap;
-
+    white-space: nowrap;
 }
 
-
-.gradient {
-
+.hero-name span {
     background:
         linear-gradient(
             90deg,
             var(--text),
-            #9e8cff,
+            var(--accent-2),
             var(--cyan)
         );
 
-    -webkit-background-clip:
-        text;
+    -webkit-background-clip: text;
+    background-clip: text;
 
-    background-clip:
-        text;
-
-    color:
-        transparent;
-
+    color: transparent;
 }
 
-
-.hero-role {
-
-    margin-top:
-        17px;
+.hero-title {
+    margin-top: 20px;
 
     font:
-        600 19px
+        600 clamp(17px,2vw,23px)
         "JetBrains Mono";
 
+    color: var(--muted);
 }
 
-
-.cursor {
-
-    color:
-        var(--cyan);
-
-    animation:
-        blink .8s infinite;
-
+.hero-title strong {
+    color: var(--text);
 }
-
-
-@keyframes blink {
-
-    50% {
-        opacity:
-            0;
-    }
-
-}
-
 
 .hero-description {
-
-    max-width:
-        660px;
-
-    color:
-        var(--muted);
-
-    font-size:
-        14px;
+    max-width: 650px;
 
     margin:
-        19px 0 29px;
+        22px 0 30px;
 
+    color: var(--muted);
+
+    font-size: 15px;
 }
 
-
-.buttons {
-
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        10px;
-
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
-
 
 .btn {
+    min-height: 45px;
 
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
 
     padding:
-        12px 18px;
+        0 18px;
 
-    border-radius:
-        12px;
+    border-radius: 11px;
 
-    font-size:
-        12px;
-
-    font-weight:
-        800;
+    font-size: 12px;
+    font-weight: 700;
 
     transition:
-        .25s;
-
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
 }
 
-
 .btn-primary {
+    color: white;
 
     background:
         linear-gradient(
             135deg,
-            var(--primary),
-            #4d80ff
+            var(--accent),
+            #5f82ff
         );
 
     box-shadow:
-        0 12px 35px
-        rgba(118,87,255,.2);
-
+        0 14px 35px
+        rgba(124,108,255,.18);
 }
 
-
 .btn-primary:hover {
-
-    transform:
-        translateY(-3px);
+    transform: translateY(-3px);
 
     box-shadow:
         0 18px 45px
-        rgba(118,87,255,.3);
-
+        rgba(124,108,255,.28);
 }
 
-
 .btn-outline {
-
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
     background:
         rgba(255,255,255,.025);
-
 }
-
 
 .btn-outline:hover {
+    transform: translateY(-3px);
 
     border-color:
-        var(--line-hover);
-
-    transform:
-        translateY(-2px);
-
+        var(--line-strong);
 }
-
 
 .socials {
+    display: flex;
+    gap: 7px;
 
-    display:
-        flex;
-
-    gap:
-        8px;
-
-    margin-top:
-        23px;
-
+    margin-top: 25px;
 }
 
-
 .socials a {
+    width: 36px;
+    height: 36px;
 
-    width:
-        37px;
-
-    height:
-        37px;
-
-    display:
-        grid;
-
-    place-items:
-        center;
+    display: grid;
+    place-items: center;
 
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    border-radius:
-        10px;
+    border-radius: 9px;
 
-    color:
-        #a4aec3;
+    color: var(--muted);
 
     font:
-        600 10px
+        700 9px
         "JetBrains Mono";
 
     transition:
-        .25s;
-
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
 }
 
-
 .socials a:hover {
-
-    color:
-        var(--text);
+    color: var(--text);
 
     border-color:
-        rgba(0,212,255,.35);
+        rgba(53,216,255,.3);
 
     transform:
         translateY(-3px);
-
 }
 
 
@@ -964,410 +681,265 @@ body::before {
    ANDROID DEVICE
 ========================================================= */
 
-.phone-wrap {
-
-    display:
-        flex;
-
-    justify-content:
-        center;
-
-    position:
-        relative;
-
+.android-stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-
-.phone-glow {
-
-    position:
-        absolute;
-
-    width:
-        390px;
-
-    height:
-        390px;
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(118,87,255,.18),
-            transparent 68%
-        );
-
-    filter:
-        blur(12px);
-
-}
-
 
 .phone {
+    width: 290px;
+    height: 590px;
 
-    position:
-        relative;
-
-    width:
-        245px;
-
-    height:
-        500px;
+    padding: 9px;
 
     border:
-        7px solid
-        #1e2635;
+        1px solid
+        rgba(255,255,255,.15);
 
-    border-radius:
-        38px;
+    border-radius: 42px;
 
     background:
-        #080b12;
+        linear-gradient(
+            145deg,
+            #202630,
+            #090b10
+        );
 
     box-shadow:
-        var(--shadow),
-        0 0 0 1px
-        rgba(255,255,255,.05);
-
-    overflow:
-        hidden;
+        0 35px 100px
+        rgba(0,0,0,.5),
+        0 0 0 8px
+        rgba(255,255,255,.02);
 
     transform:
         rotate(2deg);
 
+    transition:
+        transform .6s ease;
 }
 
-
-.phone-notch {
-
-    position:
-        absolute;
-
-    top:
-        9px;
-
-    left:
-        50%;
-
+.phone:hover {
     transform:
-        translateX(-50%);
-
-    width:
-        82px;
-
-    height:
-        20px;
-
-    background:
-        #05070b;
-
-    border-radius:
-        0 0 15px 15px;
-
-    z-index:
-        5;
-
+        rotate(0deg)
+        translateY(-8px);
 }
-
 
 .phone-screen {
+    width: 100%;
+    height: 100%;
 
-    height:
-        100%;
+    overflow: hidden;
 
-    padding:
-        44px 18px 18px;
+    border-radius: 34px;
 
     background:
-        linear-gradient(
-            160deg,
-            #101827,
-            #080b12
-        );
-
-}
-
-
-.phone-top {
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        center;
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-    color:
-        #8e9ab0;
-
-    margin-bottom:
-        28px;
-
-}
-
-
-.phone-title {
-
-    font:
-        800 20px
-        "Cairo";
-
-    line-height:
-        1.25;
-
-    margin-bottom:
-        6px;
-
-}
-
-
-.phone-sub {
-
-    color:
-        #7f8ba0;
-
-    font-size:
-        9px;
-
-    margin-bottom:
-        22px;
-
-}
-
-
-.app-card {
+        #0c1017;
 
     border:
         1px solid
         rgba(255,255,255,.08);
 
-    border-radius:
-        15px;
-
-    padding:
-        15px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    margin-bottom:
-        10px;
-
+    position: relative;
 }
 
+.phone-notch {
+    position: absolute;
 
-.app-card-top {
+    top: 8px;
+    left: 50%;
 
-    display:
-        flex;
+    transform:
+        translateX(-50%);
 
-    align-items:
-        center;
+    width: 90px;
+    height: 23px;
 
-    gap:
-        10px;
+    border-radius: 20px;
 
+    background: #050609;
+
+    z-index: 5;
 }
 
+.app-ui {
+    padding: 52px 20px 20px;
+}
 
-.app-icon {
+.app-status {
+    display: flex;
+    justify-content: space-between;
 
-    width:
-        36px;
-
-    height:
-        36px;
-
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    border-radius:
-        11px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            #3d83ff
-        );
+    color: #778194;
 
     font:
-        700 13px
+        700 8px
         "JetBrains Mono";
-
 }
 
+.app-title {
+    margin-top: 35px;
 
-.app-card strong {
-
-    font-size:
-        11px;
-
+    font-size: 27px;
+    font-weight: 800;
 }
 
+.app-subtitle {
+    margin-top: 5px;
 
-.app-card small {
+    color: #758095;
 
-    display:
-        block;
-
-    color:
-        #738096;
-
-    font-size:
-        8px;
-
+    font-size: 10px;
 }
 
+.app-card {
+    margin-top: 22px;
 
-.phone-stat {
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    margin-top:
-        15px;
-
-}
-
-
-.phone-stat div {
-
-    width:
-        31%;
-
-    padding:
-        10px 7px;
+    padding: 18px;
 
     border:
         1px solid
-        rgba(255,255,255,.06);
+        rgba(255,255,255,.07);
 
-    border-radius:
-        10px;
+    border-radius: 18px;
 
-    text-align:
-        center;
-
+    background:
+        linear-gradient(
+            145deg,
+            #171d29,
+            #10151e
+        );
 }
 
-
-.phone-stat b {
-
-    display:
-        block;
+.app-card-label {
+    color: var(--cyan);
 
     font:
-        700 11px
+        700 8px
         "JetBrains Mono";
-
 }
 
+.app-card h4 {
+    margin-top: 7px;
 
-.phone-stat span {
+    font-size: 16px;
+}
 
-    color:
-        #68758a;
+.app-progress {
+    height: 5px;
 
-    font-size:
-        7px;
+    margin-top: 16px;
 
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,.08);
+}
+
+.app-progress span {
+    display: block;
+
+    width: 76%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--accent),
+            var(--cyan)
+        );
+}
+
+.app-list {
+    display: grid;
+
+    gap: 9px;
+
+    margin-top: 18px;
+}
+
+.app-row {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 11px 12px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    color: #aeb6c6;
+
+    font-size: 9px;
+}
+
+.app-row strong {
+    color: #eef2fa;
 }
 
 
 /* =========================================================
-   SECTION TITLE
+   SECTION HEADINGS
 ========================================================= */
 
-.section-title {
+.section-head {
+    margin-bottom: 55px;
 
-    margin-bottom:
-        55px;
+    display: flex;
+    align-items: flex-start;
 
-    display:
-        flex;
-
-    gap:
-        18px;
-
-    align-items:
-        flex-start;
-
+    gap: 17px;
 }
 
-
-.section-number {
-
-    color:
-        var(--cyan);
-
-    font:
-        700 11px
-        "JetBrains Mono";
-
-    border:
-        1px solid
-        rgba(0,212,255,.22);
-
+.section-index {
     padding:
         5px 8px;
 
-    border-radius:
-        7px;
+    border:
+        1px solid
+        rgba(53,216,255,.2);
 
-    margin-top:
-        8px;
+    border-radius: 7px;
 
-}
-
-
-.section-title small {
-
-    display:
-        block;
-
-    color:
-        var(--cyan);
+    color: var(--cyan);
 
     font:
-        700 10px
+        700 9px
         "JetBrains Mono";
-
-    letter-spacing:
-        2px;
-
 }
 
+.section-kicker {
+    color: var(--cyan);
 
-.section-title h2 {
+    font:
+        700 9px
+        "JetBrains Mono";
+
+    letter-spacing: 2px;
+}
+
+.section-head h2 {
+    margin-top: 5px;
 
     font-size:
-        clamp(
-            32px,
-            4vw,
-            48px
-        );
+        clamp(32px,4vw,50px);
 
-    line-height:
-        1.2;
+    line-height: 1.1;
 
-    margin-top:
-        5px;
+    letter-spacing: -1.5px;
+}
 
+.section-head p {
+    max-width: 650px;
+
+    margin-top: 13px;
+
+    color: var(--muted);
+
+    font-size: 13px;
 }
 
 
@@ -1376,99 +948,65 @@ body::before {
 ========================================================= */
 
 .about-grid {
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        1.15fr .85fr;
+        1.2fr
+        .8fr;
 
-    gap:
-        70px;
-
+    gap: 70px;
 }
 
+.about-copy .lead {
+    color: var(--text);
 
-.about-content p {
+    font-size: 21px;
+    font-weight: 600;
 
-    color:
-        var(--muted);
-
-    font-size:
-        14px;
-
-    margin-bottom:
-        18px;
-
+    margin-bottom: 20px;
 }
 
+.about-copy p {
+    color: var(--muted);
 
-.about-content .lead {
+    font-size: 14px;
 
-    color:
-        var(--text);
-
-    font-size:
-        20px;
-
-    font-weight:
-        600;
-
+    margin-bottom: 16px;
 }
 
-
-.facts {
-
-    display:
-        grid;
+.fact-grid {
+    display: grid;
 
     grid-template-columns:
         1fr 1fr;
 
-    gap:
-        12px;
-
+    gap: 12px;
 }
-
 
 .fact {
-
-    padding:
-        25px;
-
-    background:
-        rgba(255,255,255,.025);
+    padding: 25px;
 
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    border-radius:
-        18px;
+    border-radius: 17px;
 
+    background:
+        rgba(255,255,255,.02);
 }
-
 
 .fact strong {
-
-    display:
-        block;
+    display: block;
 
     font:
-        800 27px
+        800 25px
         "JetBrains Mono";
-
 }
 
-
 .fact span {
+    color: var(--muted);
 
-    color:
-        var(--muted);
-
-    font-size:
-        10px;
-
+    font-size: 10px;
 }
 
 
@@ -1476,328 +1014,117 @@ body::before {
    ANDROID ENGINEERING
 ========================================================= */
 
-.engineering {
+.android-section {
+    border-top:
+        1px solid var(--line);
 
-    display:
-        grid;
-
-    grid-template-columns:
-        .85fr 1.15fr;
-
-    gap:
-        18px;
-
+    border-bottom:
+        1px solid var(--line);
 }
 
+.engineering-grid {
+    display: grid;
 
-.engineering-intro,
+    grid-template-columns:
+        .85fr
+        1.15fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
 .architecture {
-
-    padding:
-        35px;
+    padding: 30px;
 
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    border-radius:
-        var(--radius);
+    border-radius: 22px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(18,24,38,.82),
-            rgba(10,14,23,.72)
+            rgba(124,108,255,.07),
+            rgba(255,255,255,.015)
         );
-
 }
 
-
-.engineering-intro h3 {
-
-    font-size:
-        28px;
-
-    margin:
-        10px 0;
-
-}
-
-
-.engineering-intro p {
-
-    color:
-        var(--muted);
-
-    font-size:
-        13px;
-
-}
-
-
-.mono-label {
-
-    color:
-        var(--cyan);
+.arch-title {
+    color: var(--muted);
 
     font:
         700 9px
         "JetBrains Mono";
 
-    letter-spacing:
-        1px;
+    letter-spacing: 2px;
 
+    margin-bottom: 20px;
 }
 
-
-.architecture h3 {
-
-    font-size:
-        20px;
-
-    margin-bottom:
-        22px;
-
-}
-
-
-.arch-stack {
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    gap:
-        7px;
-
-}
-
-
-.arch-row {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        12px;
-
-}
-
-
-.arch-box {
-
-    width:
-        150px;
+.arch-layer {
+    position: relative;
 
     padding:
-        10px 13px;
+        14px 16px;
+
+    margin-bottom: 9px;
 
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    border-radius:
-        10px;
+    border-radius: 11px;
 
     background:
-        rgba(255,255,255,.025);
+        var(--surface);
 
-    font-size:
-        11px;
-
-    font-weight:
-        700;
-
+    font-size: 12px;
+    font-weight: 700;
 }
 
+.arch-layer:not(:last-child)::after {
+    content: "↓";
 
-.arch-arrow {
+    position: absolute;
 
-    color:
-        var(--primary-light);
-
-    font:
-        700 12px
-        "JetBrains Mono";
-
-}
-
-
-.tech-tags {
-
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        7px;
-
-    margin-top:
-        22px;
-
-}
-
-
-.tech-tags span {
-
-    padding:
-        5px 8px;
-
-    border:
-        1px solid
-        var(--line);
-
-    border-radius:
-        7px;
-
-    color:
-        var(--muted);
-
-    font-size:
-        9px;
-
-}
-
-
-/* =========================================================
-   SKILLS
-========================================================= */
-
-.skills-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:
-        17px;
-
-}
-
-
-.skill-card {
-
-    padding:
-        30px;
-
-    border:
-        1px solid
-        var(--line);
-
-    border-radius:
-        var(--radius);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(18,24,38,.82),
-            rgba(10,14,23,.72)
-        );
-
-    transition:
-        .3s;
-
-}
-
-
-.skill-card:hover {
+    bottom: -20px;
+    left: 50%;
 
     transform:
-        translateY(-5px);
+        translateX(-50%);
 
-    border-color:
-        var(--line-hover);
+    color: var(--muted-2);
 
-    box-shadow:
-        var(--shadow);
-
+    z-index: 2;
 }
 
+.tech-grid {
+    display: flex;
 
-.skill-number {
+    flex-wrap: wrap;
 
-    color:
-        var(--cyan);
+    gap: 8px;
 
-    font:
-        700 10px
-        "JetBrains Mono";
-
-    margin-bottom:
-        20px;
-
+    margin-top: 30px;
 }
 
-
-.skill-card h3 {
-
-    font-size:
-        20px;
-
-    margin-bottom:
-        7px;
-
-}
-
-
-.skill-card p {
-
-    color:
-        var(--muted);
-
-    font-size:
-        12px;
-
-    margin-bottom:
-        20px;
-
-}
-
-
-.tags {
-
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        7px;
-
-}
-
-
-.tags span {
-
-    color:
-        var(--muted);
-
-    background:
-        rgba(255,255,255,.025);
+.tech {
+    padding:
+        7px 10px;
 
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    border-radius:
-        7px;
+    border-radius: 8px;
 
-    padding:
-        5px 8px;
+    background:
+        rgba(255,255,255,.02);
 
-    font-size:
-        9px;
+    color: #aeb6c6;
 
+    font:
+        500 10px
+        "JetBrains Mono";
 }
 
 
@@ -1805,160 +1132,98 @@ body::before {
    CYBERSECURITY
 ========================================================= */
 
-.security-layout {
-
-    display:
-        grid;
+.security-grid {
+    display: grid;
 
     grid-template-columns:
-        1fr 1fr;
+        1fr
+        1fr;
 
-    gap:
-        18px;
-
+    gap: 18px;
 }
 
-
-.security-intro {
-
-    padding:
-        38px;
+.security-card {
+    padding: 35px;
 
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    border-radius:
-        var(--radius);
+    border-radius: 22px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(118,87,255,.10),
-            rgba(0,212,255,.025)
-        );
-
+        rgba(255,255,255,.02);
 }
 
+.security-card h3 {
+    font-size: 24px;
 
-.security-intro h3 {
-
-    font-size:
-        28px;
-
-    line-height:
-        1.35;
-
-    margin:
-        10px 0 14px;
-
+    margin-bottom: 8px;
 }
 
+.security-card > p {
+    color: var(--muted);
 
-.security-intro p {
+    font-size: 12px;
 
-    color:
-        var(--muted);
-
-    font-size:
-        13px;
-
+    margin-bottom: 25px;
 }
 
+.security-line {
+    margin-bottom: 18px;
+}
 
-.security-bars {
+.security-meta {
+    display: flex;
+    justify-content: space-between;
 
-    padding:
-        35px;
+    margin-bottom: 7px;
 
-    border:
-        1px solid
-        var(--line);
+    color: #b8c0cf;
 
-    border-radius:
-        var(--radius);
+    font-size: 10px;
+}
+
+.security-bar {
+    height: 5px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
 
     background:
-        rgba(255,255,255,.025);
-
+        rgba(255,255,255,.07);
 }
 
+.security-bar span {
+    display: block;
 
-.security-row {
-
-    margin-bottom:
-        17px;
-
-}
-
-
-.security-head {
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    font-size:
-        10px;
-
-    margin-bottom:
-        6px;
-
-}
-
-
-.security-head span:last-child {
-
-    color:
-        var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-}
-
-
-.bar {
-
-    height:
-        5px;
-
-    border-radius:
-        20px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    overflow:
-        hidden;
-
-}
-
-
-.bar i {
-
-    display:
-        block;
-
-    height:
-        100%;
-
-    width:
-        var(--value);
+    height: 100%;
 
     background:
         linear-gradient(
             90deg,
-            var(--primary),
+            var(--accent),
             var(--cyan)
         );
+}
 
-    border-radius:
-        inherit;
+.security-note {
+    margin-top: 24px;
 
+    padding: 13px;
+
+    border:
+        1px solid
+        rgba(73,217,154,.18);
+
+    border-radius: 10px;
+
+    color: var(--green);
+
+    background:
+        rgba(73,217,154,.035);
+
+    font-size: 10px;
 }
 
 
@@ -1967,215 +1232,264 @@ body::before {
 ========================================================= */
 
 .projects-grid {
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:
-        17px;
-
+    gap: 17px;
 }
-
 
 .project {
+    overflow: hidden;
 
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    border-radius:
-        20px;
+    border-radius: 20px;
 
     background:
-        rgba(255,255,255,.025);
-
-    overflow:
-        hidden;
+        rgba(255,255,255,.02);
 
     transition:
-        .3s;
-
+        transform var(--transition),
+        border-color var(--transition);
 }
-
 
 .project:hover {
-
     transform:
-        translateY(-5px);
+        translateY(-6px);
 
     border-color:
-        var(--line-hover);
-
+        rgba(124,108,255,.35);
 }
 
+.project-visual {
+    height: 190px;
 
-.project-top {
+    padding: 20px;
 
-    height:
-        175px;
-
-    display:
-        grid;
-
-    place-items:
-        center;
+    display: flex;
+    align-items: flex-end;
 
     background:
         radial-gradient(
-            circle,
-            rgba(118,87,255,.14),
+            circle at 50% 20%,
+            rgba(124,108,255,.2),
             transparent 65%
         );
 
     border-bottom:
-        1px solid
-        var(--line);
-
+        1px solid var(--line);
 }
 
+.mini-phone {
+    width: 105px;
+    height: 150px;
 
-.project-placeholder {
+    margin: auto;
 
-    width:
-        65px;
+    padding: 5px;
 
-    height:
-        65px;
+    border-radius: 17px;
 
-    border:
-        1px dashed
-        rgba(118,87,255,.5);
+    background: #202630;
 
-    border-radius:
-        17px;
-
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    color:
-        var(--primary-light);
-
-    font:
-        700 20px
-        "JetBrains Mono";
-
+    box-shadow:
+        0 20px 40px
+        rgba(0,0,0,.35);
 }
 
+.mini-screen {
+    height: 100%;
 
-.project-content {
-
-    padding:
-        23px;
-
-}
-
-
-.project-label {
-
-    color:
-        var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-}
-
-
-.project h3 {
-
-    font-size:
-        18px;
-
-    margin:
-        7px 0;
-
-}
-
-
-.project p {
-
-    color:
-        var(--muted);
-
-    font-size:
-        12px;
-
-}
-
-
-.project-meta {
-
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        6px;
-
-    margin-top:
-        14px;
-
-}
-
-
-.project-meta span {
-
-    font:
-        600 8px
-        "JetBrains Mono";
-
-    color:
-        var(--muted);
-
-    padding:
-        4px 6px;
-
-    border:
-        1px solid
-        var(--line);
-
-    border-radius:
-        6px;
-
-}
-
-
-.coming {
-
-    margin-top:
-        15px;
-
-    display:
-        inline-block;
-
-    padding:
-        5px 9px;
-
-    border-radius:
-        7px;
+    border-radius: 13px;
 
     background:
-        rgba(118,87,255,.08);
+        linear-gradient(
+            160deg,
+            #121722,
+            #090c12
+        );
+
+    padding: 14px 9px;
+}
+
+.mini-line {
+    height: 6px;
+
+    border-radius: 5px;
+
+    margin-bottom: 7px;
+
+    background:
+        rgba(255,255,255,.09);
+}
+
+.mini-line.accent {
+    width: 60%;
+
+    background:
+        var(--accent);
+}
+
+.project-body {
+    padding: 23px;
+}
+
+.project-type {
+    color: var(--cyan);
+
+    font:
+        700 8px
+        "JetBrains Mono";
+
+    letter-spacing: 1px;
+}
+
+.project-body h3 {
+    margin: 7px 0;
+
+    font-size: 18px;
+}
+
+.project-body p {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 15px;
+}
+
+.project-tags span {
+    padding:
+        4px 7px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 6px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+}
+
+.project-link {
+    display: inline-flex;
+
+    margin-top: 18px;
+
+    color: var(--text);
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   CASE STUDY
+========================================================= */
+
+.case-study {
+    margin-top: 20px;
+
+    padding: 38px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(124,108,255,.08),
+            rgba(53,216,255,.025)
+        );
+}
+
+.case-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 28px;
+}
+
+.case-top h3 {
+    font-size: 25px;
+}
+
+.case-top p {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.case-status {
+    height: fit-content;
+
+    padding:
+        6px 9px;
 
     border:
         1px solid
-        rgba(118,87,255,.2);
+        rgba(255,184,107,.2);
 
-    color:
-        #b8aaff;
+    border-radius: 7px;
 
-    font-size:
-        9px;
+    color: var(--orange);
 
+    font:
+        700 8px
+        "JetBrains Mono";
+}
+
+.case-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 12px;
+}
+
+.case-item {
+    padding: 17px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 13px;
+
+    background:
+        rgba(0,0,0,.08);
+}
+
+.case-item small {
+    color: var(--cyan);
+
+    font:
+        700 8px
+        "JetBrains Mono";
+}
+
+.case-item p {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 10px;
 }
 
 
@@ -2184,133 +1498,69 @@ body::before {
 ========================================================= */
 
 .lab-grid {
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:
-        17px;
-
+    gap: 15px;
 }
-
 
 .lab-card {
-
-    padding:
-        30px;
+    padding: 27px;
 
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    border-radius:
-        20px;
+    border-radius: 18px;
 
     background:
-        rgba(255,255,255,.025);
-
+        rgba(255,255,255,.02);
 }
 
-
-.lab-icon {
-
-    width:
-        44px;
-
-    height:
-        44px;
-
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    border-radius:
-        12px;
-
-    background:
-        rgba(118,87,255,.09);
-
-    border:
-        1px solid
-        rgba(118,87,255,.2);
-
-    color:
-        var(--primary-light);
+.lab-number {
+    color: var(--accent-2);
 
     font:
-        700 14px
+        700 9px
         "JetBrains Mono";
-
-    margin-bottom:
-        20px;
-
 }
-
 
 .lab-card h3 {
+    margin-top: 12px;
 
-    font-size:
-        18px;
-
+    font-size: 18px;
 }
-
 
 .lab-card p {
+    color: var(--muted);
 
-    color:
-        var(--muted);
+    font-size: 11px;
 
-    font-size:
-        11px;
-
-    margin:
-        7px 0 16px;
-
+    margin-top: 7px;
 }
-
 
 .lab-list {
+    margin-top: 18px;
 
-    list-style:
-        none;
+    display: grid;
 
+    gap: 8px;
 }
 
+.lab-list span {
+    padding: 7px 9px;
 
-.lab-list li {
+    border:
+        1px solid var(--line);
 
-    padding:
-        7px 0;
+    border-radius: 7px;
 
-    border-bottom:
-        1px solid
-        var(--line);
+    color: var(--muted);
 
-    color:
-        var(--muted);
-
-    font-size:
-        10px;
-
-}
-
-
-.lab-list li::before {
-
-    content:
-        "→";
-
-    color:
-        var(--cyan);
-
-    margin-right:
-        7px;
-
+    font:
+        500 9px
+        "JetBrains Mono";
 }
 
 
@@ -2319,129 +1569,58 @@ body::before {
 ========================================================= */
 
 .beyond-grid {
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        1.15fr .85fr;
+        repeat(3,1fr);
 
-    gap:
-        18px;
-
+    gap: 17px;
 }
 
+.beyond-card {
+    min-height: 240px;
 
-.beyond-main {
+    padding: 30px;
 
-    padding:
-        40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    border-radius:
-        var(--radius);
+    border-radius: 20px;
 
     background:
         linear-gradient(
-            110deg,
-            rgba(118,87,255,.10),
-            rgba(0,212,255,.025)
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.012)
         );
-
 }
 
-
-.beyond-main h3 {
-
-    font-size:
-        28px;
-
-    line-height:
-        1.35;
-
+.beyond-icon {
+    font-size: 28px;
 }
-
-
-.beyond-main p {
-
-    max-width:
-        700px;
-
-    color:
-        var(--muted);
-
-    font-size:
-        13px;
-
-    margin-top:
-        10px;
-
-}
-
-
-.beyond-side {
-
-    display:
-        grid;
-
-    gap:
-        12px;
-
-}
-
-
-.beyond-card {
-
-    padding:
-        25px;
-
-    border:
-        1px solid
-        var(--line);
-
-    border-radius:
-        18px;
-
-    background:
-        rgba(255,255,255,.025);
-
-}
-
 
 .beyond-card small {
-
-    color:
-        var(--cyan);
+    color: var(--cyan);
 
     font:
-        700 9px
+        700 8px
         "JetBrains Mono";
-
 }
-
 
 .beyond-card h3 {
+    margin-top: 7px;
 
-    margin:
-        6px 0;
-
-    font-size:
-        18px;
-
+    font-size: 23px;
 }
 
-
 .beyond-card p {
+    color: var(--muted);
 
-    color:
-        var(--muted);
-
-    font-size:
-        11px;
-
+    font-size: 11px;
 }
 
 
@@ -2450,214 +1629,159 @@ body::before {
 ========================================================= */
 
 .timeline {
+    position: relative;
 
-    position:
-        relative;
+    max-width: 850px;
 
-    max-width:
-        850px;
-
-    margin:
-        auto;
-
+    margin: auto;
 }
-
 
 .timeline::before {
+    content: "";
 
-    content:
-        "";
+    position: absolute;
 
-    position:
-        absolute;
+    top: 0;
+    bottom: 0;
 
-    top:
-        0;
+    left: 12px;
 
-    bottom:
-        0;
-
-    left:
-        10px;
-
-    width:
-        1px;
+    width: 1px;
 
     background:
-        var(--line);
-
+        var(--line-strong);
 }
-
 
 .timeline-item {
+    position: relative;
 
-    position:
-        relative;
+    padding-left: 55px;
 
-    padding:
-        0 0 38px 42px;
-
+    padding-bottom: 38px;
 }
-
 
 .timeline-dot {
+    position: absolute;
 
-    position:
-        absolute;
+    left: 6px;
+    top: 5px;
 
-    left:
-        5px;
+    width: 13px;
+    height: 13px;
 
-    top:
-        7px;
-
-    width:
-        11px;
-
-    height:
-        11px;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     background:
-        var(--primary);
+        var(--bg);
 
-    box-shadow:
-        0 0 0 5px
-        rgba(118,87,255,.09);
-
+    border:
+        2px solid
+        var(--accent);
 }
 
-
 .timeline-year {
-
-    color:
-        var(--cyan);
+    color: var(--cyan);
 
     font:
         700 10px
         "JetBrains Mono";
-
 }
-
 
 .timeline-item h3 {
+    margin-top: 5px;
 
-    margin:
-        4px 0;
-
-    font-size:
-        18px;
-
+    font-size: 19px;
 }
 
-
 .timeline-item p {
+    color: var(--muted);
 
-    color:
-        var(--muted);
+    font-size: 11px;
+}
 
-    font-size:
-        11px;
+.timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
 
+    gap: 6px;
+
+    margin-top: 10px;
+}
+
+.timeline-tags span {
+    color: var(--muted);
+
+    font-size: 8px;
+
+    padding:
+        4px 7px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 6px;
 }
 
 
 /* =========================================================
-   CERTIFICATES
+   GITHUB / DEVELOPER STATUS
 ========================================================= */
 
-.cert-box {
+.github-box {
+    padding: 38px;
 
-    padding:
-        35px;
+    display: grid;
 
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        20px;
-
-    border:
-        1px dashed
-        rgba(118,87,255,.4);
-
-    border-radius:
-        20px;
-
-    background:
-        rgba(118,87,255,.035);
-
-}
-
-
-.cert-icon {
-
-    width:
-        55px;
-
-    height:
-        55px;
-
-    flex-shrink:
-        0;
-
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    border-radius:
-        15px;
-
-    background:
-        rgba(118,87,255,.12);
-
-    color:
-        var(--primary-light);
-
-    font-size:
-        22px;
-
-}
-
-
-.cert-box h3 {
-
-    font-size:
-        18px;
-
-}
-
-
-.cert-box p {
-
-    color:
-        var(--muted);
-
-    font-size:
-        12px;
-
-}
-
-
-.cert-status {
-
-    margin-left:
+    grid-template-columns:
+        1fr
         auto;
 
-    color:
-        var(--cyan);
+    gap: 30px;
+
+    align-items: center;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,.02);
+}
+
+.github-box h3 {
+    font-size: 25px;
+}
+
+.github-box p {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.github-stats {
+    display: flex;
+    gap: 25px;
+}
+
+.github-stat {
+    text-align: center;
+}
+
+.github-stat strong {
+    display: block;
 
     font:
-        700 9px
+        700 20px
         "JetBrains Mono";
+}
 
+.github-stat span {
+    color: var(--muted);
+
+    font-size: 8px;
 }
 
 
@@ -2666,137 +1790,92 @@ body::before {
 ========================================================= */
 
 .contact-box {
+    padding: 55px;
 
-    padding:
-        55px;
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        1fr .9fr;
+        1fr
+        .9fr;
 
-    gap:
-        60px;
+    gap: 60px;
 
     border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    border-radius:
-        28px;
+    border-radius: 28px;
 
     background:
         radial-gradient(
             circle at 90% 10%,
-            rgba(118,87,255,.14),
-            transparent 40%
+            rgba(124,108,255,.12),
+            transparent 42%
         ),
-        rgba(255,255,255,.025);
-
+        rgba(255,255,255,.02);
 }
-
 
 .contact-box h2 {
+    margin-top: 8px;
 
     font-size:
-        clamp(
-            38px,
-            5vw,
-            58px
-        );
+        clamp(38px,5vw,58px);
 
-    line-height:
-        1.2;
-
-    margin:
-        8px 0 15px;
-
+    line-height: 1.1;
 }
-
 
 .contact-box h2 span {
-
-    color:
-        var(--primary-light);
-
+    color: var(--accent-2);
 }
 
+.contact-box > div > p {
+    max-width: 500px;
 
-.contact-box p {
+    margin-top: 17px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        13px;
-
+    font-size: 12px;
 }
-
 
 .contact-links {
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
+    display: flex;
+    flex-direction: column;
 }
-
 
 .contact-link {
+    display: flex;
 
-    display:
-        flex;
+    justify-content: space-between;
+    align-items: center;
 
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
+    gap: 20px;
 
     padding:
-        16px 0;
+        15px 0;
 
     border-bottom:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
     transition:
-        .25s;
-
+        padding var(--transition);
 }
-
 
 .contact-link:hover {
-
-    padding-right:
-        8px;
-
+    padding-inline: 7px;
 }
-
 
 .contact-link span:first-child {
+    color: var(--text);
 
-    color:
-        var(--text);
-
-    font-size:
-        12px;
-
+    font-size: 11px;
 }
 
-
 .contact-link span:last-child {
-
-    color:
-        var(--cyan);
+    color: var(--cyan);
 
     font:
         700 9px
         "JetBrains Mono";
-
 }
 
 
@@ -2805,117 +1884,75 @@ body::before {
 ========================================================= */
 
 footer {
+    padding: 28px 0;
 
     border-top:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-    padding:
-        25px 0;
+    color: var(--muted-2);
 
-    color:
-        var(--muted-2);
-
-    font-size:
-        10px;
-
+    font-size: 9px;
 }
-
 
 .footer-inner {
+    display: flex;
 
-    display:
-        flex;
+    justify-content: space-between;
+    align-items: center;
 
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
+    gap: 15px;
 }
 
-
 footer strong {
-
-    color:
-        var(--cyan);
-
+    color: var(--cyan);
 }
 
 
 /* =========================================================
-   TOP BUTTON
+   BACK TO TOP
 ========================================================= */
 
-.top-button {
+.top {
+    position: fixed;
 
-    position:
-        fixed;
+    bottom: 24px;
+    left: 24px;
 
-    left:
-        25px;
+    width: 42px;
+    height: 42px;
 
-    bottom:
-        25px;
-
-    width:
-        42px;
-
-    height:
-        42px;
-
-    display:
-        grid;
-
-    place-items:
-        center;
+    display: grid;
+    place-items: center;
 
     border:
         1px solid
-        var(--line);
+        rgba(124,108,255,.3);
 
-    border-radius:
-        12px;
+    border-radius: 12px;
 
     background:
-        rgba(10,14,23,.9);
+        rgba(124,108,255,.08);
 
-    color:
-        white;
+    color: var(--accent-2);
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
-    opacity:
-        0;
-
-    visibility:
-        hidden;
+    opacity: 0;
+    visibility: hidden;
 
     transform:
         translateY(10px);
 
-    transition:
-        .3s;
+    transition: .3s;
 
-    z-index:
-        50;
-
+    z-index: 900;
 }
 
+.top.show {
+    opacity: 1;
+    visibility: visible;
 
-.top-button.show {
-
-    opacity:
-        1;
-
-    visibility:
-        visible;
-
-    transform:
-        none;
-
+    transform: none;
 }
 
 
@@ -2924,28 +1961,44 @@ footer strong {
 ========================================================= */
 
 .reveal {
-
-    opacity:
-        0;
+    opacity: 0;
 
     transform:
-        translateY(20px);
+        translateY(22px);
 
     transition:
         opacity .7s ease,
         transform .7s ease;
+}
 
+.reveal.visible {
+    opacity: 1;
+
+    transform: none;
 }
 
 
-.reveal.visible {
+/* =========================================================
+   RTL
+========================================================= */
 
-    opacity:
-        1;
+body[dir="rtl"] .hero-name {
+    letter-spacing: 0;
+}
 
-    transform:
-        none;
+body[dir="rtl"] .timeline::before {
+    left: auto;
+    right: 12px;
+}
 
+body[dir="rtl"] .timeline-item {
+    padding-left: 0;
+    padding-right: 55px;
+}
+
+body[dir="rtl"] .timeline-dot {
+    left: auto;
+    right: 6px;
 }
 
 
@@ -2953,402 +2006,400 @@ footer strong {
    RESPONSIVE
 ========================================================= */
 
-@media(max-width:950px) {
-
-    .nav-right {
-
-        gap:
-            10px;
-
-    }
-
+@media(max-width: 1050px) {
 
     .nav-links {
-
-        position:
-            fixed;
-
-        top:
-            78px;
-
-        right:
-            20px;
-
-        left:
-            20px;
-
-        display:
-            none;
-
-        flex-direction:
-            column;
-
-        align-items:
-            stretch;
-
-        padding:
-            18px;
-
-        background:
-            rgba(8,11,18,.97);
-
-        border:
-            1px solid
-            var(--line);
-
-        border-radius:
-            18px;
-
+        gap: 16px;
     }
 
-
-    [data-theme="light"]
-    .nav-links {
-
-        background:
-            rgba(255,255,255,.98);
-
+    .hero-grid {
+        gap: 45px;
     }
 
-
-    .nav-links.open {
-
-        display:
-            flex;
-
+    .hero-name {
+        font-size: 46px;
     }
 
-
-    .nav-links a {
-
-        padding:
-            9px;
-
-    }
-
-
-    .menu {
-
-        display:
-            block;
-
-    }
-
-
-    .hero-grid,
-    .about-grid,
-    .engineering,
-    .security-layout,
-    .beyond-grid,
-    .contact-box {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .hero {
-
-        padding-top:
-            120px;
-
-    }
-
-
-    .phone-wrap {
-
-        margin-top:
-            25px;
-
-    }
-
-
-    .projects-grid {
-
-        grid-template-columns:
-            1fr 1fr;
-
-    }
-
-
-    .lab-grid {
-
-        grid-template-columns:
-            1fr 1fr;
-
+    .phone {
+        width: 255px;
+        height: 520px;
     }
 
 }
 
 
-@media(max-width:650px) {
+@media(max-width: 900px) {
+
+    .nav-links {
+        position: fixed;
+
+        top: 86px;
+        left: 20px;
+        right: 20px;
+
+        display: none;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        padding: 17px;
+
+        background:
+            var(--surface);
+
+        border:
+            1px solid var(--line);
+
+        border-radius: 18px;
+
+        box-shadow:
+            var(--shadow);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 9px;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .header-controls {
+        margin-left: auto;
+    }
+
+    body[dir="rtl"] .header-controls {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .engineering-grid,
+    .contact-box {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 130px;
+    }
+
+    .hero-name {
+        font-size: clamp(38px,8vw,58px);
+    }
+
+    .android-stage {
+        margin-top: 25px;
+    }
+
+    .security-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .case-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .lab-grid,
+    .beyond-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+
+@media(max-width: 650px) {
 
     .container {
-
         width:
             calc(100% - 28px);
-
     }
-
 
     .section {
-
-        padding:
-            85px 0;
-
+        padding: 85px 0;
     }
 
+    .nav {
+        min-height: 70px;
+    }
 
-    .hero h1 {
+    .logo-name {
+        font-size: 11px;
+    }
 
-        font-size:
-            39px;
+    .control-text {
+        display: none;
+    }
+
+    .control-btn {
+        width: 38px;
+        padding: 0;
+    }
+
+    .hero-name {
+        font-size: 35px;
 
         letter-spacing:
             -1.5px;
-
     }
 
-
-    .hero-role {
-
-        font-size:
-            15px;
-
+    body[dir="rtl"] .hero-name {
+        font-size: 34px;
     }
 
+    .hero-title {
+        font-size: 14px;
+    }
 
     .hero-description {
-
-        font-size:
-            13px;
-
+        font-size: 12px;
     }
 
+    .phone {
+        width: 235px;
+        height: 480px;
+    }
 
-    .skills-grid,
     .projects-grid,
-    .lab-grid {
+    .lab-grid,
+    .beyond-grid {
+        grid-template-columns: 1fr;
+    }
 
+    .case-grid {
         grid-template-columns:
             1fr;
-
     }
 
+    .case-study,
+    .contact-box,
+    .security-card,
+    .github-box {
+        padding: 27px;
+    }
 
-    .facts {
+    .case-top {
+        flex-direction: column;
+    }
 
+    .github-box {
+        grid-template-columns: 1fr;
+    }
+
+    .github-stats {
+        justify-content: space-between;
+    }
+
+    .fact-grid {
         grid-template-columns:
             1fr 1fr;
-
     }
-
-
-    .architecture,
-    .engineering-intro,
-    .security-intro,
-    .security-bars,
-    .beyond-main,
-    .contact-box {
-
-        padding:
-            27px;
-
-    }
-
-
-    .arch-box {
-
-        width:
-            125px;
-
-    }
-
-
-    .cert-box {
-
-        align-items:
-            flex-start;
-
-        flex-wrap:
-            wrap;
-
-    }
-
-
-    .cert-status {
-
-        margin-left:
-            0;
-
-        width:
-            100%;
-
-    }
-
 
     .footer-inner {
-
-        flex-direction:
-            column;
-
-        gap:
-            7px;
-
-        text-align:
-            center;
-
+        flex-direction: column;
+        text-align: center;
     }
 
-
-    .top-button {
-
-        left:
-            18px;
-
-        bottom:
-            18px;
-
+    .top {
+        left: 16px;
+        bottom: 16px;
     }
 
+}
 
-    .controls {
 
-        gap:
-            4px;
+@media(max-width: 400px) {
 
+    .hero-name {
+        font-size: 31px;
     }
 
+    body[dir="rtl"] .hero-name {
+        font-size: 30px;
+    }
 
-    .control {
+    .hero-buttons {
+        flex-direction: column;
+    }
 
-        padding:
-            0 7px;
+    .btn {
+        width: 100%;
+    }
 
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration:
+            .01ms !important;
+
+        transition-duration:
+            .01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
     }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-
-<div class="grid-bg"></div>
+<div class="background">
+    <div class="grid"></div>
+</div>
 
 
 <!-- =========================================================
      HEADER
 ========================================================= -->
 
-<header class="header">
+<header class="header" id="header">
 
-    <div class="container nav">
+<div class="container nav">
 
+<a href="#home" class="logo">
 
-        <a href="#home" class="logo">
+    <span class="logo-mark">
+        &lt;/&gt;
+    </span>
 
-            <span class="logo-icon">
-                &lt;/&gt;
-            </span>
+    <span class="logo-name">
+        Mohammed<span>.dev</span>
+    </span>
 
-            <span>
-                Mohammed<span>.dev</span>
-            </span>
-
-        </a>
-
-
-        <div class="nav-right">
+</a>
 
 
-            <nav class="nav-links" id="navLinks">
+<button
+    class="menu"
+    id="menu"
+    aria-label="Open navigation">
 
-                <a href="#home">
-                    Home
-                </a>
+    <span></span>
+    <span></span>
+    <span></span>
 
-                <a href="#about">
-                    About
-                </a>
-
-                <a href="#android">
-                    Android
-                </a>
-
-                <a href="#security">
-                    Security
-                </a>
-
-                <a href="#projects">
-                    Projects
-                </a>
-
-                <a href="#lab">
-                    Lab
-                </a>
-
-                <a href="#beyond">
-                    Beyond Code
-                </a>
-
-                <a href="#journey">
-                    Journey
-                </a>
-
-                <a href="#contact">
-                    Contact
-                </a>
-
-            </nav>
+</button>
 
 
-            <div class="controls">
+<nav class="nav-links" id="navLinks">
+
+    <a href="#home" data-i18n="navHome">
+        Home
+    </a>
+
+    <a href="#about" data-i18n="navAbout">
+        About
+    </a>
+
+    <a href="#android" data-i18n="navAndroid">
+        Android
+    </a>
+
+    <a href="#security" data-i18n="navSecurity">
+        Security
+    </a>
+
+    <a href="#projects" data-i18n="navProjects">
+        Projects
+    </a>
+
+    <a href="#lab" data-i18n="navLab">
+        Lab
+    </a>
+
+    <a href="#writing" data-i18n="navWriting">
+        Writing
+    </a>
+
+    <a href="#books" data-i18n="navBooks">
+        Books
+    </a>
+
+    <a href="#journey" data-i18n="navJourney">
+        Journey
+    </a>
+
+    <a href="#contact" data-i18n="navContact">
+        Contact
+    </a>
+
+</nav>
 
 
-                <button
-                    class="control lang"
-                    id="langBtn"
-                    type="button">
+<div class="header-controls">
 
-                    EN
+<button
+    class="control-btn language-btn"
+    id="languageBtn"
+    type="button">
 
-                </button>
+    <span class="control-icon">文</span>
 
+    <span
+        class="control-text"
+        id="languageText">
 
-                <button
-                    class="control"
-                    id="themeBtn"
-                    type="button"
-                    aria-label="Toggle theme">
+        AR
 
-                    ☾
+    </span>
 
-                </button>
-
-
-            </div>
+</button>
 
 
-            <button
-                class="menu"
-                id="menu"
-                type="button">
+<button
+    class="control-btn theme-btn"
+    id="themeBtn"
+    type="button">
 
-                <span></span>
-                <span></span>
-                <span></span>
+    <span
+        class="control-icon"
+        id="themeIcon">
 
-            </button>
+        ☼
 
+    </span>
 
-        </div>
+    <span
+        class="control-text"
+        id="themeText">
 
-    </div>
+        Theme
+
+    </span>
+
+</button>
+
+</div>
+
+</div>
 
 </header>
 
@@ -3362,325 +2413,236 @@ footer strong {
 ========================================================= -->
 
 <section
-    class="hero section"
+    class="hero"
     id="home">
 
+<div class="container hero-grid">
 
-    <div class="container hero-grid">
 
+<div class="reveal">
 
-        <div class="reveal">
+<div class="eyebrow">
 
+    <span class="eyebrow-dot"></span>
 
-            <div class="status">
+    <span data-i18n="available">
+        AVAILABLE FOR COLLABORATION
+    </span>
 
-                <span class="status-dot"></span>
+</div>
 
-                Available for collaboration
 
-            </div>
+<h1 class="hero-name">
+    Mohammed Abdullah
+</h1>
 
 
-            <p class="kicker">
-                HELLO, I'M
-            </p>
+<div class="hero-title">
 
+    <strong>
+        Android Developer
+    </strong>
 
-            <h1>
-                Mohammed Abdullah
-            </h1>
+    <span> · </span>
 
+    <span id="typedRole">
+        Programmer
+    </span>
 
-            <div class="hero-role">
+</div>
 
-                <span id="typed">
-                    Android Developer
-                </span>
 
-                <span class="cursor">
-                    _
-                </span>
+<p
+    class="hero-description"
+    data-i18n="heroDescription">
 
-            </div>
+    I build mobile experiences that are fast,
+    reliable and secure — combining Android
+    engineering, programming and a security-first
+    mindset.
 
+</p>
 
-            <p class="hero-description">
 
-                I build mobile experiences with
-                clean engineering, thoughtful design
-                and a security-first mindset.
+<div class="hero-buttons">
 
-                <br>
+<a
+    href="#projects"
+    class="btn btn-primary"
+    data-i18n="viewProjects">
 
-                Android development is my main path.
-                Programming, cybersecurity, books
-                and writing are part of the journey.
+    View Selected Work
+    ↗
 
-            </p>
+</a>
 
 
-            <div class="buttons">
+<a
+    href="#journey"
+    class="btn btn-outline"
+    data-i18n="exploreJourney">
 
+    Explore My Journey
 
-                <a
-                    href="#projects"
-                    class="btn btn-primary">
+</a>
 
-                    View Selected Work
-                    ↗
 
-                </a>
+<a
+    href="#contact"
+    class="btn btn-outline"
+    data-i18n="contactMe">
 
+    Contact Me
 
-                <a
-                    href="#android"
-                    class="btn btn-outline">
+</a>
 
-                    Explore Android
+</div>
 
-                </a>
 
+<div class="socials">
 
-                <a
-                    href="#contact"
-                    class="btn btn-outline">
+<a
+    href="https://www.facebook.com/share/1DsBQE5YmH/"
+    target="_blank"
+    rel="noopener">
 
-                    Contact Me
+    FB
 
-                </a>
+</a>
 
+<a
+    href="https://wa.me/201027595528"
+    target="_blank"
+    rel="noopener">
 
-            </div>
+    WA
 
+</a>
 
-            <div class="socials">
+<a
+    href="https://t.me/C_O_N_2"
+    target="_blank"
+    rel="noopener">
 
+    TG
 
-                <a
-                    href="https://www.facebook.com/share/1DsBQE5YmH/"
-                    target="_blank"
-                    rel="noopener">
+</a>
 
-                    FB
+<a
+    href="https://instagram.com/mhbdllh4861"
+    target="_blank"
+    rel="noopener">
 
-                </a>
+    IG
 
+</a>
 
-                <a
-                    href="https://wa.me/201027595528"
-                    target="_blank"
-                    rel="noopener">
+<a
+    href="https://www.linkedin.com/in/mohammed-con"
+    target="_blank"
+    rel="noopener">
 
-                    WA
+    IN
 
-                </a>
+</a>
 
+<a
+    href="mailto:cconker63@gmail.com">
 
-                <a
-                    href="https://t.me/C_O_N_2"
-                    target="_blank"
-                    rel="noopener">
+    @
 
-                    TG
+</a>
 
-                </a>
+</div>
 
+</div>
 
-                <a
-                    href="https://instagram.com/mhbdllh4861"
-                    target="_blank"
-                    rel="noopener">
 
-                    IG
 
-                </a>
+<!-- ANDROID DEVICE -->
 
+<div class="android-stage reveal">
 
-                <a
-                    href="https://www.linkedin.com/in/mohammed-con"
-                    target="_blank"
-                    rel="noopener">
+<div class="phone">
 
-                    IN
+<div class="phone-screen">
 
-                </a>
+<div class="phone-notch"></div>
 
+<div class="app-ui">
 
-                <a
-                    href="mailto:cconker63@gmail.com">
+<div class="app-status">
 
-                    @
+<span>
+    9:41
+</span>
 
-                </a>
+<span>
+    ● ● ●
+</span>
 
+</div>
 
-            </div>
 
-        </div>
+<h2 class="app-title">
+    Android Lab
+</h2>
 
+<p class="app-subtitle">
+    Engineering • Security • Performance
+</p>
 
 
-        <!-- ANDROID DEVICE -->
+<div class="app-card">
 
-        <div class="phone-wrap reveal">
+<div class="app-card-label">
+    CURRENT FOCUS
+</div>
 
+<h4>
+    Mobile Engineering
+</h4>
 
-            <div class="phone-glow"></div>
+<div class="app-progress">
+    <span></span>
+</div>
 
+</div>
 
-            <div class="phone">
 
+<div class="app-list">
 
-                <div class="phone-notch"></div>
+<div class="app-row">
+    <span>Kotlin</span>
+    <strong>01</strong>
+</div>
 
+<div class="app-row">
+    <span>Jetpack Compose</span>
+    <strong>02</strong>
+</div>
 
-                <div class="phone-screen">
+<div class="app-row">
+    <span>Architecture</span>
+    <strong>03</strong>
+</div>
 
+<div class="app-row">
+    <span>Security</span>
+    <strong>04</strong>
+</div>
 
-                    <div class="phone-top">
+</div>
 
-                        <span>
-                            9:41
-                        </span>
+</div>
 
-                        <span>
-                            ● ● ▰
-                        </span>
+</div>
 
-                    </div>
+</div>
 
+</div>
 
-                    <div class="phone-title">
-
-                        Build.
-                        <br>
-                        Secure.
-                        <br>
-                        Ship.
-
-                    </div>
-
-
-                    <div class="phone-sub">
-
-                        Android Engineering
-                        / Mohammed
-
-                    </div>
-
-
-                    <div class="app-card">
-
-
-                        <div class="app-card-top">
-
-
-                            <div class="app-icon">
-                                M
-                            </div>
-
-
-                            <div>
-
-                                <strong>
-                                    Android Project
-                                </strong>
-
-                                <small>
-                                    Kotlin • Compose
-                                </small>
-
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="app-card">
-
-
-                        <div class="app-card-top">
-
-
-                            <div class="app-icon">
-                                S
-                            </div>
-
-
-                            <div>
-
-                                <strong>
-                                    Security Layer
-                                </strong>
-
-                                <small>
-                                    Secure by design
-                                </small>
-
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="phone-stat">
-
-
-                        <div>
-
-                            <b>
-                                Kotlin
-                            </b>
-
-                            <span>
-                                CORE
-                            </span>
-
-                        </div>
-
-
-                        <div>
-
-                            <b>
-                                MVVM
-                            </b>
-
-                            <span>
-                                ARCH
-                            </span>
-
-                        </div>
-
-
-                        <div>
-
-                            <b>
-                                API
-                            </b>
-
-                            <span>
-                                DATA
-                            </span>
-
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -3694,497 +2656,240 @@ footer strong {
     class="section"
     id="about">
 
+<div class="container">
 
-    <div class="container">
+<div class="section-head reveal">
 
+<span class="section-index">
+    01
+</span>
 
-        <div class="section-title reveal">
+<div>
 
-            <span class="section-number">
-                01
-            </span>
+<div
+    class="section-kicker"
+    data-i18n="aboutKicker">
 
-            <div>
+    ABOUT ME
 
-                <small>
-                    ABOUT ME
-                </small>
+</div>
 
-                <h2>
-                    More than a developer.
-                </h2>
+<h2 data-i18n="aboutTitle">
+    The person behind the code.
+</h2>
 
-            </div>
+</div>
 
-        </div>
-
-
-
-        <div class="about-grid">
+</div>
 
 
-            <div class="about-content reveal">
+<div class="about-grid">
+
+<div class="about-copy reveal">
+
+<p
+    class="lead"
+    data-i18n="aboutLead">
+
+    I'm Mohammed Abdullah,
+    a Computer Science student and
+    Android Developer focused on
+    building useful software.
+
+</p>
 
 
-                <p class="lead">
+<p data-i18n="aboutP1">
 
-                    I'm Mohammed Abdullah,
-                    a Computer Science student and
-                    Android Developer focused on
-                    learning, building and improving.
+    I enjoy turning ideas into real
+    applications, exploring Android
+    engineering and continuously
+    improving my programming foundation.
 
-                </p>
-
-
-                <p>
-
-                    I enjoy turning ideas into useful
-                    mobile applications and understanding
-                    what happens behind the interface —
-                    from architecture and data flow
-                    to performance and reliability.
-
-                </p>
+</p>
 
 
-                <p>
+<p data-i18n="aboutP2">
 
-                    Cybersecurity is another major part
-                    of my journey. I'm interested in
-                    networking, Linux, application security,
-                    OWASP and ethical hacking.
+    Cybersecurity is another major
+    area of interest. I like understanding
+    how systems work, how applications
+    can fail and how they can be built
+    more securely.
 
-                </p>
-
-
-                <p>
-
-                    Outside technology, I enjoy books,
-                    novels and writing. They give the
-                    technical side of my work a more
-                    human perspective.
-
-                </p>
+</p>
 
 
-            </div>
+<p data-i18n="aboutP3">
+
+    Outside technology, books, stories
+    and writing give me another way
+    to explore ideas and understand
+    different perspectives.
+
+</p>
+
+</div>
 
 
+<div class="fact-grid reveal">
 
-            <div class="facts reveal">
+<div class="fact">
+    <strong>19</strong>
+    <span data-i18n="factAge">Age</span>
+</div>
 
+<div class="fact">
+    <strong>CS</strong>
+    <span data-i18n="factEducation">
+        Computer Science
+    </span>
+</div>
 
-                <div class="fact">
+<div class="fact">
+    <strong>ANDROID</strong>
+    <span data-i18n="factFocus">
+        Primary Focus
+    </span>
+</div>
 
-                    <strong>
-                        19
-                    </strong>
+<div class="fact">
+    <strong>∞</strong>
+    <span data-i18n="factLearning">
+        Continuous Learning
+    </span>
+</div>
 
-                    <span>
-                        Age
-                    </span>
+</div>
 
-                </div>
+</div>
 
-
-                <div class="fact">
-
-                    <strong>
-                        CS
-                    </strong>
-
-                    <span>
-                        Computer Science
-                    </span>
-
-                </div>
-
-
-                <div class="fact">
-
-                    <strong>
-                        ANDROID
-                    </strong>
-
-                    <span>
-                        Main Focus
-                    </span>
-
-                </div>
-
-
-                <div class="fact">
-
-                    <strong>
-                        ∞
-                    </strong>
-
-                    <span>
-                        Continuous Learning
-                    </span>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
 
 <!-- =========================================================
-     ANDROID
+     ANDROID ENGINEERING
 ========================================================= -->
 
 <section
-    class="section"
+    class="section android-section"
     id="android">
 
+<div class="container">
 
-    <div class="container">
+<div class="section-head reveal">
 
+<span class="section-index">
+    02
+</span>
 
-        <div class="section-title reveal">
+<div>
 
-            <span class="section-number">
-                02
-            </span>
+<div class="section-kicker">
+    ANDROID ENGINEERING
+</div>
 
-            <div>
+<h2>
+    Building with Android at the core.
+</h2>
 
-                <small>
-                    ANDROID ENGINEERING
-                </small>
+<p>
+    Kotlin-first development,
+    clean architecture and thoughtful
+    mobile experiences.
+</p>
 
-                <h2>
-                    Kotlin-first.
-                    <br>
-                    Engineering-minded.
-                </h2>
+</div>
 
-            </div>
+</div>
 
-        </div>
 
+<div class="engineering-grid">
 
 
-        <div class="engineering">
+<div class="architecture reveal">
 
+<div class="arch-title">
+    APPLICATION ARCHITECTURE
+</div>
 
-            <div class="engineering-intro reveal">
+<div class="arch-layer">
+    UI / Jetpack Compose
+</div>
 
+<div class="arch-layer">
+    ViewModel
+</div>
 
-                <span class="mono-label">
-                    ANDROID / CORE
-                </span>
+<div class="arch-layer">
+    Use Cases
+</div>
 
+<div class="arch-layer">
+    Repository
+</div>
 
-                <h3>
-                    Building apps that
-                    are made to last.
-                </h3>
+<div class="arch-layer">
+    Data / APIs / Database
+</div>
 
+</div>
 
-                <p>
 
-                    My Android path is centered around
-                    Kotlin, modern Android tooling,
-                    clean architecture, maintainable code
-                    and thoughtful user experiences.
+<div class="reveal">
 
-                </p>
+<h3 style="font-size:28px;">
+    Kotlin-first.
+</h3>
 
+<p
+    style="
+    color:var(--muted);
+    font-size:13px;
+    margin-top:10px;
+    max-width:600px;
+    ">
 
-                <div class="tech-tags">
+    My Android learning path focuses on
+    writing maintainable code, understanding
+    architecture and creating applications
+    that are reliable beyond the UI.
 
-                    <span>Kotlin</span>
-                    <span>Jetpack Compose</span>
-                    <span>Android SDK</span>
-                    <span>XML</span>
-                    <span>MVVM</span>
-                    <span>Clean Architecture</span>
-                    <span>Coroutines</span>
-                    <span>Room</span>
-                    <span>Retrofit</span>
-                    <span>Firebase</span>
-                    <span>REST API</span>
-                    <span>Git</span>
+</p>
 
-                </div>
 
-            </div>
+<div class="tech-grid">
 
+<span class="tech">Kotlin</span>
+<span class="tech">Java</span>
+<span class="tech">Android SDK</span>
+<span class="tech">Jetpack</span>
+<span class="tech">Compose</span>
+<span class="tech">XML</span>
+<span class="tech">Material Design</span>
+<span class="tech">MVVM</span>
+<span class="tech">Clean Architecture</span>
+<span class="tech">Coroutines</span>
+<span class="tech">Room</span>
+<span class="tech">SQLite</span>
+<span class="tech">Retrofit</span>
+<span class="tech">REST APIs</span>
+<span class="tech">JSON</span>
+<span class="tech">Firebase</span>
+<span class="tech">Gradle</span>
+<span class="tech">Git</span>
+<span class="tech">GitHub</span>
 
+</div>
 
-            <div class="architecture reveal">
+</div>
 
+</div>
 
-                <span class="mono-label">
-                    ARCHITECTURE
-                </span>
-
-
-                <h3>
-                    A simple mental model
-                    for scalable applications.
-                </h3>
-
-
-                <div class="arch-stack">
-
-
-                    <div class="arch-row">
-
-                        <div class="arch-box">
-                            UI / Compose
-                        </div>
-
-                        <span class="arch-arrow">
-                            ↓
-                        </span>
-
-                    </div>
-
-
-                    <div class="arch-row">
-
-                        <div class="arch-box">
-                            ViewModel
-                        </div>
-
-                        <span class="arch-arrow">
-                            ↓
-                        </span>
-
-                    </div>
-
-
-                    <div class="arch-row">
-
-                        <div class="arch-box">
-                            Use Cases
-                        </div>
-
-                        <span class="arch-arrow">
-                            ↓
-                        </span>
-
-                    </div>
-
-
-                    <div class="arch-row">
-
-                        <div class="arch-box">
-                            Repository
-                        </div>
-
-                        <span class="arch-arrow">
-                            ↓
-                        </span>
-
-                    </div>
-
-
-                    <div class="arch-row">
-
-                        <div class="arch-box">
-                            Data / API / DB
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     SKILLS
-========================================================= -->
-
-<section
-    class="section">
-
-
-    <div class="container">
-
-
-        <div class="section-title reveal">
-
-            <span class="section-number">
-                03
-            </span>
-
-            <div>
-
-                <small>
-                    CAPABILITIES
-                </small>
-
-                <h2>
-                    The toolkit.
-                </h2>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="skills-grid">
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-number">
-                    01 / MOBILE
-                </div>
-
-                <h3>
-                    Android Development
-                </h3>
-
-                <p>
-                    Modern Android development
-                    and application architecture.
-                </p>
-
-
-                <div class="tags">
-
-                    <span>Kotlin</span>
-                    <span>Java</span>
-                    <span>Android SDK</span>
-                    <span>Compose</span>
-                    <span>XML</span>
-                    <span>Material Design</span>
-                    <span>Room</span>
-                    <span>Retrofit</span>
-                    <span>Firebase</span>
-                    <span>Gradle</span>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-number">
-                    02 / PROGRAMMING
-                </div>
-
-                <h3>
-                    Programming
-                </h3>
-
-                <p>
-                    Fundamentals, problem solving
-                    and software development.
-                </p>
-
-
-                <div class="tags">
-
-                    <span>C</span>
-                    <span>C++</span>
-                    <span>Java</span>
-                    <span>Python</span>
-                    <span>JavaScript</span>
-                    <span>SQL</span>
-                    <span>OOP</span>
-                    <span>Algorithms</span>
-                    <span>Data Structures</span>
-                    <span>Git</span>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-number">
-                    03 / SECURITY
-                </div>
-
-                <h3>
-                    Cybersecurity
-                </h3>
-
-                <p>
-                    Learning security from both
-                    defensive and attacker perspectives.
-                </p>
-
-
-                <div class="tags">
-
-                    <span>Linux</span>
-                    <span>Networking</span>
-                    <span>OWASP</span>
-                    <span>Web Security</span>
-                    <span>Secure Coding</span>
-                    <span>Mobile Security</span>
-                    <span>Ethical Hacking</span>
-                    <span>Privacy</span>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-number">
-                    04 / WORKFLOW
-                </div>
-
-                <h3>
-                    Tools & Workflow
-                </h3>
-
-                <p>
-                    Tools that support development,
-                    debugging and continuous learning.
-                </p>
-
-
-                <div class="tags">
-
-                    <span>Git</span>
-                    <span>GitHub</span>
-                    <span>Android Studio</span>
-                    <span>VS Code</span>
-                    <span>Firebase</span>
-                    <span>Linux</span>
-                    <span>CLI</span>
-                    <span>Debugging</span>
-                    <span>Testing</span>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -4198,195 +2903,160 @@ footer strong {
     class="section"
     id="security">
 
+<div class="container">
 
-    <div class="container">
+<div class="section-head reveal">
 
+<span class="section-index">
+    03
+</span>
 
-        <div class="section-title reveal">
+<div>
 
-            <span class="section-number">
-                04
-            </span>
+<div class="section-kicker">
+    CYBERSECURITY
+</div>
 
-            <div>
+<h2>
+    Build apps. Think like an attacker.
+</h2>
 
-                <small>
-                    CYBERSECURITY
-                </small>
+<p>
+    Security is a learning journey —
+    understanding systems before trying
+    to secure them.
+</p>
 
-                <h2>
-                    Build apps.
-                    <br>
-                    Think like an attacker.
-                </h2>
+</div>
 
-            </div>
+</div>
 
-        </div>
 
+<div class="security-grid">
 
 
-        <div class="security-layout">
+<div class="security-card reveal">
 
+<h3>
+    Security Journey
+</h3>
 
-            <div class="security-intro reveal">
+<p>
+    Areas currently explored and developed
+    through learning and practical labs.
+</p>
 
 
-                <span class="mono-label">
-                    SECURITY JOURNEY
-                </span>
+<div class="security-line">
 
+<div class="security-meta">
+    <span>Networking</span>
+    <span>Learning</span>
+</div>
 
-                <h3>
-                    Security is not a feature
-                    added at the end.
-                </h3>
+<div class="security-bar">
+    <span style="width:65%"></span>
+</div>
 
+</div>
 
-                <p>
 
-                    I'm building my cybersecurity
-                    foundation through networking,
-                    Linux, web security, OWASP,
-                    secure coding and mobile security.
+<div class="security-line">
 
-                    <br><br>
+<div class="security-meta">
+    <span>Linux</span>
+    <span>Learning</span>
+</div>
 
-                    The goal is not to claim expertise
-                    before earning it — the goal is
-                    continuous, measurable learning.
+<div class="security-bar">
+    <span style="width:70%"></span>
+</div>
 
-                </p>
+</div>
 
 
-                <div class="tech-tags">
+<div class="security-line">
 
-                    <span>Networking</span>
-                    <span>Linux</span>
-                    <span>Web Security</span>
-                    <span>OWASP</span>
-                    <span>Mobile Security</span>
-                    <span>Ethical Hacking</span>
+<div class="security-meta">
+    <span>Web Security</span>
+    <span>Learning</span>
+</div>
 
-                </div>
+<div class="security-bar">
+    <span style="width:60%"></span>
+</div>
 
-            </div>
+</div>
 
 
+<div class="security-line">
 
-            <div class="security-bars reveal">
+<div class="security-meta">
+    <span>OWASP</span>
+    <span>Learning</span>
+</div>
 
+<div class="security-bar">
+    <span style="width:58%"></span>
+</div>
 
-                <div class="security-row">
+</div>
 
-                    <div class="security-head">
 
-                        <span>
-                            Networking
-                        </span>
+<div class="security-line">
 
-                        <span>
-                            LEARNING
-                        </span>
+<div class="security-meta">
+    <span>Mobile Security</span>
+    <span>Exploring</span>
+</div>
 
-                    </div>
+<div class="security-bar">
+    <span style="width:45%"></span>
+</div>
 
-                    <div class="bar">
-                        <i style="--value:62%"></i>
-                    </div>
+</div>
 
-                </div>
 
+<div class="security-note">
+    STATUS — LEARNING → BUILDING → TESTING
+</div>
 
-                <div class="security-row">
+</div>
 
-                    <div class="security-head">
 
-                        <span>
-                            Linux
-                        </span>
+<div class="security-card reveal">
 
-                        <span>
-                            LEARNING
-                        </span>
+<h3>
+    Security Stack
+</h3>
 
-                    </div>
+<p>
+    Concepts and technologies that form
+    the current cybersecurity path.
+</p>
 
-                    <div class="bar">
-                        <i style="--value:67%"></i>
-                    </div>
 
-                </div>
+<div class="tech-grid">
 
+<span class="tech">Cybersecurity</span>
+<span class="tech">Ethical Hacking</span>
+<span class="tech">Linux</span>
+<span class="tech">Networking</span>
+<span class="tech">OWASP</span>
+<span class="tech">Web Security</span>
+<span class="tech">Secure Coding</span>
+<span class="tech">Cryptography Basics</span>
+<span class="tech">Vulnerability Assessment</span>
+<span class="tech">Security Analysis</span>
+<span class="tech">Privacy</span>
 
-                <div class="security-row">
+</div>
 
-                    <div class="security-head">
+</div>
 
-                        <span>
-                            Web Security
-                        </span>
+</div>
 
-                        <span>
-                            LEARNING
-                        </span>
-
-                    </div>
-
-                    <div class="bar">
-                        <i style="--value:58%"></i>
-                    </div>
-
-                </div>
-
-
-                <div class="security-row">
-
-                    <div class="security-head">
-
-                        <span>
-                            OWASP
-                        </span>
-
-                        <span>
-                            LEARNING
-                        </span>
-
-                    </div>
-
-                    <div class="bar">
-                        <i style="--value:55%"></i>
-                    </div>
-
-                </div>
-
-
-                <div class="security-row">
-
-                    <div class="security-head">
-
-                        <span>
-                            Mobile Security
-                        </span>
-
-                        <span>
-                            EXPLORING
-                        </span>
-
-                    </div>
-
-                    <div class="bar">
-                        <i style="--value:42%"></i>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -4400,226 +3070,329 @@ footer strong {
     class="section"
     id="projects">
 
+<div class="container">
 
-    <div class="container">
+<div class="section-head reveal">
 
+<span class="section-index">
+    04
+</span>
 
-        <div class="section-title reveal">
+<div>
 
-            <span class="section-number">
-                05
-            </span>
+<div class="section-kicker">
+    SELECTED WORK
+</div>
 
-            <div>
+<h2>
+    Projects built to solve problems.
+</h2>
 
-                <small>
-                    SELECTED WORK
-                </small>
+<p>
+    Every serious project will eventually
+    have its own engineering case study.
+</p>
 
-                <h2>
-                    Projects,
-                    <br>
-                    not promises.
-                </h2>
+</div>
 
-            </div>
+</div>
 
-        </div>
 
+<div class="projects-grid">
 
 
-        <div class="projects-grid">
+<!-- PROJECT 01 -->
 
+<article class="project reveal">
 
-            <article class="project reveal">
+<div class="project-visual">
 
+<div class="mini-phone">
 
-                <div class="project-top">
+<div class="mini-screen">
 
-                    <div class="project-placeholder">
-                        01
-                    </div>
+<div
+    class="mini-line accent">
+</div>
 
-                </div>
+<div class="mini-line"></div>
+<div class="mini-line"></div>
+<div class="mini-line" style="width:70%"></div>
 
+</div>
 
-                <div class="project-content">
+</div>
 
+</div>
 
-                    <span class="project-label">
-                        ANDROID / CASE STUDY
-                    </span>
 
+<div class="project-body">
 
-                    <h3>
-                        Project will be added
-                    </h3>
+<div class="project-type">
+    ANDROID APPLICATION
+</div>
 
+<h3>
+    Project One
+</h3>
 
-                    <p>
+<p>
+    A future Android project showcase
+    with architecture, UI, security
+    and engineering details.
+</p>
 
-                        A dedicated space for a real
-                        Android project, its problem,
-                        architecture, engineering decisions
-                        and final result.
 
-                    </p>
+<div class="project-tags">
 
+<span>Kotlin</span>
+<span>Compose</span>
+<span>Firebase</span>
 
-                    <div class="project-meta">
+</div>
 
-                        <span>
-                            Kotlin
-                        </span>
 
-                        <span>
-                            Compose
-                        </span>
+<a
+    href="#case-study"
+    class="project-link">
 
-                        <span>
-                            Architecture
-                        </span>
+    View Case Study →
+    
+</a>
 
-                    </div>
+</div>
 
+</article>
 
-                    <span class="coming">
-                        Coming later
-                    </span>
 
 
-                </div>
+<!-- PROJECT 02 -->
 
-            </article>
+<article class="project reveal">
 
+<div class="project-visual">
 
+<div class="mini-phone">
 
-            <article class="project reveal">
+<div class="mini-screen">
 
+<div
+    class="mini-line accent"
+    style="width:45%">
+</div>
 
-                <div class="project-top">
+<div class="mini-line"></div>
+<div class="mini-line" style="width:80%"></div>
+<div class="mini-line"></div>
 
-                    <div class="project-placeholder">
-                        02
-                    </div>
+</div>
 
-                </div>
+</div>
 
+</div>
 
-                <div class="project-content">
 
+<div class="project-body">
 
-                    <span class="project-label">
-                        SECURITY / RESEARCH
-                    </span>
+<div class="project-type">
+    MOBILE ENGINEERING
+</div>
 
+<h3>
+    Project Two
+</h3>
 
-                    <h3>
-                        Security project
-                    </h3>
+<p>
+    Reserved for a production-ready
+    application and its complete
+    technical breakdown.
+</p>
 
 
-                    <p>
+<div class="project-tags">
 
-                        A future case study covering
-                        security research, testing,
-                        findings and lessons learned.
+<span>Android</span>
+<span>REST API</span>
+<span>Room</span>
 
-                    </p>
+</div>
 
 
-                    <div class="project-meta">
+<a
+    href="#case-study"
+    class="project-link">
 
-                        <span>
-                            Security
-                        </span>
+    View Case Study →
 
-                        <span>
-                            Linux
-                        </span>
+</a>
 
-                        <span>
-                            OWASP
-                        </span>
+</div>
 
-                    </div>
+</article>
 
 
-                    <span class="coming">
-                        Coming later
-                    </span>
 
+<!-- PROJECT 03 -->
 
-                </div>
+<article class="project reveal">
 
-            </article>
+<div class="project-visual">
 
+<div class="mini-phone">
 
+<div class="mini-screen">
 
-            <article class="project reveal">
+<div
+    class="mini-line accent"
+    style="width:72%">
+</div>
 
+<div class="mini-line" style="width:65%"></div>
+<div class="mini-line"></div>
+<div class="mini-line" style="width:50%"></div>
 
-                <div class="project-top">
+</div>
 
-                    <div class="project-placeholder">
-                        03
-                    </div>
+</div>
 
-                </div>
+</div>
 
 
-                <div class="project-content">
+<div class="project-body">
 
+<div class="project-type">
+    SECURITY / ANDROID
+</div>
 
-                    <span class="project-label">
-                        EXPERIMENT
-                    </span>
+<h3>
+    Project Three
+</h3>
 
+<p>
+    Future project focused on secure
+    mobile development and practical
+    experimentation.
+</p>
 
-                    <h3>
-                        More work incoming
-                    </h3>
 
+<div class="project-tags">
 
-                    <p>
+<span>Security</span>
+<span>Kotlin</span>
+<span>Linux</span>
 
-                        The portfolio is designed to grow
-                        with every serious project and
-                        experiment.
+</div>
 
-                    </p>
 
+<a
+    href="#case-study"
+    class="project-link">
 
-                    <div class="project-meta">
+    View Case Study →
 
-                        <span>
-                            R&D
-                        </span>
+</a>
 
-                        <span>
-                            Code
-                        </span>
+</div>
 
-                        <span>
-                            Learning
-                        </span>
+</article>
 
-                    </div>
+</div>
 
 
-                    <span class="coming">
-                        Coming later
-                    </span>
 
+<!-- CASE STUDY -->
 
-                </div>
+<div
+    class="case-study reveal"
+    id="case-study">
 
-            </article>
+<div class="case-top">
 
+<div>
 
-        </div>
+<div class="section-kicker">
+    PROJECT CASE STUDY
+</div>
 
-    </div>
+<h3>
+    Case studies coming soon.
+</h3>
+
+<p>
+    Each project will document the problem,
+    solution, architecture, security decisions
+    and final result.
+</p>
+
+</div>
+
+
+<div class="case-status">
+    COMING SOON
+</div>
+
+</div>
+
+
+<div class="case-grid">
+
+
+<div class="case-item">
+
+<small>
+    01 / PROBLEM
+</small>
+
+<p>
+    What problem did the project solve?
+</p>
+
+</div>
+
+
+<div class="case-item">
+
+<small>
+    02 / SOLUTION
+</small>
+
+<p>
+    How was the solution designed?
+</p>
+
+</div>
+
+
+<div class="case-item">
+
+<small>
+    03 / ENGINEERING
+</small>
+
+<p>
+    Architecture, technologies and decisions.
+</p>
+
+</div>
+
+
+<div class="case-item">
+
+<small>
+    04 / SECURITY
+</small>
+
+<p>
+    Security considerations and testing.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
@@ -4633,303 +3406,259 @@ footer strong {
     class="section"
     id="lab">
 
+<div class="container">
 
-    <div class="container">
+<div class="section-head reveal">
 
+<span class="section-index">
+    05
+</span>
 
-        <div class="section-title reveal">
+<div>
 
-            <span class="section-number">
-                06
-            </span>
+<div class="section-kicker">
+    THE LAB
+</div>
 
-            <div>
+<h2>
+    Where experiments become knowledge.
+</h2>
 
-                <small>
-                    THE LAB
-                </small>
+<p>
+    A space for small experiments,
+    technical exploration and future
+    security research.
+</p>
 
-                <h2>
-                    Where ideas
-                    become experiments.
-                </h2>
+</div>
 
-            </div>
-
-        </div>
-
-
-
-        <div class="lab-grid">
-
-
-            <article class="lab-card reveal">
-
-                <div class="lab-icon">
-                    A
-                </div>
-
-                <h3>
-                    Android Lab
-                </h3>
-
-                <p>
-                    Small experiments around
-                    interfaces, architecture and performance.
-                </p>
+</div>
 
 
-                <ul class="lab-list">
-
-                    <li>
-                        UI Experiments
-                    </li>
-
-                    <li>
-                        Architecture
-                    </li>
-
-                    <li>
-                        Performance
-                    </li>
-
-                    <li>
-                        Compose Experiments
-                    </li>
-
-                </ul>
-
-            </article>
+<div class="lab-grid">
 
 
+<div class="lab-card reveal">
 
-            <article class="lab-card reveal">
+<div class="lab-number">
+    01 / ANDROID
+</div>
 
-                <div class="lab-icon">
-                    S
-                </div>
+<h3>
+    Android Experiments
+</h3>
 
-                <h3>
-                    Security Lab
-                </h3>
+<p>
+    Small experiments around UI,
+    architecture and performance.
+</p>
 
-                <p>
-                    A future space for legal labs,
-                    writeups and security research.
-                </p>
+<div class="lab-list">
 
+<span>UI Experiments</span>
+<span>Compose</span>
+<span>Architecture</span>
+<span>Performance</span>
 
-                <ul class="lab-list">
+</div>
 
-                    <li>
-                        Security Labs
-                    </li>
-
-                    <li>
-                        CTF Writeups
-                    </li>
-
-                    <li>
-                        Mobile Security
-                    </li>
-
-                    <li>
-                        Research Notes
-                    </li>
-
-                </ul>
-
-            </article>
+</div>
 
 
+<div class="lab-card reveal">
 
-            <article class="lab-card reveal">
+<div class="lab-number">
+    02 / SECURITY
+</div>
 
-                <div class="lab-icon">
-                    C
-                </div>
+<h3>
+    Security Labs
+</h3>
 
-                <h3>
-                    Code Lab
-                </h3>
+<p>
+    Practical learning around security
+    concepts and controlled environments.
+</p>
 
-                <p>
-                    Programming experiments,
-                    algorithms and open-source work.
-                </p>
+<div class="lab-list">
 
+<span>Security Labs</span>
+<span>CTF Writeups</span>
+<span>OWASP</span>
+<span>Mobile Security</span>
 
-                <ul class="lab-list">
+</div>
 
-                    <li>
-                        Algorithms
-                    </li>
-
-                    <li>
-                        Experiments
-                    </li>
-
-                    <li>
-                        Problem Solving
-                    </li>
-
-                    <li>
-                        Open Source
-                    </li>
-
-                </ul>
-
-            </article>
+</div>
 
 
-        </div>
+<div class="lab-card reveal">
 
-    </div>
+<div class="lab-number">
+    03 / CODE
+</div>
+
+<h3>
+    Code Experiments
+</h3>
+
+<p>
+    Algorithms, experiments and small
+    open-source ideas.
+</p>
+
+<div class="lab-list">
+
+<span>Algorithms</span>
+<span>Data Structures</span>
+<span>Experiments</span>
+<span>Open Source</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 
 <!-- =========================================================
-     BEYOND CODE
+     WRITING
 ========================================================= -->
 
 <section
     class="section"
-    id="beyond">
+    id="writing">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<span class="section-index">
+    06
+</span>
+
+<div>
+
+<div class="section-kicker">
+    WRITING
+</div>
+
+<h2>
+    I write to explore ideas.
+</h2>
+
+<p>
+    Articles, thoughts, stories and
+    technical notes will live here.
+</p>
+
+</div>
+
+</div>
 
 
-    <div class="container">
+<div class="beyond-grid">
 
 
-        <div class="section-title reveal">
+<div class="beyond-card reveal">
 
-            <span class="section-number">
-                07
-            </span>
+<div class="beyond-icon">
+    ✍
+</div>
 
-            <div>
+<div>
 
-                <small>
-                    BEYOND CODE
-                </small>
+<small>
+    ARTICLES
+</small>
 
-                <h2>
-                    Technology is what I build.
-                    <br>
-                    Books are what I think with.
-                </h2>
+<h3>
+    Technical Writing
+</h3>
 
-            </div>
+<p>
+    Android, programming, cybersecurity
+    and lessons learned.
+</p>
 
-        </div>
+</div>
 
+<span class="coming-soon">
+    Coming Soon
+</span>
 
-
-        <div class="beyond-grid">
-
-
-            <div class="beyond-main reveal">
-
-
-                <span class="mono-label">
-                    BOOKS / STORIES / WRITING
-                </span>
+</div>
 
 
-                <h3>
-                    A technical portfolio
-                    with a human side.
-                </h3>
+<div
+    class="beyond-card reveal"
+    id="books">
+
+<div class="beyond-icon">
+    📚
+</div>
+
+<div>
+
+<small>
+    BOOKS
+</small>
+
+<h3>
+    Books & Reading
+</h3>
+
+<p>
+    Books, novels, quotes and ideas
+    that shaped the way I think.
+</p>
+
+</div>
+
+<span class="coming-soon">
+    Coming Soon
+</span>
+
+</div>
 
 
-                <p>
+<div class="beyond-card reveal">
 
-                    Programming is one way I understand
-                    the world. Books, novels and writing
-                    are another.
+<div class="beyond-icon">
+    📖
+</div>
 
-                    <br><br>
+<div>
 
-                    This space will eventually contain
-                    reading lists, favorite books,
-                    articles, thoughts, stories and
-                    creative writing.
+<small>
+    STORIES
+</small>
 
-                </p>
+<h3>
+    Stories & Fiction
+</h3>
 
+<p>
+    A personal space for stories,
+    fiction and future literary work.
+</p>
 
-                <span class="coming">
-                    Content will be added later
-                </span>
+</div>
 
+<span class="coming-soon">
+    Coming Soon
+</span>
 
-            </div>
+</div>
 
+</div>
 
-
-            <div class="beyond-side">
-
-
-                <article class="beyond-card reveal">
-
-                    <small>
-                        BOOKS
-                    </small>
-
-                    <h3>
-                        Reading
-                    </h3>
-
-                    <p>
-                        Books, novels, notes
-                        and future reading lists.
-                    </p>
-
-                </article>
-
-
-                <article class="beyond-card reveal">
-
-                    <small>
-                        WRITING
-                    </small>
-
-                    <h3>
-                        Articles
-                    </h3>
-
-                    <p>
-                        Technical writing,
-                        ideas and personal reflections.
-                    </p>
-
-                </article>
-
-
-                <article class="beyond-card reveal">
-
-                    <small>
-                        STORIES
-                    </small>
-
-                    <h3>
-                        Fiction
-                    </h3>
-
-                    <p>
-                        Stories and creative work
-                        will live here in the future.
-                    </p>
-
-                </article>
-
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -4943,117 +3672,192 @@ footer strong {
     class="section"
     id="journey">
 
+<div class="container">
 
-    <div class="container">
+<div class="section-head reveal">
 
+<span class="section-index">
+    07
+</span>
 
-        <div class="section-title reveal">
+<div>
 
-            <span class="section-number">
-                08
-            </span>
+<div class="section-kicker">
+    THE JOURNEY
+</div>
 
-            <div>
+<h2>
+    Learning. Building. Improving.
+</h2>
 
-                <small>
-                    THE JOURNEY
-                </small>
+<p>
+    A timeline of the path — not a list
+    of achievements, but a record of growth.
+</p>
 
-                <h2>
-                    Learning in public.
-                </h2>
+</div>
 
-            </div>
-
-        </div>
-
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item reveal">
-
-                <span class="timeline-dot"></span>
-
-                <span class="timeline-year">
-                    2026
-                </span>
-
-                <h3>
-                    Android Development
-                </h3>
-
-                <p>
-                    Deepening Android engineering,
-                    architecture and real project work.
-                </p>
-
-            </div>
+</div>
 
 
-            <div class="timeline-item reveal">
-
-                <span class="timeline-dot"></span>
-
-                <span class="timeline-year">
-                    2026
-                </span>
-
-                <h3>
-                    Cybersecurity
-                </h3>
-
-                <p>
-                    Building stronger foundations
-                    in Linux, networking and application security.
-                </p>
-
-            </div>
+<div class="timeline">
 
 
-            <div class="timeline-item reveal">
+<div class="timeline-item reveal">
 
-                <span class="timeline-dot"></span>
+<div class="timeline-dot"></div>
 
-                <span class="timeline-year">
-                    2025 — →
-                </span>
+<div class="timeline-year">
+    2026
+</div>
 
-                <h3>
-                    Programming & Computer Science
-                </h3>
+<h3>
+    Android Development
+</h3>
 
-                <p>
-                    Strengthening fundamentals,
-                    problem solving and software engineering.
-                </p>
+<p>
+    Deepening Android engineering,
+    architecture, security and real-world
+    project development.
+</p>
 
-            </div>
+<div class="timeline-tags">
 
+<span>Android</span>
+<span>Kotlin</span>
+<span>Cybersecurity</span>
+<span>Projects</span>
+<span>Continuous Learning</span>
 
-            <div class="timeline-item reveal">
+</div>
 
-                <span class="timeline-dot"></span>
-
-                <span class="timeline-year">
-                    CONTINUOUS
-                </span>
-
-                <h3>
-                    Build → Learn → Improve
-                </h3>
-
-                <p>
-                    The journey is still being written.
-                </p>
-
-            </div>
+</div>
 
 
-        </div>
+<div class="timeline-item reveal">
 
-    </div>
+<div class="timeline-dot"></div>
+
+<div class="timeline-year">
+    2025
+</div>
+
+<h3>
+    Programming Foundations
+</h3>
+
+<p>
+    Building stronger foundations in
+    programming, problem solving and
+    software development.
+</p>
+
+<div class="timeline-tags">
+
+<span>Programming</span>
+<span>Algorithms</span>
+<span>Data Structures</span>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-year">
+    NEXT
+</div>
+
+<h3>
+    More to build.
+</h3>
+
+<p>
+    Projects, certifications, security
+    labs, writing and open-source work
+    will be added as they become real.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GITHUB
+========================================================= -->
+
+<section
+    class="section">
+
+<div class="container">
+
+<div class="github-box reveal">
+
+<div>
+
+<div class="section-kicker">
+    DEVELOPER ACTIVITY
+</div>
+
+<h3>
+    GitHub — coming to life.
+</h3>
+
+<p>
+    The portfolio is ready for a future
+    GitHub API integration showing repositories,
+    activity, languages and selected work.
+</p>
+
+</div>
+
+
+<div class="github-stats">
+
+<div class="github-stat">
+
+<strong>∞</strong>
+
+<span>
+    LEARNING
+</span>
+
+</div>
+
+<div class="github-stat">
+
+<strong>01</strong>
+
+<span>
+    FOCUS
+</span>
+
+</div>
+
+<div class="github-stat">
+
+<strong>24/7</strong>
+
+<span>
+    BUILD
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
@@ -5066,66 +3870,61 @@ footer strong {
 <section
     class="section">
 
+<div class="container">
 
-    <div class="container">
+<div class="section-head reveal">
 
+<span class="section-index">
+    08
+</span>
 
-        <div class="section-title reveal">
+<div>
 
-            <span class="section-number">
-                09
-            </span>
+<div class="section-kicker">
+    CERTIFICATES & ACHIEVEMENTS
+</div>
 
-            <div>
+<h2>
+    Proof will be added as it is earned.
+</h2>
 
-                <small>
-                    CERTIFICATES & ACHIEVEMENTS
-                </small>
+<p>
+    Certifications, courses, competitions,
+    awards and achievements will appear here.
+</p>
 
-                <h2>
-                    Proof, when earned.
-                </h2>
+</div>
 
-            </div>
-
-        </div>
-
-
-
-        <div class="cert-box reveal">
-
-
-            <div class="cert-icon">
-                ✦
-            </div>
+</div>
 
 
-            <div>
+<div
+    class="case-study reveal">
 
-                <h3>
-                    Certificates & Achievements
-                </h3>
+<div class="case-top">
 
-                <p>
+<div>
 
-                    Courses, certifications,
-                    competitions, awards and
-                    meaningful milestones will
-                    be added here.
+<h3>
+    Certificates & Achievements
+</h3>
 
-                </p>
+<p>
+    This section is intentionally prepared
+    for verified achievements.
+</p>
 
-            </div>
+</div>
 
+<div class="case-status">
+    COMING SOON
+</div>
 
-            <span class="cert-status">
-                COMING LATER
-            </span>
+</div>
 
+</div>
 
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -5139,154 +3938,140 @@ footer strong {
     class="section"
     id="contact">
 
+<div class="container">
 
-    <div class="container">
-
-
-        <div class="contact-box reveal">
+<div class="contact-box reveal">
 
 
-            <div>
+<div>
+
+<div class="section-kicker">
+    CONTACT ME
+</div>
+
+<h2>
+    Let's build
+    <br>
+    <span>something real.</span>
+</h2>
+
+<p>
+    For collaboration, projects,
+    ideas or simply saying hello,
+    you can reach me through any
+    of the channels below.
+</p>
+
+</div>
 
 
-                <span class="mono-label">
-                    CONTACT ME
-                </span>
+<div class="contact-links">
 
 
-                <h2>
+<a
+    class="contact-link"
+    href="https://wa.me/201027595528"
+    target="_blank"
+    rel="noopener">
 
-                    Let's
-                    <br>
+<span>
+    WhatsApp
+</span>
 
-                    <span>
-                        build something.
-                    </span>
+<span>
+    01027595528 ↗
+</span>
 
-                </h2>
-
-
-                <p>
-
-                    For collaboration,
-                    ideas, projects or simply
-                    starting a conversation.
-
-                </p>
+</a>
 
 
-            </div>
+<a
+    class="contact-link"
+    href="https://t.me/C_O_N_2"
+    target="_blank"
+    rel="noopener">
+
+<span>
+    Telegram
+</span>
+
+<span>
+    @C_O_N_2 ↗
+</span>
+
+</a>
 
 
+<a
+    class="contact-link"
+    href="https://instagram.com/mhbdllh4861"
+    target="_blank"
+    rel="noopener">
 
-            <div class="contact-links">
+<span>
+    Instagram
+</span>
 
+<span>
+    @mhbdllh4861 ↗
+</span>
 
-                <a
-                    class="contact-link"
-                    href="https://wa.me/201027595528"
-                    target="_blank"
-                    rel="noopener">
-
-                    <span>
-                        WhatsApp
-                    </span>
-
-                    <span>
-                        01027595528 ↗
-                    </span>
-
-                </a>
+</a>
 
 
-                <a
-                    class="contact-link"
-                    href="https://t.me/C_O_N_2"
-                    target="_blank"
-                    rel="noopener">
+<a
+    class="contact-link"
+    href="https://www.linkedin.com/in/mohammed-con"
+    target="_blank"
+    rel="noopener">
 
-                    <span>
-                        Telegram
-                    </span>
+<span>
+    LinkedIn
+</span>
 
-                    <span>
-                        @C_O_N_2 ↗
-                    </span>
+<span>
+    Mohammed Con ↗
+</span>
 
-                </a>
-
-
-                <a
-                    class="contact-link"
-                    href="https://www.instagram.com/mhbdllh4861/"
-                    target="_blank"
-                    rel="noopener">
-
-                    <span>
-                        Instagram
-                    </span>
-
-                    <span>
-                        @mhbdllh4861 ↗
-                    </span>
-
-                </a>
+</a>
 
 
-                <a
-                    class="contact-link"
-                    href="https://www.linkedin.com/in/mohammed-con"
-                    target="_blank"
-                    rel="noopener">
+<a
+    class="contact-link"
+    href="https://www.facebook.com/share/1DsBQE5YmH/"
+    target="_blank"
+    rel="noopener">
 
-                    <span>
-                        LinkedIn
-                    </span>
+<span>
+    Facebook
+</span>
 
-                    <span>
-                        Mohammed Con ↗
-                    </span>
+<span>
+    Profile ↗
+</span>
 
-                </a>
-
-
-                <a
-                    class="contact-link"
-                    href="https://www.facebook.com/share/1DsBQE5YmH/"
-                    target="_blank"
-                    rel="noopener">
-
-                    <span>
-                        Facebook
-                    </span>
-
-                    <span>
-                        Profile ↗
-                    </span>
-
-                </a>
+</a>
 
 
-                <a
-                    class="contact-link"
-                    href="mailto:cconker63@gmail.com">
+<a
+    class="contact-link"
+    href="mailto:cconker63@gmail.com">
 
-                    <span>
-                        Email
-                    </span>
+<span>
+    Email
+</span>
 
-                    <span>
-                        cconker63@gmail.com ↗
-                    </span>
+<span>
+    cconker63@gmail.com ↗
+</span>
 
-                </a>
+</a>
 
+</div>
 
-            </div>
+</div>
 
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -5301,42 +4086,26 @@ footer strong {
 
 <footer>
 
-    <div class="container footer-inner">
+<div class="container footer-inner">
 
-        <span>
+<span>
+    © <span id="year"></span>
+    Mohammed Abdullah
+</span>
 
-            ©
-            <span id="year"></span>
+<span>
+    Android · Security · Code ·
+    <strong>Curiosity</strong>
+</span>
 
-            Mohammed Abdullah
-
-        </span>
-
-
-        <span>
-
-            Built with
-
-            <strong>
-                &lt;/&gt;
-            </strong>
-
-            & passion.
-
-        </span>
-
-    </div>
+</div>
 
 </footer>
 
 
 
-<!-- =========================================================
-     TOP
-========================================================= -->
-
 <button
-    class="top-button"
+    class="top"
     id="topButton"
     aria-label="Back to top">
 
@@ -5349,74 +4118,7 @@ footer strong {
 <script>
 
 /* =========================================================
-   THEME
-========================================================= */
-
-const themeBtn =
-    document.getElementById("themeBtn");
-
-const savedTheme =
-    localStorage.getItem("theme");
-
-
-if (savedTheme === "light") {
-
-    document.documentElement
-        .setAttribute(
-            "data-theme",
-            "light"
-        );
-
-    themeBtn.textContent = "☀";
-
-}
-
-
-themeBtn.addEventListener(
-    "click",
-    () => {
-
-        const isLight =
-            document.documentElement
-                .getAttribute("data-theme")
-            === "light";
-
-
-        if (isLight) {
-
-            document.documentElement
-                .removeAttribute("data-theme");
-
-            themeBtn.textContent = "☾";
-
-            localStorage.setItem(
-                "theme",
-                "dark"
-            );
-
-        } else {
-
-            document.documentElement
-                .setAttribute(
-                    "data-theme",
-                    "light"
-                );
-
-            themeBtn.textContent = "☀";
-
-            localStorage.setItem(
-                "theme",
-                "light"
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   MOBILE MENU
+   NAVIGATION
 ========================================================= */
 
 const menu =
@@ -5424,7 +4126,6 @@ const menu =
 
 const navLinks =
     document.getElementById("navLinks");
-
 
 menu.addEventListener(
     "click",
@@ -5439,21 +4140,21 @@ menu.addEventListener(
 
 
 navLinks
-    .querySelectorAll("a")
-    .forEach(link => {
+.querySelectorAll("a")
+.forEach(link => {
 
-        link.addEventListener(
-            "click",
-            () => {
+    link.addEventListener(
+        "click",
+        () => {
 
-                navLinks.classList.remove(
-                    "open"
-                );
+            navLinks.classList.remove(
+                "open"
+            );
 
-            }
-        );
+        }
+    );
 
-    });
+});
 
 
 /* =========================================================
@@ -5461,8 +4162,7 @@ navLinks
 ========================================================= */
 
 const header =
-    document.querySelector(".header");
-
+    document.getElementById("header");
 
 window.addEventListener(
     "scroll",
@@ -5486,7 +4186,6 @@ const topButton =
         "topButton"
     );
 
-
 window.addEventListener(
     "scroll",
     () => {
@@ -5499,17 +4198,13 @@ window.addEventListener(
     }
 );
 
-
 topButton.addEventListener(
     "click",
     () => {
 
         window.scrollTo({
-
             top: 0,
-
             behavior: "smooth"
-
         });
 
     }
@@ -5517,44 +4212,34 @@ topButton.addEventListener(
 
 
 /* =========================================================
-   TYPING
+   TYPING EFFECT
 ========================================================= */
 
-const typed =
+const typedRole =
     document.getElementById(
-        "typed"
+        "typedRole"
     );
 
-
 const roles = [
-
-    "Android Developer",
-
     "Programmer",
-
     "Cybersecurity Enthusiast",
-
+    "Android Engineer",
     "Writer & Reader"
-
 ];
 
-
 let roleIndex = 0;
-
 let charIndex = 0;
-
 let deleting = false;
 
 
-function typeEffect() {
+function typeRole() {
 
     const current =
         roles[roleIndex];
 
-
     if (!deleting) {
 
-        typed.textContent =
+        typedRole.textContent =
             current.substring(
                 0,
                 charIndex + 1
@@ -5562,17 +4247,16 @@ function typeEffect() {
 
         charIndex++;
 
-
         if (
-            charIndex ===
+            charIndex >=
             current.length
         ) {
 
             deleting = true;
 
             setTimeout(
-                typeEffect,
-                1300
+                typeRole,
+                1200
             );
 
             return;
@@ -5581,7 +4265,7 @@ function typeEffect() {
 
     } else {
 
-        typed.textContent =
+        typedRole.textContent =
             current.substring(
                 0,
                 charIndex - 1
@@ -5589,34 +4273,28 @@ function typeEffect() {
 
         charIndex--;
 
-
-        if (
-            charIndex === 0
-        ) {
+        if (charIndex <= 0) {
 
             deleting = false;
 
             roleIndex =
                 (
                     roleIndex + 1
-                )
-                %
+                ) %
                 roles.length;
 
         }
 
     }
 
-
     setTimeout(
-        typeEffect,
-        deleting ? 45 : 80
+        typeRole,
+        deleting ? 45 : 75
     );
 
 }
 
-
-typeEffect();
+typeRole();
 
 
 /* =========================================================
@@ -5629,9 +4307,8 @@ const revealElements =
     );
 
 
-const observer =
+const revealObserver =
     new IntersectionObserver(
-
         entries => {
 
             entries.forEach(
@@ -5641,11 +4318,13 @@ const observer =
                         entry.isIntersecting
                     ) {
 
-                        entry.target
-                            .classList
-                            .add(
-                                "visible"
-                            );
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
 
                     }
 
@@ -5653,19 +4332,16 @@ const observer =
             );
 
         },
-
         {
-            threshold:
-                .10
+            threshold: .1
         }
-
     );
 
 
 revealElements.forEach(
     element => {
 
-        observer.observe(
+        revealObserver.observe(
             element
         );
 
@@ -5674,100 +4350,378 @@ revealElements.forEach(
 
 
 /* =========================================================
-   LANGUAGE
+   THEME
 ========================================================= */
 
-const langBtn =
+const themeBtn =
     document.getElementById(
-        "langBtn"
+        "themeBtn"
+    );
+
+const themeIcon =
+    document.getElementById(
+        "themeIcon"
+    );
+
+const themeText =
+    document.getElementById(
+        "themeText"
     );
 
 
-const languages = [
-    "EN",
-    "AR",
-    "JP"
-];
+function updateThemeButton() {
 
-
-let currentLanguage =
-    localStorage.getItem(
-        "language"
-    ) || "EN";
-
-
-function setLanguage(language) {
-
-    currentLanguage =
-        language;
-
-    langBtn.textContent =
-        language;
-
-    localStorage.setItem(
-        "language",
-        language
-    );
-
-
-    /*
-       The full multilingual
-       content system is intentionally
-       kept ready here.
-
-       EN = English
-       AR = Arabic
-       JP = Japanese
-
-       Add translated data later
-       without changing the layout.
-    */
-
-    document.documentElement
-        .setAttribute(
-            "lang",
-            language === "AR"
-                ? "ar"
-                : language === "JP"
-                    ? "ja"
-                    : "en"
+    const isLight =
+        document.body.classList.contains(
+            "light"
         );
 
+    themeIcon.textContent =
+        isLight ? "☾" : "☼";
 
-    document.documentElement
-        .setAttribute(
-            "dir",
-            language === "AR"
-                ? "rtl"
-                : "ltr"
-        );
+    themeText.textContent =
+        isLight ? "Light" : "Dark";
 
 }
 
 
-langBtn.addEventListener(
+themeBtn.addEventListener(
     "click",
     () => {
 
-        const index =
-            languages.indexOf(
-                currentLanguage
-            );
+        document.body.classList.toggle(
+            "light"
+        );
 
-        const next =
-            languages[
-                (index + 1)
-                %
-                languages.length
-            ];
+        const mode =
+            document.body.classList.contains(
+                "light"
+            )
+            ? "light"
+            : "dark";
 
-        setLanguage(next);
+        localStorage.setItem(
+            "portfolio-theme",
+            mode
+        );
+
+        updateThemeButton();
 
     }
 );
 
 
-setLanguage(
+const savedTheme =
+    localStorage.getItem(
+        "portfolio-theme"
+    );
+
+
+if (savedTheme === "light") {
+
+    document.body.classList.add(
+        "light"
+    );
+
+}
+
+updateThemeButton();
+
+
+/* =========================================================
+   LANGUAGE SYSTEM
+========================================================= */
+
+const translations = {
+
+en: {
+
+    navHome: "Home",
+    navAbout: "About",
+    navAndroid: "Android",
+    navSecurity: "Security",
+    navProjects: "Projects",
+    navLab: "Lab",
+    navWriting: "Writing",
+    navBooks: "Books",
+    navJourney: "Journey",
+    navContact: "Contact",
+
+    available:
+        "AVAILABLE FOR COLLABORATION",
+
+    heroDescription:
+        "I build mobile experiences that are fast, reliable and secure — combining Android engineering, programming and a security-first mindset.",
+
+    viewProjects:
+        "View Selected Work ↗",
+
+    exploreJourney:
+        "Explore My Journey",
+
+    contactMe:
+        "Contact Me",
+
+    aboutKicker:
+        "ABOUT ME",
+
+    aboutTitle:
+        "The person behind the code.",
+
+    aboutLead:
+        "I'm Mohammed Abdullah, a Computer Science student and Android Developer focused on building useful software.",
+
+    aboutP1:
+        "I enjoy turning ideas into real applications, exploring Android engineering and continuously improving my programming foundation.",
+
+    aboutP2:
+        "Cybersecurity is another major area of interest. I like understanding how systems work, how applications can fail and how they can be built more securely.",
+
+    aboutP3:
+        "Outside technology, books, stories and writing give me another way to explore ideas and understand different perspectives.",
+
+    factAge:
+        "Age",
+
+    factEducation:
+        "Computer Science",
+
+    factFocus:
+        "Primary Focus",
+
+    factLearning:
+        "Continuous Learning"
+
+},
+
+ar: {
+
+    navHome: "الرئيسية",
+    navAbout: "من أنا",
+    navAndroid: "أندرويد",
+    navSecurity: "الأمن السيبراني",
+    navProjects: "المشاريع",
+    navLab: "المعمل",
+    navWriting: "الكتابة",
+    navBooks: "الكتب",
+    navJourney: "رحلتي",
+    navContact: "تواصل",
+
+    available:
+        "متاح للتعاون والتواصل",
+
+    heroDescription:
+        "أبني تجارب موبايل سريعة وموثوقة وآمنة، مع التركيز على تطوير Android والبرمجة والتفكير الأمني.",
+
+    viewProjects:
+        "استكشف أعمالي ↗",
+
+    exploreJourney:
+        "استكشف رحلتي",
+
+    contactMe:
+        "تواصل معي",
+
+    aboutKicker:
+        "من أنا",
+
+    aboutTitle:
+        "الشخص الذي يقف خلف الكود.",
+
+    aboutLead:
+        "أنا محمد عبدالله، طالب حاسبات ومعلومات ومطور Android أركز على بناء برمجيات مفيدة وحقيقية.",
+
+    aboutP1:
+        "أحب تحويل الأفكار إلى تطبيقات حقيقية، والتعمق في تطوير Android وتطوير أساس قوي في البرمجة.",
+
+    aboutP2:
+        "الأمن السيبراني من المجالات التي أهتم بها أيضًا. أحب فهم الأنظمة وكيف يمكن أن تفشل وكيف يمكن بناؤها بصورة أكثر أمانًا.",
+
+    aboutP3:
+        "وبعيدًا عن التقنية، تمنحني الكتب والروايات والكتابة مساحة أخرى لاكتشاف الأفكار وفهم وجهات النظر المختلفة.",
+
+    factAge:
+        "العمر",
+
+    factEducation:
+        "حاسبات ومعلومات",
+
+    factFocus:
+        "المجال الأساسي",
+
+    factLearning:
+        "تعلم مستمر"
+
+},
+
+ja: {
+
+    navHome: "ホーム",
+    navAbout: "プロフィール",
+    navAndroid: "Android",
+    navSecurity: "セキュリティ",
+    navProjects: "プロジェクト",
+    navLab: "ラボ",
+    navWriting: "ライティング",
+    navBooks: "本",
+    navJourney: "ジャーニー",
+    navContact: "お問い合わせ",
+
+    available:
+        "COLLABORATION AVAILABLE",
+
+    heroDescription:
+        "高速で信頼性が高く、安全なモバイル体験を構築しています。Android開発、プログラミング、セキュリティを組み合わせています。",
+
+    viewProjects:
+        "作品を見る ↗",
+
+    exploreJourney:
+        "Journeyを見る",
+
+    contactMe:
+        "お問い合わせ",
+
+    aboutKicker:
+        "ABOUT ME",
+
+    aboutTitle:
+        "コードの裏側にいる人。",
+
+    aboutLead:
+        "私はMohammed Abdullahです。コンピュータサイエンスを学びながら、Android開発に取り組んでいます。",
+
+    aboutP1:
+        "アイデアを実際のアプリケーションへ変え、Android開発とプログラミングの基礎を継続的に深めています。",
+
+    aboutP2:
+        "サイバーセキュリティにも強い関心があります。システムの仕組み、脆弱性、そして安全なアプリケーション設計を学んでいます。",
+
+    aboutP3:
+        "テクノロジー以外では、本や物語、文章を書くことを通して新しい考え方や視点を探求しています。",
+
+    factAge:
+        "年齢",
+
+    factEducation:
+        "コンピュータサイエンス",
+
+    factFocus:
+        "メイン分野",
+
+    factLearning:
+        "継続的な学習"
+
+}
+
+};
+
+
+const languageBtn =
+    document.getElementById(
+        "languageBtn"
+    );
+
+const languageText =
+    document.getElementById(
+        "languageText"
+    );
+
+
+const languageOrder = [
+    "en",
+    "ar",
+    "ja"
+];
+
+let currentLanguage =
+    localStorage.getItem(
+        "portfolio-language"
+    ) || "en";
+
+
+function applyLanguage(
+    language
+) {
+
+    const dictionary =
+        translations[language];
+
+    document
+    .querySelectorAll(
+        "[data-i18n]"
+    )
+    .forEach(element => {
+
+        const key =
+            element.dataset.i18n;
+
+        if (
+            dictionary[key]
+        ) {
+
+            element.textContent =
+                dictionary[key];
+
+        }
+
+    });
+
+
+    document.documentElement
+        .lang =
+        language;
+
+
+    document.body.dir =
+        language === "ar"
+        ? "rtl"
+        : "ltr";
+
+
+    const labels = {
+        en: "EN",
+        ar: "AR",
+        ja: "JP"
+    };
+
+
+    languageText.textContent =
+        labels[language];
+
+
+    localStorage.setItem(
+        "portfolio-language",
+        language
+    );
+
+}
+
+
+languageBtn.addEventListener(
+    "click",
+    () => {
+
+        const index =
+            languageOrder.indexOf(
+                currentLanguage
+            );
+
+        currentLanguage =
+            languageOrder[
+                (index + 1) %
+                languageOrder.length
+            ];
+
+        applyLanguage(
+            currentLanguage
+        );
+
+    }
+);
+
+
+applyLanguage(
     currentLanguage
 );
 
@@ -5781,10 +4735,7 @@ document.getElementById(
 ).textContent =
     new Date().getFullYear();
 
-
 </script>
 
-
 </body>
-
-  </html>
+    </html>
