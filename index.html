@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <title>محمد عبدالله إبراهيم | Android Developer</title>
+  <title>Mohamed Abdullah Ibrahim | Android Developer</title>
 
-  <meta name="description"
-        content="محمد عبدالله إبراهيم - Android Developer من القاهرة، مصر، مهتم بتطوير تطبيقات Android وCybersecurity.">
+  <meta
+    name="description"
+    content="Mohamed Abdullah Ibrahim — Android Developer and Cybersecurity Enthusiast from Cairo, Egypt."
+  >
 
-  <meta name="author" content="Mohamed Abdullah Ibrahim">
-  <meta name="theme-color" content="#080b14">
+  <meta name="theme-color" content="#070912">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   >
 
@@ -28,23 +29,24 @@
   <style>
 
     /* =========================================================
-       VARIABLES
+       ROOT
     ========================================================= */
 
     :root {
-      --bg: #060810;
-      --bg2: #0a0e18;
-      --surface: rgba(16, 21, 34, .72);
-      --surface2: rgba(255,255,255,.045);
+      --bg: #060811;
+      --bg-soft: #0a0e18;
 
-      --text: #f8faff;
-      --muted: #9ba6bb;
+      --card: rgba(15, 20, 34, .72);
+      --card-2: rgba(255,255,255,.045);
+
+      --text: #f7f9ff;
+      --muted: #98a4b8;
 
       --border: rgba(255,255,255,.09);
 
       --blue: #5b8cff;
-      --cyan: #25d9ff;
-      --purple: #a16cff;
+      --cyan: #24d9ff;
+      --purple: #a46cff;
       --green: #43df86;
       --pink: #ff5f9e;
       --orange: #ffad5a;
@@ -53,36 +55,15 @@
 
       --gradient:
         linear-gradient(
-          115deg,
+          120deg,
           #5b8cff,
-          #a16cff 45%,
-          #25d9ff
+          #a46cff 48%,
+          #24d9ff
         );
 
-      --shadow:
-        0 30px 100px rgba(0,0,0,.40);
-
-      --nav:
-        rgba(6,8,16,.72);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
 
-    body.light {
-      --bg: #f5f7fc;
-      --bg2: #ffffff;
-      --surface: rgba(255,255,255,.78);
-      --surface2: rgba(15,23,42,.04);
-
-      --text: #101828;
-      --muted: #667085;
-
-      --border: rgba(15,23,42,.10);
-
-      --nav:
-        rgba(255,255,255,.76);
-
-      --shadow:
-        0 30px 90px rgba(31,41,55,.13);
-    }
 
     /* =========================================================
        RESET
@@ -99,26 +80,44 @@
     }
 
     body {
-      font-family: Cairo, Inter, sans-serif;
+      min-height: 100vh;
+
+      font-family: Inter, sans-serif;
+
+      color: var(--text);
+
       background:
         radial-gradient(
-          circle at 10% 10%,
-          rgba(91,140,255,.13),
+          circle at 10% 5%,
+          rgba(91,140,255,.12),
           transparent 28%
         ),
         radial-gradient(
-          circle at 90% 15%,
-          rgba(161,108,255,.12),
-          transparent 28%
+          circle at 90% 20%,
+          rgba(164,108,255,.10),
+          transparent 30%
         ),
         var(--bg);
 
-      color: var(--text);
       overflow-x: hidden;
-      transition: .4s;
+
+      -webkit-tap-highlight-color: transparent;
     }
 
-    body::selection {
+    body.light {
+      --bg: #f5f7fb;
+      --bg-soft: #ffffff;
+
+      --card: rgba(255,255,255,.78);
+      --card-2: rgba(15,23,42,.045);
+
+      --text: #101828;
+      --muted: #667085;
+
+      --border: rgba(15,23,42,.10);
+    }
+
+    ::selection {
       background: var(--blue);
       color: white;
     }
@@ -129,24 +128,113 @@
     }
 
     button {
-      font-family: inherit;
+      font: inherit;
     }
 
+
     /* =========================================================
-       CURSOR GLOW
+       BOOT SCREEN
     ========================================================= */
 
-    .cursor-glow {
+    #boot {
       position: fixed;
-      width: 280px;
-      height: 280px;
+
+      inset: 0;
+
+      z-index: 99999;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background: #05060a;
+
+      transition:
+        opacity .7s ease,
+        visibility .7s ease;
+    }
+
+    #boot.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .boot-box {
+      width: min(90%, 470px);
+
+      font-family: monospace;
+
+      color: #7fffb0;
+
+      font-size: 12px;
+
+      line-height: 1.9;
+    }
+
+    .boot-title {
+      font-size: 18px;
+
+      color: white;
+
+      margin-bottom: 18px;
+    }
+
+    .boot-line {
+      opacity: 0;
+
+      animation:
+        bootLine .25s forwards;
+    }
+
+    .boot-line:nth-child(2) { animation-delay: .15s; }
+    .boot-line:nth-child(3) { animation-delay: .3s; }
+    .boot-line:nth-child(4) { animation-delay: .45s; }
+    .boot-line:nth-child(5) { animation-delay: .6s; }
+    .boot-line:nth-child(6) { animation-delay: .75s; }
+
+    @keyframes bootLine {
+      to {
+        opacity: 1;
+      }
+    }
+
+
+    /* =========================================================
+       PROGRESS
+    ========================================================= */
+
+    #progress {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 0;
+      height: 3px;
+
+      background: var(--gradient);
+
+      z-index: 9998;
+    }
+
+
+    /* =========================================================
+       CURSOR
+    ========================================================= */
+
+    .cursor {
+      position: fixed;
+
+      width: 220px;
+      height: 220px;
 
       border-radius: 50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(91,140,255,.10),
+          rgba(91,140,255,.09),
           transparent 70%
         );
 
@@ -156,227 +244,187 @@
       pointer-events: none;
 
       z-index: 0;
-      transition: opacity .3s;
     }
 
-    /* =========================================================
-       PROGRESS
-    ========================================================= */
-
-    #progress {
-      position: fixed;
-      top: 0;
-      right: 0;
-
-      width: 0%;
-      height: 3px;
-
-      background: var(--gradient);
-
-      z-index: 9999;
-    }
 
     /* =========================================================
        CONTAINER
     ========================================================= */
 
     .container {
-      width: min(1180px, 92%);
+      width: min(1160px, 92%);
+
       margin: auto;
+
       position: relative;
+
       z-index: 2;
     }
 
     section {
-      padding: 120px 0;
-      position: relative;
+      padding: 95px 0;
     }
+
 
     /* =========================================================
        NAVBAR
     ========================================================= */
 
-    .navbar {
+    .nav {
       position: fixed;
 
-      top: 18px;
+      top: 12px;
       left: 50%;
+
       transform: translateX(-50%);
 
-      width: min(1150px, 92%);
+      width: min(1120px, 94%);
 
-      background: var(--nav);
+      z-index: 5000;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
+
+      border-radius: 20px;
+
+      background:
+        rgba(7,9,18,.72);
 
       backdrop-filter: blur(22px);
       -webkit-backdrop-filter: blur(22px);
 
-      border-radius: 22px;
+      box-shadow:
+        0 20px 70px rgba(0,0,0,.22);
+    }
 
-      z-index: 1000;
-
-      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+    body.light .nav {
+      background:
+        rgba(255,255,255,.75);
     }
 
     .nav-inner {
-      min-height: 68px;
-
-      padding: 8px 12px;
+      min-height: 64px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
-      gap: 15px;
+      padding: 7px 8px;
     }
 
-    .brand {
+    .logo {
       display: flex;
+
       align-items: center;
-      gap: 11px;
+
+      gap: 10px;
+
+      font-size: 13px;
 
       font-weight: 900;
+
       white-space: nowrap;
     }
 
-    .brand-icon {
-      width: 44px;
-      height: 44px;
+    .logo-box {
+      width: 42px;
+      height: 42px;
 
       display: grid;
+
       place-items: center;
 
-      border-radius: 15px;
+      border-radius: 14px;
 
       color: white;
 
       background: var(--gradient);
 
       box-shadow:
-        0 12px 35px rgba(91,140,255,.25);
-
-      transition: .35s;
-    }
-
-    .brand:hover .brand-icon {
-      transform:
-        rotate(-7deg)
-        scale(1.08);
-
-      box-shadow:
-        0 15px 45px rgba(161,108,255,.35);
+        0 10px 35px rgba(91,140,255,.25);
     }
 
     .nav-links {
       display: flex;
+
       align-items: center;
-      gap: 25px;
+
+      gap: 24px;
     }
 
     .nav-links a {
-      position: relative;
-
       color: var(--muted);
 
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 12px;
 
-      padding: 10px 0;
+      font-weight: 700;
 
-      transition: .3s;
-    }
-
-    .nav-links a::before {
-      content: "";
-
-      position: absolute;
-
-      bottom: 0;
-      right: 0;
-
-      width: 0;
-      height: 2px;
-
-      border-radius: 10px;
-
-      background: var(--gradient);
-
-      transition: .35s;
+      transition: .25s;
     }
 
     .nav-links a:hover {
       color: var(--text);
     }
 
-    .nav-links a:hover::before {
-      width: 100%;
-    }
-
     .nav-actions {
       display: flex;
+
       align-items: center;
-      gap: 7px;
+
+      gap: 6px;
     }
 
-    .nav-btn {
-      width: 41px;
-      height: 41px;
-
-      border: 1px solid var(--border);
+    .icon-btn {
+      width: 40px;
+      height: 40px;
 
       border-radius: 13px;
 
-      background: var(--surface2);
+      display: grid;
+
+      place-items: center;
+
+      border: 1px solid var(--border);
+
+      background: var(--card-2);
 
       color: var(--text);
 
-      display: grid;
-      place-items: center;
-
       cursor: pointer;
 
-      transition:
-        background .25s,
-        color .25s,
-        border .25s,
-        transform .2s;
+      transition: .25s;
     }
 
-    .nav-btn:hover {
+    .icon-btn:hover,
+    .icon-btn:active {
       color: white;
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--blue),
-          var(--purple)
-        );
+      background: var(--gradient);
 
       border-color: transparent;
 
       transform: translateY(-2px);
     }
 
-    .nav-btn:active {
-      transform: scale(.90);
-    }
-
-    .menu {
+    .menu-btn {
       display: none;
     }
+
 
     /* =========================================================
        HERO
     ========================================================= */
 
     .hero {
-      min-height: 100vh;
+      min-height: 100svh;
 
       display: flex;
+
       align-items: center;
 
-      padding-top: 155px;
+      padding-top: 135px;
 
       overflow: hidden;
     }
@@ -384,45 +432,41 @@
     .hero-grid {
       display: grid;
 
-      grid-template-columns: 1.08fr .92fr;
-
-      gap: 70px;
+      grid-template-columns:
+        1.08fr .92fr;
 
       align-items: center;
+
+      gap: 60px;
     }
 
-    [dir="rtl"] .hero-grid {
-      grid-template-columns: .92fr 1.08fr;
-    }
-
-    .hero-content {
-      position: relative;
-    }
-
-    .status {
+    .eyebrow {
       display: inline-flex;
 
       align-items: center;
-      gap: 9px;
 
-      padding: 8px 14px;
+      gap: 8px;
+
+      padding: 8px 12px;
 
       border-radius: 999px;
 
-      border: 1px solid rgba(67,223,134,.18);
-
       background:
-        rgba(67,223,134,.055);
+        rgba(67,223,134,.06);
+
+      border:
+        1px solid rgba(67,223,134,.17);
 
       color: var(--green);
 
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 11px;
 
-      margin-bottom: 25px;
+      font-weight: 800;
+
+      margin-bottom: 22px;
     }
 
-    .status-dot {
+    .pulse {
       width: 7px;
       height: 7px;
 
@@ -431,30 +475,31 @@
       background: var(--green);
 
       box-shadow:
-        0 0 0 6px rgba(67,223,134,.09);
+        0 0 0 6px rgba(67,223,134,.08);
     }
 
     .hero h1 {
-      font-size: clamp(45px, 7vw, 88px);
+      font-size:
+        clamp(45px, 7vw, 84px);
 
-      line-height: 1.06;
+      line-height: 1.03;
+
+      letter-spacing: -4px;
 
       font-weight: 900;
 
-      letter-spacing: -3px;
-
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    .gradient {
+    .gradient-text {
       background: var(--gradient);
+
+      background-size: 200% 200%;
 
       -webkit-background-clip: text;
       background-clip: text;
 
       color: transparent;
-
-      background-size: 200% 200%;
 
       animation:
         gradientMove 5s ease infinite;
@@ -470,28 +515,29 @@
       }
     }
 
-    .role {
-      font-size: clamp(22px, 3vw, 34px);
+    .hero-role {
+      font-size:
+        clamp(21px, 3vw, 32px);
 
       font-weight: 800;
 
-      margin-bottom: 18px;
+      margin-bottom: 17px;
     }
 
-    .role span {
+    .hero-role span {
       color: var(--green);
     }
 
     .hero-description {
-      max-width: 670px;
+      max-width: 650px;
 
       color: var(--muted);
 
-      font-size: 17px;
+      font-size: 15px;
 
-      line-height: 2;
+      line-height: 1.9;
 
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .buttons {
@@ -499,167 +545,138 @@
 
       flex-wrap: wrap;
 
-      gap: 12px;
+      gap: 10px;
     }
 
     .btn {
-      position: relative;
+      min-height: 49px;
 
       display: inline-flex;
 
       align-items: center;
+
       justify-content: center;
 
-      gap: 10px;
+      gap: 9px;
 
-      padding: 14px 21px;
+      padding: 0 18px;
 
       border-radius: 15px;
 
       border: 1px solid var(--border);
 
-      font-size: 13px;
+      font-size: 12px;
+
       font-weight: 800;
 
       cursor: pointer;
 
+      transition: .25s;
+
+      position: relative;
+
       overflow: hidden;
-
-      transition:
-        transform .25s,
-        box-shadow .25s,
-        background .25s;
     }
 
-    .btn::after {
-      content: "";
-
-      position: absolute;
-
-      width: 10px;
-      height: 10px;
-
-      border-radius: 50%;
-
-      background: rgba(255,255,255,.35);
-
-      transform: scale(0);
-
-      opacity: 0;
-    }
-
-    .btn:active::after {
-      animation: ripple .5s ease;
-    }
-
-    @keyframes ripple {
-      to {
-        transform: scale(30);
-        opacity: 0;
-      }
-    }
-
-    .primary {
+    .btn.primary {
       color: white;
 
       background: var(--gradient);
 
-      border: none;
+      border: 0;
 
       box-shadow:
-        0 15px 40px rgba(91,140,255,.22);
+        0 15px 40px rgba(91,140,255,.20);
     }
 
-    .primary:hover {
-      transform: translateY(-4px);
+    .btn.primary:hover,
+    .btn.primary:active {
+      transform: translateY(-3px);
 
       box-shadow:
-        0 22px 55px rgba(91,140,255,.35);
+        0 20px 55px rgba(91,140,255,.34);
     }
 
-    .primary:active {
-      transform: scale(.96);
-    }
-
-    .secondary {
-      background: var(--surface2);
+    .btn.secondary {
+      background: var(--card-2);
 
       color: var(--text);
     }
 
-    .secondary:hover {
-      background:
-        rgba(37,217,255,.09);
-
-      border-color:
-        rgba(37,217,255,.35);
-
+    .btn.secondary:hover,
+    .btn.secondary:active {
       color: var(--cyan);
 
-      transform: translateY(-4px);
-    }
+      border-color:
+        rgba(36,217,255,.35);
 
-    .secondary:active {
-      transform: scale(.96);
-    }
+      background:
+        rgba(36,217,255,.07);
 
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-
-      gap: 9px;
-
-      margin-top: 28px;
+      transform: translateY(-3px);
     }
 
     .meta {
-      display: inline-flex;
+      display: flex;
 
-      align-items: center;
+      flex-wrap: wrap;
+
       gap: 8px;
 
-      padding: 8px 12px;
+      margin-top: 25px;
+    }
 
-      border-radius: 12px;
+    .meta-item {
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      padding: 8px 11px;
+
+      border-radius: 11px;
 
       border: 1px solid var(--border);
 
-      background: var(--surface2);
+      background: var(--card-2);
 
       color: var(--muted);
 
-      font-size: 12px;
+      font-size: 10px;
     }
 
-    .meta i {
+    .meta-item i {
       color: var(--blue);
     }
 
+
     /* =========================================================
-       HERO VISUAL
+       HERO DEVICE
     ========================================================= */
 
-    .hero-art {
+    .visual {
       min-height: 500px;
 
       display: grid;
+
       place-items: center;
 
       position: relative;
     }
 
-    .halo {
+    .orb {
       position: absolute;
 
-      width: 390px;
-      height: 390px;
+      width: 380px;
+      height: 380px;
 
       border-radius: 50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(91,140,255,.17),
+          rgba(91,140,255,.16),
           transparent 65%
         );
 
@@ -667,144 +684,147 @@
     }
 
     .phone {
-      width: 250px;
-      height: 480px;
-
-      border-radius: 38px;
-
       position: relative;
+
+      width: 255px;
+      height: 490px;
+
+      border-radius: 40px;
 
       background:
         linear-gradient(
           145deg,
-          #111827,
-          #070a12
+          #161d2d,
+          #05070c
         );
 
-      border: 1px solid rgba(255,255,255,.16);
+      border:
+        1px solid rgba(255,255,255,.16);
 
       box-shadow:
         0 45px 100px rgba(0,0,0,.55),
-        0 0 70px rgba(91,140,255,.12);
+        0 0 70px rgba(91,140,255,.10);
 
       transform:
         rotate(-6deg)
-        perspective(800px)
+        perspective(900px)
         rotateY(7deg);
 
-      animation: phoneFloat 5s ease-in-out infinite;
+      animation:
+        phoneFloat 5s ease-in-out infinite;
 
       overflow: hidden;
     }
 
     @keyframes phoneFloat {
+
       0%,100% {
         transform:
           translateY(0)
           rotate(-6deg)
-          perspective(800px)
+          perspective(900px)
           rotateY(7deg);
       }
 
       50% {
         transform:
-          translateY(-13px)
+          translateY(-12px)
           rotate(-4deg)
-          perspective(800px)
+          perspective(900px)
           rotateY(7deg);
       }
+
     }
 
-    .phone::before {
-      content: "";
-
+    .notch {
       position: absolute;
 
-      top: 12px;
+      top: 9px;
       left: 50%;
 
-      transform: translateX(-50%);
+      transform:
+        translateX(-50%);
 
-      width: 90px;
-      height: 24px;
+      width: 88px;
+      height: 23px;
 
-      border-radius: 0 0 16px 16px;
+      border-radius:
+        0 0 15px 15px;
 
       background: #020307;
 
       z-index: 3;
     }
 
-    .phone-screen {
+    .screen {
       position: absolute;
 
       inset: 8px;
 
-      border-radius: 31px;
+      border-radius: 33px;
+
+      padding:
+        70px 21px 25px;
 
       overflow: hidden;
 
       background:
         radial-gradient(
-          circle at 20% 20%,
-          rgba(91,140,255,.28),
+          circle at 10% 20%,
+          rgba(91,140,255,.25),
           transparent 35%
         ),
         radial-gradient(
-          circle at 80% 80%,
-          rgba(161,108,255,.23),
-          transparent 35%
+          circle at 90% 80%,
+          rgba(164,108,255,.22),
+          transparent 38%
         ),
-        #080c17;
-
-      padding: 70px 22px 25px;
+        #080c16;
     }
 
-    .screen-logo {
+    .android-logo {
       width: 62px;
       height: 62px;
 
-      border-radius: 20px;
-
       display: grid;
+
       place-items: center;
 
-      color: white;
+      border-radius: 20px;
 
-      font-size: 27px;
+      color: white;
 
       background:
         linear-gradient(
           135deg,
-          var(--green),
-          #26c76f
+          #43df86,
+          #20bf6b
         );
 
       box-shadow:
-        0 15px 35px rgba(67,223,134,.20);
-
-      margin-bottom: 28px;
-    }
-
-    .screen-title {
-      font-size: 23px;
-      font-weight: 900;
-
-      margin-bottom: 8px;
-    }
-
-    .screen-subtitle {
-      color: #94a3b8;
-
-      font-size: 11px;
-
-      line-height: 1.8;
+        0 15px 35px rgba(67,223,134,.22);
 
       margin-bottom: 25px;
     }
 
-    .screen-line {
-      height: 9px;
+    .screen h3 {
+      font-size: 23px;
+
+      margin-bottom: 8px;
+    }
+
+    .screen p {
+      color: #91a0b7;
+
+      font-size: 10px;
+
+      line-height: 1.8;
+
+      margin-bottom: 24px;
+    }
+
+    .code-line {
+      height: 8px;
 
       border-radius: 20px;
 
@@ -815,67 +835,71 @@
           var(--purple)
         );
 
-      margin-bottom: 12px;
+      margin-bottom: 11px;
 
-      opacity: .85;
+      opacity: .82;
     }
 
-    .screen-line.small {
-      width: 55%;
-      opacity: .4;
+    .code-line.short {
+      width: 52%;
+
+      opacity: .38;
     }
 
-    .floating-chip {
+    .float-card {
       position: absolute;
-
-      padding: 12px 14px;
 
       display: flex;
 
       align-items: center;
 
-      gap: 9px;
+      gap: 8px;
 
-      border-radius: 15px;
+      padding: 11px 13px;
 
-      background: rgba(15,20,33,.8);
+      border-radius: 14px;
 
       border: 1px solid var(--border);
 
-      backdrop-filter: blur(15px);
+      background:
+        rgba(12,16,27,.78);
 
-      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
 
-      font-size: 12px;
-      font-weight: 700;
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.35);
+
+      font-size: 10px;
+
+      font-weight: 800;
 
       animation:
         chipFloat 4s ease-in-out infinite;
     }
 
-    .floating-chip i {
-      font-size: 17px;
+    .float-card i {
+      font-size: 15px;
     }
 
-    .chip-one {
-      top: 100px;
-      right: 15px;
+    .android-chip {
+      top: 95px;
+      right: 2px;
 
       color: var(--green);
     }
 
-    .chip-two {
-      bottom: 90px;
+    .security-chip {
+      bottom: 85px;
       left: 0;
 
-      color: var(--purple);
+      color: var(--pink);
 
       animation-delay: 1s;
     }
 
-    .chip-three {
-      top: 270px;
-      right: -25px;
+    .kotlin-chip {
+      top: 275px;
+      right: -18px;
 
       color: var(--cyan);
 
@@ -892,100 +916,115 @@
       }
     }
 
+
     /* =========================================================
-       SECTION TITLES
+       SECTION HEAD
     ========================================================= */
 
     .section-head {
-      max-width: 720px;
-
-      margin: 0 auto 55px;
-
       text-align: center;
+
+      max-width: 700px;
+
+      margin:
+        0 auto 48px;
     }
 
     .kicker {
       color: var(--blue);
 
-      font-size: 12px;
+      font-size: 10px;
 
       font-weight: 900;
 
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
 
-      margin-bottom: 10px;
+      text-transform: uppercase;
+
+      margin-bottom: 9px;
     }
 
     .section-title {
-      font-size: clamp(31px, 4vw, 50px);
+      font-size:
+        clamp(30px, 5vw, 50px);
 
-      line-height: 1.25;
+      letter-spacing: -1.5px;
 
-      font-weight: 900;
+      line-height: 1.15;
 
-      margin-bottom: 13px;
+      margin-bottom: 12px;
     }
 
-    .section-description {
+    .section-text {
       color: var(--muted);
+
+      font-size: 13px;
 
       line-height: 1.9;
     }
 
+
     /* =========================================================
-       ABOUT
+       CARDS
     ========================================================= */
 
-    .about-layout {
-      display: grid;
-
-      grid-template-columns: 1.15fr .85fr;
-
-      gap: 22px;
-    }
-
     .glass {
-      background: var(--surface);
+      background: var(--card);
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       border-radius: var(--radius);
 
       backdrop-filter: blur(18px);
 
-      box-shadow: var(--shadow);
+      box-shadow:
+        0 25px 80px rgba(0,0,0,.18);
 
       transition:
-        transform .35s,
-        border .35s,
-        box-shadow .35s;
+        transform .3s,
+        border .3s,
+        box-shadow .3s;
     }
 
     .glass:hover {
-      transform: translateY(-7px);
+      transform: translateY(-6px);
 
       border-color:
-        rgba(91,140,255,.28);
+        rgba(91,140,255,.25);
 
       box-shadow:
-        0 35px 100px rgba(0,0,0,.32),
-        0 0 40px rgba(91,140,255,.05);
+        0 35px 90px rgba(0,0,0,.28);
     }
 
-    .about-main {
-      padding: 35px;
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.15fr .85fr;
+
+      gap: 18px;
     }
 
-    .about-main p {
+    .about-card {
+      padding: 30px;
+    }
+
+    .about-card p {
       color: var(--muted);
 
-      line-height: 2.15;
+      font-size: 14px;
 
-      font-size: 15px;
+      line-height: 2;
     }
 
-    .info {
-      padding: 25px;
+    .info-card {
+      padding: 20px;
     }
 
     .info-row {
@@ -995,17 +1034,18 @@
 
       gap: 15px;
 
-      padding: 15px;
+      padding: 14px;
 
-      border-radius: 14px;
+      border-radius: 13px;
 
-      background: var(--surface2);
+      background: var(--card-2);
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
-      margin-bottom: 10px;
+      margin-bottom: 8px;
 
-      font-size: 13px;
+      font-size: 11px;
     }
 
     .info-row:last-child {
@@ -1016,106 +1056,88 @@
       color: var(--muted);
     }
 
-    .info-row strong {
-      text-align: left;
+    .available {
+      color: var(--green);
     }
+
 
     /* =========================================================
        SKILLS
     ========================================================= */
 
-    .skills {
+    .skills-grid {
       display: grid;
 
       grid-template-columns:
         repeat(2, 1fr);
 
-      gap: 20px;
+      gap: 15px;
     }
 
-    .skill {
-      --accent: var(--blue);
-
-      padding: 30px;
+    .skill-card {
+      padding: 25px;
 
       position: relative;
 
       overflow: hidden;
 
-      transition: .35s;
+      --accent: var(--blue);
     }
 
-    .skill::after {
+    .skill-card::after {
       content: "";
 
       position: absolute;
 
-      width: 180px;
-      height: 180px;
+      width: 150px;
+      height: 150px;
 
       border-radius: 50%;
 
+      right: -80px;
+      top: -80px;
+
       background: var(--accent);
 
+      filter: blur(60px);
+
       opacity: .08;
-
-      filter: blur(70px);
-
-      top: -90px;
-      right: -80px;
 
       transition: .4s;
     }
 
-    .skill:hover::after {
+    .skill-card:hover::after {
       opacity: .18;
 
       transform: scale(1.3);
     }
 
-    .skill:hover {
-      border-color:
-        color-mix(
-          in srgb,
-          var(--accent) 40%,
-          transparent
-        );
-
-      box-shadow:
-        0 25px 80px rgba(0,0,0,.28),
-        0 0 40px
-        color-mix(
-          in srgb,
-          var(--accent) 10%,
-          transparent
-        );
-    }
-
-    .skill-head {
+    .skill-top {
       display: flex;
 
       align-items: center;
 
-      gap: 14px;
+      gap: 13px;
 
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .skill-icon {
-      width: 58px;
-      height: 58px;
+      width: 53px;
+      height: 53px;
 
       display: grid;
+
       place-items: center;
 
-      border-radius: 18px;
+      border-radius: 16px;
 
       color: var(--accent);
 
       background:
         color-mix(
           in srgb,
-          var(--accent) 10%,
+          var(--accent) 9%,
           transparent
         );
 
@@ -1123,16 +1145,16 @@
         1px solid
         color-mix(
           in srgb,
-          var(--accent) 25%,
+          var(--accent) 20%,
           transparent
         );
 
-      font-size: 22px;
+      font-size: 20px;
 
       transition: .3s;
     }
 
-    .skill:hover .skill-icon {
+    .skill-card:hover .skill-icon {
       color: white;
 
       background: var(--accent);
@@ -1140,24 +1162,18 @@
       transform:
         rotate(-5deg)
         scale(1.06);
-
-      box-shadow:
-        0 12px 35px
-        color-mix(
-          in srgb,
-          var(--accent) 25%,
-          transparent
-        );
     }
 
-    .skill h3 {
-      font-size: 18px;
+    .skill-top h3 {
+      font-size: 15px;
     }
 
-    .skill p {
+    .skill-top p {
       color: var(--muted);
 
-      font-size: 12px;
+      font-size: 9px;
+
+      margin-top: 3px;
     }
 
     .tags {
@@ -1165,28 +1181,28 @@
 
       flex-wrap: wrap;
 
-      gap: 8px;
+      gap: 7px;
     }
 
     .tag {
-      padding: 8px 11px;
+      padding: 7px 9px;
 
-      border-radius: 10px;
+      border-radius: 9px;
+
+      background: var(--card-2);
+
+      border:
+        1px solid var(--border);
 
       color: var(--muted);
 
-      background: var(--surface2);
-
-      border: 1px solid var(--border);
-
-      font-size: 11px;
-
-      cursor: default;
+      font-size: 9px;
 
       transition: .25s;
     }
 
-    .tag:hover {
+    .tag:hover,
+    .tag:active {
       color: white;
 
       background:
@@ -1198,153 +1214,153 @@
 
       border-color: transparent;
 
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
+
 
     /* =========================================================
-       JOURNEY
+       SECURITY LAB
     ========================================================= */
 
-    .timeline {
-      max-width: 850px;
-
-      margin: auto;
-
+    .security-box {
       position: relative;
+
+      overflow: hidden;
+
+      padding: 30px;
+
+      border-radius: 28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,95,158,.07),
+          rgba(91,140,255,.07)
+        );
+
+      border:
+        1px solid var(--border);
     }
 
-    .timeline::before {
+    .security-box::before {
       content: "";
 
       position: absolute;
 
-      top: 0;
-      bottom: 0;
-
-      right: 19px;
-
-      width: 2px;
+      inset: 0;
 
       background:
-        linear-gradient(
-          var(--blue),
-          var(--purple),
-          var(--green)
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 4px,
+          rgba(255,255,255,.012) 5px
         );
+
+      pointer-events: none;
     }
 
-    [dir="ltr"] .timeline::before {
-      left: 19px;
-      right: auto;
-    }
+    .security-head {
+      display: flex;
 
-    .timeline-item {
-      position: relative;
+      align-items: center;
 
-      padding-right: 65px;
+      gap: 14px;
 
       margin-bottom: 25px;
     }
 
-    [dir="ltr"] .timeline-item {
-      padding-right: 0;
-      padding-left: 65px;
-    }
-
-    .timeline-dot {
-      position: absolute;
-
-      top: 22px;
-      right: 4px;
-
-      width: 31px;
-      height: 31px;
+    .security-icon {
+      width: 60px;
+      height: 60px;
 
       display: grid;
+
       place-items: center;
 
-      border-radius: 50%;
+      border-radius: 18px;
 
-      background: var(--bg);
+      color: var(--pink);
 
-      border: 2px solid var(--blue);
+      background:
+        rgba(255,95,158,.08);
 
-      box-shadow:
-        0 0 0 7px rgba(91,140,255,.08);
+      border:
+        1px solid rgba(255,95,158,.18);
+
+      font-size: 23px;
     }
 
-    [dir="ltr"] .timeline-dot {
-      left: 4px;
-      right: auto;
+    .security-head h3 {
+      font-size: 20px;
     }
 
-    .timeline-dot::after {
-      content: "";
-
-      width: 8px;
-      height: 8px;
-
-      border-radius: 50%;
-
-      background: var(--blue);
-    }
-
-    .timeline-card {
-      padding: 25px;
-
-      background: var(--surface);
-
-      border: 1px solid var(--border);
-
-      border-radius: 20px;
-
-      transition: .3s;
-    }
-
-    .timeline-card:hover {
-      transform: translateX(-5px);
-
-      border-color:
-        rgba(161,108,255,.32);
-
-      box-shadow:
-        0 20px 70px rgba(0,0,0,.24);
-    }
-
-    [dir="ltr"] .timeline-card:hover {
-      transform: translateX(5px);
-    }
-
-    .year {
-      color: var(--blue);
-
-      font-size: 11px;
-
-      font-weight: 900;
-
-      margin-bottom: 5px;
-    }
-
-    .timeline-card p {
+    .security-head p {
       color: var(--muted);
 
-      font-size: 13px;
+      font-size: 10px;
 
-      margin-top: 5px;
+      margin-top: 4px;
     }
+
+    .security-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 9px;
+    }
+
+    .security-item {
+      padding: 17px 10px;
+
+      text-align: center;
+
+      border-radius: 15px;
+
+      background: rgba(255,255,255,.035);
+
+      border:
+        1px solid var(--border);
+
+      transition: .25s;
+    }
+
+    .security-item:hover,
+    .security-item:active {
+      background:
+        rgba(255,95,158,.07);
+
+      border-color:
+        rgba(255,95,158,.3);
+
+      transform: translateY(-3px);
+    }
+
+    .security-item i {
+      color: var(--pink);
+
+      font-size: 17px;
+
+      margin-bottom: 8px;
+    }
+
+    .security-item span {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 9px;
+    }
+
 
     /* =========================================================
        PROJECT
     ========================================================= */
 
-    .project {
+    .project-card {
       min-height: 360px;
-
-      border-radius: 30px;
-
-      position: relative;
-
-      overflow: hidden;
 
       display: grid;
 
@@ -1352,45 +1368,33 @@
 
       text-align: center;
 
-      padding: 40px;
+      padding: 35px;
 
-      background:
-        radial-gradient(
-          circle at 50% 20%,
-          rgba(91,140,255,.15),
-          transparent 40%
-        ),
-        radial-gradient(
-          circle at 30% 90%,
-          rgba(161,108,255,.12),
-          transparent 35%
-        ),
-        var(--surface);
+      overflow: hidden;
 
-      border: 1px solid var(--border);
-
-      box-shadow: var(--shadow);
+      position: relative;
     }
 
     .project-icon {
-      width: 86px;
-      height: 86px;
-
-      border-radius: 26px;
+      width: 80px;
+      height: 80px;
 
       display: grid;
+
       place-items: center;
+
+      border-radius: 25px;
 
       color: white;
 
-      font-size: 34px;
-
       background: var(--gradient);
 
-      box-shadow:
-        0 20px 55px rgba(91,140,255,.25);
+      font-size: 30px;
 
-      margin-bottom: 22px;
+      box-shadow:
+        0 20px 60px rgba(91,140,255,.25);
+
+      margin: 0 auto 20px;
 
       animation:
         projectFloat 4s ease-in-out infinite;
@@ -1402,37 +1406,212 @@
       }
 
       50% {
-        transform: translateY(-8px);
+        transform: translateY(-9px);
       }
     }
 
-    .project p {
+    .project-card h3 {
+      font-size: 24px;
+
+      margin-bottom: 9px;
+    }
+
+    .project-card p {
+      max-width: 560px;
+
       color: var(--muted);
 
-      max-width: 620px;
+      font-size: 12px;
 
-      margin: 10px auto 20px;
+      line-height: 1.9;
+
+      margin: 0 auto 17px;
     }
 
     .coming {
       display: inline-block;
 
-      padding: 8px 15px;
+      padding: 8px 12px;
 
       border-radius: 999px;
 
       color: var(--orange);
 
       background:
-        rgba(255,173,90,.07);
+        rgba(255,173,90,.06);
 
       border:
-        1px solid rgba(255,173,90,.20);
+        1px solid rgba(255,173,90,.18);
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+    }
+
+
+    /* =========================================================
+       ACHIEVEMENTS
+    ========================================================= */
+
+    .achievements {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 14px;
+    }
+
+    .achievement {
+      padding: 24px;
+
+      text-align: center;
+    }
+
+    .achievement i {
+      font-size: 28px;
+
+      color: var(--orange);
+
+      margin-bottom: 15px;
+    }
+
+    .achievement h3 {
+      font-size: 14px;
+
+      margin-bottom: 5px;
+    }
+
+    .achievement p {
+      color: var(--muted);
+
+      font-size: 10px;
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       TERMINAL
+    ========================================================= */
+
+    .terminal {
+      overflow: hidden;
+
+      border-radius: 22px;
+
+      background: #070a11;
+
+      border:
+        1px solid rgba(255,255,255,.09);
+
+      box-shadow:
+        0 30px 100px rgba(0,0,0,.35);
+    }
+
+    .terminal-bar {
+      height: 43px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      padding: 0 14px;
+
+      background:
+        rgba(255,255,255,.035);
+
+      border-bottom:
+        1px solid rgba(255,255,255,.07);
+    }
+
+    .terminal-dot {
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      background: #ff5f57;
+    }
+
+    .terminal-dot:nth-child(2) {
+      background: #ffbd2e;
+    }
+
+    .terminal-dot:nth-child(3) {
+      background: #28c840;
+    }
+
+    .terminal-title {
+      color: #77829a;
+
+      font-family: monospace;
+
+      font-size: 10px;
+
+      margin-left: 6px;
+    }
+
+    .terminal-body {
+      min-height: 330px;
+
+      padding: 20px;
+
+      color: #a7ffbf;
+
+      font-family: monospace;
 
       font-size: 11px;
 
-      font-weight: 800;
+      line-height: 1.8;
     }
+
+    .terminal-output {
+      white-space: pre-wrap;
+
+      min-height: 245px;
+
+      overflow-wrap: anywhere;
+    }
+
+    .terminal-input {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      color: #7fffb0;
+    }
+
+    .terminal-input input {
+      width: 100%;
+
+      border: 0;
+
+      outline: 0;
+
+      background: transparent;
+
+      color: #fff;
+
+      font: inherit;
+    }
+
+    .terminal-help {
+      color: #69758b;
+
+      font-size: 9px;
+
+      margin-top: 8px;
+    }
+
 
     /* =========================================================
        CONTACT
@@ -1441,93 +1620,93 @@
     .contact-grid {
       display: grid;
 
-      grid-template-columns: .75fr 1.25fr;
+      grid-template-columns:
+        .75fr 1.25fr;
 
-      gap: 22px;
+      gap: 16px;
     }
 
     .contact-intro {
-      padding: 35px;
+      padding: 30px;
 
       background:
         linear-gradient(
           145deg,
-          rgba(91,140,255,.12),
-          rgba(161,108,255,.08)
+          rgba(91,140,255,.11),
+          rgba(164,108,255,.07)
         );
-
-      border: 1px solid var(--border);
-
-      border-radius: var(--radius);
     }
 
     .contact-intro h3 {
-      font-size: 28px;
+      font-size: 25px;
 
-      line-height: 1.4;
+      line-height: 1.3;
 
-      margin-bottom: 13px;
+      margin-bottom: 10px;
     }
 
     .contact-intro p {
       color: var(--muted);
 
-      line-height: 2;
+      font-size: 12px;
 
-      margin-bottom: 25px;
+      line-height: 1.9;
+
+      margin-bottom: 22px;
     }
 
-    .available {
+    .status {
       display: inline-flex;
 
       align-items: center;
 
-      gap: 9px;
+      gap: 7px;
+
+      padding: 8px 11px;
+
+      border-radius: 999px;
 
       color: var(--green);
 
       background:
-        rgba(67,223,134,.07);
+        rgba(67,223,134,.06);
 
       border:
-        1px solid rgba(67,223,134,.18);
+        1px solid rgba(67,223,134,.16);
 
-      padding: 8px 13px;
+      font-size: 9px;
 
-      border-radius: 999px;
-
-      font-size: 11px;
-
-      font-weight: 800;
+      font-weight: 900;
     }
 
-    .available i {
-      font-size: 7px;
-    }
-
-    .socials {
+    .social-grid {
       display: grid;
 
       grid-template-columns:
         repeat(2, 1fr);
 
-      gap: 12px;
+      gap: 10px;
     }
 
     .social {
+      --social: var(--blue);
+
       display: flex;
 
       align-items: center;
 
-      gap: 13px;
+      gap: 11px;
 
-      padding: 16px;
+      min-height: 72px;
 
-      border-radius: 18px;
+      padding: 12px;
 
-      background: var(--surface);
+      border-radius: 17px;
 
-      border: 1px solid var(--border);
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
 
       transition: .3s;
 
@@ -1536,43 +1715,14 @@
       overflow: hidden;
     }
 
-    .social::before {
-      content: "";
+    .social:hover,
+    .social:active {
+      transform: translateY(-4px);
 
-      position: absolute;
-
-      width: 100%;
-      height: 100%;
-
-      inset: 0;
-
-      background:
-        linear-gradient(
-          120deg,
-          transparent,
-          rgba(255,255,255,.06),
-          transparent
-        );
-
-      transform:
-        translateX(-100%);
-
-      transition: .5s;
-    }
-
-    .social:hover::before {
-      transform:
-        translateX(100%);
-    }
-
-    .social:hover {
-      transform: translateY(-5px);
-
-      border-color:
-        var(--social);
+      border-color: var(--social);
 
       box-shadow:
-        0 18px 55px
+        0 18px 50px
         color-mix(
           in srgb,
           var(--social) 10%,
@@ -1581,136 +1731,122 @@
     }
 
     .social-icon {
-      width: 46px;
-      height: 46px;
+      width: 43px;
+      height: 43px;
 
       flex-shrink: 0;
 
       display: grid;
+
       place-items: center;
 
-      border-radius: 14px;
+      border-radius: 13px;
 
       color: var(--social);
 
       background:
         color-mix(
           in srgb,
-          var(--social) 10%,
+          var(--social) 9%,
           transparent
         );
-
-      font-size: 19px;
 
       transition: .3s;
     }
 
-    .social:hover .social-icon {
+    .social:hover .social-icon,
+    .social:active .social-icon {
       color: white;
 
       background: var(--social);
 
       transform:
-        rotate(-6deg)
-        scale(1.08);
+        rotate(-5deg)
+        scale(1.05);
     }
 
     .social small {
-      color: var(--muted);
-
       display: block;
 
-      font-size: 10px;
+      color: var(--muted);
+
+      font-size: 8px;
+
+      margin-bottom: 2px;
     }
 
     .social strong {
       display: block;
 
-      font-size: 12px;
+      font-size: 10px;
 
-      word-break: break-word;
+      overflow-wrap: anywhere;
     }
 
-    /* Social Colors */
+    .facebook { --social: #1877f2; }
+    .whatsapp { --social: #25d366; }
+    .telegram { --social: #229ed9; }
+    .instagram { --social: #e4405f; }
+    .linkedin { --social: #0a66c2; }
+    .email { --social: #ffad5a; }
 
-    .facebook {
-      --social: #1877f2;
-    }
-
-    .whatsapp {
-      --social: #25d366;
-    }
-
-    .telegram {
-      --social: #229ed9;
-    }
-
-    .instagram {
-      --social: #e4405f;
-    }
-
-    .linkedin {
-      --social: #0a66c2;
-    }
-
-    .email {
-      --social: #ffad5a;
-    }
 
     /* =========================================================
        FOOTER
     ========================================================= */
 
     footer {
-      border-top: 1px solid var(--border);
-
-      padding: 35px 0;
+      padding: 35px 0 calc(35px + var(--safe-bottom));
 
       text-align: center;
 
+      border-top:
+        1px solid var(--border);
+
       color: var(--muted);
+
+      font-size: 10px;
     }
 
-    .footer-socials {
+    .footer-icons {
       display: flex;
 
       justify-content: center;
 
-      gap: 8px;
+      gap: 7px;
 
-      margin-bottom: 16px;
+      margin-bottom: 15px;
     }
 
-    .footer-socials a {
-      width: 39px;
-      height: 39px;
+    .footer-icons a {
+      width: 38px;
+      height: 38px;
 
       display: grid;
+
       place-items: center;
 
       border-radius: 12px;
 
-      border: 1px solid var(--border);
+      background: var(--card-2);
 
-      background: var(--surface2);
+      border:
+        1px solid var(--border);
 
-      transition: .3s;
+      transition: .25s;
     }
 
-    .footer-socials a:hover {
+    .footer-icons a:hover,
+    .footer-icons a:active {
       color: white;
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--blue),
-          var(--purple)
-        );
+      background: var(--gradient);
 
       border-color: transparent;
 
-      transform: translateY(-4px) rotate(-3deg);
+      transform: translateY(-3px);
     }
+
 
     /* =========================================================
        BACK TOP
@@ -1719,21 +1855,25 @@
     #backTop {
       position: fixed;
 
-      bottom: 22px;
-      left: 22px;
+      right: 18px;
 
-      width: 46px;
-      height: 46px;
+      bottom:
+        calc(18px + var(--safe-bottom));
+
+      width: 45px;
+      height: 45px;
 
       border-radius: 14px;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
-      background: var(--surface);
+      background: var(--card);
 
       color: var(--text);
 
       display: grid;
+
       place-items: center;
 
       cursor: pointer;
@@ -1746,7 +1886,7 @@
 
       transition: .3s;
 
-      z-index: 900;
+      z-index: 4000;
     }
 
     #backTop.show {
@@ -1757,16 +1897,15 @@
       transform: translateY(0);
     }
 
-    #backTop:hover {
+    #backTop:hover,
+    #backTop:active {
       color: white;
 
       background: var(--gradient);
 
       border-color: transparent;
-
-      transform:
-        translateY(-4px);
     }
+
 
     /* =========================================================
        REVEAL
@@ -1775,37 +1914,176 @@
     .reveal {
       opacity: 0;
 
-      transform:
-        translateY(35px);
+      transform: translateY(25px);
 
       transition:
-        opacity .8s ease,
-        transform .8s ease;
+        opacity .7s ease,
+        transform .7s ease;
     }
 
     .reveal.active {
       opacity: 1;
 
-      transform:
-        translateY(0);
+      transform: translateY(0);
     }
 
+
     /* =========================================================
-       MOBILE
+       COMMAND PALETTE
     ========================================================= */
 
-    @media(max-width: 950px) {
+    .command-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 8000;
+
+      display: flex;
+
+      align-items: flex-start;
+
+      justify-content: center;
+
+      padding-top: 110px;
+
+      background:
+        rgba(0,0,0,.55);
+
+      backdrop-filter: blur(12px);
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition: .25s;
+    }
+
+    .command-overlay.open {
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+    .command {
+      width: min(92%, 560px);
+
+      border-radius: 20px;
+
+      background:
+        #0c111d;
+
+      border:
+        1px solid rgba(255,255,255,.11);
+
+      box-shadow:
+        0 35px 120px rgba(0,0,0,.55);
+
+      overflow: hidden;
+
+      transform: translateY(-15px);
+
+      transition: .25s;
+    }
+
+    .command-overlay.open .command {
+      transform: translateY(0);
+    }
+
+    .command-search {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 15px;
+
+      border-bottom:
+        1px solid rgba(255,255,255,.07);
+    }
+
+    .command-search i {
+      color: #6f7b91;
+    }
+
+    .command-search input {
+      width: 100%;
+
+      border: 0;
+
+      outline: 0;
+
+      background: transparent;
+
+      color: white;
+
+      font-size: 13px;
+    }
+
+    .command-list {
+      padding: 8px;
+    }
+
+    .command-item {
+      width: 100%;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 11px;
+
+      padding: 12px;
+
+      border: 0;
+
+      border-radius: 12px;
+
+      color: #b9c3d5;
+
+      background: transparent;
+
+      text-align: left;
+
+      cursor: pointer;
+
+      font-size: 11px;
+
+      transition: .2s;
+    }
+
+    .command-item:hover,
+    .command-item:active {
+      color: white;
+
+      background:
+        rgba(91,140,255,.12);
+    }
+
+    .command-item i {
+      width: 24px;
+
+      color: var(--blue);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media(max-width: 900px) {
 
       .nav-links {
         position: absolute;
 
-        top: calc(100% + 10px);
+        top: calc(100% + 9px);
 
         right: 0;
 
         width: 100%;
 
-        padding: 15px;
+        padding: 10px;
 
         display: flex;
 
@@ -1813,13 +2091,17 @@
 
         align-items: stretch;
 
-        background: var(--nav);
+        gap: 3px;
 
-        backdrop-filter: blur(20px);
+        background:
+          rgba(8,11,20,.94);
 
-        border: 1px solid var(--border);
+        border:
+          1px solid var(--border);
 
         border-radius: 18px;
+
+        backdrop-filter: blur(20px);
 
         opacity: 0;
 
@@ -1827,7 +2109,7 @@
 
         transform: translateY(-10px);
 
-        transition: .3s;
+        transition: .25s;
       }
 
       .nav-links.open {
@@ -1835,25 +2117,28 @@
 
         visibility: visible;
 
-        transform:
-          translateY(0);
+        transform: translateY(0);
       }
 
       .nav-links a {
-        padding: 11px;
+        padding: 13px;
+
+        border-radius: 11px;
       }
 
-      .menu {
+      .nav-links a:hover {
+        background:
+          rgba(91,140,255,.08);
+      }
+
+      .menu-btn {
         display: grid;
       }
 
       .hero-grid {
         grid-template-columns: 1fr;
-        text-align: center;
-      }
 
-      [dir="rtl"] .hero-grid {
-        grid-template-columns: 1fr;
+        text-align: center;
       }
 
       .hero-description {
@@ -1861,166 +2146,242 @@
       }
 
       .buttons,
-      .meta-row {
+      .meta {
         justify-content: center;
       }
 
-      .hero-art {
+      .visual {
         min-height: 430px;
       }
 
-      .about-layout,
+      .about-grid,
       .contact-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    @media(max-width: 700px) {
 
-      section {
-        padding: 85px 0;
-      }
+    @media(max-width: 650px) {
 
-      .navbar {
-        top: 10px;
-      }
-
-      .brand span:last-child {
+      .cursor {
         display: none;
       }
 
+      section {
+        padding: 80px 0;
+      }
+
       .hero {
-        padding-top: 120px;
+        padding-top: 115px;
       }
 
       .hero h1 {
-        letter-spacing: -2px;
+        font-size: 45px;
+
+        letter-spacing: -2.5px;
       }
 
-      .hero-art {
-        min-height: 360px;
+      .hero-role {
+        font-size: 21px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .meta {
+        flex-direction: column;
+      }
+
+      .meta-item {
+        justify-content: center;
+      }
+
+      .visual {
+        min-height: 390px;
       }
 
       .phone {
-        width: 200px;
-        height: 390px;
+        width: 205px;
+        height: 400px;
       }
 
-      .halo {
+      .orb {
         width: 300px;
         height: 300px;
       }
 
-      .chip-one {
-        right: -3px;
-        top: 70px;
-      }
-
-      .chip-two {
-        left: -5px;
-        bottom: 55px;
-      }
-
-      .chip-three {
-        right: -8px;
+      .kotlin-chip {
+        right: -2px;
         top: 230px;
       }
 
-      .skills {
+      .android-chip {
+        right: -3px;
+        top: 65px;
+      }
+
+      .security-chip {
+        left: -3px;
+        bottom: 55px;
+      }
+
+      .skills-grid {
         grid-template-columns: 1fr;
       }
 
-      .socials {
+      .security-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .achievements {
         grid-template-columns: 1fr;
       }
 
-      .timeline-item {
-        padding-right: 52px;
+      .social-grid {
+        grid-template-columns: 1fr;
       }
 
-      [dir="ltr"] .timeline-item {
-        padding-right: 0;
-        padding-left: 52px;
+      .about-card {
+        padding: 24px;
       }
 
-      .timeline::before {
-        right: 14px;
-      }
+      .terminal-body {
+        min-height: 310px;
 
-      [dir="ltr"] .timeline::before {
-        left: 14px;
-      }
+        padding: 15px;
 
-      .timeline-dot {
-        right: -1px;
-      }
-
-      [dir="ltr"] .timeline-dot {
-        left: -1px;
-      }
-    }
-
-    @media(max-width: 480px) {
-
-      .hero h1 {
-        font-size: 43px;
-      }
-
-      .role {
-        font-size: 22px;
-      }
-
-      .hero-description {
-        font-size: 14px;
-      }
-
-      .buttons .btn {
-        width: 100%;
-      }
-
-      .meta-row {
-        flex-direction: column;
-      }
-
-      .meta {
-        justify-content: center;
-      }
-
-      .phone {
-        width: 180px;
-        height: 350px;
-      }
-
-      .floating-chip {
-        padding: 9px 10px;
         font-size: 10px;
       }
 
-      .chip-three {
+      .command-overlay {
+        padding-top: 80px;
+      }
+
+    }
+
+
+    @media(max-width: 390px) {
+
+      .logo span {
         display: none;
       }
+
+      .logo-box {
+        width: 40px;
+        height: 40px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .phone {
+        width: 185px;
+        height: 360px;
+      }
+
+      .security-chip,
+      .kotlin-chip {
+        display: none;
+      }
+
+      .security-grid {
+        gap: 7px;
+      }
+
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media(prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+      }
+
     }
 
   </style>
 </head>
 
+
 <body>
 
-  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ========================================================
+       BOOT SCREEN
+  ========================================================= -->
+
+  <div id="boot">
+
+    <div class="boot-box">
+
+      <div class="boot-title">
+        MOHAMED ABDULLAH OS
+      </div>
+
+      <div class="boot-line">
+        [ OK ] Initializing portfolio...
+      </div>
+
+      <div class="boot-line">
+        [ OK ] Loading Android environment...
+      </div>
+
+      <div class="boot-line">
+        [ OK ] Loading security modules...
+      </div>
+
+      <div class="boot-line">
+        [ OK ] Connecting to Cairo, Egypt...
+      </div>
+
+      <div class="boot-line">
+        [ OK ] System ready.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="cursor" id="cursor"></div>
 
   <div id="progress"></div>
 
+
   <!-- ========================================================
-       NAVBAR
+       NAV
   ========================================================= -->
 
-  <header class="navbar">
+  <header class="nav">
 
     <div class="nav-inner">
 
-      <a href="#home" class="brand">
+      <a href="#home" class="logo">
 
-        <span class="brand-icon">
+        <span class="logo-box">
           MA
         </span>
 
@@ -2030,63 +2391,47 @@
 
       </a>
 
+
       <nav class="nav-links" id="navLinks">
 
-        <a href="#home"
-           data-ar="الرئيسية"
-           data-en="Home">
-          الرئيسية
-        </a>
+        <a href="#home">Home</a>
 
-        <a href="#about"
-           data-ar="عني"
-           data-en="About">
-          عني
-        </a>
+        <a href="#about">About</a>
 
-        <a href="#skills"
-           data-ar="المهارات"
-           data-en="Skills">
-          المهارات
-        </a>
+        <a href="#skills">Skills</a>
 
-        <a href="#journey"
-           data-ar="رحلتي"
-           data-en="Journey">
-          رحلتي
-        </a>
+        <a href="#projects">Projects</a>
 
-        <a href="#projects"
-           data-ar="المشاريع"
-           data-en="Projects">
-          المشاريع
-        </a>
+        <a href="#terminal">Terminal</a>
 
-        <a href="#contact"
-           data-ar="تواصل"
-           data-en="Contact">
-          تواصل
-        </a>
+        <a href="#contact">Contact</a>
 
       </nav>
 
+
       <div class="nav-actions">
 
-        <button class="nav-btn"
-                id="language"
-                aria-label="Change language">
-          EN
+        <button
+          class="icon-btn"
+          id="commandBtn"
+          aria-label="Command palette"
+        >
+          <i class="fa-solid fa-terminal"></i>
         </button>
 
-        <button class="nav-btn"
-                id="theme"
-                aria-label="Change theme">
+        <button
+          class="icon-btn"
+          id="themeBtn"
+          aria-label="Theme"
+        >
           <i class="fa-solid fa-moon"></i>
         </button>
 
-        <button class="nav-btn menu"
-                id="menu"
-                aria-label="Menu">
+        <button
+          class="icon-btn menu-btn"
+          id="menuBtn"
+          aria-label="Menu"
+        >
           <i class="fa-solid fa-bars"></i>
         </button>
 
@@ -2097,11 +2442,12 @@
   </header>
 
 
-  <!-- ========================================================
-       HERO
-  ========================================================= -->
-
   <main>
+
+
+    <!-- ======================================================
+         HERO
+    ====================================================== -->
 
     <section class="hero" id="home">
 
@@ -2109,75 +2455,71 @@
 
         <div class="hero-grid">
 
-          <div class="hero-content reveal">
 
-            <div class="status">
+          <div class="reveal">
 
-              <span class="status-dot"></span>
+            <div class="eyebrow">
 
-              <span
-                data-ar="متاح للفرص والتعاون"
-                data-en="Available for opportunities">
-                متاح للفرص والتعاون
-              </span>
+              <span class="pulse"></span>
+
+              Available for opportunities
 
             </div>
 
+
             <h1>
 
-              <span
-                data-ar="محمد عبدالله"
-                data-en="Mohamed Abdullah">
-                محمد عبدالله
-              </span>
+              Mohamed
 
               <br>
 
-              <span class="gradient"
-                    data-ar="إبراهيم"
-                    data-en="Ibrahim">
-                إبراهيم
+              <span class="gradient-text">
+                Abdullah Ibrahim
               </span>
 
             </h1>
 
-            <div class="role">
+
+            <div class="hero-role">
 
               <span>Android Developer</span>
 
+              <br>
+
+              & Cybersecurity Enthusiast
+
             </div>
 
-            <p class="hero-description"
-               data-ar="طالب في كلية حاسبات ومعلومات من القاهرة، مهتم بتطوير تطبيقات Android واستكشاف مجال Cybersecurity، وأسعى باستمرار لتطوير مهاراتي وبناء حلول تقنية حديثة."
-               data-en="A Computer Science student from Cairo, passionate about Android development and exploring cybersecurity, continuously improving my skills and building modern technology solutions.">
 
-              طالب في كلية حاسبات ومعلومات من القاهرة، مهتم بتطوير تطبيقات Android واستكشاف مجال Cybersecurity، وأسعى باستمرار لتطوير مهاراتي وبناء حلول تقنية حديثة.
+            <p class="hero-description">
+
+              Computer Science student from Cairo, Egypt,
+              focused on Android development, modern software
+              engineering, and ethical cybersecurity.
 
             </p>
 
+
             <div class="buttons">
 
-              <a href="#skills"
-                 class="btn primary">
+              <a
+                href="#skills"
+                class="btn primary"
+              >
 
-                <span
-                  data-ar="استكشف مهاراتي"
-                  data-en="Explore My Skills">
-                  استكشف مهاراتي
-                </span>
+                Explore Skills
 
                 <i class="fa-solid fa-arrow-down"></i>
 
               </a>
 
-              <a href="#contact"
-                 class="btn secondary">
 
-                <span
-                  data-ar="تواصل معي"
-                  data-en="Contact Me">
-                  تواصل معي
-                </span>
+              <a
+                href="#contact"
+                class="btn secondary"
+              >
+
+                Let's Connect
 
                 <i class="fa-regular fa-paper-plane"></i>
 
@@ -2185,41 +2527,32 @@
 
             </div>
 
-            <div class="meta-row">
 
-              <div class="meta">
+            <div class="meta">
+
+              <div class="meta-item">
 
                 <i class="fa-solid fa-location-dot"></i>
 
-                <span
-                  data-ar="القاهرة، مصر"
-                  data-en="Cairo, Egypt">
-                  القاهرة، مصر
-                </span>
+                Cairo, Egypt
 
               </div>
 
-              <div class="meta">
+
+              <div class="meta-item">
 
                 <i class="fa-solid fa-graduation-cap"></i>
 
-                <span
-                  data-ar="حاسبات ومعلومات"
-                  data-en="Computer Science">
-                  حاسبات ومعلومات
-                </span>
+                Computer Science
 
               </div>
 
-              <div class="meta">
+
+              <div class="meta-item">
 
                 <i class="fa-solid fa-code"></i>
 
-                <span
-                  data-ar="الفرقة الثانية"
-                  data-en="2nd Year">
-                  الفرقة الثانية
-                </span>
+                2nd Year
 
               </div>
 
@@ -2228,45 +2561,51 @@
           </div>
 
 
-          <!-- HERO ART -->
+          <!-- PHONE -->
 
-          <div class="hero-art reveal">
+          <div class="visual reveal">
 
-            <div class="halo"></div>
+            <div class="orb"></div>
 
-            <div class="phone">
 
-              <div class="phone-screen">
+            <div class="phone" id="phone">
 
-                <div class="screen-logo">
+              <div class="notch"></div>
+
+              <div class="screen">
+
+                <div class="android-logo">
 
                   <i class="fa-brands fa-android"></i>
 
                 </div>
 
-                <div class="screen-title">
+                <h3>
                   Android
-                </div>
+                </h3>
 
-                <div class="screen-subtitle">
+                <p>
                   Build. Learn. Create.
-                </div>
+                  <br>
+                  One line of code at a time.
+                </p>
 
-                <div class="screen-line"></div>
+                <div class="code-line"></div>
 
-                <div class="screen-line small"></div>
+                <div class="code-line short"></div>
 
-                <div class="screen-line"></div>
+                <div class="code-line"></div>
 
-                <div class="screen-line small"></div>
+                <div class="code-line short"></div>
 
-                <div class="screen-line"></div>
+                <div class="code-line"></div>
 
               </div>
 
             </div>
 
-            <div class="floating-chip chip-one">
+
+            <div class="float-card android-chip">
 
               <i class="fa-brands fa-android"></i>
 
@@ -2274,7 +2613,8 @@
 
             </div>
 
-            <div class="floating-chip chip-two">
+
+            <div class="float-card security-chip">
 
               <i class="fa-solid fa-shield-halved"></i>
 
@@ -2282,7 +2622,8 @@
 
             </div>
 
-            <div class="floating-chip chip-three">
+
+            <div class="float-card kotlin-chip">
 
               <i class="fa-solid fa-code"></i>
 
@@ -2299,9 +2640,9 @@
     </section>
 
 
-    <!-- ========================================================
+    <!-- ======================================================
          ABOUT
-    ========================================================= -->
+    ====================================================== -->
 
     <section id="about">
 
@@ -2309,103 +2650,95 @@
 
         <div class="section-head reveal">
 
-          <div class="kicker"
-               data-ar="نبذة عني"
-               data-en="ABOUT ME">
-            نبذة عني
+          <div class="kicker">
+            About Me
           </div>
 
-          <h2 class="section-title"
-              data-ar="أبني مهاراتي اليوم لأصنع شيئًا أكبر غدًا."
-              data-en="Building my skills today to create something bigger tomorrow.">
-
-            أبني مهاراتي اليوم لأصنع شيئًا أكبر غدًا.
-
+          <h2 class="section-title">
+            Building skills today.
+            Creating bigger things tomorrow.
           </h2>
+
+          <p class="section-text">
+            A young developer focused on learning,
+            experimenting, and turning ideas into technology.
+          </p>
 
         </div>
 
 
-        <div class="about-layout">
+        <div class="about-grid">
 
-          <div class="glass about-main reveal">
+          <div class="glass about-card reveal">
 
-            <p
-              data-ar="أنا محمد عبدالله إبراهيم، طالب في الفرقة الثانية بكلية حاسبات ومعلومات في القاهرة. مهتم بتطوير تطبيقات Android وبناء حلول تقنية عملية وحديثة. بجانب البرمجة، لدي اهتمام كبير بمجال Cybersecurity وEthical Hacking، وأسعى باستمرار إلى التعلم والتطبيق وبناء خبرة تقنية حقيقية."
-              data-en="I am Mohamed Abdullah Ibrahim, a second-year Computer Science student in Cairo. I am passionate about Android development and building practical modern solutions. Alongside programming, I have a strong interest in cybersecurity and ethical hacking. I continuously learn, experiment, and work toward building real-world technical experience.">
+            <p>
 
-              أنا محمد عبدالله إبراهيم، طالب في الفرقة الثانية بكلية حاسبات ومعلومات في القاهرة. مهتم بتطوير تطبيقات Android وبناء حلول تقنية عملية وحديثة. بجانب البرمجة، لدي اهتمام كبير بمجال Cybersecurity وEthical Hacking، وأسعى باستمرار إلى التعلم والتطبيق وبناء خبرة تقنية حقيقية.
+              I'm Mohamed Abdullah Ibrahim, a 19-year-old
+              Computer Science student based in Cairo, Egypt.
+
+              <br><br>
+
+              My main focus is Android development.
+              I enjoy learning how applications are built,
+              how systems communicate, and how technology
+              can solve real problems.
+
+              <br><br>
+
+              I'm also exploring cybersecurity and ethical
+              hacking with a strong interest in Linux,
+              networking, application security, and
+              vulnerability analysis.
 
             </p>
 
           </div>
 
 
-          <div class="glass info reveal">
+          <div class="glass info-card reveal">
 
             <div class="info-row">
 
-              <span data-ar="العمر" data-en="Age">
-                العمر
-              </span>
+              <span>Age</span>
 
               <strong>19</strong>
 
             </div>
 
+
             <div class="info-row">
 
-              <span data-ar="الموقع" data-en="Location">
-                الموقع
-              </span>
+              <span>Location</span>
 
-              <strong>
-                القاهرة 🇪🇬
-              </strong>
+              <strong>Cairo, Egypt 🇪🇬</strong>
 
             </div>
 
+
             <div class="info-row">
 
-              <span data-ar="الدراسة" data-en="Education">
-                الدراسة
-              </span>
+              <span>Education</span>
 
-              <strong
-                data-ar="حاسبات ومعلومات"
-                data-en="Computer Science">
-                حاسبات ومعلومات
-              </strong>
+              <strong>Computer Science</strong>
 
             </div>
 
+
             <div class="info-row">
 
-              <span data-ar="الفرقة" data-en="Year">
-                الفرقة
-              </span>
+              <span>Year</span>
 
-              <strong
-                data-ar="الثانية"
-                data-en="Second Year">
-                الثانية
-              </strong>
+              <strong>2nd Year</strong>
 
             </div>
 
+
             <div class="info-row">
 
-              <span data-ar="الحالة" data-en="Status">
-                الحالة
-              </span>
+              <span>Status</span>
 
-              <strong style="color:var(--green)">
-                ●
-                <span
-                  data-ar="متاح للفرص"
-                  data-en="Available">
-                  متاح للفرص
-                </span>
+              <strong class="available">
+                ● Available
               </strong>
 
             </div>
@@ -2419,9 +2752,9 @@
     </section>
 
 
-    <!-- ========================================================
+    <!-- ======================================================
          SKILLS
-    ========================================================= -->
+    ====================================================== -->
 
     <section id="skills">
 
@@ -2429,40 +2762,36 @@
 
         <div class="section-head reveal">
 
-          <div class="kicker"
-               data-ar="المهارات"
-               data-en="SKILLS">
-            المهارات
+          <div class="kicker">
+            Skills
           </div>
 
-          <h2 class="section-title"
-              data-ar="مجالاتي وتقنياتي"
-              data-en="My skills & technologies">
-
-            مجالاتي وتقنياتي
-
+          <h2 class="section-title">
+            My Technical Arsenal
           </h2>
 
-          <p class="section-description"
-             data-ar="مجموعة من التقنيات والمجالات التي أتعلمها وأطور نفسي فيها."
-             data-en="Technologies and fields I am currently learning and developing.">
-
-            مجموعة من التقنيات والمجالات التي أتعلمها وأطور نفسي فيها.
-
+          <p class="section-text">
+            Technologies and areas I'm learning,
+            practicing, and building with.
           </p>
 
         </div>
 
 
-        <div class="skills">
+        <div class="skills-grid">
 
-          <div class="glass skill reveal"
-               style="--accent:#43df86">
 
-            <div class="skill-head">
+          <div
+            class="glass skill-card reveal"
+            style="--accent:#43df86"
+          >
+
+            <div class="skill-top">
 
               <div class="skill-icon">
+
                 <i class="fa-brands fa-android"></i>
+
               </div>
 
               <div>
@@ -2471,15 +2800,14 @@
                   Android Development
                 </h3>
 
-                <p
-                  data-ar="تطوير تطبيقات Android"
-                  data-en="Android application development">
-                  تطوير تطبيقات Android
+                <p>
+                  Mobile application development
                 </p>
 
               </div>
 
             </div>
+
 
             <div class="tags">
 
@@ -2498,13 +2826,17 @@
           </div>
 
 
-          <div class="glass skill reveal"
-               style="--accent:#5b8cff">
+          <div
+            class="glass skill-card reveal"
+            style="--accent:#5b8cff"
+          >
 
-            <div class="skill-head">
+            <div class="skill-top">
 
               <div class="skill-icon">
+
                 <i class="fa-solid fa-layer-group"></i>
+
               </div>
 
               <div>
@@ -2513,21 +2845,20 @@
                   Architecture & APIs
                 </h3>
 
-                <p
-                  data-ar="بناء وربط التطبيقات بالخدمات"
-                  data-en="Application architecture & APIs">
-                  بناء وربط التطبيقات بالخدمات
+                <p>
+                  Modern application architecture
                 </p>
 
               </div>
 
             </div>
 
+
             <div class="tags">
 
               <span class="tag">MVVM</span>
               <span class="tag">Clean Architecture</span>
-              <span class="tag">REST API</span>
+              <span class="tag">REST APIs</span>
               <span class="tag">JSON</span>
               <span class="tag">Retrofit</span>
               <span class="tag">Coroutines</span>
@@ -2539,54 +2870,60 @@
           </div>
 
 
-          <div class="glass skill reveal"
-               style="--accent:#a16cff">
+          <div
+            class="glass skill-card reveal"
+            style="--accent:#a46cff"
+          >
 
-            <div class="skill-head">
+            <div class="skill-top">
 
               <div class="skill-icon">
+
                 <i class="fa-solid fa-code"></i>
+
               </div>
 
               <div>
 
-                <h3
-                  data-ar="البرمجة والأدوات"
-                  data-en="Programming & Tools">
-                  البرمجة والأدوات
+                <h3>
+                  Programming
                 </h3>
 
-                <p
-                  data-ar="أساسيات وأدوات التطوير"
-                  data-en="Development fundamentals">
-                  أساسيات وأدوات التطوير
+                <p>
+                  Software engineering foundations
                 </p>
 
               </div>
 
             </div>
 
+
             <div class="tags">
 
+              <span class="tag">C++</span>
               <span class="tag">OOP</span>
               <span class="tag">Data Structures</span>
               <span class="tag">Algorithms</span>
               <span class="tag">Debugging</span>
+              <span class="tag">Problem Solving</span>
               <span class="tag">Linux</span>
-              <span class="tag">Networking</span>
 
             </div>
 
           </div>
 
 
-          <div class="glass skill reveal"
-               style="--accent:#ff5f9e">
+          <div
+            class="glass skill-card reveal"
+            style="--accent:#ff5f9e"
+          >
 
-            <div class="skill-head">
+            <div class="skill-top">
 
               <div class="skill-icon">
+
                 <i class="fa-solid fa-shield-halved"></i>
+
               </div>
 
               <div>
@@ -2595,30 +2932,30 @@
                   Cybersecurity
                 </h3>
 
-                <p
-                  data-ar="الأمن السيبراني بشكل أخلاقي"
-                  data-en="Ethical cybersecurity">
-                  الأمن السيبراني بشكل أخلاقي
+                <p>
+                  Ethical security exploration
                 </p>
 
               </div>
 
             </div>
 
+
             <div class="tags">
 
               <span class="tag">Cybersecurity</span>
               <span class="tag">Ethical Hacking</span>
-              <span class="tag">Linux</span>
               <span class="tag">Networking</span>
+              <span class="tag">Linux</span>
               <span class="tag">OWASP</span>
               <span class="tag">Web Security</span>
-              <span class="tag">Vulnerability Assessment</span>
               <span class="tag">Security Analysis</span>
+              <span class="tag">Vulnerability Assessment</span>
 
             </div>
 
           </div>
+
 
         </div>
 
@@ -2627,55 +2964,45 @@
     </section>
 
 
-    <!-- ========================================================
-         JOURNEY
-    ========================================================= -->
+    <!-- ======================================================
+         SECURITY LAB
+    ====================================================== -->
 
-    <section id="journey">
+    <section>
 
       <div class="container">
 
         <div class="section-head reveal">
 
-          <div class="kicker"
-               data-ar="رحلتي"
-               data-en="MY JOURNEY">
-            رحلتي
+          <div class="kicker">
+            Security Lab
           </div>
 
-          <h2 class="section-title"
-              data-ar="رحلة ما زالت في بدايتها"
-              data-en="A journey that is just beginning">
-
-            رحلة ما زالت في بدايتها
-
+          <h2 class="section-title">
+            Exploring The Security Side
           </h2>
 
         </div>
 
 
-        <div class="timeline">
+        <div class="security-box reveal">
 
-          <div class="timeline-item reveal">
+          <div class="security-head">
 
-            <div class="timeline-dot"></div>
+            <div class="security-icon">
 
-            <div class="timeline-card">
+              <i class="fa-solid fa-user-secret"></i>
 
-              <div class="year">
-                2026
-              </div>
+            </div>
 
-              <h3
-                data-ar="حاسبات ومعلومات"
-                data-en="Computer Science">
-                حاسبات ومعلومات
+            <div>
+
+              <h3>
+                Cybersecurity Journey
               </h3>
 
-              <p
-                data-ar="الفرقة الثانية وبناء أساس قوي في علوم الحاسب والبرمجة."
-                data-en="Second year, building a strong foundation in computer science and programming.">
-                الفرقة الثانية وبناء أساس قوي في علوم الحاسب والبرمجة.
+              <p>
+                Currently learning and exploring.
               </p>
 
             </div>
@@ -2683,52 +3010,52 @@
           </div>
 
 
-          <div class="timeline-item reveal">
+          <div class="security-grid">
 
-            <div class="timeline-dot"></div>
 
-            <div class="timeline-card">
+            <div class="security-item">
 
-              <div class="year">
-                NOW
-              </div>
+              <i class="fa-brands fa-linux"></i>
 
-              <h3>
-                Android Development
-              </h3>
-
-              <p
-                data-ar="التركيز على Kotlin وJava وAndroid Studio والتقنيات الحديثة."
-                data-en="Focusing on Kotlin, Java, Android Studio, and modern Android technologies.">
-                التركيز على Kotlin وJava وAndroid Studio والتقنيات الحديثة.
-              </p>
+              <span>
+                Linux
+              </span>
 
             </div>
 
-          </div>
 
+            <div class="security-item">
 
-          <div class="timeline-item reveal">
+              <i class="fa-solid fa-network-wired"></i>
 
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-card">
-
-              <div class="year">
-                NEXT
-              </div>
-
-              <h3>
-                Cybersecurity
-              </h3>
-
-              <p
-                data-ar="التوسع في الأمن السيبراني والشبكات والـ Ethical Hacking بشكل قانوني وأخلاقي."
-                data-en="Expanding into cybersecurity, networking, and ethical hacking responsibly.">
-                التوسع في الأمن السيبراني والشبكات والـ Ethical Hacking بشكل قانوني وأخلاقي.
-              </p>
+              <span>
+                Networking
+              </span>
 
             </div>
+
+
+            <div class="security-item">
+
+              <i class="fa-solid fa-globe"></i>
+
+              <span>
+                Web Security
+              </span>
+
+            </div>
+
+
+            <div class="security-item">
+
+              <i class="fa-solid fa-bug"></i>
+
+              <span>
+                Vulnerabilities
+              </span>
+
+            </div>
+
 
           </div>
 
@@ -2739,9 +3066,9 @@
     </section>
 
 
-    <!-- ========================================================
+    <!-- ======================================================
          PROJECTS
-    ========================================================= -->
+    ====================================================== -->
 
     <section id="projects">
 
@@ -2749,24 +3076,22 @@
 
         <div class="section-head reveal">
 
-          <div class="kicker"
-               data-ar="المشاريع"
-               data-en="PROJECTS">
-            المشاريع
+          <div class="kicker">
+            Projects
           </div>
 
-          <h2 class="section-title"
-              data-ar="القادم أقوى"
-              data-en="More is coming">
-
-            القادم أقوى
-
+          <h2 class="section-title">
+            The Best Is Still Loading.
           </h2>
+
+          <p class="section-text">
+            Real projects will appear here as they are built.
+          </p>
 
         </div>
 
 
-        <div class="project reveal">
+        <div class="glass project-card reveal">
 
           <div>
 
@@ -2776,16 +3101,13 @@
 
             </div>
 
-            <h2
-              data-ar="مشاريع قادمة قريبًا"
-              data-en="Projects coming soon">
-              مشاريع قادمة قريبًا
-            </h2>
+            <h3>
+              Projects Coming Soon
+            </h3>
 
-            <p
-              data-ar="القسم جاهز لعرض تطبيقات Android والمشاريع التقنية بمجرد اكتمالها."
-              data-en="This section is ready for upcoming Android applications and technical projects.">
-              القسم جاهز لعرض تطبيقات Android والمشاريع التقنية بمجرد اكتمالها.
+            <p>
+              This space is reserved for Android applications,
+              security projects, experiments, and future work.
             </p>
 
             <span class="coming">
@@ -2801,9 +3123,171 @@
     </section>
 
 
-    <!-- ========================================================
+    <!-- ======================================================
+         ACHIEVEMENTS
+    ====================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            Achievements
+          </div>
+
+          <h2 class="section-title">
+            More To Come.
+          </h2>
+
+          <p class="section-text">
+            This section is ready for certifications,
+            competitions, projects, and future milestones.
+          </p>
+
+        </div>
+
+
+        <div class="achievements">
+
+
+          <div class="glass achievement reveal">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            <h3>
+              Computer Science
+            </h3>
+
+            <p>
+              Second-year Computer Science student.
+            </p>
+
+          </div>
+
+
+          <div class="glass achievement reveal">
+
+            <i class="fa-brands fa-android"></i>
+
+            <h3>
+              Android Journey
+            </h3>
+
+            <p>
+              Building knowledge in modern Android development.
+            </p>
+
+          </div>
+
+
+          <div class="glass achievement reveal">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <h3>
+              Security Journey
+            </h3>
+
+            <p>
+              Exploring cybersecurity and ethical hacking.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         TERMINAL
+    ====================================================== -->
+
+    <section id="terminal">
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            Interactive Terminal
+          </div>
+
+          <h2 class="section-title">
+            Talk To The System.
+          </h2>
+
+          <p class="section-text">
+            Type a command and explore the portfolio.
+          </p>
+
+        </div>
+
+
+        <div class="terminal reveal">
+
+          <div class="terminal-bar">
+
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+
+            <span class="terminal-title">
+              mohamed@portfolio:~
+            </span>
+
+          </div>
+
+
+          <div class="terminal-body">
+
+            <div
+              class="terminal-output"
+              id="terminalOutput"
+            ></div>
+
+
+            <div class="terminal-input">
+
+              <span>
+                $
+              </span>
+
+              <input
+                id="terminalInput"
+                type="text"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="type a command..."
+              >
+
+            </div>
+
+
+            <div class="terminal-help">
+
+              Available:
+              help · whoami · skills · projects · contact · clear
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
          CONTACT
-    ========================================================= -->
+    ====================================================== -->
 
     <section id="contact">
 
@@ -2811,26 +3295,16 @@
 
         <div class="section-head reveal">
 
-          <div class="kicker"
-               data-ar="تواصل معي"
-               data-en="CONTACT">
-            تواصل معي
+          <div class="kicker">
+            Contact
           </div>
 
-          <h2 class="section-title"
-              data-ar="خلينا نتكلم"
-              data-en="Let's connect">
-
-            خلينا نتكلم
-
+          <h2 class="section-title">
+            Let's Build Something.
           </h2>
 
-          <p class="section-description"
-             data-ar="متاح للتواصل والفرص والتعاون."
-             data-en="Available for communication, opportunities, and collaboration.">
-
-            متاح للتواصل والفرص والتعاون.
-
+          <p class="section-text">
+            Have an opportunity, idea, or simply want to connect?
           </p>
 
         </div>
@@ -2838,36 +3312,33 @@
 
         <div class="contact-grid">
 
-          <div class="contact-intro reveal">
 
-            <h3
-              data-ar="عندك فرصة أو فكرة؟"
-              data-en="Have an opportunity or an idea?">
-              عندك فرصة أو فكرة؟
+          <div class="glass contact-intro reveal">
+
+            <h3>
+              Open To New Opportunities.
             </h3>
 
-            <p
-              data-ar="يسعدني التواصل معك والتعرف على فرص أو أفكار جديدة."
-              data-en="I would be happy to connect and explore new opportunities or ideas.">
-              يسعدني التواصل معك والتعرف على فرص أو أفكار جديدة.
+            <p>
+              I'm always interested in learning,
+              meeting new people, exploring ideas,
+              and working toward better technology.
             </p>
 
-            <div class="available">
+
+            <div class="status">
 
               <i class="fa-solid fa-circle"></i>
 
-              <span
-                data-ar="متاح للفرص"
-                data-en="Available for opportunities">
-                متاح للفرص
-              </span>
+              Available for opportunities
 
             </div>
 
           </div>
 
 
-          <div class="socials reveal">
+          <div class="social-grid reveal">
+
 
             <a
               class="social facebook"
@@ -2881,8 +3352,15 @@
               </div>
 
               <div>
-                <small>Facebook</small>
-                <strong>Mohamed Abdullah</strong>
+
+                <small>
+                  Facebook
+                </small>
+
+                <strong>
+                  Mohamed Abdullah
+                </strong>
+
               </div>
 
             </a>
@@ -2900,8 +3378,15 @@
               </div>
 
               <div>
-                <small>WhatsApp</small>
-                <strong>01027595528</strong>
+
+                <small>
+                  WhatsApp
+                </small>
+
+                <strong>
+                  01027595528
+                </strong>
+
               </div>
 
             </a>
@@ -2919,8 +3404,15 @@
               </div>
 
               <div>
-                <small>Telegram</small>
-                <strong>@C_O_N_2</strong>
+
+                <small>
+                  Telegram
+                </small>
+
+                <strong>
+                  @C_O_N_2
+                </strong>
+
               </div>
 
             </a>
@@ -2938,8 +3430,15 @@
               </div>
 
               <div>
-                <small>Instagram</small>
-                <strong>@mhbdllh4861</strong>
+
+                <small>
+                  Instagram
+                </small>
+
+                <strong>
+                  @mhbdllh4861
+                </strong>
+
               </div>
 
             </a>
@@ -2957,8 +3456,15 @@
               </div>
 
               <div>
-                <small>LinkedIn</small>
-                <strong>Mohammed CON</strong>
+
+                <small>
+                  LinkedIn
+                </small>
+
+                <strong>
+                  Mohammed CON
+                </strong>
+
               </div>
 
             </a>
@@ -2974,11 +3480,19 @@
               </div>
 
               <div>
-                <small>Email</small>
-                <strong>cconker63@gmail.com</strong>
+
+                <small>
+                  Email
+                </small>
+
+                <strong>
+                  cconker63@gmail.com
+                </strong>
+
               </div>
 
             </a>
+
 
           </div>
 
@@ -2999,58 +3513,67 @@
 
     <div class="container">
 
-      <div class="footer-socials">
+      <div class="footer-icons">
 
-        <a href="https://www.facebook.com/share/1DsBQE5YmH/"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://www.facebook.com/share/1DsBQE5YmH/"
+          target="_blank"
+          rel="noopener"
+        >
           <i class="fa-brands fa-facebook-f"></i>
         </a>
 
-        <a href="https://wa.me/201027595528"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://wa.me/201027595528"
+          target="_blank"
+          rel="noopener"
+        >
           <i class="fa-brands fa-whatsapp"></i>
         </a>
 
-        <a href="https://t.me/C_O_N_2"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://t.me/C_O_N_2"
+          target="_blank"
+          rel="noopener"
+        >
           <i class="fa-brands fa-telegram"></i>
         </a>
 
-        <a href="https://instagram.com/mhbdllh4861"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://instagram.com/mhbdllh4861"
+          target="_blank"
+          rel="noopener"
+        >
           <i class="fa-brands fa-instagram"></i>
         </a>
 
-        <a href="https://www.linkedin.com/in/mohammed-con"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://www.linkedin.com/in/mohammed-con"
+          target="_blank"
+          rel="noopener"
+        >
           <i class="fa-brands fa-linkedin-in"></i>
         </a>
 
         <a href="mailto:cconker63@gmail.com">
+
           <i class="fa-solid fa-envelope"></i>
+
         </a>
 
       </div>
 
+
       <p>
+
         © <span id="year"></span>
 
-        <strong>
-          محمد عبدالله إبراهيم
-        </strong>
+        Mohamed Abdullah Ibrahim
 
-        —
+        ·
 
-        <span
-          data-ar="جميع الحقوق محفوظة."
-          data-en="All rights reserved.">
-          جميع الحقوق محفوظة.
-        </span>
+        All rights reserved.
+
       </p>
 
     </div>
@@ -3058,9 +3581,101 @@
   </footer>
 
 
+  <!-- ========================================================
+       BACK TOP
+  ========================================================= -->
+
   <button id="backTop">
+
     <i class="fa-solid fa-arrow-up"></i>
+
   </button>
+
+
+  <!-- ========================================================
+       COMMAND PALETTE
+  ========================================================= -->
+
+  <div
+    class="command-overlay"
+    id="commandOverlay"
+  >
+
+    <div class="command">
+
+      <div class="command-search">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          id="commandSearch"
+          placeholder="Search or type a command..."
+          autocomplete="off"
+        >
+
+      </div>
+
+
+      <div class="command-list">
+
+        <button
+          class="command-item"
+          data-target="#home"
+        >
+          <i class="fa-solid fa-house"></i>
+          Go Home
+        </button>
+
+
+        <button
+          class="command-item"
+          data-target="#skills"
+        >
+          <i class="fa-solid fa-code"></i>
+          View Skills
+        </button>
+
+
+        <button
+          class="command-item"
+          data-target="#projects"
+        >
+          <i class="fa-solid fa-rocket"></i>
+          View Projects
+        </button>
+
+
+        <button
+          class="command-item"
+          data-target="#terminal"
+        >
+          <i class="fa-solid fa-terminal"></i>
+          Open Terminal
+        </button>
+
+
+        <button
+          class="command-item"
+          data-target="#contact"
+        >
+          <i class="fa-solid fa-envelope"></i>
+          Contact Mohamed
+        </button>
+
+
+        <button
+          class="command-item"
+          id="commandTheme"
+        >
+          <i class="fa-solid fa-circle-half-stroke"></i>
+          Toggle Theme
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
 
 
   <script>
@@ -3074,18 +3689,35 @@
 
 
     /* =========================================================
-       CURSOR GLOW
+       BOOT
     ========================================================= */
 
-    const cursorGlow =
-      document.getElementById("cursorGlow");
+    window.addEventListener("load", () => {
+
+      setTimeout(() => {
+
+        document
+          .getElementById("boot")
+          .classList.add("hide");
+
+      }, 1400);
+
+    });
+
+
+    /* =========================================================
+       CURSOR
+    ========================================================= */
+
+    const cursor =
+      document.getElementById("cursor");
 
     window.addEventListener("mousemove", e => {
 
-      cursorGlow.style.left =
+      cursor.style.left =
         e.clientX + "px";
 
-      cursorGlow.style.top =
+      cursor.style.top =
         e.clientY + "px";
 
     });
@@ -3095,160 +3727,93 @@
        THEME
     ========================================================= */
 
-    const theme =
-      document.getElementById("theme");
+    const themeBtn =
+      document.getElementById("themeBtn");
 
-    const savedTheme =
-      localStorage.getItem("theme");
 
-    if (savedTheme === "light") {
+    function applyTheme() {
 
-      document.body.classList.add("light");
+      const light =
+        localStorage.getItem("theme")
+        === "light";
 
-      theme.innerHTML =
-        '<i class="fa-solid fa-sun"></i>';
+      document.body.classList.toggle(
+        "light",
+        light
+      );
+
+      themeBtn.innerHTML = light
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
 
     }
 
-    theme.addEventListener("click", () => {
 
-      document.body.classList.toggle("light");
+    themeBtn.addEventListener("click", () => {
 
       const light =
         document.body.classList.contains("light");
 
       localStorage.setItem(
         "theme",
-        light ? "light" : "dark"
+        light ? "dark" : "light"
       );
 
-      theme.innerHTML = light
-        ? '<i class="fa-solid fa-sun"></i>'
-        : '<i class="fa-solid fa-moon"></i>';
+      applyTheme();
 
     });
 
 
-    /* =========================================================
-       LANGUAGE
-    ========================================================= */
-
-    const language =
-      document.getElementById("language");
-
-    let currentLanguage =
-      localStorage.getItem("language")
-      || "ar";
-
-
-    function changeLanguage(lang) {
-
-      currentLanguage = lang;
-
-      document.documentElement.lang =
-        lang;
-
-      document.documentElement.dir =
-        lang === "ar"
-          ? "rtl"
-          : "ltr";
-
-      document
-        .querySelectorAll("[data-ar]")
-        .forEach(el => {
-
-          const value =
-            el.getAttribute(
-              `data-${lang}`
-            );
-
-          if (value !== null) {
-            el.textContent = value;
-          }
-
-        });
-
-      language.textContent =
-        lang === "ar"
-          ? "EN"
-          : "AR";
-
-      localStorage.setItem(
-        "language",
-        lang
-      );
-
-    }
-
-
-    language.addEventListener(
-      "click",
-      () => {
-
-        changeLanguage(
-          currentLanguage === "ar"
-            ? "en"
-            : "ar"
-        );
-
-      }
-    );
-
-
-    changeLanguage(
-      currentLanguage
-    );
+    applyTheme();
 
 
     /* =========================================================
        MOBILE MENU
     ========================================================= */
 
-    const menu =
-      document.getElementById("menu");
+    const menuBtn =
+      document.getElementById("menuBtn");
 
-    const nav =
+    const navLinks =
       document.getElementById("navLinks");
 
-    menu.addEventListener("click", () => {
 
-      nav.classList.toggle("open");
+    menuBtn.addEventListener("click", () => {
+
+      navLinks.classList.toggle("open");
 
       const icon =
-        menu.querySelector("i");
+        menuBtn.querySelector("i");
 
       icon.className =
-        nav.classList.contains("open")
+        navLinks.classList.contains("open")
           ? "fa-solid fa-xmark"
           : "fa-solid fa-bars";
 
     });
 
 
-    nav.querySelectorAll("a")
+    navLinks.querySelectorAll("a")
       .forEach(link => {
 
-        link.addEventListener(
-          "click",
-          () => {
+        link.addEventListener("click", () => {
 
-            nav.classList.remove("open");
+          navLinks.classList.remove("open");
 
-            menu.querySelector("i")
-              .className =
-              "fa-solid fa-bars";
+          menuBtn.querySelector("i")
+            .className =
+            "fa-solid fa-bars";
 
-          }
-        );
+        });
 
       });
 
 
     /* =========================================================
-       SCROLL REVEAL
+       REVEAL
     ========================================================= */
 
-    const revealObserver =
+    const observer =
       new IntersectionObserver(
         entries => {
 
@@ -3260,7 +3825,7 @@
                 "active"
               );
 
-              revealObserver.unobserve(
+              observer.unobserve(
                 entry.target
               );
 
@@ -3270,7 +3835,7 @@
 
         },
         {
-          threshold: .12
+          threshold: .10
         }
       );
 
@@ -3279,40 +3844,37 @@
       .querySelectorAll(".reveal")
       .forEach(el => {
 
-        revealObserver.observe(el);
+        observer.observe(el);
 
       });
 
 
     /* =========================================================
-       PROGRESS
+       SCROLL PROGRESS
     ========================================================= */
 
     const progress =
       document.getElementById("progress");
 
-    window.addEventListener(
-      "scroll",
-      () => {
 
-        const scrollTop =
-          window.scrollY;
+    window.addEventListener("scroll", () => {
 
-        const height =
-          document.documentElement
-            .scrollHeight
-          - window.innerHeight;
+      const scroll =
+        window.scrollY;
 
-        const percent =
-          height > 0
-            ? (scrollTop / height) * 100
-            : 0;
+      const total =
+        document.documentElement.scrollHeight
+        - window.innerHeight;
 
-        progress.style.width =
-          percent + "%";
+      const percentage =
+        total > 0
+          ? (scroll / total) * 100
+          : 0;
 
-      }
-    );
+      progress.style.width =
+        percentage + "%";
+
+    });
 
 
     /* =========================================================
@@ -3322,55 +3884,51 @@
     const backTop =
       document.getElementById("backTop");
 
-    window.addEventListener(
-      "scroll",
-      () => {
 
-        if (window.scrollY > 650) {
+    window.addEventListener("scroll", () => {
 
-          backTop.classList.add("show");
+      if (window.scrollY > 600) {
 
-        } else {
+        backTop.classList.add("show");
 
-          backTop.classList.remove("show");
+      } else {
 
-        }
+        backTop.classList.remove("show");
 
       }
-    );
+
+    });
 
 
-    backTop.addEventListener(
-      "click",
-      () => {
+    backTop.addEventListener("click", () => {
 
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
 
-      }
-    );
+    });
 
 
     /* =========================================================
-       MOUSE PARALLAX HERO
+       PHONE PARALLAX
     ========================================================= */
 
+    const visual =
+      document.querySelector(".visual");
+
     const phone =
-      document.querySelector(".phone");
+      document.getElementById("phone");
 
-    const heroArt =
-      document.querySelector(".hero-art");
 
-    if (window.innerWidth > 950) {
+    if (window.innerWidth > 900) {
 
-      heroArt.addEventListener(
+      visual.addEventListener(
         "mousemove",
         e => {
 
           const rect =
-            heroArt.getBoundingClientRect();
+            visual.getBoundingClientRect();
 
           const x =
             e.clientX - rect.left;
@@ -3385,25 +3943,28 @@
             rect.height / 2;
 
           const rotateY =
-            (x - centerX) / 35;
+            (x - centerX) / 40;
 
           const rotateX =
-            (centerY - y) / 35;
+            (centerY - y) / 40;
 
           phone.style.animation =
             "none";
 
           phone.style.transform =
-            `rotate(-6deg)
-             perspective(800px)
-             rotateY(${7 + rotateY}deg)
-             rotateX(${rotateX}deg)
-             translateY(-5px)`;
+            `
+              rotate(-5deg)
+              perspective(900px)
+              rotateY(${7 + rotateY}deg)
+              rotateX(${rotateX}deg)
+              translateY(-5px)
+            `;
 
         }
       );
 
-      heroArt.addEventListener(
+
+      visual.addEventListener(
         "mouseleave",
         () => {
 
@@ -3420,69 +3981,417 @@
 
 
     /* =========================================================
-       RIPPLE FOR BUTTONS
+       COMMAND PALETTE
+    ========================================================= */
+
+    const commandBtn =
+      document.getElementById("commandBtn");
+
+    const commandOverlay =
+      document.getElementById("commandOverlay");
+
+    const commandSearch =
+      document.getElementById("commandSearch");
+
+
+    function openCommand() {
+
+      commandOverlay.classList.add("open");
+
+      setTimeout(() => {
+
+        commandSearch.focus();
+
+      }, 100);
+
+    }
+
+
+    function closeCommand() {
+
+      commandOverlay.classList.remove("open");
+
+      commandSearch.value = "";
+
+      filterCommands("");
+
+    }
+
+
+    commandBtn.addEventListener(
+      "click",
+      openCommand
+    );
+
+
+    commandOverlay.addEventListener(
+      "click",
+      e => {
+
+        if (e.target === commandOverlay) {
+
+          closeCommand();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      e => {
+
+        if (
+          (e.ctrlKey || e.metaKey)
+          && e.key.toLowerCase() === "k"
+        ) {
+
+          e.preventDefault();
+
+          openCommand();
+
+        }
+
+        if (e.key === "Escape") {
+
+          closeCommand();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       COMMAND ITEMS
+    ========================================================= */
+
+    const commandItems =
+      document.querySelectorAll(
+        ".command-item"
+      );
+
+
+    commandItems.forEach(item => {
+
+      item.addEventListener(
+        "click",
+        () => {
+
+          const target =
+            item.dataset.target;
+
+          if (target) {
+
+            closeCommand();
+
+            document
+              .querySelector(target)
+              .scrollIntoView({
+                behavior: "smooth"
+              });
+
+          }
+
+        }
+      );
+
+    });
+
+
+    document
+      .getElementById("commandTheme")
+      .addEventListener(
+        "click",
+        () => {
+
+          themeBtn.click();
+
+        }
+      );
+
+
+    /* =========================================================
+       COMMAND SEARCH
+    ========================================================= */
+
+    function filterCommands(query) {
+
+      const value =
+        query.toLowerCase();
+
+      commandItems.forEach(item => {
+
+        const text =
+          item.textContent.toLowerCase();
+
+        item.style.display =
+          text.includes(value)
+            ? "flex"
+            : "none";
+
+      });
+
+    }
+
+
+    commandSearch.addEventListener(
+      "input",
+      e => {
+
+        filterCommands(
+          e.target.value
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       TERMINAL
+    ========================================================= */
+
+    const terminalOutput =
+      document.getElementById(
+        "terminalOutput"
+      );
+
+    const terminalInput =
+      document.getElementById(
+        "terminalInput"
+      );
+
+
+    const welcome =
+`Mohamed Abdullah OS
+-------------------
+
+Welcome to the interactive portfolio.
+
+Type "help" to see available commands.
+
+`;
+
+
+    terminalOutput.textContent =
+      welcome;
+
+
+    function terminalPrint(text) {
+
+      terminalOutput.textContent +=
+        text + "\n";
+
+      terminalOutput.scrollTop =
+        terminalOutput.scrollHeight;
+
+    }
+
+
+    function runCommand(command) {
+
+      const cmd =
+        command.trim().toLowerCase();
+
+
+      if (!cmd) return;
+
+
+      terminalPrint(
+        "$ " + command
+      );
+
+
+      switch(cmd) {
+
+        case "help":
+
+          terminalPrint(
+`Available commands:
+
+whoami      → About Mohamed
+skills      → Technical skills
+projects    → Projects
+contact     → Contact information
+clear       → Clear terminal
+neofetch    → System information`
+          );
+
+          break;
+
+
+        case "whoami":
+
+          terminalPrint(
+`Mohamed Abdullah Ibrahim
+
+Role:
+Android Developer
+
+Focus:
+Android Development
+Cybersecurity
+
+Location:
+Cairo, Egypt
+
+Education:
+Computer Science — 2nd Year`
+          );
+
+          break;
+
+
+        case "skills":
+
+          terminalPrint(
+`Android:
+Kotlin, Java, Jetpack Compose,
+Firebase, Room, REST APIs
+
+Programming:
+C++, OOP, Algorithms,
+Data Structures
+
+Cybersecurity:
+Linux, Networking,
+OWASP, Web Security,
+Ethical Hacking`
+          );
+
+          break;
+
+
+        case "projects":
+
+          terminalPrint(
+`PROJECTS
+
+No public projects yet.
+
+Status:
+COMING SOON 🚀`
+          );
+
+          break;
+
+
+        case "contact":
+
+          terminalPrint(
+`CONTACT
+
+WhatsApp:
+01027595528
+
+Telegram:
+@C_O_N_2
+
+Instagram:
+@mhbdllh4861
+
+Email:
+cconker63@gmail.com`
+          );
+
+          break;
+
+
+        case "neofetch":
+
+          terminalPrint(
+`MOHAMED@PORTFOLIO
+
+OS        Android / Linux
+Role      Android Developer
+Focus     Cybersecurity
+Location  Cairo, Egypt
+Status    Learning & Building
+Projects  Coming Soon`
+          );
+
+          break;
+
+
+        case "clear":
+
+          terminalOutput.textContent =
+            "";
+
+          break;
+
+
+        default:
+
+          terminalPrint(
+            `Command not found: ${command}
+
+Type "help" for available commands.`
+          );
+
+      }
+
+
+      terminalOutput.scrollTop =
+        terminalOutput.scrollHeight;
+
+    }
+
+
+    terminalInput.addEventListener(
+      "keydown",
+      e => {
+
+        if (e.key === "Enter") {
+
+          runCommand(
+            terminalInput.value
+          );
+
+          terminalInput.value =
+            "";
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       PHONE TOUCH FEEDBACK
     ========================================================= */
 
     document
-      .querySelectorAll(".btn")
-      .forEach(button => {
+      .querySelectorAll(
+        ".btn, .social, .skill-card, .security-item, .achievement"
+      )
+      .forEach(element => {
 
-        button.addEventListener(
-          "click",
-          function(e) {
+        element.addEventListener(
+          "touchstart",
+          () => {
 
-            const ripple =
-              document.createElement("span");
+            element.style.transform =
+              "scale(.98)";
 
-            const rect =
-              this.getBoundingClientRect();
+          },
+          {
+            passive: true
+          }
+        );
 
-            const size =
-              Math.max(
-                rect.width,
-                rect.height
-              );
 
-            ripple.style.position =
-              "absolute";
+        element.addEventListener(
+          "touchend",
+          () => {
 
-            ripple.style.width =
-              size + "px";
+            element.style.transform =
+              "";
 
-            ripple.style.height =
-              size + "px";
-
-            ripple.style.borderRadius =
-              "50%";
-
-            ripple.style.background =
-              "rgba(255,255,255,.22)";
-
-            ripple.style.left =
-              (e.clientX - rect.left - size / 2)
-              + "px";
-
-            ripple.style.top =
-              (e.clientY - rect.top - size / 2)
-              + "px";
-
-            ripple.style.pointerEvents =
-              "none";
-
-            ripple.style.transform =
-              "scale(0)";
-
-            ripple.style.animation =
-              "rippleReal .6s ease-out";
-
-            this.appendChild(ripple);
-
-            setTimeout(() => {
-
-              ripple.remove();
-
-            }, 600);
-
+          },
+          {
+            passive: true
           }
         );
 
@@ -3491,19 +4400,5 @@
 
   </script>
 
-
-  <style>
-
-    @keyframes rippleReal {
-
-      to {
-        transform: scale(2.5);
-        opacity: 0;
-      }
-
-    }
-
-  </style>
-
 </body>
-  </html>
+        </html>
