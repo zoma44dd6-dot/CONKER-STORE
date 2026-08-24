@@ -1,5194 +1,1874 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="محمد عبدالله إبراهيم | Android Developer | Programmer | Cybersecurity | C++ | Writer">
+<title>محمد عبدالله إبراهيم — Portfolio</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="محمد عبدالله إبراهيم — Android Developer, Programmer, Cybersecurity Enthusiast & Writer">
-
-    <meta name="keywords"
-        content="Mohammed Abdullah, Android Developer, Kotlin, Java, Programming, Cybersecurity, Ethical Hacking, Linux, Android Security, Writer">
-
-    <meta name="author" content="محمد عبدالله إبراهيم">
-
-    <meta name="theme-color" content="#070a11">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="محمد عبدالله إبراهيم | Portfolio">
-    <meta property="og:description"
-        content="Android Developer • Programmer • Cybersecurity Enthusiast • Writer">
-    <meta property="og:type" content="website">
-
-    <title>محمد عبدالله إبراهيم | Portfolio</title>
-
-    <!-- Favicon -->
-    <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%237b5cff'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='45' fill='white' font-family='Arial'%3EM%3C/text%3E%3C/svg%3E">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================================================
-   ROOT
-========================================================= */
-
-:root {
-
-    --bg: #070a11;
-    --bg2: #0a0f18;
-    --card: #0d131f;
-    --card2: #111927;
-
-    --text: #f5f7ff;
-    --muted: #8e9ab0;
-    --muted2: #647087;
-
-    --primary: #765cff;
-    --primary2: #9b88ff;
-
-    --cyan: #00d9ff;
-    --green: #49e69a;
-
-    --line: rgba(255,255,255,.075);
-
-    --line2: rgba(118,92,255,.35);
-
-    --radius: 22px;
-
-    --shadow:
-        0 25px 80px rgba(0,0,0,.38);
-
+:root{
+    --bg:#05070c;
+    --bg2:#090d15;
+    --card:#0d121c;
+    --card2:#111827;
+    --text:#f4f7ff;
+    --muted:#8e9ab0;
+    --muted2:#647087;
+    --line:rgba(255,255,255,.08);
+    --purple:#7c5cff;
+    --purple2:#a594ff;
+    --cyan:#00d9ff;
+    --green:#45e69b;
+    --red:#ff647f;
+    --yellow:#ffd166;
+    --radius:22px;
+    --shadow:0 25px 80px rgba(0,0,0,.38);
 }
 
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-
-    background: var(--bg);
-
-    color: var(--text);
-
-    font-family: "Cairo", sans-serif;
-
-    line-height: 1.8;
-
-    overflow-x: hidden;
-
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Cairo",sans-serif;
+    line-height:1.8;
+    overflow-x:hidden;
 }
 
-::selection {
-    background: var(--primary);
-    color: white;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    font-family: inherit;
-}
-
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: -10;
-
-    pointer-events: none;
-
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    pointer-events:none;
     background:
-
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(118,92,255,.12),
-            transparent 27%
-        ),
-
-        radial-gradient(
-            circle at 90% 30%,
-            rgba(0,217,255,.06),
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(118,92,255,.06),
-            transparent 30%
-        );
-
+        radial-gradient(circle at 10% 10%,rgba(124,92,255,.13),transparent 27%),
+        radial-gradient(circle at 90% 35%,rgba(0,217,255,.07),transparent 25%),
+        radial-gradient(circle at 45% 100%,rgba(124,92,255,.07),transparent 30%);
 }
 
-.grid-bg {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: -9;
-
-    pointer-events: none;
-
-    opacity: .32;
-
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    pointer-events:none;
+    opacity:.25;
     background-image:
-
-        linear-gradient(
-            rgba(255,255,255,.022) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.022) 1px,
-            transparent 1px
-        );
-
-    background-size: 45px 45px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black 0%,
-            transparent 92%
-        );
-
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:45px 45px;
+    mask-image:linear-gradient(to bottom,#000,transparent 90%);
 }
 
-
-/* =========================================================
-   GLOBAL
-========================================================= */
-
-.container {
-
-    width: min(
-        1160px,
-        calc(100% - 40px)
-    );
-
-    margin: auto;
-
+::selection{
+    background:var(--purple);
+    color:white;
 }
 
-.section {
-
-    padding: 110px 0;
-
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
-.mono {
-
-    font-family:
-        "JetBrains Mono",
-        monospace;
-
+button{
+    font-family:inherit;
 }
 
+.container{
+    width:min(1160px,calc(100% - 34px));
+    margin:auto;
+}
 
-/* =========================================================
-   HEADER
-========================================================= */
+.section{
+    padding:110px 0;
+}
 
-.header {
+/* NAV */
+.header{
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    z-index:1000;
+    background:rgba(5,7,12,.68);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid transparent;
+    transition:.3s;
+}
 
-    position: fixed;
+.header.scrolled{
+    background:rgba(5,7,12,.94);
+    border-color:var(--line);
+}
 
-    top: 0;
+.nav{
+    height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
 
-    right: 0;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:"JetBrains Mono",monospace;
+    font-weight:800;
+}
 
-    left: 0;
+.logo-mark{
+    width:40px;
+    height:40px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    border:1px solid rgba(124,92,255,.45);
+    background:rgba(124,92,255,.08);
+    color:var(--purple2);
+    font-size:12px;
+}
 
-    z-index: 1000;
+.logo span span{
+    color:var(--cyan);
+}
 
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:26px;
+}
+
+.nav-links a{
+    color:#a9b3c7;
+    font-size:12px;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.menu{
+    display:none;
+    border:0;
+    background:none;
+    cursor:pointer;
+}
+
+.menu span{
+    display:block;
+    width:26px;
+    height:2px;
+    background:white;
+    margin:5px;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:130px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:70px;
+    align-items:center;
+}
+
+.availability{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    color:#b1bbcc;
+    font-size:11px;
+    margin-bottom:20px;
+}
+
+.online-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 15px rgba(69,230,155,.75);
+}
+
+.eyebrow{
+    color:var(--cyan);
+    font:700 11px "JetBrains Mono";
+    letter-spacing:2px;
+}
+
+.hero h1{
+    font-size:clamp(48px,7vw,86px);
+    line-height:1.06;
+    letter-spacing:-3px;
+    margin-top:8px;
+    font-weight:900;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#fff,#9e8cff,#00d9ff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.role{
+    margin-top:20px;
+    color:#e3e9f6;
+    font:600 19px "JetBrains Mono";
+}
+
+.cursor{
+    color:var(--cyan);
+    animation:blink .8s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:0}
+}
+
+.hero-desc{
+    max-width:680px;
+    margin:20px 0 30px;
+    color:var(--muted);
+    font-size:14px;
+}
+
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 19px;
+    border-radius:12px;
+    font-size:12px;
+    font-weight:800;
+    transition:.25s;
+}
+
+.primary{
+    background:linear-gradient(135deg,var(--purple),#4b86ff);
+    box-shadow:0 14px 38px rgba(124,92,255,.22);
+}
+
+.primary:hover{
+    transform:translateY(-3px);
+}
+
+.outline{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.025);
+}
+
+.outline:hover{
+    border-color:rgba(124,92,255,.45);
+}
+
+.socials{
+    display:flex;
+    gap:8px;
+    margin-top:24px;
+}
+
+.socials a{
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--line);
+    border-radius:10px;
+    color:#a8b2c5;
+    font:700 10px "JetBrains Mono";
+    transition:.25s;
+}
+
+.socials a:hover{
+    color:white;
+    border-color:rgba(0,217,255,.35);
+    transform:translateY(-3px);
+}
+
+/* PROFILE CARD */
+.profile-card{
+    border:1px solid var(--line);
+    border-radius:24px;
+    overflow:hidden;
+    background:linear-gradient(145deg,#111827,#080c14);
+    box-shadow:var(--shadow);
+}
+
+.profile-top{
+    height:48px;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding:0 17px;
+    border-bottom:1px solid var(--line);
+}
+
+.dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#465167;
+}
+
+.file-name{
+    margin-right:auto;
+    color:#68758c;
+    font:10px "JetBrains Mono";
+}
+
+.profile-body{
+    padding:30px;
+}
+
+.profile-initial{
+    width:80px;
+    height:80px;
+    display:grid;
+    place-items:center;
+    border-radius:22px;
+    margin-bottom:25px;
+    background:linear-gradient(135deg,rgba(124,92,255,.25),rgba(0,217,255,.08));
+    border:1px solid rgba(124,92,255,.28);
+    color:#fff;
+    font:900 25px "JetBrains Mono";
+}
+
+.profile-body h3{
+    font-size:24px;
+}
+
+.profile-body>p{
+    color:var(--muted);
+    font-size:12px;
+    margin:5px 0 24px;
+}
+
+.code-line{
+    direction:ltr;
+    text-align:left;
+    font:11px/2.1 "JetBrains Mono";
+    color:#cbd5e6;
+}
+
+.purple{color:#c294ff}
+.cyan{color:var(--cyan)}
+.green{color:#67e8a3}
+.yellow{color:var(--yellow)}
+.comment{color:#56627a}
+
+.mini-status{
+    margin-top:22px;
+    padding:12px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:rgba(255,255,255,.02);
+    color:#9eabc0;
+    font-size:10px;
+}
+
+/* SECTION TITLES */
+.section-title{
+    display:flex;
+    align-items:flex-start;
+    gap:17px;
+    margin-bottom:50px;
+}
+
+.section-number{
+    color:var(--cyan);
+    font:700 10px "JetBrains Mono";
+    padding:5px 8px;
+    border:1px solid rgba(0,217,255,.2);
+    border-radius:7px;
+    margin-top:8px;
+}
+
+.section-title small{
+    color:var(--cyan);
+    font:700 10px "JetBrains Mono";
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:clamp(31px,4vw,48px);
+    line-height:1.2;
+}
+
+/* ABOUT */
+.about-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:70px;
+}
+
+.about p{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:16px;
+}
+
+.about .lead{
+    color:#e8edf8;
+    font-size:19px;
+    font-weight:600;
+}
+
+.facts{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.fact{
+    padding:24px;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:rgba(255,255,255,.025);
+}
+
+.fact strong{
+    display:block;
+    font:800 28px "JetBrains Mono";
+}
+
+.fact span{
+    color:var(--muted);
+    font-size:10px;
+}
+
+/* SKILLS */
+.skills-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.skill{
+    padding:29px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:linear-gradient(145deg,rgba(17,24,39,.85),rgba(8,12,20,.75));
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-5px);
+    border-color:rgba(124,92,255,.4);
+    box-shadow:var(--shadow);
+}
+
+.skill-num{
+    color:var(--cyan);
+    font:700 10px "JetBrains Mono";
+    margin-bottom:17px;
+}
+
+.skill h3{
+    font-size:19px;
+    margin-bottom:6px;
+}
+
+.skill p{
+    color:var(--muted);
+    font-size:11px;
+    margin-bottom:18px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+}
+
+.tag{
+    padding:5px 8px;
+    border:1px solid var(--line);
+    border-radius:7px;
+    background:rgba(255,255,255,.02);
+    color:#abb6ca;
+    font-size:9px;
+}
+
+/* C++ LAB */
+.cpp-lab{
+    position:relative;
+    overflow:hidden;
+    margin-top:30px;
+    padding:40px;
+    border:1px solid rgba(124,92,255,.3);
+    border-radius:26px;
     background:
-        rgba(7,10,17,.65);
-
-    backdrop-filter:
-        blur(18px);
-
-    border-bottom:
-        1px solid transparent;
-
-    transition: .3s;
-
+        radial-gradient(circle at 90% 0%,rgba(124,92,255,.14),transparent 32%),
+        linear-gradient(145deg,#0d1220,#080b13);
 }
 
-.header.scrolled {
+.cpp-lab::before{
+    content:"C++";
+    position:absolute;
+    left:-20px;
+    bottom:-70px;
+    color:rgba(255,255,255,.018);
+    font:900 220px "JetBrains Mono";
+    pointer-events:none;
+}
 
+.cpp-label{
+    color:var(--cyan);
+    font:700 10px "JetBrains Mono";
+    letter-spacing:2px;
+}
+
+.cpp-lab h3{
+    font-size:32px;
+    margin:8px 0;
+}
+
+.cpp-lab>p{
+    color:var(--muted);
+    font-size:12px;
+    max-width:700px;
+}
+
+.cpp-grid{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:1fr .8fr;
+    gap:18px;
+    margin-top:28px;
+}
+
+.terminal{
+    border:1px solid var(--line);
+    border-radius:17px;
+    overflow:hidden;
+    background:#05070b;
+}
+
+.terminal-head{
+    height:42px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:0 14px;
+    border-bottom:1px solid var(--line);
+}
+
+.terminal-head .dot{
+    width:8px;
+    height:8px;
+}
+
+.terminal-name{
+    margin-right:auto;
+    color:#58657b;
+    font:9px "JetBrains Mono";
+}
+
+.terminal-body{
+    padding:22px;
+    direction:ltr;
+    text-align:left;
+    font:11px/2 "JetBrains Mono";
+}
+
+.code-input{
+    color:#d8e0ef;
+}
+
+.output{
+    min-height:55px;
+    margin-top:15px;
+    padding:12px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    color:#91a0b7;
+    background:rgba(255,255,255,.02);
+}
+
+.output strong{
+    color:var(--green);
+}
+
+.cpp-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:14px;
+}
+
+.cpp-btn{
+    border:1px solid rgba(124,92,255,.35);
+    background:rgba(124,92,255,.08);
+    color:#d7d0ff;
+    padding:8px 12px;
+    border-radius:9px;
+    cursor:pointer;
+    font:700 10px "JetBrains Mono";
+    transition:.25s;
+}
+
+.cpp-btn:hover{
+    background:rgba(124,92,255,.17);
+}
+
+.cpp-info{
+    padding:25px;
+    border:1px solid var(--line);
+    border-radius:17px;
+    background:rgba(255,255,255,.025);
+}
+
+.cpp-info h4{
+    font-size:18px;
+    margin-bottom:12px;
+}
+
+.cpp-info p{
+    color:var(--muted);
+    font-size:11px;
+}
+
+.cpp-list{
+    margin-top:17px;
+    display:grid;
+    gap:8px;
+}
+
+.cpp-list div{
+    padding:9px 11px;
+    border:1px solid var(--line);
+    border-radius:9px;
+    color:#aab5c9;
+    font:9px "JetBrains Mono";
+}
+
+/* PROJECTS */
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.project{
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+    background:rgba(255,255,255,.025);
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-5px);
+    border-color:rgba(124,92,255,.4);
+}
+
+.project-image{
+    height:160px;
+    display:grid;
+    place-items:center;
     background:
-        rgba(7,10,17,.94);
-
-    border-color:
-        var(--line);
-
+        radial-gradient(circle,rgba(124,92,255,.14),transparent 65%);
+    border-bottom:1px solid var(--line);
 }
 
-.nav {
-
-    min-height: 78px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
+.project-number{
+    width:62px;
+    height:62px;
+    display:grid;
+    place-items:center;
+    border-radius:17px;
+    border:1px dashed rgba(124,92,255,.45);
+    color:var(--purple2);
+    font:700 16px "JetBrains Mono";
 }
 
-.logo {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    font:
-        700 14px
-        "JetBrains Mono";
-
+.project-content{
+    padding:23px;
 }
 
-.logo-mark {
+.project-label{
+    color:var(--cyan);
+    font:700 9px "JetBrains Mono";
+}
 
-    width: 40px;
+.project h3{
+    font-size:17px;
+    margin:7px 0;
+}
 
-    height: 40px;
+.project p{
+    color:var(--muted);
+    font-size:11px;
+}
 
-    display: grid;
+.soon{
+    display:inline-block;
+    margin-top:14px;
+    padding:5px 9px;
+    border:1px solid rgba(124,92,255,.2);
+    border-radius:7px;
+    background:rgba(124,92,255,.07);
+    color:#b7aaff;
+    font-size:9px;
+}
 
-    place-items: center;
+/* BOOKS */
+.books-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
 
-    border-radius: 12px;
+.book-card{
+    padding:38px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:linear-gradient(145deg,rgba(19,25,40,.8),rgba(8,12,20,.7));
+}
 
-    color: white;
+.book-icon{
+    font-size:42px;
+    margin-bottom:10px;
+}
 
+.book-card h3{
+    font-size:27px;
+}
+
+.book-card p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:8px;
+}
+
+.library{
+    min-height:280px;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    padding:30px;
+    border:1px dashed rgba(124,92,255,.35);
+    border-radius:var(--radius);
+    background:rgba(124,92,255,.035);
+}
+
+.library h3{
+    font-size:20px;
+}
+
+.library p{
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* WRITING */
+.writing-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.writing-main{
+    grid-column:1/-1;
+    padding:36px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:linear-gradient(100deg,rgba(124,92,255,.11),rgba(0,217,255,.025));
+}
+
+.writing-main h3{
+    font-size:28px;
+}
+
+.writing-main p{
+    color:var(--muted);
+    font-size:12px;
+    max-width:760px;
+}
+
+.writing-card{
+    padding:28px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:rgba(255,255,255,.025);
+}
+
+.writing-card small{
+    color:var(--cyan);
+    font:700 9px "JetBrains Mono";
+}
+
+.writing-card h3{
+    margin:8px 0;
+}
+
+.writing-card p{
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* CERTIFICATES */
+.certificate{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:30px;
+    border:1px dashed rgba(124,92,255,.4);
+    border-radius:20px;
+    background:rgba(124,92,255,.035);
+}
+
+.certificate-icon{
+    width:55px;
+    height:55px;
+    display:grid;
+    place-items:center;
+    flex-shrink:0;
+    border-radius:15px;
+    background:rgba(124,92,255,.11);
+    color:var(--purple2);
+    font-size:22px;
+}
+
+.certificate h3{
+    font-size:17px;
+}
+
+.certificate p{
+    color:var(--muted);
+    font-size:11px;
+}
+
+.certificate-status{
+    margin-right:auto;
+    color:var(--cyan);
+    font:700 9px "JetBrains Mono";
+}
+
+/* CONTACT */
+.contact{
+    padding:52px;
+    display:grid;
+    grid-template-columns:1fr .9fr;
+    gap:60px;
+    border:1px solid var(--line);
+    border-radius:28px;
     background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            #4d86ff
-        );
-
-    box-shadow:
-        0 10px 30px
-        rgba(118,92,255,.22);
-
-}
-
-.logo-text span {
-
-    color: var(--cyan);
-
-}
-
-.nav-links {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 25px;
-
-}
-
-.nav-links a {
-
-    color: #aab5c9;
-
-    font-size: 12px;
-
-    transition: .25s;
-
-}
-
-.nav-links a:hover {
-
-    color: white;
-
-}
-
-.menu {
-
-    display: none;
-
-    border: 0;
-
-    background: transparent;
-
-    cursor: pointer;
-
-}
-
-.menu span {
-
-    display: block;
-
-    width: 25px;
-
-    height: 2px;
-
-    background: white;
-
-    margin: 5px 0;
-
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-
-    min-height: 100vh;
-
-    display: flex;
-
-    align-items: center;
-
-    padding-top: 130px;
-
-}
-
-.hero-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        1.15fr
-        .85fr;
-
-    gap: 70px;
-
-    align-items: center;
-
-}
-
-.availability {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    margin-bottom: 18px;
-
-    color: #b3bed0;
-
-    font-size: 11px;
-
-}
-
-.availability-dot {
-
-    width: 7px;
-
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: var(--green);
-
-    box-shadow:
-        0 0 15px
-        rgba(73,230,154,.7);
-
-}
-
-.hero-kicker {
-
-    color: var(--cyan);
-
-    font:
-        700 11px
-        "JetBrains Mono";
-
-    letter-spacing: 2px;
-
-    margin-bottom: 12px;
-
-}
-
-.hero h1 {
-
-    font-size:
-        clamp(
-            48px,
-            7vw,
-            88px
-        );
-
-    line-height: 1.04;
-
-    font-weight: 900;
-
-    letter-spacing: -3px;
-
-}
-
-.gradient {
-
-    background:
-        linear-gradient(
-            90deg,
-            white,
-            #a394ff,
-            #00d9ff
-        );
-
-    -webkit-background-clip: text;
-
-    background-clip: text;
-
-    color: transparent;
-
-}
-
-.hero-role {
-
-    display: flex;
-
-    align-items: center;
-
-    flex-wrap: wrap;
-
-    gap: 9px;
-
-    margin-top: 20px;
-
-    font:
-        600 18px
-        "JetBrains Mono";
-
-}
-
-.role-main {
-
-    color: white;
-
-}
-
-.role-separator {
-
-    color: var(--primary2);
-
-}
-
-#typed {
-
-    color: var(--cyan);
-
-}
-
-.cursor {
-
-    color: var(--cyan);
-
-    animation: blink .8s infinite;
-
-}
-
-@keyframes blink {
-
-    50% {
-        opacity: 0;
-    }
-
-}
-
-.hero-description {
-
-    max-width: 680px;
-
-    margin:
-        20px 0 28px;
-
-    color: var(--muted);
-
-    font-size: 14px;
-
-}
-
-.hero-specialties {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 7px;
-
-    margin-bottom: 28px;
-
-}
-
-.hero-specialties span {
-
-    padding:
-        6px 10px;
-
-    border:
-        1px solid var(--line);
-
-    background:
+        radial-gradient(circle at 90% 10%,rgba(124,92,255,.14),transparent 40%),
         rgba(255,255,255,.025);
-
-    border-radius: 9px;
-
-    color: #aab6ca;
-
-    font:
-        10px
-        "JetBrains Mono";
-
-}
-
-.hero-specialties b {
-
-    color: var(--cyan);
-
-    margin-left: 4px;
-
-}
-
-.hero-buttons {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-
-}
-
-.btn {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 8px;
-
-    min-height: 44px;
-
-    padding:
-        0 18px;
-
-    border-radius: 12px;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    transition: .25s;
-
-}
-
-.btn-primary {
-
-    color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            #4e86ff
-        );
-
-    box-shadow:
-        0 15px 35px
-        rgba(118,92,255,.18);
-
-}
-
-.btn-primary:hover {
-
-    transform:
-        translateY(-3px);
-
-}
-
-.btn-outline {
-
-    border:
-        1px solid var(--line);
-
-    background:
-        rgba(255,255,255,.025);
-
-}
-
-.btn-outline:hover {
-
-    border-color:
-        var(--line2);
-
-    transform:
-        translateY(-3px);
-
-}
-
-
-/* =========================================================
-   SOCIAL ICONS
-========================================================= */
-
-.socials {
-
-    display: flex;
-
-    gap: 8px;
-
-    margin-top: 24px;
-
-}
-
-.socials a {
-
-    width: 39px;
-
-    height: 39px;
-
-    display: grid;
-
-    place-items: center;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 11px;
-
-    color: #a8b3c6;
-
-    background:
-        rgba(255,255,255,.018);
-
-    transition: .25s;
-
-}
-
-.socials a:hover {
-
-    color: white;
-
-    border-color:
-        rgba(0,217,255,.35);
-
-    transform:
-        translateY(-3px);
-
-}
-
-.socials svg {
-
-    width: 17px;
-
-    height: 17px;
-
-    fill: currentColor;
-
-}
-
-
-/* =========================================================
-   HERO CODE
-========================================================= */
-
-.code-card {
-
-    overflow: hidden;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 23px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #111827,
-            #080c14
-        );
-
-    box-shadow:
-        var(--shadow);
-
-}
-
-.window-bar {
-
-    height: 48px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    padding:
-        0 17px;
-
-    border-bottom:
-        1px solid var(--line);
-
-}
-
-.window-dot {
-
-    width: 9px;
-
-    height: 9px;
-
-    border-radius: 50%;
-
-    background: #465166;
-
-}
-
-.window-title {
-
-    margin-right: auto;
-
-    color: #64718a;
-
-    font:
-        10px
-        "JetBrains Mono";
-
-}
-
-.code {
-
-    direction: ltr;
-
-    text-align: left;
-
-    padding: 28px;
-
-    color: #d3dced;
-
-    font:
-        11px/2.35
-        "JetBrains Mono";
-
-}
-
-.key {
-
-    color: #c38aff;
-
-}
-
-.string {
-
-    color: #6ee7a1;
-
-}
-
-.number {
-
-    color: #ffc66d;
-
-}
-
-.comment {
-
-    color: #56647d;
-
-}
-
-
-/* =========================================================
-   SECTION TITLE
-========================================================= */
-
-.section-title {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 16px;
-
-    margin-bottom: 48px;
-
-}
-
-.section-number {
-
-    margin-top: 8px;
-
-    padding:
-        5px 8px;
-
-    border:
-        1px solid
-        rgba(0,217,255,.2);
-
-    border-radius: 7px;
-
-    color: var(--cyan);
-
-    font:
-        700 10px
-        "JetBrains Mono";
-
-}
-
-.section-title small {
-
-    display: block;
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-    letter-spacing: 2px;
-
-}
-
-.section-title h2 {
-
-    margin-top: 4px;
-
-    font-size:
-        clamp(
-            31px,
-            4vw,
-            47px
-        );
-
-    line-height: 1.25;
-
-}
-
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        1.2fr
-        .8fr;
-
-    gap: 70px;
-
-}
-
-.about-lead {
-
-    color: #e7edf9;
-
-    font-size: 19px;
-
-    font-weight: 600;
-
-    margin-bottom: 17px;
-
-}
-
-.about-content p:not(.about-lead) {
-
-    color: var(--muted);
-
-    font-size: 13px;
-
-    margin-bottom: 14px;
-
-}
-
-.facts {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 12px;
-
-}
-
-.fact {
-
-    padding: 25px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 18px;
-
-    background:
-        rgba(255,255,255,.022);
-
-}
-
-.fact strong {
-
-    display: block;
-
-    color: white;
-
-    font:
-        800 29px
-        "JetBrains Mono";
-
-}
-
-.fact span {
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-}
-
-
-/* =========================================================
-   JOURNEY
-========================================================= */
-
-.journey {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap: 12px;
-
-}
-
-.journey-card {
-
-    position: relative;
-
-    padding: 25px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 18px;
-
-    background:
-        rgba(255,255,255,.022);
-
-}
-
-.journey-card::before {
-
-    content: "";
-
-    display: block;
-
-    width: 8px;
-
-    height: 8px;
-
-    margin-bottom: 18px;
-
-    border-radius: 50%;
-
-    background: var(--primary2);
-
-    box-shadow:
-        0 0 15px
-        rgba(118,92,255,.5);
-
-}
-
-.journey-card span {
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-}
-
-.journey-card h3 {
-
-    margin:
-        6px 0;
-
-    font-size: 17px;
-
-}
-
-.journey-card p {
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-}
-
-
-/* =========================================================
-   SKILLS
-========================================================= */
-
-.skills-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 15px;
-
-}
-
-.skill-card {
-
-    padding: 28px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(16,23,36,.88),
-            rgba(8,12,20,.8)
-        );
-
-    transition: .3s;
-
-}
-
-.skill-card:hover {
-
-    transform:
-        translateY(-5px);
-
-    border-color:
-        var(--line2);
-
-}
-
-.skill-code {
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-    margin-bottom: 16px;
-
-}
-
-.skill-card h3 {
-
-    font-size: 20px;
-
-    margin-bottom: 6px;
-
-}
-
-.skill-card p {
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-    margin-bottom: 18px;
-
-}
-
-.tags {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 6px;
-
-}
-
-.tags span {
-
-    padding:
-        5px 8px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 7px;
-
-    color: #aab5c9;
-
-    background:
-        rgba(255,255,255,.02);
-
-    font-size: 9px;
-
-}
-
-
-/* =========================================================
-   CYBERSECURITY
-========================================================= */
-
-.cyber-intro {
-
-    max-width: 850px;
-
-    margin-bottom: 35px;
-
-}
-
-.cyber-badge {
-
-    display: inline-block;
-
-    margin-bottom: 13px;
-
-    padding:
-        6px 10px;
-
-    border:
-        1px solid
-        rgba(0,217,255,.2);
-
-    border-radius: 7px;
-
-    background:
-        rgba(0,217,255,.035);
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-}
-
-.cyber-intro h3 {
-
-    font-size:
-        clamp(
-            25px,
-            4vw,
-            38px
-        );
-
-    line-height: 1.35;
-
-}
-
-.cyber-intro p {
-
-    color: var(--muted);
-
-    font-size: 13px;
-
-    margin-top: 11px;
-
-}
-
-.cyber-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 14px;
-
-}
-
-.cyber-card {
-
-    min-height: 245px;
-
-    padding: 25px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 19px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(14,21,34,.9),
-            rgba(8,12,20,.78)
-        );
-
-    transition: .3s;
-
-}
-
-.cyber-card:hover {
-
-    transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(0,217,255,.3);
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.24);
-
-}
-
-.cyber-icon {
-
-    width: 43px;
-
-    height: 43px;
-
-    display: grid;
-
-    place-items: center;
-
-    margin-bottom: 16px;
-
-    border:
-        1px solid
-        rgba(0,217,255,.18);
-
-    border-radius: 11px;
-
-    background:
-        rgba(0,217,255,.045);
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-}
-
-.cyber-card h3 {
-
-    font-size: 18px;
-
-    margin-bottom: 5px;
-
-}
-
-.cyber-card p {
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-    margin-bottom: 15px;
-
-}
-
-.cyber-card .tags span {
-
-    font-size: 8px;
-
-}
-
-.cyber-learning {
-
-    margin-top: 16px;
-
-    padding: 24px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    border:
-        1px dashed
-        rgba(118,92,255,.4);
-
-    border-radius: 18px;
-
-    background:
-        rgba(118,92,255,.035);
-
-}
-
-.cyber-learning span {
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-}
-
-.cyber-learning h3 {
-
-    margin-top: 5px;
-
-    font-size: 16px;
-
-}
-
-.cyber-learning strong {
-
-    color: var(--primary2);
-
-    font:
-        700 11px
-        "JetBrains Mono";
-
-}
-
-
-/* =========================================================
-   ANDROID
-========================================================= */
-
-.android-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr
-        1fr;
-
-    gap: 15px;
-
-}
-
-.android-card {
-
-    padding: 30px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(17,25,39,.9),
-            rgba(8,12,20,.8)
-        );
-
-}
-
-.android-card h3 {
-
-    font-size: 21px;
-
-    margin-bottom: 8px;
-
-}
-
-.android-card p {
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-    margin-bottom: 20px;
-
-}
-
-.stack {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap: 8px;
-
-}
-
-.stack-item {
-
-    padding: 11px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 10px;
-
-    background:
-        rgba(255,255,255,.02);
-
-    color: #bbc5d6;
-
-    font-size: 10px;
-
-}
-
-
-/* =========================================================
-   PROJECTS
-========================================================= */
-
-.projects-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 15px;
-
-}
-
-.project {
-
-    overflow: hidden;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,255,255,.022);
-
-    transition: .3s;
-
-}
-
-.project:hover {
-
-    transform:
-        translateY(-5px);
-
-    border-color:
-        var(--line2);
-
-}
-
-.project-preview {
-
-    height: 170px;
-
-    display: grid;
-
-    place-items: center;
-
-    border-bottom:
-        1px solid var(--line);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(118,92,255,.13),
-            transparent 65%
-        );
-
-}
-
-.project-placeholder {
-
-    width: 66px;
-
-    height: 66px;
-
-    display: grid;
-
-    place-items: center;
-
-    border:
-        1px dashed
-        rgba(118,92,255,.5);
-
-    border-radius: 17px;
-
-    color: var(--primary2);
-
-    font:
-        700 19px
-        "JetBrains Mono";
-
-}
-
-.project-content {
-
-    padding: 23px;
-
-}
-
-.project-label {
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-}
-
-.project h3 {
-
-    font-size: 18px;
-
-    margin:
-        7px 0;
-
-}
-
-.project p {
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-}
-
-.coming-soon {
-
-    display: inline-block;
-
-    margin-top: 14px;
-
-    padding:
-        5px 9px;
-
-    border:
-        1px solid
-        rgba(118,92,255,.2);
-
-    border-radius: 7px;
-
-    background:
-        rgba(118,92,255,.07);
-
-    color: #b7aaff;
-
-    font-size: 9px;
-
-}
-
-
-/* =========================================================
-   GITHUB
-========================================================= */
-
-.github-box {
-
-    padding: 35px;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr
-        auto;
-
-    align-items: center;
-
-    gap: 30px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 22px;
-
-    background:
-        linear-gradient(
-            100deg,
-            rgba(118,92,255,.09),
-            rgba(0,217,255,.025)
-        );
-
-}
-
-.github-box h3 {
-
-    font-size: 25px;
-
-}
-
-.github-box p {
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-    margin-top: 5px;
-
-}
-
-.github-status {
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-}
-
-
-/* =========================================================
-   EDUCATION
-========================================================= */
-
-.education {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr
-        .35fr;
-
-    gap: 15px;
-
-}
-
-.education-main {
-
-    padding: 35px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 21px;
-
-    background:
-        rgba(255,255,255,.025);
-
-}
-
-.education-main small {
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-}
-
-.education-main h3 {
-
-    font-size: 27px;
-
-    margin:
-        7px 0;
-
-}
-
-.education-main p {
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-}
-
-.age-card {
-
-    padding: 35px;
-
-    display: grid;
-
-    place-items: center;
-
-    text-align: center;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 21px;
-
-    background:
-        rgba(118,92,255,.05);
-
-}
-
-.age-card strong {
-
-    font:
-        800 52px
-        "JetBrains Mono";
-
-}
-
-.age-card span {
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-}
-
-
-/* =========================================================
-   BOOKS
-========================================================= */
-
-.books-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        1.1fr
-        .9fr;
-
-    gap: 15px;
-
-}
-
-.books-card {
-
-    padding: 38px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 22px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(20,25,41,.85),
-            rgba(8,12,20,.8)
-        );
-
-}
-
-.books-card h3 {
-
-    font-size: 28px;
-
-    margin-bottom: 10px;
-
-}
-
-.books-card p {
-
-    color: var(--muted);
-
-    font-size: 13px;
-
-}
-
-.books-box {
-
-    min-height: 270px;
-
-    display: grid;
-
-    place-items: center;
-
-    text-align: center;
-
-    padding: 25px;
-
-    border:
-        1px dashed
-        rgba(118,92,255,.35);
-
-    border-radius: 22px;
-
-    background:
-        rgba(118,92,255,.035);
-
-}
-
-.book-icon {
-
-    font-size: 45px;
-
-    margin-bottom: 5px;
-
-}
-
-.books-box h3 {
-
-    font-size: 18px;
-
-}
-
-.books-box p {
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-}
-
-
-/* =========================================================
-   WRITING
-========================================================= */
-
-.writing-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 15px;
-
-}
-
-.writing-main {
-
-    grid-column:
-        1 / -1;
-
-    padding: 35px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 22px;
-
-    background:
-        linear-gradient(
-            100deg,
-            rgba(118,92,255,.1),
-            rgba(0,217,255,.025)
-        );
-
-}
-
-.writing-main h3 {
-
-    font-size: 28px;
-
-}
-
-.writing-main p {
-
-    max-width: 780px;
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-    margin-top: 7px;
-
-}
-
-.writing-card {
-
-    padding: 27px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 19px;
-
-    background:
-        rgba(255,255,255,.022);
-
-}
-
-.writing-card small {
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-}
-
-.writing-card h3 {
-
-    margin:
-        7px 0;
-
-}
-
-.writing-card p {
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-}
-
-
-/* =========================================================
-   LEARNING
-========================================================= */
-
-.learning-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap: 10px;
-
-}
-
-.learning-card {
-
-    padding: 22px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 17px;
-
-    background:
-        rgba(255,255,255,.02);
-
-}
-
-.learning-card span {
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-}
-
-.learning-card h3 {
-
-    font-size: 16px;
-
-    margin:
-        7px 0 3px;
-
-}
-
-.learning-card p {
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-}
-
-
-/* =========================================================
-   CERTIFICATES
-========================================================= */
-
-.cert-box {
-
-    padding: 30px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 18px;
-
-    border:
-        1px dashed
-        rgba(118,92,255,.4);
-
-    border-radius: 20px;
-
-    background:
-        rgba(118,92,255,.035);
-
-}
-
-.cert-icon {
-
-    width: 52px;
-
-    height: 52px;
-
-    flex-shrink: 0;
-
-    display: grid;
-
-    place-items: center;
-
-    border-radius: 14px;
-
-    background:
-        rgba(118,92,255,.1);
-
-    color: var(--primary2);
-
-    font-size: 21px;
-
-}
-
-.cert-box h3 {
-
-    font-size: 18px;
-
-}
-
-.cert-box p {
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-}
-
-.cert-status {
-
-    margin-right: auto;
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-box {
-
-    padding: 55px;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr
-        .9fr;
-
-    gap: 60px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 27px;
-
-    background:
-        radial-gradient(
-            circle at 90% 10%,
-            rgba(118,92,255,.14),
-            transparent 40%
-        ),
-        rgba(255,255,255,.023);
-
-}
-
-.contact-box > div:first-child small {
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
-
-    letter-spacing: 2px;
-
-}
-
-.contact-box h2 {
-
-    font-size:
-        clamp(
-            38px,
-            5vw,
-            60px
-        );
-
-    line-height: 1.2;
-
-    margin:
-        8px 0 14px;
-
-}
-
-.contact-box h2 span {
-
-    color: var(--primary2);
-
 }
 
-.contact-box p {
-
-    color: var(--muted);
-
-    font-size: 12px;
-
+.contact h2{
+    font-size:clamp(38px,5vw,58px);
+    line-height:1.2;
+    margin:8px 0 14px;
 }
-
-.contact-links {
 
-    display: flex;
-
-    flex-direction: column;
-
+.contact h2 span{
+    color:var(--purple2);
 }
-
-.contact-link {
-
-    display: flex;
 
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding:
-        14px 0;
-
-    border-bottom:
-        1px solid var(--line);
-
-    transition: .25s;
-
+.contact>div>p{
+    color:var(--muted);
+    font-size:12px;
 }
-
-.contact-link:hover {
 
-    padding-right: 8px;
-
+.contact-links{
+    display:flex;
+    flex-direction:column;
 }
-
-.contact-name {
 
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    color: #dce4f2;
-
-    font-size: 12px;
-
+.contact-link{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 0;
+    border-bottom:1px solid var(--line);
+    transition:.25s;
 }
-
-.contact-icon {
-
-    width: 32px;
-
-    height: 32px;
 
-    display: grid;
-
-    place-items: center;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 9px;
-
-    color: var(--cyan);
-
+.contact-link:hover{
+    padding-right:8px;
 }
-
-.contact-icon svg {
-
-    width: 15px;
-
-    height: 15px;
 
-    fill: currentColor;
-
+.contact-link span:first-child{
+    color:#dce3f2;
+    font-size:12px;
 }
-
-.contact-value {
-
-    color: var(--cyan);
-
-    font:
-        700 9px
-        "JetBrains Mono";
 
+.contact-link span:last-child{
+    color:var(--cyan);
+    font:700 9px "JetBrains Mono";
 }
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-
-    padding:
-        27px 0;
 
-    border-top:
-        1px solid var(--line);
-
-    color: var(--muted2);
-
-    font-size: 10px;
-
+/* FOOTER */
+footer{
+    border-top:1px solid var(--line);
+    padding:25px 0;
+    color:var(--muted2);
+    font-size:9px;
 }
-
-.footer-inner {
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
-
-.footer-inner strong {
 
-    color: var(--cyan);
-
+footer strong{
+    color:var(--cyan);
 }
-
-
-/* =========================================================
-   TOP
-========================================================= */
-
-.top-button {
-
-    position: fixed;
-
-    left: 23px;
-
-    bottom: 23px;
-
-    width: 43px;
-
-    height: 43px;
-
-    display: grid;
-
-    place-items: center;
-
-    border:
-        1px solid var(--line);
-
-    border-radius: 12px;
-
-    background:
-        rgba(8,12,20,.92);
-
-    color: white;
-
-    cursor: pointer;
 
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform:
-        translateY(10px);
-
-    transition: .3s;
-
-    z-index: 500;
-
+/* TOP */
+.top{
+    position:fixed;
+    left:22px;
+    bottom:22px;
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:rgba(8,11,18,.92);
+    color:white;
+    cursor:pointer;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:.3s;
+    z-index:90;
 }
-
-.top-button.show {
-
-    opacity: 1;
-
-    visibility: visible;
 
-    transform: none;
-
+.top.show{
+    opacity:1;
+    visibility:visible;
+    transform:none;
 }
-
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-.reveal {
 
-    opacity: 0;
-
-    transform:
-        translateY(18px);
-
-    transition:
-        opacity .7s ease,
-        transform .7s ease;
-
+/* REVEAL */
+.reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:.7s ease;
 }
-
-.reveal.visible {
 
-    opacity: 1;
-
-    transform: none;
-
+.reveal.visible{
+    opacity:1;
+    transform:none;
 }
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media(max-width: 1000px) {
-
-    .nav-links {
-
-        position: fixed;
-
-        top: 78px;
-
-        right: 20px;
-
-        left: 20px;
-
-        display: none;
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        padding: 17px;
-
-        background:
-            rgba(7,10,17,.97);
-
-        border:
-            1px solid var(--line);
-
-        border-radius: 18px;
 
+/* RESPONSIVE */
+@media(max-width:900px){
+    .nav-links{
+        position:fixed;
+        top:78px;
+        right:17px;
+        left:17px;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        padding:15px;
+        border:1px solid var(--line);
+        border-radius:17px;
+        background:rgba(7,10,17,.97);
     }
 
-    .nav-links.open {
-
-        display: flex;
-
+    .nav-links.open{
+        display:flex;
     }
 
-    .nav-links a {
-
-        padding: 8px;
-
+    .nav-links a{
+        padding:8px;
     }
 
-    .menu {
-
-        display: block;
-
+    .menu{
+        display:block;
     }
 
-    .hero-grid {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-    .hero-code {
-
-        max-width: 720px;
-
-    }
-
-    .journey {
-
-        grid-template-columns:
-            1fr 1fr;
-
-    }
-
-    .cyber-grid {
-
-        grid-template-columns:
-            1fr 1fr;
-
-    }
-
-    .learning-grid {
-
-        grid-template-columns:
-            1fr 1fr;
-
-    }
-
-}
-
-
-@media(max-width: 720px) {
-
-    .container {
-
-        width:
-            calc(100% - 28px);
-
-    }
-
-    .section {
-
-        padding: 82px 0;
-
-    }
-
-    .hero {
-
-        padding-top: 115px;
-
-    }
-
-    .hero h1 {
-
-        font-size: 53px;
-
-        letter-spacing: -2px;
-
-    }
-
-    .hero-description {
-
-        font-size: 12px;
-
-    }
-
-    .hero-role {
-
-        font-size: 15px;
-
-    }
-
-    .code {
-
-        padding: 20px;
-
-        font-size: 9px;
-
-    }
-
+    .hero-grid,
     .about-grid,
-    .android-grid,
     .books-grid,
-    .contact-box,
-    .education {
+    .contact{
+        grid-template-columns:1fr;
+    }
 
-        grid-template-columns:
-            1fr;
+    .projects{
+        grid-template-columns:1fr 1fr;
+    }
 
+    .cpp-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:650px){
+    .container{
+        width:calc(100% - 26px);
+    }
+
+    .section{
+        padding:82px 0;
+    }
+
+    .hero{
+        padding-top:115px;
+    }
+
+    .hero h1{
+        font-size:53px;
+        letter-spacing:-2px;
+    }
+
+    .role{
+        font-size:15px;
+    }
+
+    .hero-desc{
+        font-size:12px;
+    }
+
+    .profile-body{
+        padding:23px;
     }
 
     .skills-grid,
-    .projects-grid,
-    .writing-grid {
-
-        grid-template-columns:
-            1fr;
-
+    .projects,
+    .writing-grid{
+        grid-template-columns:1fr;
     }
 
-    .writing-main {
-
-        grid-column: auto;
-
+    .writing-main{
+        grid-column:auto;
     }
 
-    .cyber-grid {
-
-        grid-template-columns:
-            1fr;
-
+    .cpp-lab{
+        padding:25px;
     }
 
-    .journey {
-
-        grid-template-columns:
-            1fr 1fr;
-
+    .cpp-lab h3{
+        font-size:25px;
     }
 
-    .learning-grid {
-
-        grid-template-columns:
-            1fr 1fr;
-
+    .contact{
+        padding:28px;
     }
 
-    .github-box {
-
-        grid-template-columns:
-            1fr;
-
+    .certificate{
+        align-items:flex-start;
+        flex-wrap:wrap;
     }
 
-    .contact-box {
-
-        padding: 29px;
-
-        gap: 35px;
-
+    .certificate-status{
+        width:100%;
+        margin-right:0;
     }
 
-    .cert-box {
-
-        align-items: flex-start;
-
-        flex-wrap: wrap;
-
+    .footer-inner{
+        flex-direction:column;
+        gap:7px;
+        text-align:center;
     }
-
-    .cert-status {
-
-        width: 100%;
-
-        margin-right: 0;
-
-    }
-
 }
-
-
-@media(max-width: 480px) {
-
-    .hero h1 {
-
-        font-size: 45px;
-
-    }
-
-    .hero-specialties span {
-
-        font-size: 8px;
-
-    }
-
-    .facts {
-
-        grid-template-columns:
-            1fr 1fr;
-
-    }
-
-    .journey {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-    .learning-grid {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-    .stack {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-    .socials a {
-
-        width: 37px;
-
-        height: 37px;
-
-    }
-
-    .footer-inner {
-
-        flex-direction: column;
-
-        gap: 7px;
-
-        text-align: center;
-
-    }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-
-        animation-duration: .01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        transition-duration: .01ms !important;
-
-    }
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
-<div class="grid-bg"></div>
-
-
-<!-- =========================================================
-     HEADER
-========================================================= -->
-
 <header class="header">
+<div class="container nav">
 
-    <div class="container nav">
+<a class="logo" href="#home">
+    <span class="logo-mark">&lt;/&gt;</span>
+    <span>Mohammed<span>.dev</span></span>
+</a>
 
-        <a href="#home" class="logo">
+<button class="menu" id="menu" aria-label="القائمة">
+    <span></span><span></span><span></span>
+</button>
 
-            <span class="logo-mark">
-                &lt;/&gt;
-            </span>
+<nav class="nav-links" id="navLinks">
+    <a href="#home">الرئيسية</a>
+    <a href="#about">من أنا</a>
+    <a href="#skills">المهارات</a>
+    <a href="#cpp">C++ Lab</a>
+    <a href="#projects">المشاريع</a>
+    <a href="#books">الكتب</a>
+    <a href="#writing">الكتابة</a>
+    <a href="#contact">تواصل</a>
+</nav>
 
-            <span class="logo-text">
-                Mohammed<span>.dev</span>
-            </span>
-
-        </a>
-
-
-        <button
-            class="menu"
-            id="menu"
-            aria-label="فتح القائمة">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
-
-
-        <nav class="nav-links" id="navLinks">
-
-            <a href="#home">الرئيسية</a>
-
-            <a href="#about">من أنا</a>
-
-            <a href="#skills">المهارات</a>
-
-            <a href="#cybersecurity">Cybersecurity</a>
-
-            <a href="#android">Android</a>
-
-            <a href="#projects">المشاريع</a>
-
-            <a href="#books">الكتب</a>
-
-            <a href="#contact">تواصل</a>
-
-        </nav>
-
-    </div>
-
+</div>
 </header>
-
-
 
 <main>
 
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section
-    class="hero"
-    id="home">
-
-    <div class="container hero-grid">
-
-
-        <div class="reveal">
-
-
-            <div class="availability">
-
-                <span class="availability-dot"></span>
-
-                متاح للتواصل والتعاون
-
-            </div>
-
-
-            <div class="hero-kicker">
-                HELLO, I'M
-            </div>
-
-
-            <h1>
-
-                محمد عبدالله
-
-                <br>
-
-                <span class="gradient">
-                    إبراهيم
-                </span>
-
-            </h1>
-
-
-            <div class="hero-role">
-
-                <span class="role-main">
-                    Android Developer
-                </span>
-
-                <span class="role-separator">
-                    /
-                </span>
-
-                <span id="typed">
-                    Cybersecurity
-                </span>
-
-                <span class="cursor">
-                    _
-                </span>
-
-            </div>
-
-
-            <p class="hero-description">
-
-                طالب حاسبات ومعلومات ومطور Android،
-                مهتم بالبرمجة والأمن السيبراني وأمن التطبيقات،
-                وأجد شغفًا أيضًا في الكتب والروايات والكتابة.
-                أتعلم باستمرار وأحوّل الأفكار إلى مشاريع حقيقية.
-
-            </p>
-
-
-            <div class="hero-specialties">
-
-                <span>
-                    <b>01</b>
-                    Android
-                </span>
-
-                <span>
-                    <b>02</b>
-                    Cybersecurity
-                </span>
-
-                <span>
-                    <b>03</b>
-                    Programming
-                </span>
-
-                <span>
-                    <b>04</b>
-                    Writing
-                </span>
-
-            </div>
-
-
-            <div class="hero-buttons">
-
-                <a
-                    href="#projects"
-                    class="btn btn-primary">
-
-                    استكشف مشاريعي
-                    ↗
-
-                </a>
-
-                <a
-                    href="#contact"
-                    class="btn btn-outline">
-
-                    تواصل معي
-
-                </a>
-
-            </div>
-
-
-            <!-- SOCIAL ICONS -->
-
-            <div class="socials">
-
-
-                <!-- Facebook -->
-
-                <a
-                    href="https://www.facebook.com/share/1DsBQE5YmH/"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Facebook">
-
-                    <svg viewBox="0 0 24 24">
-                        <path d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1z"/>
-                    </svg>
-
-                </a>
-
-
-                <!-- WhatsApp -->
-
-                <a
-                    href="https://wa.me/201027595528"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="WhatsApp">
-
-                    <svg viewBox="0 0 24 24">
-
-                        <path d="M20 4.1A9.9 9.9 0 0 0 3.2 16.2L2 21.5l5.4-1.2A10 10 0 1 0 20 4.1zm-8 16a8.2 8.2 0 0 1-4.1-1.1l-.3-.2-3.2.7.7-3.1-.2-.3a8.1 8.1 0 1 1 7.1 4zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-1.3-.6-2.2-1.1-3.1-2.5-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5 1.5.7 2.1.7 2.9.6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.2-.2-.2-.4-.3z"/>
-
-                    </svg>
-
-                </a>
-
-
-                <!-- Telegram -->
-
-                <a
-                    href="https://t.me/C_O_N_2"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Telegram">
-
-                    <svg viewBox="0 0 24 24">
-
-                        <path d="M21.5 4.5 18.3 20c-.2 1.1-.8 1.4-1.7.9l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.4-.1-.6-.6-.2L6.2 14.1l-4.6-1.5c-1-.3-1-1 .2-1.5L19.8 4c.8-.3 1.9.2 1.7.5z"/>
-
-                    </svg>
-
-                </a>
-
-
-                <!-- Instagram -->
-
-                <a
-                    href="https://instagram.com/mhbdllh4861"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Instagram">
-
-                    <svg viewBox="0 0 24 24">
-
-                        <rect
-                            x="3"
-                            y="3"
-                            width="18"
-                            height="18"
-                            rx="5"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"/>
-
-                        <circle
-                            cx="12"
-                            cy="12"
-                            r="4"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"/>
-
-                        <circle
-                            cx="17.5"
-                            cy="6.5"
-                            r="1"
-                            fill="currentColor"/>
-
-                    </svg>
-
-                </a>
-
-
-                <!-- LinkedIn -->
-
-                <a
-                    href="https://www.linkedin.com/in/mohammed-con"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="LinkedIn">
-
-                    <svg viewBox="0 0 24 24">
-
-                        <path d="M5 3.5A2.5 2.5 0 1 1 5 8a2.5 2.5 0 0 1 0-4.5zM3 9h4v12H3zm6 0h3.8v1.7h.1c.5-1 1.8-2.1 3.8-2.1 4 0 4.7 2.6 4.7 6v6.4h-4v-5.7c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9z"/>
-
-                    </svg>
-
-                </a>
-
-
-                <!-- Email -->
-
-                <a
-                    href="mailto:cconker63@gmail.com"
-                    aria-label="Email">
-
-                    <svg viewBox="0 0 24 24">
-
-                        <rect
-                            x="3"
-                            y="5"
-                            width="18"
-                            height="14"
-                            rx="2"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.8"/>
-
-                        <path
-                            d="m4 7 8 6 8-6"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.8"/>
-
-                    </svg>
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- CODE CARD -->
-
-        <div class="hero-code reveal">
-
-            <div class="code-card">
-
-                <div class="window-bar">
-
-                    <span class="window-dot"></span>
-                    <span class="window-dot"></span>
-                    <span class="window-dot"></span>
-
-                    <span class="window-title">
-                        developer.json
-                    </span>
-
-                </div>
-
-
-                <div class="code">
-
-                    <div>
-                        <span class="key">const</span>
-                        developer = {
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;name:
-                        <span class="string">
-                            "Mohammed Abdullah"
-                        </span>,
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;age:
-                        <span class="number">19</span>,
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;education:
-                        <span class="string">
-                            "Computer Science"
-                        </span>,
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;role:
-                        <span class="string">
-                            "Android Developer"
-                        </span>,
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;security:
-                        <span class="string">
-                            "Cybersecurity"
-                        </span>,
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;interests: [
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="string">
-                            "Programming"
-                        </span>,
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="string">
-                            "Mobile Development"
-                        </span>,
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="string">
-                            "Cybersecurity"
-                        </span>,
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="string">
-                            "Books & Writing"
-                        </span>
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;],
-                    </div>
-
-                    <div>
-                        &nbsp;&nbsp;status:
-                        <span class="string">
-                            "Learning & Building"
-                        </span>
-                    </div>
-
-                    <div>
-                        };
-                    </div>
-
-                    <br>
-
-                    <div class="comment">
-                        // learn. build. secure. create.
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<!-- HERO -->
+<section class="hero section" id="home">
+<div class="container hero-grid">
+
+<div class="reveal">
+
+<div class="availability">
+<span class="online-dot"></span>
+متاح للتواصل والتعاون
+</div>
+
+<div class="eyebrow">HELLO, I'M</div>
+
+<h1>
+محمد عبدالله
+<br>
+<span class="gradient">إبراهيم</span>
+</h1>
+
+<div class="role">
+<span id="typed">Android Developer</span>
+<span class="cursor">_</span>
+</div>
+
+<p class="hero-desc">
+طالب حاسبات ومعلومات، مطور Android، مهتم بالبرمجة
+والـ C++ والأمن السيبراني، وأحب الكتب والروايات والكتابة.
+أتعلم باستمرار وأسعى لتحويل الأفكار إلى مشاريع وتجارب حقيقية.
+</p>
+
+<div class="buttons">
+<a href="#projects" class="btn primary">استكشف أعمالي ↗</a>
+<a href="#contact" class="btn outline">تواصل معي</a>
+</div>
+
+<div class="socials">
+<a href="https://www.facebook.com/share/1DsBQE5YmH/" target="_blank">FB</a>
+<a href="https://wa.me/201027595528" target="_blank">WA</a>
+<a href="https://t.me/C_O_N_2" target="_blank">TG</a>
+<a href="https://instagram.com/mhbdllh4861" target="_blank">IG</a>
+<a href="https://www.linkedin.com/in/mohammed-con" target="_blank">IN</a>
+<a href="mailto:cconker63@gmail.com">@</a>
+</div>
+
+</div>
+
+<div class="reveal">
+<div class="profile-card">
+
+<div class="profile-top">
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="file-name">developer.profile</span>
+</div>
+
+<div class="profile-body">
+
+<div class="profile-initial">MA</div>
+
+<h3>Mohammed Abdullah</h3>
+<p>Android Developer • Programmer • Cybersecurity</p>
+
+<div class="code-line">
+<span class="purple">const</span> developer = {<br>
+&nbsp;&nbsp;name:
+<span class="green">"Mohammed Abdullah"</span>,<br>
+&nbsp;&nbsp;age:
+<span class="yellow">19</span>,<br>
+&nbsp;&nbsp;major:
+<span class="green">"Computer Science"</span>,<br>
+&nbsp;&nbsp;focus: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">"Android"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">"C++"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">"Cybersecurity"</span><br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;status:
+<span class="green">"Learning & Building"</span><br>
+};
+</div>
+
+<div class="mini-status">
+<span class="online-dot"></span>
+&nbsp; Currently learning • building • improving
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
 </section>
 
+<!-- ABOUT -->
+<section class="section" id="about">
+<div class="container">
 
+<div class="section-title reveal">
+<span class="section-number">01</span>
+<div>
+<small>ABOUT ME</small>
+<h2>من أنا؟</h2>
+</div>
+</div>
 
-<!-- =========================================================
-     ABOUT
-========================================================= -->
+<div class="about-grid">
 
-<section
-    class="section"
-    id="about">
+<div class="about reveal">
+<p class="lead">
+أنا محمد عبدالله إبراهيم، طالب في حاسبات ومعلومات،
+عمري 19 عامًا، ومطور Android شغوف بالتقنية.
+</p>
 
-    <div class="container">
+<p>
+أحب البرمجة وبناء التطبيقات وتجربة الأفكار الجديدة،
+وأهتم بشكل خاص بـ Android و C++ والخوارزميات.
+</p>
 
-        <div class="section-title reveal">
+<p>
+لدي اهتمام أيضًا بالأمن السيبراني والـ Ethical Hacking،
+مع التركيز على التعلم وفهم الأنظمة والشبكات وأمن التطبيقات
+والـ Secure Coding.
+</p>
 
-            <span class="section-number">
-                01
-            </span>
+<p>
+وخارج عالم التقنية، أحب الكتب والروايات والكتابة،
+وأعتبر القراءة والكتابة مساحة مختلفة لاستكشاف الأفكار والقصص.
+</p>
+</div>
 
-            <div>
+<div class="facts reveal">
 
-                <small>ABOUT ME</small>
+<div class="fact">
+<strong>19</strong>
+<span>العمر</span>
+</div>
 
-                <h2>
-                    من أنا؟
-                </h2>
+<div class="fact">
+<strong>CS</strong>
+<span>حاسبات ومعلومات</span>
+</div>
 
-            </div>
+<div class="fact">
+<strong>AND</strong>
+<span>Android Developer</span>
+</div>
 
-        </div>
+<div class="fact">
+<strong>C++</strong>
+<span>Programming</span>
+</div>
 
-
-        <div class="about-grid">
-
-            <div class="about-content reveal">
-
-                <p class="about-lead">
-
-                    محمد عبدالله إبراهيم —
-                    طالب حاسبات ومعلومات،
-                    مطور Android، ومهتم بالأمن السيبراني
-                    والبرمجة والكتابة.
-
-                </p>
-
-
-                <p>
-
-                    أحب بناء التطبيقات وتجربة الأفكار
-                    وتحويل المشاكل إلى حلول برمجية
-                    عملية وقابلة للتطوير.
-
-                </p>
-
-
-                <p>
-
-                    في المجال الأمني أهتم بفهم الأنظمة
-                    والشبكات وأمن التطبيقات والموبايل
-                    والـ Secure Coding، مع التعلم المستمر
-                    في مجال الـ Ethical Hacking.
-
-                </p>
-
-
-                <p>
-
-                    وخارج عالم التقنية أجد مساحة مختلفة
-                    في الكتب والروايات والكتابة،
-                    وأهتم بالأفكار والقصص والمحتوى المكتوب.
-
-                </p>
-
-            </div>
-
-
-            <div class="facts reveal">
-
-                <div class="fact">
-
-                    <strong>19</strong>
-
-                    <span>
-                        العمر
-                    </span>
-
-                </div>
-
-                <div class="fact">
-
-                    <strong>CS</strong>
-
-                    <span>
-                        حاسبات ومعلومات
-                    </span>
-
-                </div>
-
-                <div class="fact">
-
-                    <strong>APP</strong>
-
-                    <span>
-                        Android Development
-                    </span>
-
-                </div>
-
-                <div class="fact">
-
-                    <strong>∞</strong>
-
-                    <span>
-                        تعلم مستمر
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
+</div>
 </section>
 
+<!-- SKILLS -->
+<section class="section" id="skills">
+<div class="container">
 
+<div class="section-title reveal">
+<span class="section-number">02</span>
+<div>
+<small>SKILLS</small>
+<h2>المهارات</h2>
+</div>
+</div>
 
-<!-- =========================================================
-     JOURNEY
-========================================================= -->
+<div class="skills-grid">
 
-<section class="section">
+<article class="skill reveal">
+<div class="skill-num">01 / MOBILE</div>
+<h3>Android Development</h3>
+<p>تطوير تطبيقات Android وواجهات وتجارب استخدام حديثة.</p>
+<div class="tags">
+<span class="tag">Kotlin</span>
+<span class="tag">Java</span>
+<span class="tag">Android SDK</span>
+<span class="tag">Android Studio</span>
+<span class="tag">Jetpack</span>
+<span class="tag">Compose</span>
+<span class="tag">XML</span>
+<span class="tag">Material Design</span>
+<span class="tag">Firebase</span>
+<span class="tag">REST API</span>
+<span class="tag">JSON</span>
+<span class="tag">Room</span>
+<span class="tag">SQLite</span>
+<span class="tag">Gradle</span>
+</div>
+</article>
 
-    <div class="container">
+<article class="skill reveal">
+<div class="skill-num">02 / C++ & CODE</div>
+<h3>C++ & Programming</h3>
+<p>البرمجة والخوارزميات وهياكل البيانات وحل المشكلات.</p>
+<div class="tags">
+<span class="tag">C++</span>
+<span class="tag">C</span>
+<span class="tag">OOP</span>
+<span class="tag">STL</span>
+<span class="tag">Algorithms</span>
+<span class="tag">Data Structures</span>
+<span class="tag">Pointers</span>
+<span class="tag">References</span>
+<span class="tag">Templates</span>
+<span class="tag">Memory Management</span>
+<span class="tag">Problem Solving</span>
+<span class="tag">Debugging</span>
+</div>
+</article>
 
-        <div class="section-title reveal">
+<article class="skill reveal">
+<div class="skill-num">03 / SECURITY</div>
+<h3>Cybersecurity</h3>
+<p>اهتمام بالأمن السيبراني وحماية الأنظمة والتطبيقات.</p>
+<div class="tags">
+<span class="tag">Cybersecurity</span>
+<span class="tag">Ethical Hacking</span>
+<span class="tag">Linux</span>
+<span class="tag">Networking</span>
+<span class="tag">OWASP</span>
+<span class="tag">Web Security</span>
+<span class="tag">Secure Coding</span>
+<span class="tag">Cryptography Basics</span>
+<span class="tag">Security Analysis</span>
+<span class="tag">Privacy</span>
+</div>
+</article>
 
-            <span class="section-number">
-                02
-            </span>
+<article class="skill reveal">
+<div class="skill-num">04 / DEVELOPMENT</div>
+<h3>Tools & Technologies</h3>
+<p>أدوات وتقنيات التطوير وإدارة المشاريع والتعلم.</p>
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">JavaScript</span>
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">SQL</span>
+<span class="tag">Git</span>
+<span class="tag">GitHub</span>
+<span class="tag">VS Code</span>
+<span class="tag">APIs</span>
+<span class="tag">Databases</span>
+<span class="tag">Testing</span>
+</div>
+</article>
 
-            <div>
-
-                <small>MY JOURNEY</small>
-
-                <h2>
-                    رحلتي
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="journey">
-
-
-            <article class="journey-card reveal">
-
-                <span>01 / FOUNDATION</span>
-
-                <h3>
-                    حاسبات ومعلومات
-                </h3>
-
-                <p>
-                    بناء أساس قوي في علوم الحاسب
-                    والبرمجة وحل المشكلات.
-                </p>
-
-            </article>
-
-
-            <article class="journey-card reveal">
-
-                <span>02 / DEVELOPMENT</span>
-
-                <h3>
-                    Android
-                </h3>
-
-                <p>
-                    التعمق في تطوير تطبيقات Android
-                    وبناء تطبيقات عملية.
-                </p>
-
-            </article>
-
-
-            <article class="journey-card reveal">
-
-                <span>03 / SECURITY</span>
-
-                <h3>
-                    Cybersecurity
-                </h3>
-
-                <p>
-                    توسيع المعرفة في الشبكات والأنظمة
-                    وأمن التطبيقات.
-                </p>
-
-            </article>
-
-
-            <article class="journey-card reveal">
-
-                <span>04 / CREATIVE</span>
-
-                <h3>
-                    Books & Writing
-                </h3>
-
-                <p>
-                    مساحة للقراءة والكتابة
-                    وصناعة الأفكار والقصص.
-                </p>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
 
+<!-- C++ LAB -->
+<section class="section" id="cpp">
+<div class="container">
 
+<div class="section-title reveal">
+<span class="section-number">03</span>
+<div>
+<small>C++ LAB</small>
+<h2>مساحة C++</h2>
+</div>
+</div>
 
-<!-- =========================================================
-     PROGRAMMING SKILLS
-========================================================= -->
+<div class="cpp-lab reveal">
 
-<section
-    class="section"
-    id="skills">
+<div class="cpp-label">PROGRAMMING / ALGORITHMS</div>
 
-    <div class="container">
+<h3>C++ Lab</h3>
 
-        <div class="section-title reveal">
+<p>
+تجربة تفاعلية داخل الـPortfolio لاستعراض مفاهيم
+C++ والخوارزميات. هذه النسخة تعمل بالكامل من ملف واحد
+باستخدام JavaScript داخل المتصفح، وليست WebAssembly فعلية.
+</p>
 
-            <span class="section-number">
-                03
-            </span>
+<div class="cpp-grid">
 
-            <div>
+<div class="terminal">
 
-                <small>PROGRAMMING</small>
+<div class="terminal-head">
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="terminal-name">cpp-demo</span>
+</div>
 
-                <h2>
-                    المهارات البرمجية
-                </h2>
+<div class="terminal-body">
 
-            </div>
+<div class="code-input">
+<span class="purple">#include</span> &lt;iostream&gt;<br><br>
 
-        </div>
+<span class="purple">int</span> fibonacci(
+<span class="cyan">int</span> n) {<br>
+&nbsp;&nbsp;<span class="purple">if</span>(n &lt;= 1)
+<span class="purple">return</span> n;<br>
+&nbsp;&nbsp;<span class="purple">return</span>
+fibonacci(n-1)+fibonacci(n-2);<br>
+}
+</div>
 
+<div class="output">
+&gt; Output:
+<strong id="cppOutput">6765</strong>
+</div>
 
-        <div class="skills-grid">
+<div class="cpp-actions">
+<button class="cpp-btn" onclick="runFibonacci()">RUN FIBONACCI</button>
+<button class="cpp-btn" onclick="runPrime()">CHECK PRIME</button>
+<button class="cpp-btn" onclick="runSort()">SORT ARRAY</button>
+</div>
 
+</div>
+</div>
 
-            <article class="skill-card reveal">
+<div class="cpp-info">
 
-                <div class="skill-code">
-                    01 / LANGUAGES
-                </div>
+<h4>Programming Focus</h4>
 
-                <h3>
-                    Programming Languages
-                </h3>
+<p>
+مجموعة من المفاهيم التي أطور نفسي فيها
+ضمن البرمجة و C++ والخوارزميات.
+</p>
 
-                <p>
-                    أساسيات ومهارات في مجموعة
-                    من لغات البرمجة.
-                </p>
+<div class="cpp-list">
+<div>C++ / OOP</div>
+<div>STL & Containers</div>
+<div>Algorithms</div>
+<div>Data Structures</div>
+<div>Problem Solving</div>
+<div>Memory & Pointers</div>
+<div>Competitive Programming</div>
+<div>Debugging</div>
+</div>
 
-                <div class="tags">
+</div>
 
-                    <span>C</span>
-                    <span>C++</span>
-                    <span>Java</span>
-                    <span>Kotlin</span>
-                    <span>Python</span>
-                    <span>JavaScript</span>
-                    <span>SQL</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-code">
-                    02 / ENGINEERING
-                </div>
-
-                <h3>
-                    Software Development
-                </h3>
-
-                <p>
-                    مفاهيم تطوير البرمجيات وحل المشكلات.
-                </p>
-
-                <div class="tags">
-
-                    <span>OOP</span>
-                    <span>Data Structures</span>
-                    <span>Algorithms</span>
-                    <span>Problem Solving</span>
-                    <span>Debugging</span>
-                    <span>Testing</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-code">
-                    03 / WEB & API
-                </div>
-
-                <h3>
-                    Web & APIs
-                </h3>
-
-                <p>
-                    التعامل مع تقنيات الويب والـ APIs.
-                </p>
-
-                <div class="tags">
-
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>REST API</span>
-                    <span>JSON</span>
-                    <span>HTTP</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-code">
-                    04 / TOOLS
-                </div>
-
-                <h3>
-                    Tools & Workflow
-                </h3>
-
-                <p>
-                    أدوات التطوير وإدارة المشاريع.
-                </p>
-
-                <div class="tags">
-
-                    <span>Git</span>
-                    <span>GitHub</span>
-                    <span>Linux</span>
-                    <span>VS Code</span>
-                    <span>CLI</span>
-                    <span>Firebase</span>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
+</div>
+</div>
+</div>
 </section>
 
-
-
-<!-- =========================================================
-     CYBERSECURITY
-========================================================= -->
-
-<section
-    class="section"
-    id="cybersecurity">
-
-    <div class="container">
-
-
-        <div class="section-title reveal">
-
-            <span class="section-number">
-                04
-            </span>
-
-            <div>
-
-                <small>
-                    CYBERSECURITY
-                </small>
-
-                <h2>
-                    الأمن السيبراني
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="cyber-intro reveal">
-
-            <div class="cyber-badge">
-                SECURITY / RESEARCH / DEFENSE
-            </div>
-
-            <h3>
-                اهتمام ببناء فهم حقيقي
-                للأمن السيبراني.
-            </h3>
-
-            <p>
-
-                أتعلم الأمن السيبراني من أساسيات
-                الشبكات والأنظمة إلى أمن التطبيقات
-                والموبايل والـ APIs، مع التركيز على
-                التفكير الأمني وتحليل المخاطر
-                والحماية والـ Secure Coding.
-
-            </p>
-
-        </div>
-
-
-        <div class="cyber-grid">
-
-
-            <article class="cyber-card reveal">
-
-                <div class="cyber-icon">
-                    NET
-                </div>
-
-                <h3>
-                    Networking
-                </h3>
-
-                <p>
-                    فهم أساسيات الشبكات والبروتوكولات
-                    وأمن الاتصالات.
-                </p>
-
-                <div class="tags">
-
-                    <span>TCP/IP</span>
-                    <span>HTTP</span>
-                    <span>DNS</span>
-                    <span>VPN</span>
-                    <span>Firewalls</span>
-                    <span>Network Security</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="cyber-card reveal">
-
-                <div class="cyber-icon">
-                    WEB
-                </div>
-
-                <h3>
-                    Web Security
-                </h3>
-
-                <p>
-                    فهم مخاطر تطبيقات الويب
-                    وأساسيات الحماية.
-                </p>
-
-                <div class="tags">
-
-                    <span>OWASP</span>
-                    <span>XSS</span>
-                    <span>CSRF</span>
-                    <span>SQL Injection</span>
-                    <span>Sessions</span>
-                    <span>Headers</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="cyber-card reveal">
-
-                <div class="cyber-icon">
-                    APP
-                </div>
-
-                <h3>
-                    Application Security
-                </h3>
-
-                <p>
-                    تطوير تطبيقات أكثر أمانًا
-                    وتحليل المخاطر.
-                </p>
-
-                <div class="tags">
-
-                    <span>Secure Coding</span>
-                    <span>Input Validation</span>
-                    <span>Authentication</span>
-                    <span>Authorization</span>
-                    <span>Threat Modeling</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="cyber-card reveal">
-
-                <div class="cyber-icon">
-                    MOB
-                </div>
-
-                <h3>
-                    Mobile Security
-                </h3>
-
-                <p>
-                    أمن تطبيقات Android وحماية
-                    البيانات والـ APIs.
-                </p>
-
-                <div class="tags">
-
-                    <span>Android Security</span>
-                    <span>Secure Storage</span>
-                    <span>Permissions</span>
-                    <span>API Security</span>
-                    <span>Privacy</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="cyber-card reveal">
-
-                <div class="cyber-icon">
-                    LNX
-                </div>
-
-                <h3>
-                    Linux & Systems
-                </h3>
-
-                <p>
-                    التعامل مع Linux والـ CLI
-                    وفهم الأنظمة والصلاحيات.
-                </p>
-
-                <div class="tags">
-
-                    <span>Linux</span>
-                    <span>Bash</span>
-                    <span>CLI</span>
-                    <span>Permissions</span>
-                    <span>Processes</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="cyber-card reveal">
-
-                <div class="cyber-icon">
-                    ETH
-                </div>
-
-                <h3>
-                    Ethical Hacking
-                </h3>
-
-                <p>
-                    التعلم في اختبار الاختراق
-                    والتقييم الأمني ضمن بيئات مصرح بها.
-                </p>
-
-                <div class="tags">
-
-                    <span>Reconnaissance</span>
-                    <span>OSINT</span>
-                    <span>Security Testing</span>
-                    <span>CTF</span>
-                    <span>Vulnerability Assessment</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="cyber-card reveal">
-
-                <div class="cyber-icon">
-                    CRY
-                </div>
-
-                <h3>
-                    Cryptography
-                </h3>
-
-                <p>
-                    أساسيات التشفير وحماية البيانات.
-                </p>
-
-                <div class="tags">
-
-                    <span>Hashing</span>
-                    <span>Encryption</span>
-                    <span>Keys</span>
-                    <span>Digital Signatures</span>
-                    <span>Certificates</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="cyber-card reveal">
-
-                <div class="cyber-icon">
-                    DF
-                </div>
-
-                <h3>
-                    Digital Forensics
-                </h3>
-
-                <p>
-                    اهتمام بتحليل الأدلة الرقمية
-                    والآثار الإلكترونية.
-                </p>
-
-                <div class="tags">
-
-                    <span>Digital Evidence</span>
-                    <span>Log Analysis</span>
-                    <span>File Analysis</span>
-                    <span>Incident Response</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="cyber-card reveal">
-
-                <div class="cyber-icon">
-                    SEC
-                </div>
-
-                <h3>
-                    Security Research
-                </h3>
-
-                <p>
-                    تحليل المخاطر والتقنيات الأمنية
-                    والبحث في الثغرات ضمن بيئات قانونية.
-                </p>
-
-                <div class="tags">
-
-                    <span>Threat Analysis</span>
-                    <span>Risk Assessment</span>
-                    <span>Security Research</span>
-                    <span>Vulnerability Research</span>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-
-        <div class="cyber-learning reveal">
-
-            <div>
-
-                <span>
-                    CURRENT FOCUS
-                </span>
-
-                <h3>
-                    سيتم إضافة الشهادات والـ CTFs
-                    والمختبرات والمشاريع الأمنية لاحقًا.
-                </h3>
-
-            </div>
-
-            <strong>
-                LEARNING
-            </strong>
-
-        </div>
-
-    </div>
-
+<!-- PROJECTS -->
+<section class="section" id="projects">
+<div class="container">
+
+<div class="section-title reveal">
+<span class="section-number">04</span>
+<div>
+<small>PROJECTS</small>
+<h2>المشاريع</h2>
+</div>
+</div>
+
+<div class="projects">
+
+<article class="project reveal">
+<div class="project-image">
+<div class="project-number">01</div>
+</div>
+<div class="project-content">
+<span class="project-label">ANDROID</span>
+<h3>سيتم الإضافة لاحقًا</h3>
+<p>سيتم إضافة مشروع Android وتفاصيله والتقنيات المستخدمة ورابط المشروع.</p>
+<span class="soon">سيتم الإضافة لاحقًا</span>
+</div>
+</article>
+
+<article class="project reveal">
+<div class="project-image">
+<div class="project-number">02</div>
+</div>
+<div class="project-content">
+<span class="project-label">C++</span>
+<h3>سيتم الإضافة لاحقًا</h3>
+<p>مساحة مخصصة لمشاريع C++ والخوارزميات وهياكل البيانات.</p>
+<span class="soon">سيتم الإضافة لاحقًا</span>
+</div>
+</article>
+
+<article class="project reveal">
+<div class="project-image">
+<div class="project-number">03</div>
+</div>
+<div class="project-content">
+<span class="project-label">SECURITY</span>
+<h3>سيتم الإضافة لاحقًا</h3>
+<p>سيتم إضافة مشاريع وتجارب الأمن السيبراني المسموح بعرضها.</p>
+<span class="soon">سيتم الإضافة لاحقًا</span>
+</div>
+</article>
+
+</div>
+</div>
 </section>
 
+<!-- BOOKS -->
+<section class="section" id="books">
+<div class="container">
 
+<div class="section-title reveal">
+<span class="section-number">05</span>
+<div>
+<small>BOOKS & NOVELS</small>
+<h2>الكتب والروايات</h2>
+</div>
+</div>
 
-<!-- =========================================================
-     ANDROID
-========================================================= -->
+<div class="books-grid">
 
-<section
-    class="section"
-    id="android">
+<div class="book-card reveal">
+<div class="book-icon">📚</div>
+<h3>مكتبتي</h3>
+<p>
+الكتب التي قرأتها، الروايات المفضلة،
+قائمة القراءة، الاقتباسات والأعمال الأدبية
+التي سيتم إضافتها مستقبلًا.
+</p>
+<span class="soon">سيتم الإضافة لاحقًا</span>
+</div>
 
-    <div class="container">
+<div class="library reveal">
+<div>
+<div class="book-icon">⌕</div>
+<h3>Library Coming Soon</h3>
+<p>سيتم إضافة الكتب والروايات لاحقًا.</p>
+</div>
+</div>
 
-
-        <div class="section-title reveal">
-
-            <span class="section-number">
-                05
-            </span>
-
-            <div>
-
-                <small>
-                    ANDROID DEVELOPMENT
-                </small>
-
-                <h2>
-                    تطوير Android
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="android-grid">
-
-
-            <article class="android-card reveal">
-
-                <h3>
-                    Android Stack
-                </h3>
-
-                <p>
-                    التقنيات والمفاهيم المرتبطة
-                    بتطوير تطبيقات Android.
-                </p>
-
-                <div class="tags">
-
-                    <span>Kotlin</span>
-                    <span>Java</span>
-                    <span>Android SDK</span>
-                    <span>Android Studio</span>
-                    <span>Jetpack</span>
-                    <span>Compose</span>
-                    <span>XML</span>
-                    <span>Material Design</span>
-                    <span>Gradle</span>
-
-                </div>
-
-            </article>
-
-
-            <article class="android-card reveal">
-
-                <h3>
-                    Backend & Data
-                </h3>
-
-                <p>
-                    التعامل مع البيانات والخدمات
-                    الخلفية داخل التطبيقات.
-                </p>
-
-                <div class="tags">
-
-                    <span>Firebase</span>
-                    <span>REST API</span>
-                    <span>JSON</span>
-                    <span>Room</span>
-                    <span>SQLite</span>
-                    <span>Authentication</span>
-                    <span>Cloud Services</span>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
 
+<!-- WRITING -->
+<section class="section" id="writing">
+<div class="container">
 
+<div class="section-title reveal">
+<span class="section-number">06</span>
+<div>
+<small>WRITING</small>
+<h2>الكتابة</h2>
+</div>
+</div>
 
-<!-- =========================================================
-     PROJECTS
-========================================================= -->
+<div class="writing-grid">
 
-<section
-    class="section"
-    id="projects">
+<div class="writing-main reveal">
+<h3>أكتب لأعبّر عن الأفكار.</h3>
+<p>
+مساحة للمقالات، الخواطر، القصص، الروايات،
+والأفكار التي سيتم نشرها مستقبلًا.
+</p>
+<span class="soon">سيتم الإضافة لاحقًا</span>
+</div>
 
-    <div class="container">
+<div class="writing-card reveal">
+<small>ARTICLES</small>
+<h3>المقالات</h3>
+<p>سيتم إضافة المقالات والمحتوى التقني لاحقًا.</p>
+<span class="soon">سيتم الإضافة لاحقًا</span>
+</div>
 
+<div class="writing-card reveal">
+<small>STORIES</small>
+<h3>القصص والروايات</h3>
+<p>سيتم إضافة الأعمال الأدبية والقصص والروايات لاحقًا.</p>
+<span class="soon">سيتم الإضافة لاحقًا</span>
+</div>
 
-        <div class="section-title reveal">
-
-            <span class="section-number">
-                06
-            </span>
-
-            <div>
-
-                <small>PROJECTS</small>
-
-                <h2>
-                    المشاريع
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="projects-grid">
-
-
-            <article class="project reveal">
-
-                <div class="project-preview">
-
-                    <div class="project-placeholder">
-                        01
-                    </div>
-
-                </div>
-
-                <div class="project-content">
-
-                    <span class="project-label">
-                        ANDROID
-                    </span>
-
-                    <h3>
-                        سيتم الإضافة لاحقًا
-                    </h3>
-
-                    <p>
-                        سيتم إضافة مشروع Android
-                        مع التقنيات والصور والرابط.
-                    </p>
-
-                    <span class="coming-soon">
-                        سيتم الإضافة لاحقًا
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="project reveal">
-
-                <div class="project-preview">
-
-                    <div class="project-placeholder">
-                        02
-                    </div>
-
-                </div>
-
-                <div class="project-content">
-
-                    <span class="project-label">
-                        SECURITY
-                    </span>
-
-                    <h3>
-                        سيتم الإضافة لاحقًا
-                    </h3>
-
-                    <p>
-                        مساحة لمشروع أو مختبر
-                        متعلق بالأمن السيبراني.
-                    </p>
-
-                    <span class="coming-soon">
-                        سيتم الإضافة لاحقًا
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="project reveal">
-
-                <div class="project-preview">
-
-                    <div class="project-placeholder">
-                        03
-                    </div>
-
-                </div>
-
-                <div class="project-content">
-
-                    <span class="project-label">
-                        PROGRAMMING
-                    </span>
-
-                    <h3>
-                        سيتم الإضافة لاحقًا
-                    </h3>
-
-                    <p>
-                        سيتم إضافة مشروع برمجي
-                        وتفاصيله مستقبلًا.
-                    </p>
-
-                    <span class="coming-soon">
-                        سيتم الإضافة لاحقًا
-                    </span>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
 
+<!-- CERTIFICATES -->
+<section class="section" id="certificates">
+<div class="container">
 
+<div class="section-title reveal">
+<span class="section-number">07</span>
+<div>
+<small>CERTIFICATES</small>
+<h2>الشهادات والإنجازات</h2>
+</div>
+</div>
 
-<!-- =========================================================
-     GITHUB
-========================================================= -->
+<div class="certificate reveal">
 
-<section class="section">
+<div class="certificate-icon">✦</div>
 
-    <div class="container">
+<div>
+<h3>الشهادات والإنجازات</h3>
+<p>
+سيتم إضافة الشهادات والدورات والمسابقات
+والجوائز والإنجازات لاحقًا.
+</p>
+</div>
 
-        <div class="github-box reveal">
+<div class="certificate-status">سيتم الإضافة لاحقًا</div>
 
-            <div>
+</div>
 
-                <h3>
-                    GitHub
-                </h3>
-
-                <p>
-                    سيتم إضافة رابط GitHub
-                    والمشاريع والمساهمات هنا لاحقًا.
-                </p>
-
-            </div>
-
-            <span class="github-status">
-                سيتم الإضافة لاحقًا
-            </span>
-
-        </div>
-
-    </div>
-
+</div>
 </section>
 
+<!-- CONTACT -->
+<section class="section" id="contact">
+<div class="container">
 
+<div class="contact reveal">
 
-<!-- =========================================================
-     EDUCATION
-========================================================= -->
+<div>
+<div class="eyebrow">CONTACT ME</div>
 
-<section
-    class="section"
-    id="education">
+<h2>
+خلينا
+<br>
+<span>نتواصل.</span>
+</h2>
 
-    <div class="container">
+<p>
+للتواصل أو التعاون أو مشاركة فكرة،
+يمكنك استخدام أي وسيلة من وسائل التواصل الموجودة هنا.
+</p>
+</div>
 
+<div class="contact-links">
 
-        <div class="section-title reveal">
+<a class="contact-link" href="https://wa.me/201027595528" target="_blank">
+<span>WhatsApp</span>
+<span>01027595528 ↗</span>
+</a>
 
-            <span class="section-number">
-                07
-            </span>
+<a class="contact-link" href="https://t.me/C_O_N_2" target="_blank">
+<span>Telegram</span>
+<span>@C_O_N_2 ↗</span>
+</a>
 
-            <div>
+<a class="contact-link" href="https://instagram.com/mhbdllh4861" target="_blank">
+<span>Instagram</span>
+<span>@mhbdllh4861 ↗</span>
+</a>
 
-                <small>
-                    EDUCATION
-                </small>
+<a class="contact-link" href="https://www.linkedin.com/in/mohammed-con" target="_blank">
+<span>LinkedIn</span>
+<span>Mohammed Con ↗</span>
+</a>
 
-                <h2>
-                    التعليم
-                </h2>
+<a class="contact-link" href="https://www.facebook.com/share/1DsBQE5YmH/" target="_blank">
+<span>Facebook</span>
+<span>Profile ↗</span>
+</a>
 
-            </div>
+<a class="contact-link" href="mailto:cconker63@gmail.com">
+<span>Email</span>
+<span>cconker63@gmail.com ↗</span>
+</a>
 
-        </div>
+</div>
 
-
-        <div class="education">
-
-
-            <div class="education-main reveal">
-
-                <small>
-                    COMPUTER SCIENCE
-                </small>
-
-                <h3>
-                    حاسبات ومعلومات
-                </h3>
-
-                <p>
-
-                    طالب في مجال حاسبات ومعلومات،
-                    مع اهتمام بالبرمجة وتطوير التطبيقات
-                    والأمن السيبراني.
-
-                </p>
-
-                <span class="coming-soon">
-                    تفاصيل الجامعة والفرقة سيتم إضافتها لاحقًا
-                </span>
-
-            </div>
-
-
-            <div class="age-card reveal">
-
-                <strong>
-                    19
-                </strong>
-
-                <span>
-                    سنة
-                </span>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
-
-
-
-<!-- =========================================================
-     BOOKS
-========================================================= -->
-
-<section
-    class="section"
-    id="books">
-
-    <div class="container">
-
-
-        <div class="section-title reveal">
-
-            <span class="section-number">
-                08
-            </span>
-
-            <div>
-
-                <small>
-                    BOOKS & STORIES
-                </small>
-
-                <h2>
-                    الكتب والروايات
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="books-grid">
-
-
-            <div class="books-card reveal">
-
-                <h3>
-                    ما وراء الكود 📚
-                </h3>
-
-                <p>
-
-                    التقنية ليست كل شيء.
-                    الكتب والروايات تمنحني مساحة
-                    مختلفة للتفكير واكتشاف الأفكار
-                    والعوالم والشخصيات.
-
-                    <br><br>
-
-                    هذا القسم سيكون مخصصًا للكتب
-                    التي قرأتها، الروايات المفضلة،
-                    الاقتباسات وقائمة القراءة.
-
-                </p>
-
-                <span class="coming-soon">
-                    سيتم الإضافة لاحقًا
-                </span>
-
-            </div>
-
-
-            <div class="books-box reveal">
-
-                <div>
-
-                    <div class="book-icon">
-                        📖
-                    </div>
-
-                    <h3>
-                        مكتبة محمد
-                    </h3>
-
-                    <p>
-                        الكتب والروايات والاقتباسات
-                        سيتم إضافتها لاحقًا.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     WRITING
-========================================================= -->
-
-<section
-    class="section"
-    id="writing">
-
-    <div class="container">
-
-
-        <div class="section-title reveal">
-
-            <span class="section-number">
-                09
-            </span>
-
-            <div>
-
-                <small>
-                    WRITING
-                </small>
-
-                <h2>
-                    الكتابة
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="writing-grid">
-
-
-            <div class="writing-main reveal">
-
-                <h3>
-                    أكتب لأعبّر عن الأفكار.
-                </h3>
-
-                <p>
-
-                    مساحة مستقبلية للمقالات والخواطر
-                    والقصص والروايات والأفكار.
-
-                </p>
-
-                <span class="coming-soon">
-                    سيتم الإضافة لاحقًا
-                </span>
-
-            </div>
-
-
-            <article class="writing-card reveal">
-
-                <small>
-                    ARTICLES
-                </small>
-
-                <h3>
-                    المقالات
-                </h3>
-
-                <p>
-                    سيتم إضافة المقالات التقنية
-                    والأفكار لاحقًا.
-                </p>
-
-                <span class="coming-soon">
-                    سيتم الإضافة لاحقًا
-                </span>
-
-            </article>
-
-
-            <article class="writing-card reveal">
-
-                <small>
-                    STORIES
-                </small>
-
-                <h3>
-                    القصص والروايات
-                </h3>
-
-                <p>
-                    سيتم إضافة الأعمال الأدبية
-                    والقصص والروايات لاحقًا.
-                </p>
-
-                <span class="coming-soon">
-                    سيتم الإضافة لاحقًا
-                </span>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CURRENTLY LEARNING
-========================================================= -->
-
-<section class="section">
-
-    <div class="container">
-
-
-        <div class="section-title reveal">
-
-            <span class="section-number">
-                10
-            </span>
-
-            <div>
-
-                <small>
-                    CURRENTLY LEARNING
-                </small>
-
-                <h2>
-                    أتعلم حاليًا
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="learning-grid">
-
-
-            <article class="learning-card reveal">
-
-                <span>
-                    MOBILE
-                </span>
-
-                <h3>
-                    Advanced Android
-                </h3>
-
-                <p>
-                    تطوير تطبيقات Android
-                    بشكل أكثر احترافية.
-                </p>
-
-            </article>
-
-
-            <article class="learning-card reveal">
-
-                <span>
-                    SECURITY
-                </span>
-
-                <h3>
-                    Cybersecurity
-                </h3>
-
-                <p>
-                    الشبكات وأمن التطبيقات
-                    والأنظمة.
-                </p>
-
-            </article>
-
-
-            <article class="learning-card reveal">
-
-                <span>
-                    CODE
-                </span>
-
-                <h3>
-                    Problem Solving
-                </h3>
-
-                <p>
-                    Algorithms وData Structures.
-                </p>
-
-            </article>
-
-
-            <article class="learning-card reveal">
-
-                <span>
-                    CREATIVE
-                </span>
-
-                <h3>
-                    Writing
-                </h3>
-
-                <p>
-                    القراءة والكتابة
-                    وصناعة الأفكار.
-                </p>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CERTIFICATES
-========================================================= -->
-
-<section
-    class="section"
-    id="certificates">
-
-    <div class="container">
-
-
-        <div class="section-title reveal">
-
-            <span class="section-number">
-                11
-            </span>
-
-            <div>
-
-                <small>
-                    CERTIFICATES
-                </small>
-
-                <h2>
-                    الشهادات والإنجازات
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="cert-box reveal">
-
-
-            <div class="cert-icon">
-                ✦
-            </div>
-
-
-            <div>
-
-                <h3>
-                    الشهادات والإنجازات
-                </h3>
-
-                <p>
-
-                    سيتم إضافة الشهادات والدورات
-                    والمسابقات والجوائز والإنجازات
-                    مع روابط التحقق لاحقًا.
-
-                </p>
-
-            </div>
-
-
-            <span class="cert-status">
-                سيتم الإضافة لاحقًا
-            </span>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CONTACT
-========================================================= -->
-
-<section
-    class="section"
-    id="contact">
-
-    <div class="container">
-
-
-        <div class="contact-box reveal">
-
-
-            <div>
-
-                <small>
-                    CONTACT ME
-                </small>
-
-                <h2>
-
-                    خلينا
-
-                    <br>
-
-                    <span>
-                        نتواصل.
-                    </span>
-
-                </h2>
-
-
-                <p>
-
-                    للتواصل أو التعاون أو مشاركة
-                    فكرة، يمكنك استخدام أي وسيلة
-                    من وسائل التواصل التالية.
-
-                </p>
-
-            </div>
-
-
-            <div class="contact-links">
-
-
-                <!-- WhatsApp -->
-
-                <a
-                    class="contact-link"
-                    href="https://wa.me/201027595528"
-                    target="_blank"
-                    rel="noopener">
-
-                    <span class="contact-name">
-
-                        <span class="contact-icon">
-
-                            <svg viewBox="0 0 24 24">
-                                <path d="M20 4.1A9.9 9.9 0 0 0 3.2 16.2L2 21.5l5.4-1.2A10 10 0 1 0 20 4.1zm-8 16a8.2 8.2 0 0 1-4.1-1.1l-.3-.2-3.2.7.7-3.1-.2-.3a8.1 8.1 0 1 1 7.1 4zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-1.3-.6-2.2-1.1-3.1-2.5-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5 1.5.7 2.1.7 2.9.6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.2-.2-.2-.4-.3z"/>
-                            </svg>
-
-                        </span>
-
-                        WhatsApp
-
-                    </span>
-
-                    <span class="contact-value">
-                        01027595528 ↗
-                    </span>
-
-                </a>
-
-
-                <!-- Telegram -->
-
-                <a
-                    class="contact-link"
-                    href="https://t.me/C_O_N_2"
-                    target="_blank"
-                    rel="noopener">
-
-                    <span class="contact-name">
-
-                        <span class="contact-icon">
-
-                            <svg viewBox="0 0 24 24">
-                                <path d="M21.5 4.5 18.3 20c-.2 1.1-.8 1.4-1.7.9l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.4-.1-.6-.6-.2L6.2 14.1l-4.6-1.5c-1-.3-1-1 .2-1.5L19.8 4c.8-.3 1.9.2 1.7.5z"/>
-                            </svg>
-
-                        </span>
-
-                        Telegram
-
-                    </span>
-
-                    <span class="contact-value">
-                        @C_O_N_2 ↗
-                    </span>
-
-                </a>
-
-
-                <!-- Instagram -->
-
-                <a
-                    class="contact-link"
-                    href="https://instagram.com/mhbdllh4861"
-                    target="_blank"
-                    rel="noopener">
-
-                    <span class="contact-name">
-
-                        <span class="contact-icon">
-
-                            <svg viewBox="0 0 24 24">
-
-                                <rect
-                                    x="3"
-                                    y="3"
-                                    width="18"
-                                    height="18"
-                                    rx="5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"/>
-
-                                <circle
-                                    cx="12"
-                                    cy="12"
-                                    r="4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"/>
-
-                                <circle
-                                    cx="17.5"
-                                    cy="6.5"
-                                    r="1"
-                                    fill="currentColor"/>
-
-                            </svg>
-
-                        </span>
-
-                        Instagram
-
-                    </span>
-
-                    <span class="contact-value">
-                        @mhbdllh4861 ↗
-                    </span>
-
-                </a>
-
-
-                <!-- LinkedIn -->
-
-                <a
-                    class="contact-link"
-                    href="https://www.linkedin.com/in/mohammed-con"
-                    target="_blank"
-                    rel="noopener">
-
-                    <span class="contact-name">
-
-                        <span class="contact-icon">
-
-                            <svg viewBox="0 0 24 24">
-                                <path d="M5 3.5A2.5 2.5 0 1 1 5 8a2.5 2.5 0 0 1 0-4.5zM3 9h4v12H3zm6 0h3.8v1.7h.1c.5-1 1.8-2.1 3.8-2.1 4 0 4.7 2.6 4.7 6v6.4h-4v-5.7c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9z"/>
-                            </svg>
-
-                        </span>
-
-                        LinkedIn
-
-                    </span>
-
-                    <span class="contact-value">
-                        Mohammed Con ↗
-                    </span>
-
-                </a>
-
-
-                <!-- Facebook -->
-
-                <a
-                    class="contact-link"
-                    href="https://www.facebook.com/share/1DsBQE5YmH/"
-                    target="_blank"
-                    rel="noopener">
-
-                    <span class="contact-name">
-
-                        <span class="contact-icon">
-
-                            <svg viewBox="0 0 24 24">
-                                <path d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1z"/>
-                            </svg>
-
-                        </span>
-
-                        Facebook
-
-                    </span>
-
-                    <span class="contact-value">
-                        Profile ↗
-                    </span>
-
-                </a>
-
-
-                <!-- Email -->
-
-                <a
-                    class="contact-link"
-                    href="mailto:cconker63@gmail.com">
-
-                    <span class="contact-name">
-
-                        <span class="contact-icon">
-
-                            <svg viewBox="0 0 24 24">
-
-                                <rect
-                                    x="3"
-                                    y="5"
-                                    width="18"
-                                    height="14"
-                                    rx="2"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.8"/>
-
-                                <path
-                                    d="m4 7 8 6 8-6"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.8"/>
-
-                            </svg>
-
-                        </span>
-
-                        Email
-
-                    </span>
-
-                    <span class="contact-value">
-                        cconker63@gmail.com ↗
-                    </span>
-
-                </a>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
 
 </main>
 
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
 <footer>
-
-    <div class="container footer-inner">
-
-        <span>
-            ©
-            <span id="year"></span>
-            محمد عبدالله إبراهيم
-        </span>
-
-        <span>
-            Built with
-            <strong>&lt;/&gt;</strong>
-            & passion.
-        </span>
-
-    </div>
-
+<div class="container footer-inner">
+<span>© <span id="year"></span> محمد عبدالله إبراهيم</span>
+<span>Built with <strong>&lt;/&gt;</strong> & passion.</span>
+</div>
 </footer>
 
-
-
-<!-- =========================================================
-     TOP BUTTON
-========================================================= -->
-
-<button
-    class="top-button"
-    id="topButton"
-    aria-label="العودة للأعلى">
-
-    ↑
-
-</button>
-
-
+<button class="top" id="top">↑</button>
 
 <script>
+/* MENU */
+const menu=document.getElementById("menu");
+const nav=document.getElementById("navLinks");
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+menu.onclick=()=>{
+    nav.classList.toggle("open");
+};
 
-const menu =
-    document.getElementById("menu");
-
-const navLinks =
-    document.getElementById("navLinks");
-
-
-menu.addEventListener("click", () => {
-
-    navLinks.classList.toggle("open");
-
+nav.querySelectorAll("a").forEach(a=>{
+    a.onclick=()=>{
+        nav.classList.remove("open");
+    };
 });
 
+/* HEADER */
+const header=document.querySelector(".header");
 
-navLinks
-    .querySelectorAll("a")
-    .forEach(link => {
+window.addEventListener("scroll",()=>{
+    header.classList.toggle("scrolled",window.scrollY>20);
+});
 
-        link.addEventListener(
-            "click",
-            () => {
+/* TOP */
+const topBtn=document.getElementById("top");
 
-                navLinks.classList.remove("open");
+window.addEventListener("scroll",()=>{
+    topBtn.classList.toggle("show",window.scrollY>500);
+});
 
-            }
-        );
-
+topBtn.onclick=()=>{
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
     });
+};
 
+/* TYPING */
+const typed=document.getElementById("typed");
 
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-const header =
-    document.querySelector(".header");
-
-
-function updateHeader() {
-
-    header.classList.toggle(
-        "scrolled",
-        window.scrollY > 20
-    );
-
-}
-
-
-window.addEventListener(
-    "scroll",
-    updateHeader
-);
-
-updateHeader();
-
-
-
-/* =========================================================
-   BACK TO TOP
-========================================================= */
-
-const topButton =
-    document.getElementById("topButton");
-
-
-function updateTopButton() {
-
-    topButton.classList.toggle(
-        "show",
-        window.scrollY > 500
-    );
-
-}
-
-
-window.addEventListener(
-    "scroll",
-    updateTopButton
-);
-
-
-topButton.addEventListener(
-    "click",
-    () => {
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
-
-        });
-
-    }
-);
-
-
-
-/* =========================================================
-   TYPING EFFECT
-========================================================= */
-
-const typed =
-    document.getElementById("typed");
-
-
-const roles = [
-
+const roles=[
+    "Android Developer",
+    "C++ Programmer",
     "Cybersecurity Enthusiast",
-
-    "Mobile Security Learner",
-
-    "Programmer",
-
-    "Security Researcher"
-
+    "Writer & Reader"
 ];
 
+let r=0;
+let c=0;
+let deleting=false;
 
-let roleIndex = 0;
+function typing(){
 
-let charIndex = 0;
+    const text=roles[r];
 
-let deleting = false;
+    if(!deleting){
 
+        typed.textContent=text.substring(0,c+1);
+        c++;
 
-function typeEffect() {
+        if(c===text.length){
+            deleting=true;
 
-    const current =
-        roles[roleIndex];
-
-
-    if (!deleting) {
-
-        typed.textContent =
-            current.substring(
-                0,
-                charIndex + 1
-            );
-
-        charIndex++;
-
-
-        if (
-            charIndex ===
-            current.length
-        ) {
-
-            deleting = true;
-
-            setTimeout(
-                typeEffect,
-                1300
-            );
-
+            setTimeout(typing,1300);
             return;
-
         }
 
-    } else {
+    }else{
 
-        typed.textContent =
-            current.substring(
-                0,
-                charIndex - 1
-            );
+        typed.textContent=text.substring(0,c-1);
+        c--;
 
-        charIndex--;
-
-
-        if (charIndex === 0) {
-
-            deleting = false;
-
-            roleIndex =
-                (roleIndex + 1)
-                % roles.length;
-
+        if(c===0){
+            deleting=false;
+            r=(r+1)%roles.length;
         }
-
     }
-
 
     setTimeout(
-        typeEffect,
-        deleting ? 40 : 75
+        typing,
+        deleting?45:75
     );
-
 }
 
+typing();
 
-typeEffect();
-
-
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-
-const revealObserver =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                        revealObserver.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-
-        {
-            threshold: .08
-        }
-
-    );
-
-
-revealElements.forEach(
-    element => {
-
-        revealObserver.observe(element);
-
-    }
+/* REVEAL */
+const observer=new IntersectionObserver(
+    entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("visible");
+            }
+        });
+    },
+    {threshold:.08}
 );
 
+document.querySelectorAll(".reveal").forEach(el=>{
+    observer.observe(el);
+});
 
+/* C++ LAB DEMOS */
 
-/* =========================================================
-   YEAR
-========================================================= */
+function fibonacci(n){
 
-document.getElementById(
-    "year"
-).textContent =
-    new Date().getFullYear();
+    if(n<=1) return n;
 
+    let a=0;
+    let b=1;
 
-
-/* =========================================================
-   ESCAPE MENU WITH ESC
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (event.key === "Escape") {
-
-            navLinks.classList.remove(
-                "open"
-            );
-
-        }
-
+    for(let i=2;i<=n;i++){
+        const next=a+b;
+        a=b;
+        b=next;
     }
-);
 
+    return b;
+}
+
+function isPrime(n){
+
+    if(n<2) return false;
+
+    for(let i=2;i<=Math.sqrt(n);i++){
+        if(n%i===0) return false;
+    }
+
+    return true;
+}
+
+function runFibonacci(){
+
+    const result=fibonacci(20);
+
+    document.getElementById("cppOutput")
+        .textContent=result;
+}
+
+function runPrime(){
+
+    const n=97;
+
+    document.getElementById("cppOutput")
+        .textContent=
+        n+" → "+(isPrime(n)?"PRIME":"NOT PRIME");
+}
+
+function runSort(){
+
+    const arr=[9,3,7,1,8,2,6];
+
+    arr.sort((a,b)=>a-b);
+
+    document.getElementById("cppOutput")
+        .textContent=arr.join("  ");
+}
+
+/* YEAR */
+document.getElementById("year")
+    .textContent=new Date().getFullYear();
 </script>
 
-
 </body>
-
     </html>
