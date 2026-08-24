@@ -1,1874 +1,4349 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="محمد عبدالله إبراهيم | Android Developer | Programmer | Cybersecurity | C++ | Writer">
-<title>محمد عبدالله إبراهيم — Portfolio</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
-    --bg:#05070c;
-    --bg2:#090d15;
-    --card:#0d121c;
-    --card2:#111827;
-    --text:#f4f7ff;
-    --muted:#8e9ab0;
-    --muted2:#647087;
-    --line:rgba(255,255,255,.08);
-    --purple:#7c5cff;
-    --purple2:#a594ff;
-    --cyan:#00d9ff;
-    --green:#45e69b;
-    --red:#ff647f;
-    --yellow:#ffd166;
-    --radius:22px;
-    --shadow:0 25px 80px rgba(0,0,0,.38);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:"Cairo",sans-serif;
-    line-height:1.8;
-    overflow-x:hidden;
-}
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-5;
-    pointer-events:none;
-    background:
-        radial-gradient(circle at 10% 10%,rgba(124,92,255,.13),transparent 27%),
-        radial-gradient(circle at 90% 35%,rgba(0,217,255,.07),transparent 25%),
-        radial-gradient(circle at 45% 100%,rgba(124,92,255,.07),transparent 30%);
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-4;
-    pointer-events:none;
-    opacity:.25;
-    background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-    background-size:45px 45px;
-    mask-image:linear-gradient(to bottom,#000,transparent 90%);
-}
-
-::selection{
-    background:var(--purple);
-    color:white;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-button{
-    font-family:inherit;
-}
-
-.container{
-    width:min(1160px,calc(100% - 34px));
-    margin:auto;
-}
-
-.section{
-    padding:110px 0;
-}
-
-/* NAV */
-.header{
-    position:fixed;
-    top:0;
-    right:0;
-    left:0;
-    z-index:1000;
-    background:rgba(5,7,12,.68);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid transparent;
-    transition:.3s;
-}
-
-.header.scrolled{
-    background:rgba(5,7,12,.94);
-    border-color:var(--line);
-}
-
-.nav{
-    height:78px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-family:"JetBrains Mono",monospace;
-    font-weight:800;
-}
-
-.logo-mark{
-    width:40px;
-    height:40px;
-    display:grid;
-    place-items:center;
-    border-radius:12px;
-    border:1px solid rgba(124,92,255,.45);
-    background:rgba(124,92,255,.08);
-    color:var(--purple2);
-    font-size:12px;
-}
-
-.logo span span{
-    color:var(--cyan);
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:26px;
-}
-
-.nav-links a{
-    color:#a9b3c7;
-    font-size:12px;
-    transition:.25s;
-}
-
-.nav-links a:hover{
-    color:white;
-}
-
-.menu{
-    display:none;
-    border:0;
-    background:none;
-    cursor:pointer;
-}
-
-.menu span{
-    display:block;
-    width:26px;
-    height:2px;
-    background:white;
-    margin:5px;
-}
-
-/* HERO */
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    padding-top:130px;
-}
-
-.hero-grid{
-    display:grid;
-    grid-template-columns:1.15fr .85fr;
-    gap:70px;
-    align-items:center;
-}
-
-.availability{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    color:#b1bbcc;
-    font-size:11px;
-    margin-bottom:20px;
-}
-
-.online-dot{
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--green);
-    box-shadow:0 0 15px rgba(69,230,155,.75);
-}
-
-.eyebrow{
-    color:var(--cyan);
-    font:700 11px "JetBrains Mono";
-    letter-spacing:2px;
-}
-
-.hero h1{
-    font-size:clamp(48px,7vw,86px);
-    line-height:1.06;
-    letter-spacing:-3px;
-    margin-top:8px;
-    font-weight:900;
-}
-
-.gradient{
-    background:linear-gradient(90deg,#fff,#9e8cff,#00d9ff);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-}
-
-.role{
-    margin-top:20px;
-    color:#e3e9f6;
-    font:600 19px "JetBrains Mono";
-}
-
-.cursor{
-    color:var(--cyan);
-    animation:blink .8s infinite;
-}
-
-@keyframes blink{
-    50%{opacity:0}
-}
-
-.hero-desc{
-    max-width:680px;
-    margin:20px 0 30px;
-    color:var(--muted);
-    font-size:14px;
-}
-
-.buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    padding:12px 19px;
-    border-radius:12px;
-    font-size:12px;
-    font-weight:800;
-    transition:.25s;
-}
-
-.primary{
-    background:linear-gradient(135deg,var(--purple),#4b86ff);
-    box-shadow:0 14px 38px rgba(124,92,255,.22);
-}
-
-.primary:hover{
-    transform:translateY(-3px);
-}
-
-.outline{
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.025);
-}
-
-.outline:hover{
-    border-color:rgba(124,92,255,.45);
-}
-
-.socials{
-    display:flex;
-    gap:8px;
-    margin-top:24px;
-}
-
-.socials a{
-    width:38px;
-    height:38px;
-    display:grid;
-    place-items:center;
-    border:1px solid var(--line);
-    border-radius:10px;
-    color:#a8b2c5;
-    font:700 10px "JetBrains Mono";
-    transition:.25s;
-}
-
-.socials a:hover{
-    color:white;
-    border-color:rgba(0,217,255,.35);
-    transform:translateY(-3px);
-}
-
-/* PROFILE CARD */
-.profile-card{
-    border:1px solid var(--line);
-    border-radius:24px;
-    overflow:hidden;
-    background:linear-gradient(145deg,#111827,#080c14);
-    box-shadow:var(--shadow);
-}
-
-.profile-top{
-    height:48px;
-    display:flex;
-    align-items:center;
-    gap:7px;
-    padding:0 17px;
-    border-bottom:1px solid var(--line);
-}
-
-.dot{
-    width:9px;
-    height:9px;
-    border-radius:50%;
-    background:#465167;
-}
-
-.file-name{
-    margin-right:auto;
-    color:#68758c;
-    font:10px "JetBrains Mono";
-}
-
-.profile-body{
-    padding:30px;
-}
-
-.profile-initial{
-    width:80px;
-    height:80px;
-    display:grid;
-    place-items:center;
-    border-radius:22px;
-    margin-bottom:25px;
-    background:linear-gradient(135deg,rgba(124,92,255,.25),rgba(0,217,255,.08));
-    border:1px solid rgba(124,92,255,.28);
-    color:#fff;
-    font:900 25px "JetBrains Mono";
-}
-
-.profile-body h3{
-    font-size:24px;
-}
-
-.profile-body>p{
-    color:var(--muted);
-    font-size:12px;
-    margin:5px 0 24px;
-}
-
-.code-line{
-    direction:ltr;
-    text-align:left;
-    font:11px/2.1 "JetBrains Mono";
-    color:#cbd5e6;
-}
-
-.purple{color:#c294ff}
-.cyan{color:var(--cyan)}
-.green{color:#67e8a3}
-.yellow{color:var(--yellow)}
-.comment{color:#56627a}
-
-.mini-status{
-    margin-top:22px;
-    padding:12px;
-    border:1px solid var(--line);
-    border-radius:12px;
-    background:rgba(255,255,255,.02);
-    color:#9eabc0;
-    font-size:10px;
-}
-
-/* SECTION TITLES */
-.section-title{
-    display:flex;
-    align-items:flex-start;
-    gap:17px;
-    margin-bottom:50px;
-}
-
-.section-number{
-    color:var(--cyan);
-    font:700 10px "JetBrains Mono";
-    padding:5px 8px;
-    border:1px solid rgba(0,217,255,.2);
-    border-radius:7px;
-    margin-top:8px;
-}
-
-.section-title small{
-    color:var(--cyan);
-    font:700 10px "JetBrains Mono";
-    letter-spacing:2px;
-}
-
-.section-title h2{
-    font-size:clamp(31px,4vw,48px);
-    line-height:1.2;
-}
-
-/* ABOUT */
-.about-grid{
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:70px;
-}
-
-.about p{
-    color:var(--muted);
-    font-size:14px;
-    margin-bottom:16px;
-}
-
-.about .lead{
-    color:#e8edf8;
-    font-size:19px;
-    font-weight:600;
-}
-
-.facts{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
-
-.fact{
-    padding:24px;
-    border:1px solid var(--line);
-    border-radius:18px;
-    background:rgba(255,255,255,.025);
-}
-
-.fact strong{
-    display:block;
-    font:800 28px "JetBrains Mono";
-}
-
-.fact span{
-    color:var(--muted);
-    font-size:10px;
-}
-
-/* SKILLS */
-.skills-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-}
-
-.skill{
-    padding:29px;
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    background:linear-gradient(145deg,rgba(17,24,39,.85),rgba(8,12,20,.75));
-    transition:.3s;
-}
-
-.skill:hover{
-    transform:translateY(-5px);
-    border-color:rgba(124,92,255,.4);
-    box-shadow:var(--shadow);
-}
-
-.skill-num{
-    color:var(--cyan);
-    font:700 10px "JetBrains Mono";
-    margin-bottom:17px;
-}
-
-.skill h3{
-    font-size:19px;
-    margin-bottom:6px;
-}
-
-.skill p{
-    color:var(--muted);
-    font-size:11px;
-    margin-bottom:18px;
-}
-
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-}
-
-.tag{
-    padding:5px 8px;
-    border:1px solid var(--line);
-    border-radius:7px;
-    background:rgba(255,255,255,.02);
-    color:#abb6ca;
-    font-size:9px;
-}
-
-/* C++ LAB */
-.cpp-lab{
-    position:relative;
-    overflow:hidden;
-    margin-top:30px;
-    padding:40px;
-    border:1px solid rgba(124,92,255,.3);
-    border-radius:26px;
-    background:
-        radial-gradient(circle at 90% 0%,rgba(124,92,255,.14),transparent 32%),
-        linear-gradient(145deg,#0d1220,#080b13);
-}
-
-.cpp-lab::before{
-    content:"C++";
-    position:absolute;
-    left:-20px;
-    bottom:-70px;
-    color:rgba(255,255,255,.018);
-    font:900 220px "JetBrains Mono";
-    pointer-events:none;
-}
-
-.cpp-label{
-    color:var(--cyan);
-    font:700 10px "JetBrains Mono";
-    letter-spacing:2px;
-}
-
-.cpp-lab h3{
-    font-size:32px;
-    margin:8px 0;
-}
-
-.cpp-lab>p{
-    color:var(--muted);
-    font-size:12px;
-    max-width:700px;
-}
-
-.cpp-grid{
-    position:relative;
-    z-index:1;
-    display:grid;
-    grid-template-columns:1fr .8fr;
-    gap:18px;
-    margin-top:28px;
-}
-
-.terminal{
-    border:1px solid var(--line);
-    border-radius:17px;
-    overflow:hidden;
-    background:#05070b;
-}
-
-.terminal-head{
-    height:42px;
-    display:flex;
-    align-items:center;
-    gap:6px;
-    padding:0 14px;
-    border-bottom:1px solid var(--line);
-}
-
-.terminal-head .dot{
-    width:8px;
-    height:8px;
-}
-
-.terminal-name{
-    margin-right:auto;
-    color:#58657b;
-    font:9px "JetBrains Mono";
-}
-
-.terminal-body{
-    padding:22px;
-    direction:ltr;
-    text-align:left;
-    font:11px/2 "JetBrains Mono";
-}
-
-.code-input{
-    color:#d8e0ef;
-}
-
-.output{
-    min-height:55px;
-    margin-top:15px;
-    padding:12px;
-    border:1px solid var(--line);
-    border-radius:10px;
-    color:#91a0b7;
-    background:rgba(255,255,255,.02);
-}
-
-.output strong{
-    color:var(--green);
-}
-
-.cpp-actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:14px;
-}
-
-.cpp-btn{
-    border:1px solid rgba(124,92,255,.35);
-    background:rgba(124,92,255,.08);
-    color:#d7d0ff;
-    padding:8px 12px;
-    border-radius:9px;
-    cursor:pointer;
-    font:700 10px "JetBrains Mono";
-    transition:.25s;
-}
-
-.cpp-btn:hover{
-    background:rgba(124,92,255,.17);
-}
-
-.cpp-info{
-    padding:25px;
-    border:1px solid var(--line);
-    border-radius:17px;
-    background:rgba(255,255,255,.025);
-}
-
-.cpp-info h4{
-    font-size:18px;
-    margin-bottom:12px;
-}
-
-.cpp-info p{
-    color:var(--muted);
-    font-size:11px;
-}
-
-.cpp-list{
-    margin-top:17px;
-    display:grid;
-    gap:8px;
-}
-
-.cpp-list div{
-    padding:9px 11px;
-    border:1px solid var(--line);
-    border-radius:9px;
-    color:#aab5c9;
-    font:9px "JetBrains Mono";
-}
-
-/* PROJECTS */
-.projects{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:16px;
-}
-
-.project{
-    border:1px solid var(--line);
-    border-radius:20px;
-    overflow:hidden;
-    background:rgba(255,255,255,.025);
-    transition:.3s;
-}
-
-.project:hover{
-    transform:translateY(-5px);
-    border-color:rgba(124,92,255,.4);
-}
-
-.project-image{
-    height:160px;
-    display:grid;
-    place-items:center;
-    background:
-        radial-gradient(circle,rgba(124,92,255,.14),transparent 65%);
-    border-bottom:1px solid var(--line);
-}
-
-.project-number{
-    width:62px;
-    height:62px;
-    display:grid;
-    place-items:center;
-    border-radius:17px;
-    border:1px dashed rgba(124,92,255,.45);
-    color:var(--purple2);
-    font:700 16px "JetBrains Mono";
-}
-
-.project-content{
-    padding:23px;
-}
-
-.project-label{
-    color:var(--cyan);
-    font:700 9px "JetBrains Mono";
-}
-
-.project h3{
-    font-size:17px;
-    margin:7px 0;
-}
-
-.project p{
-    color:var(--muted);
-    font-size:11px;
-}
-
-.soon{
-    display:inline-block;
-    margin-top:14px;
-    padding:5px 9px;
-    border:1px solid rgba(124,92,255,.2);
-    border-radius:7px;
-    background:rgba(124,92,255,.07);
-    color:#b7aaff;
-    font-size:9px;
-}
-
-/* BOOKS */
-.books-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-}
-
-.book-card{
-    padding:38px;
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    background:linear-gradient(145deg,rgba(19,25,40,.8),rgba(8,12,20,.7));
-}
-
-.book-icon{
-    font-size:42px;
-    margin-bottom:10px;
-}
-
-.book-card h3{
-    font-size:27px;
-}
-
-.book-card p{
-    color:var(--muted);
-    font-size:12px;
-    margin-top:8px;
-}
-
-.library{
-    min-height:280px;
-    display:grid;
-    place-items:center;
-    text-align:center;
-    padding:30px;
-    border:1px dashed rgba(124,92,255,.35);
-    border-radius:var(--radius);
-    background:rgba(124,92,255,.035);
-}
-
-.library h3{
-    font-size:20px;
-}
-
-.library p{
-    color:var(--muted);
-    font-size:11px;
-}
-
-/* WRITING */
-.writing-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-}
-
-.writing-main{
-    grid-column:1/-1;
-    padding:36px;
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    background:linear-gradient(100deg,rgba(124,92,255,.11),rgba(0,217,255,.025));
-}
-
-.writing-main h3{
-    font-size:28px;
-}
-
-.writing-main p{
-    color:var(--muted);
-    font-size:12px;
-    max-width:760px;
-}
-
-.writing-card{
-    padding:28px;
-    border:1px solid var(--line);
-    border-radius:20px;
-    background:rgba(255,255,255,.025);
-}
-
-.writing-card small{
-    color:var(--cyan);
-    font:700 9px "JetBrains Mono";
-}
-
-.writing-card h3{
-    margin:8px 0;
-}
-
-.writing-card p{
-    color:var(--muted);
-    font-size:11px;
-}
-
-/* CERTIFICATES */
-.certificate{
-    display:flex;
-    align-items:center;
-    gap:18px;
-    padding:30px;
-    border:1px dashed rgba(124,92,255,.4);
-    border-radius:20px;
-    background:rgba(124,92,255,.035);
-}
-
-.certificate-icon{
-    width:55px;
-    height:55px;
-    display:grid;
-    place-items:center;
-    flex-shrink:0;
-    border-radius:15px;
-    background:rgba(124,92,255,.11);
-    color:var(--purple2);
-    font-size:22px;
-}
-
-.certificate h3{
-    font-size:17px;
-}
-
-.certificate p{
-    color:var(--muted);
-    font-size:11px;
-}
-
-.certificate-status{
-    margin-right:auto;
-    color:var(--cyan);
-    font:700 9px "JetBrains Mono";
-}
-
-/* CONTACT */
-.contact{
-    padding:52px;
-    display:grid;
-    grid-template-columns:1fr .9fr;
-    gap:60px;
-    border:1px solid var(--line);
-    border-radius:28px;
-    background:
-        radial-gradient(circle at 90% 10%,rgba(124,92,255,.14),transparent 40%),
-        rgba(255,255,255,.025);
-}
-
-.contact h2{
-    font-size:clamp(38px,5vw,58px);
-    line-height:1.2;
-    margin:8px 0 14px;
-}
-
-.contact h2 span{
-    color:var(--purple2);
-}
-
-.contact>div>p{
-    color:var(--muted);
-    font-size:12px;
-}
-
-.contact-links{
-    display:flex;
-    flex-direction:column;
-}
-
-.contact-link{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:15px 0;
-    border-bottom:1px solid var(--line);
-    transition:.25s;
-}
-
-.contact-link:hover{
-    padding-right:8px;
-}
-
-.contact-link span:first-child{
-    color:#dce3f2;
-    font-size:12px;
-}
-
-.contact-link span:last-child{
-    color:var(--cyan);
-    font:700 9px "JetBrains Mono";
-}
-
-/* FOOTER */
-footer{
-    border-top:1px solid var(--line);
-    padding:25px 0;
-    color:var(--muted2);
-    font-size:9px;
-}
-
-.footer-inner{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-footer strong{
-    color:var(--cyan);
-}
-
-/* TOP */
-.top{
-    position:fixed;
-    left:22px;
-    bottom:22px;
-    width:42px;
-    height:42px;
-    display:grid;
-    place-items:center;
-    border:1px solid var(--line);
-    border-radius:12px;
-    background:rgba(8,11,18,.92);
-    color:white;
-    cursor:pointer;
-    opacity:0;
-    visibility:hidden;
-    transform:translateY(10px);
-    transition:.3s;
-    z-index:90;
-}
-
-.top.show{
-    opacity:1;
-    visibility:visible;
-    transform:none;
-}
-
-/* REVEAL */
-.reveal{
-    opacity:0;
-    transform:translateY(18px);
-    transition:.7s ease;
-}
-
-.reveal.visible{
-    opacity:1;
-    transform:none;
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-    .nav-links{
-        position:fixed;
-        top:78px;
-        right:17px;
-        left:17px;
-        display:none;
-        flex-direction:column;
-        align-items:stretch;
-        padding:15px;
-        border:1px solid var(--line);
-        border-radius:17px;
-        background:rgba(7,10,17,.97);
-    }
-
-    .nav-links.open{
-        display:flex;
-    }
-
-    .nav-links a{
-        padding:8px;
-    }
-
-    .menu{
-        display:block;
-    }
-
-    .hero-grid,
-    .about-grid,
-    .books-grid,
-    .contact{
-        grid-template-columns:1fr;
-    }
-
-    .projects{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .cpp-grid{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:650px){
-    .container{
-        width:calc(100% - 26px);
-    }
-
-    .section{
-        padding:82px 0;
-    }
-
-    .hero{
-        padding-top:115px;
-    }
-
-    .hero h1{
-        font-size:53px;
-        letter-spacing:-2px;
-    }
-
-    .role{
-        font-size:15px;
-    }
-
-    .hero-desc{
-        font-size:12px;
-    }
-
-    .profile-body{
-        padding:23px;
-    }
-
-    .skills-grid,
-    .projects,
-    .writing-grid{
-        grid-template-columns:1fr;
-    }
-
-    .writing-main{
-        grid-column:auto;
-    }
-
-    .cpp-lab{
-        padding:25px;
-    }
-
-    .cpp-lab h3{
-        font-size:25px;
-    }
-
-    .contact{
-        padding:28px;
-    }
-
-    .certificate{
-        align-items:flex-start;
-        flex-wrap:wrap;
-    }
-
-    .certificate-status{
-        width:100%;
-        margin-right:0;
-    }
-
-    .footer-inner{
-        flex-direction:column;
-        gap:7px;
-        text-align:center;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mohammed Abdullah — Android Engineer & Security Enthusiast</title>
+
+    <meta name="description"
+        content="Mohammed Abdullah — Android Engineer, Programmer and Security Enthusiast. Building mobile experiences that are fast, reliable and secure.">
+
+    <meta name="theme-color" content="#0a0a0b">
+
+    <meta property="og:title"
+        content="Mohammed Abdullah — Android Engineer">
+    <meta property="og:description"
+        content="Building mobile experiences that are fast, reliable and secure.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* =========================================================
+           DESIGN SYSTEM
+        ========================================================= */
+
+        :root {
+            --bg: #08090a;
+            --bg-2: #0d0f11;
+            --surface: #111315;
+            --surface-2: #15181b;
+
+            --text: #f3f4f6;
+            --text-soft: #c5c9d0;
+            --muted: #858b95;
+            --muted-2: #5e646e;
+
+            --line: rgba(255,255,255,.08);
+            --line-strong: rgba(255,255,255,.14);
+
+            --accent: #a78bfa;
+            --accent-2: #7c3aed;
+            --cyan: #67e8f9;
+            --green: #6ee7a0;
+
+            --max: 1180px;
+            --radius: 24px;
+
+            --shadow:
+                0 30px 90px rgba(0,0,0,.38);
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--bg);
+        }
+
+
+        body {
+            background:
+                radial-gradient(
+                    circle at 80% 0%,
+                    rgba(124,58,237,.08),
+                    transparent 30%
+                ),
+                var(--bg);
+
+            color: var(--text);
+
+            font-family: "Cairo", sans-serif;
+
+            line-height: 1.8;
+
+            overflow-x: hidden;
+        }
+
+
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        button {
+            font: inherit;
+        }
+
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        .container {
+            width: min(
+                var(--max),
+                calc(100% - 40px)
+            );
+
+            margin-inline: auto;
+        }
+
+
+        .section {
+            padding: 125px 0;
+        }
+
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--cyan);
+
+            font:
+                600 11px
+                "JetBrains Mono",
+                monospace;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+
+        .eyebrow::before {
+            content: "";
+
+            width: 24px;
+            height: 1px;
+
+            background: var(--cyan);
+        }
+
+
+        .section-head {
+            max-width: 760px;
+
+            margin-bottom: 55px;
+        }
+
+
+        .section-head h2 {
+            margin-top: 13px;
+
+            font-size:
+                clamp(38px, 5vw, 64px);
+
+            line-height: 1.1;
+
+            letter-spacing: -2px;
+        }
+
+
+        .section-head p {
+            margin-top: 18px;
+
+            color: var(--muted);
+
+            max-width: 650px;
+
+            font-size: 14px;
+        }
+
+
+        .accent {
+            color: var(--accent);
+        }
+
+
+        .muted {
+            color: var(--muted);
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .header {
+            position: fixed;
+
+            top: 0;
+            right: 0;
+            left: 0;
+
+            z-index: 1000;
+
+            border-bottom:
+                1px solid transparent;
+
+            background:
+                rgba(8,9,10,.55);
+
+            backdrop-filter:
+                blur(18px);
+
+            transition: .3s ease;
+        }
+
+
+        .header.scrolled {
+            background:
+                rgba(8,9,10,.9);
+
+            border-color:
+                var(--line);
+        }
+
+
+        .nav {
+            min-height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            font-family:
+                "Inter",
+                sans-serif;
+
+            font-weight: 700;
+
+            letter-spacing: -.4px;
+        }
+
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid var(--line-strong);
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #181b1f,
+                    #0c0d0f
+                );
+
+            color: var(--accent);
+
+            font:
+                700 12px
+                "JetBrains Mono";
+        }
+
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+
+        .nav-links a {
+            color: var(--muted);
+
+            font-size: 12px;
+
+            transition: .2s ease;
+        }
+
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+
+        .nav-cta {
+            padding:
+                8px 13px;
+
+            border:
+                1px solid var(--line-strong);
+
+            border-radius: 9px;
+
+            color: white !important;
+
+            background:
+                rgba(255,255,255,.035);
+        }
+
+
+        .menu {
+            display: none;
+
+            width: 40px;
+            height: 40px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 10px;
+
+            background: transparent;
+
+            cursor: pointer;
+        }
+
+
+        .menu span {
+            display: block;
+
+            width: 18px;
+            height: 1px;
+
+            margin: 4px auto;
+
+            background: white;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 125px;
+        }
+
+
+        .hero-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.05fr
+                .95fr;
+
+            gap: 85px;
+
+            align-items: center;
+        }
+
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+
+        .availability {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 9px;
+
+            margin-bottom: 24px;
+
+            padding:
+                6px 10px;
+
+            border:
+                1px solid rgba(110,231,160,.15);
+
+            border-radius: 100px;
+
+            color: #a9b4ad;
+
+            background:
+                rgba(110,231,160,.035);
+
+            font-size: 10px;
+        }
+
+
+        .availability-dot {
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            box-shadow:
+                0 0 12px
+                rgba(110,231,160,.7);
+        }
+
+
+        .hero h1 {
+            font-family:
+                "Inter",
+                sans-serif;
+
+            font-size:
+                clamp(55px, 8vw, 100px);
+
+            line-height: .98;
+
+            letter-spacing: -6px;
+
+            font-weight: 800;
+        }
+
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+
+        .hero-title {
+            margin-top: 25px;
+
+            color: #d8dce3;
+
+            font:
+                600 19px
+                "Inter",
+                sans-serif;
+        }
+
+
+        .hero-description {
+            max-width: 620px;
+
+            margin-top: 17px;
+
+            color: var(--muted);
+
+            font-size: 15px;
+        }
+
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 30px;
+        }
+
+
+        .button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            padding:
+                12px 17px;
+
+            border-radius: 11px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            transition:
+                transform .2s ease,
+                border-color .2s ease,
+                background .2s ease;
+        }
+
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+
+        .button-primary {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #8b5cf6,
+                    #6d4ee8
+                );
+
+            box-shadow:
+                0 12px 35px
+                rgba(124,58,237,.18);
+        }
+
+
+        .button-secondary {
+            border:
+                1px solid var(--line-strong);
+
+            background:
+                rgba(255,255,255,.025);
+        }
+
+
+        .button-secondary:hover {
+            border-color:
+                rgba(167,139,250,.45);
+        }
+
+
+        .hero-socials {
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 28px;
+        }
+
+
+        .hero-socials a {
+            width: 35px;
+            height: 35px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 9px;
+
+            color: var(--muted);
+
+            font:
+                600 9px
+                "JetBrains Mono";
+
+            transition: .2s ease;
+        }
+
+
+        .hero-socials a:hover {
+            color: white;
+
+            border-color:
+                var(--line-strong);
+        }
+
+
+        /* =========================================================
+           ANDROID DEVICE
+        ========================================================= */
+
+        .device-area {
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .device {
+            position: relative;
+
+            width: 310px;
+            height: 620px;
+
+            padding: 9px;
+
+            border:
+                1px solid #34383d;
+
+            border-radius: 42px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #202327,
+                    #090a0b
+                );
+
+            box-shadow:
+                0 45px 100px rgba(0,0,0,.55),
+                inset 0 0 0 1px rgba(255,255,255,.03);
+
+            transform:
+                rotate(-2deg);
+        }
+
+
+        .device::before {
+            content: "";
+
+            position: absolute;
+
+            top: 7px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 90px;
+            height: 22px;
+
+            border-radius: 0 0 15px 15px;
+
+            background: #050506;
+
+            z-index: 5;
+        }
+
+
+        .device-screen {
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            border-radius: 34px;
+
+            background:
+                linear-gradient(
+                    160deg,
+                    #13151a,
+                    #08090b
+                );
+        }
+
+
+        .app-status {
+            display: flex;
+
+            justify-content: space-between;
+
+            padding:
+                18px 19px 8px;
+
+            color: #818792;
+
+            font:
+                9px
+                "JetBrains Mono";
+        }
+
+
+        .app-content {
+            padding:
+                25px 20px;
+        }
+
+
+        .app-label {
+            color: var(--cyan);
+
+            font:
+                700 8px
+                "JetBrains Mono";
+
+            letter-spacing: 1px;
+        }
+
+
+        .app-content h3 {
+            margin-top: 7px;
+
+            font:
+                700 25px
+                "Inter";
+
+            letter-spacing: -1px;
+        }
+
+
+        .app-subtitle {
+            margin-top: 5px;
+
+            color: var(--muted);
+
+            font-size: 9px;
+        }
+
+
+        .app-card {
+            margin-top: 20px;
+
+            padding: 15px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 17px;
+
+            background:
+                rgba(255,255,255,.035);
+        }
+
+
+        .app-card-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .app-avatar {
+            width: 34px;
+            height: 34px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 10px;
+
+            color: var(--accent);
+
+            background:
+                rgba(167,139,250,.1);
+        }
+
+
+        .app-mini {
+            color: var(--green);
+
+            font:
+                700 8px
+                "JetBrains Mono";
+        }
+
+
+        .app-line {
+            height: 6px;
+
+            margin-top: 13px;
+
+            border-radius: 100px;
+
+            background:
+                #24282e;
+        }
+
+
+        .app-line.short {
+            width: 60%;
+        }
+
+
+        .app-line.tiny {
+            width: 38%;
+        }
+
+
+        .app-nav {
+            position: absolute;
+
+            right: 15px;
+            left: 15px;
+            bottom: 14px;
+
+            display: flex;
+
+            justify-content: space-around;
+
+            padding:
+                13px 5px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 17px;
+
+            background:
+                rgba(10,11,13,.9);
+
+            color: var(--muted);
+
+            font-size: 9px;
+        }
+
+
+        .app-nav .active {
+            color: var(--accent);
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.1fr
+                .9fr;
+
+            gap: 70px;
+        }
+
+
+        .about-text {
+            color: var(--muted);
+
+            font-size: 15px;
+        }
+
+
+        .about-text p + p {
+            margin-top: 18px;
+        }
+
+
+        .about-highlight {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+
+        .facts {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 10px;
+        }
+
+
+        .fact {
+            min-height: 140px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            padding: 22px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,.018);
+        }
+
+
+        .fact-number {
+            font:
+                700 30px
+                "Inter";
+
+            letter-spacing: -1px;
+        }
+
+
+        .fact-label {
+            color: var(--muted);
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           ANDROID ENGINEERING
+        ========================================================= */
+
+        .android-section {
+            border-top:
+                1px solid var(--line);
+
+            border-bottom:
+                1px solid var(--line);
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.012),
+                    transparent
+                );
+        }
+
+
+        .engineering-grid {
+            display: grid;
+
+            grid-template-columns:
+                .9fr
+                1.1fr;
+
+            gap: 45px;
+        }
+
+
+        .engineering-intro h3 {
+            margin-top: 10px;
+
+            font:
+                700 34px
+                "Inter";
+
+            letter-spacing: -1.5px;
+        }
+
+
+        .engineering-intro p {
+            margin-top: 15px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+
+        .architecture {
+            margin-top: 28px;
+
+            padding: 22px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 18px;
+
+            background:
+                #0c0e10;
+        }
+
+
+        .architecture-title {
+            color: var(--muted-2);
+
+            font:
+                600 9px
+                "JetBrains Mono";
+
+            letter-spacing: 1px;
+        }
+
+
+        .architecture-flow {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin-top: 18px;
+        }
+
+
+        .architecture-step {
+            width: min(100%, 280px);
+
+            padding: 10px;
+
+            text-align: center;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 9px;
+
+            color: #d7dbe2;
+
+            background:
+                rgba(255,255,255,.025);
+
+            font-size: 11px;
+        }
+
+
+        .architecture-arrow {
+            color: var(--accent);
+
+            font:
+                10px
+                "JetBrains Mono";
+        }
+
+
+        .stack-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 9px;
+        }
+
+
+        .stack-item {
+            min-height: 105px;
+
+            padding: 17px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,.018);
+
+            transition: .2s ease;
+        }
+
+
+        .stack-item:hover {
+            border-color:
+                rgba(167,139,250,.35);
+
+            background:
+                rgba(167,139,250,.035);
+        }
+
+
+        .stack-icon {
+            color: var(--accent);
+
+            font:
+                700 11px
+                "JetBrains Mono";
+        }
+
+
+        .stack-item strong {
+            display: block;
+
+            margin-top: 9px;
+
+            font-size: 13px;
+        }
+
+
+        .stack-item span {
+            display: block;
+
+            margin-top: 3px;
+
+            color: var(--muted);
+
+            font-size: 9px;
+        }
+
+
+        /* =========================================================
+           CYBERSECURITY
+        ========================================================= */
+
+        .security-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 18px;
+        }
+
+
+        .security-copy {
+            padding: 38px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: var(--radius);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(167,139,250,.06),
+                    rgba(255,255,255,.015)
+                );
+        }
+
+
+        .security-copy h3 {
+            max-width: 500px;
+
+            margin-top: 14px;
+
+            font:
+                800 39px
+                "Inter";
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+        }
+
+
+        .security-copy p {
+            margin-top: 18px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+
+        .security-path {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 0;
+
+            margin-top: 28px;
+        }
+
+
+        .security-step {
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding: 10px 0;
+
+            border-bottom:
+                1px solid var(--line);
+
+            font-size: 11px;
+        }
+
+
+        .security-step-number {
+            width: 25px;
+            height: 25px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 7px;
+
+            color: var(--cyan);
+
+            font:
+                700 9px
+                "JetBrains Mono";
+        }
+
+
+        .security-dashboard {
+            padding: 30px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: var(--radius);
+
+            background:
+                #0b0d0f;
+
+            font-family:
+                "JetBrains Mono",
+                monospace;
+        }
+
+
+        .dashboard-header {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            padding-bottom: 18px;
+
+            border-bottom:
+                1px solid var(--line);
+        }
+
+
+        .dashboard-title {
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+
+        .dashboard-status {
+            color: var(--green);
+
+            font-size: 8px;
+        }
+
+
+        .security-meter {
+            margin-top: 23px;
+        }
+
+
+        .meter-row {
+            display: grid;
+
+            grid-template-columns:
+                120px
+                1fr
+                45px;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 16px;
+
+            color: var(--muted);
+
+            font-size: 9px;
+        }
+
+
+        .meter {
+            height: 5px;
+
+            overflow: hidden;
+
+            border-radius: 100px;
+
+            background:
+                #202328;
+        }
+
+
+        .meter span {
+            display: block;
+
+            height: 100%;
+
+            width: var(--level);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--accent-2),
+                    var(--cyan)
+                );
+
+            border-radius: inherit;
+        }
+
+
+        .meter-value {
+            text-align: left;
+
+            color: var(--text-soft);
+        }
+
+
+        .dashboard-footer {
+            margin-top: 30px;
+
+            padding-top: 17px;
+
+            border-top:
+                1px solid var(--line);
+
+            color: var(--muted-2);
+
+            font-size: 9px;
+        }
+
+
+        /* =========================================================
+           PROJECTS
+        ========================================================= */
+
+        .projects-intro {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: end;
+
+            gap: 30px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .projects-intro p {
+            max-width: 500px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+
+        .project-card {
+            display: grid;
+
+            grid-template-columns:
+                .95fr
+                1.05fr;
+
+            min-height: 430px;
+
+            overflow: hidden;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 27px;
+
+            background:
+                #0d0f11;
+        }
+
+
+        .project-visual {
+            position: relative;
+
+            min-height: 400px;
+
+            display: grid;
+
+            place-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(124,58,237,.13),
+                    transparent 50%
+                );
+        }
+
+
+        .project-visual::before {
+            content: "";
+
+            position: absolute;
+
+            width: 330px;
+            height: 330px;
+
+            border:
+                1px solid rgba(167,139,250,.1);
+
+            border-radius: 50%;
+        }
+
+
+        .project-phone {
+            position: relative;
+
+            width: 180px;
+            height: 350px;
+
+            padding: 7px;
+
+            border:
+                1px solid #383c42;
+
+            border-radius: 25px;
+
+            background:
+                #181b1f;
+
+            transform:
+                rotate(5deg);
+
+            box-shadow:
+                0 30px 60px rgba(0,0,0,.5);
+        }
+
+
+        .project-phone-screen {
+            width: 100%;
+            height: 100%;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    160deg,
+                    #17151f,
+                    #09090d
+                );
+
+            overflow: hidden;
+
+            padding: 25px 14px;
+        }
+
+
+        .mock-label {
+            color: var(--cyan);
+
+            font:
+                700 6px
+                "JetBrains Mono";
+        }
+
+
+        .mock-title {
+            margin-top: 6px;
+
+            font:
+                700 18px
+                "Inter";
+        }
+
+
+        .mock-box {
+            height: 70px;
+
+            margin-top: 13px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,.035);
+        }
+
+
+        .project-info {
+            padding: 50px;
+        }
+
+
+        .project-index {
+            color: var(--cyan);
+
+            font:
+                700 10px
+                "JetBrains Mono";
+        }
+
+
+        .project-info h3 {
+            margin-top: 12px;
+
+            font:
+                700 35px
+                "Inter";
+
+            letter-spacing: -1px;
+        }
+
+
+        .project-type {
+            margin-top: 4px;
+
+            color: var(--accent);
+
+            font-size: 11px;
+        }
+
+
+        .project-info p {
+            margin-top: 20px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+
+        .case-study {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 10px;
+
+            margin-top: 25px;
+        }
+
+
+        .case-item {
+            padding: 13px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 11px;
+        }
+
+
+        .case-item small {
+            color: var(--muted-2);
+
+            font:
+                700 8px
+                "JetBrains Mono";
+        }
+
+
+        .case-item strong {
+            display: block;
+
+            margin-top: 3px;
+
+            font-size: 11px;
+        }
+
+
+        .project-buttons {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 23px;
+        }
+
+
+        /* =========================================================
+           LAB
+        ========================================================= */
+
+        .lab-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 12px;
+        }
+
+
+        .lab-card {
+            min-height: 240px;
+
+            padding: 25px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,.018);
+
+            transition: .25s ease;
+        }
+
+
+        .lab-card:hover {
+            border-color:
+                var(--line-strong);
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        .lab-number {
+            color: var(--cyan);
+
+            font:
+                700 9px
+                "JetBrains Mono";
+        }
+
+
+        .lab-card h3 {
+            margin-top: 30px;
+
+            font-size: 21px;
+        }
+
+
+        .lab-list {
+            margin-top: 14px;
+
+            list-style: none;
+
+            color: var(--muted);
+
+            font-size: 11px;
+        }
+
+
+        .lab-list li {
+            padding: 6px 0;
+
+            border-bottom:
+                1px solid var(--line);
+        }
+
+
+        /* =========================================================
+           BEYOND CODE
+        ========================================================= */
+
+        .beyond {
+            border-top:
+                1px solid var(--line);
+        }
+
+
+        .beyond-quote {
+            max-width: 800px;
+
+            margin-bottom: 45px;
+
+            font:
+                700 clamp(30px, 5vw, 60px)
+                "Inter";
+
+            line-height: 1.08;
+
+            letter-spacing: -2px;
+        }
+
+
+        .beyond-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 12px;
+        }
+
+
+        .beyond-card {
+            min-height: 250px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            padding: 27px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,.018);
+        }
+
+
+        .beyond-icon {
+            color: var(--accent);
+
+            font:
+                700 18px
+                "JetBrains Mono";
+        }
+
+
+        .beyond-card h3 {
+            font-size: 22px;
+        }
+
+
+        .beyond-card p {
+            margin-top: 7px;
+
+            color: var(--muted);
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           JOURNEY
+        ========================================================= */
+
+        .journey {
+            position: relative;
+
+            max-width: 850px;
+
+            margin-top: 20px;
+        }
+
+
+        .journey::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            bottom: 0;
+
+            right: 105px;
+
+            width: 1px;
+
+            background:
+                var(--line);
+        }
+
+
+        .journey-item {
+            position: relative;
+
+            display: grid;
+
+            grid-template-columns:
+                85px
+                1fr;
+
+            gap: 45px;
+
+            padding:
+                0 0 45px;
+        }
+
+
+        .journey-year {
+            color: var(--accent);
+
+            font:
+                700 13px
+                "JetBrains Mono";
+        }
+
+
+        .journey-content {
+            position: relative;
+
+            padding-right: 25px;
+        }
+
+
+        .journey-content::before {
+            content: "";
+
+            position: absolute;
+
+            top: 7px;
+            right: -5px;
+
+            width: 9px;
+            height: 9px;
+
+            border:
+                2px solid var(--accent);
+
+            border-radius: 50%;
+
+            background: var(--bg);
+        }
+
+
+        .journey-content h3 {
+            font-size: 18px;
+        }
+
+
+        .journey-content p {
+            margin-top: 5px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+        }
+
+
+        .journey-tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 6px;
+
+            margin-top: 12px;
+        }
+
+
+        .journey-tags span {
+            padding:
+                4px 7px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 6px;
+
+            color: var(--muted);
+
+            font-size: 8px;
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact-box {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 70px;
+
+            border:
+                1px solid var(--line-strong);
+
+            border-radius: 28px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(124,58,237,.12),
+                    transparent 35%
+                ),
+                #0d0f11;
+        }
+
+
+        .contact-box h2 {
+            max-width: 700px;
+
+            margin-top: 12px;
+
+            font:
+                800 clamp(45px, 7vw, 82px)
+                "Inter";
+
+            line-height: .98;
+
+            letter-spacing: -4px;
+        }
+
+
+        .contact-box p {
+            max-width: 550px;
+
+            margin-top: 18px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+
+        .contact-links {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 8px;
+
+            margin-top: 40px;
+        }
+
+
+        .contact-link {
+            padding: 16px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,.02);
+
+            transition: .2s;
+        }
+
+
+        .contact-link:hover {
+            border-color:
+                var(--line-strong);
+        }
+
+
+        .contact-link small {
+            display: block;
+
+            color: var(--muted-2);
+
+            font:
+                700 8px
+                "JetBrains Mono";
+        }
+
+
+        .contact-link strong {
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding:
+                30px 0;
+
+            border-top:
+                1px solid var(--line);
+
+            color: var(--muted-2);
+
+            font-size: 10px;
+        }
+
+
+        .footer-inner {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        .footer-mark {
+            color: var(--accent);
+
+            font:
+                700 10px
+                "JetBrains Mono";
+        }
+
+
+        /* =========================================================
+           TOP BUTTON
+        ========================================================= */
+
+        .top {
+            position: fixed;
+
+            left: 22px;
+            bottom: 22px;
+
+            width: 40px;
+            height: 40px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 10px;
+
+            background:
+                rgba(12,13,15,.9);
+
+            color: white;
+
+            cursor: pointer;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition: .25s;
+
+            z-index: 900;
+        }
+
+
+        .top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        /* =========================================================
+           REVEAL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform:
+                translateY(18px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+        }
+
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform: none;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media(max-width: 1000px) {
+
+            .nav-links {
+                position: fixed;
+
+                top: 86px;
+
+                right: 20px;
+                left: 20px;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                padding: 16px;
+
+                border:
+                    1px solid var(--line);
+
+                border-radius: 17px;
+
+                background:
+                    rgba(10,11,13,.97);
+            }
+
+
+            .nav-links.open {
+                display: flex;
+            }
+
+
+            .nav-links a {
+                padding: 9px;
+            }
+
+
+            .menu {
+                display: block;
+            }
+
+
+            .hero-grid,
+            .about-grid,
+            .engineering-grid,
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .hero {
+                padding-top: 120px;
+            }
+
+
+            .device-area {
+                margin-top: 30px;
+            }
+
+
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+
+
+            .project-visual {
+                min-height: 400px;
+            }
+
+
+            .project-info {
+                padding: 35px;
+            }
+
+
+            .lab-grid,
+            .beyond-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media(max-width: 680px) {
+
+            .container {
+                width:
+                    calc(100% - 28px);
+            }
+
+
+            .section {
+                padding: 90px 0;
+            }
+
+
+            .hero h1 {
+                font-size: 57px;
+
+                letter-spacing: -4px;
+            }
+
+
+            .hero-title {
+                font-size: 16px;
+            }
+
+
+            .hero-description {
+                font-size: 13px;
+            }
+
+
+            .device {
+                width: 270px;
+                height: 540px;
+            }
+
+
+            .section-head h2 {
+                font-size: 40px;
+            }
+
+
+            .stack-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+
+            .security-copy,
+            .security-dashboard {
+                padding: 25px;
+            }
+
+
+            .security-copy h3 {
+                font-size: 31px;
+            }
+
+
+            .meter-row {
+                grid-template-columns:
+                    95px 1fr 38px;
+            }
+
+
+            .projects-intro {
+                display: block;
+            }
+
+
+            .projects-intro p {
+                margin-top: 15px;
+            }
+
+
+            .project-info {
+                padding: 27px;
+            }
+
+
+            .project-info h3 {
+                font-size: 28px;
+            }
+
+
+            .case-study {
+                grid-template-columns: 1fr;
+            }
+
+
+            .lab-grid,
+            .beyond-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .beyond-quote {
+                font-size: 35px;
+            }
+
+
+            .journey::before {
+                right: 76px;
+            }
+
+
+            .journey-item {
+                grid-template-columns:
+                    60px 1fr;
+
+                gap: 16px;
+            }
+
+
+            .journey-content {
+                padding-right: 17px;
+            }
+
+
+            .contact-box {
+                padding: 35px 25px;
+            }
+
+
+            .contact-box h2 {
+                font-size: 52px;
+
+                letter-spacing: -3px;
+            }
+
+
+            .contact-links {
+                grid-template-columns: 1fr;
+            }
+
+
+            .footer-inner {
+                flex-direction: column;
+
+                gap: 8px;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<header class="header">
-<div class="container nav">
 
-<a class="logo" href="#home">
-    <span class="logo-mark">&lt;/&gt;</span>
-    <span>Mohammed<span>.dev</span></span>
-</a>
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-<button class="menu" id="menu" aria-label="القائمة">
-    <span></span><span></span><span></span>
-</button>
+<header class="header" id="header">
 
-<nav class="nav-links" id="navLinks">
-    <a href="#home">الرئيسية</a>
-    <a href="#about">من أنا</a>
-    <a href="#skills">المهارات</a>
-    <a href="#cpp">C++ Lab</a>
-    <a href="#projects">المشاريع</a>
-    <a href="#books">الكتب</a>
-    <a href="#writing">الكتابة</a>
-    <a href="#contact">تواصل</a>
-</nav>
+    <div class="container nav">
 
-</div>
+        <a href="#home" class="brand">
+
+            <span class="brand-mark">
+                MA
+            </span>
+
+            <span>
+                Mohammed Abdullah
+            </span>
+
+        </a>
+
+
+        <button
+            class="menu"
+            id="menu"
+            aria-label="فتح القائمة">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#android">Android</a>
+
+            <a href="#security">Cybersecurity</a>
+
+            <a href="#projects">Projects</a>
+
+            <a href="#lab">Lab</a>
+
+            <a href="#writing">Writing</a>
+
+            <a href="#books">Books</a>
+
+            <a href="#journey">Journey</a>
+
+            <a
+                href="#contact"
+                class="nav-cta">
+
+                Contact
+
+            </a>
+
+        </nav>
+
+    </div>
+
 </header>
+
+
 
 <main>
 
-<!-- HERO -->
-<section class="hero section" id="home">
-<div class="container hero-grid">
 
-<div class="reveal">
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-<div class="availability">
-<span class="online-dot"></span>
-متاح للتواصل والتعاون
-</div>
+<section
+    class="hero"
+    id="home">
 
-<div class="eyebrow">HELLO, I'M</div>
+    <div class="container hero-grid">
 
-<h1>
-محمد عبدالله
-<br>
-<span class="gradient">إبراهيم</span>
-</h1>
 
-<div class="role">
-<span id="typed">Android Developer</span>
-<span class="cursor">_</span>
-</div>
+        <div class="hero-content reveal">
 
-<p class="hero-desc">
-طالب حاسبات ومعلومات، مطور Android، مهتم بالبرمجة
-والـ C++ والأمن السيبراني، وأحب الكتب والروايات والكتابة.
-أتعلم باستمرار وأسعى لتحويل الأفكار إلى مشاريع وتجارب حقيقية.
-</p>
 
-<div class="buttons">
-<a href="#projects" class="btn primary">استكشف أعمالي ↗</a>
-<a href="#contact" class="btn outline">تواصل معي</a>
-</div>
+            <div class="availability">
 
-<div class="socials">
-<a href="https://www.facebook.com/share/1DsBQE5YmH/" target="_blank">FB</a>
-<a href="https://wa.me/201027595528" target="_blank">WA</a>
-<a href="https://t.me/C_O_N_2" target="_blank">TG</a>
-<a href="https://instagram.com/mhbdllh4861" target="_blank">IG</a>
-<a href="https://www.linkedin.com/in/mohammed-con" target="_blank">IN</a>
-<a href="mailto:cconker63@gmail.com">@</a>
-</div>
+                <span class="availability-dot"></span>
 
-</div>
+                Available for collaboration
 
-<div class="reveal">
-<div class="profile-card">
+            </div>
 
-<div class="profile-top">
-<span class="dot"></span>
-<span class="dot"></span>
-<span class="dot"></span>
-<span class="file-name">developer.profile</span>
-</div>
 
-<div class="profile-body">
+            <div class="eyebrow">
 
-<div class="profile-initial">MA</div>
+                Android Engineering
 
-<h3>Mohammed Abdullah</h3>
-<p>Android Developer • Programmer • Cybersecurity</p>
+            </div>
 
-<div class="code-line">
-<span class="purple">const</span> developer = {<br>
-&nbsp;&nbsp;name:
-<span class="green">"Mohammed Abdullah"</span>,<br>
-&nbsp;&nbsp;age:
-<span class="yellow">19</span>,<br>
-&nbsp;&nbsp;major:
-<span class="green">"Computer Science"</span>,<br>
-&nbsp;&nbsp;focus: [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">"Android"</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">"C++"</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">"Cybersecurity"</span><br>
-&nbsp;&nbsp;],<br>
-&nbsp;&nbsp;status:
-<span class="green">"Learning & Building"</span><br>
-};
-</div>
 
-<div class="mini-status">
-<span class="online-dot"></span>
-&nbsp; Currently learning • building • improving
-</div>
+            <h1>
 
-</div>
-</div>
-</div>
+                Mohammed
 
-</div>
+                <br>
+
+                <span>
+                    Abdullah.
+                </span>
+
+            </h1>
+
+
+            <div class="hero-title">
+
+                Android Engineer
+                &
+                Security Enthusiast
+
+            </div>
+
+
+            <p class="hero-description">
+
+                I build mobile experiences that are
+                fast, reliable and secure.
+                I care about clean architecture,
+                thoughtful interfaces and the details
+                that make software feel complete.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a
+                    href="#projects"
+                    class="button button-primary">
+
+                    View Projects
+
+                    ↗
+
+                </a>
+
+
+                <a
+                    href="#journey"
+                    class="button button-secondary">
+
+                    Explore My Journey
+
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="button button-secondary">
+
+                    Contact Me
+
+                </a>
+
+            </div>
+
+
+            <div class="hero-socials">
+
+                <a
+                    href="https://www.facebook.com/share/1DsBQE5YmH/"
+                    target="_blank"
+                    rel="noopener">
+
+                    FB
+
+                </a>
+
+
+                <a
+                    href="https://wa.me/201027595528"
+                    target="_blank"
+                    rel="noopener">
+
+                    WA
+
+                </a>
+
+
+                <a
+                    href="https://t.me/C_O_N_2"
+                    target="_blank"
+                    rel="noopener">
+
+                    TG
+
+                </a>
+
+
+                <a
+                    href="https://instagram.com/mhbdllh4861"
+                    target="_blank"
+                    rel="noopener">
+
+                    IG
+
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/mohammed-con"
+                    target="_blank"
+                    rel="noopener">
+
+                    IN
+
+                </a>
+
+
+                <a
+                    href="mailto:cconker63@gmail.com">
+
+                    @
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ANDROID MOCKUP -->
+
+        <div class="device-area reveal">
+
+            <div class="device">
+
+                <div class="device-screen">
+
+
+                    <div class="app-status">
+
+                        <span>
+                            9:41
+                        </span>
+
+                        <span>
+                            ● ● ●
+                        </span>
+
+                    </div>
+
+
+                    <div class="app-content">
+
+                        <div class="app-label">
+                            ANDROID / PREVIEW
+                        </div>
+
+
+                        <h3>
+                            Build.
+                        </h3>
+
+
+                        <div class="app-subtitle">
+
+                            Fast. Reliable.
+                            Secure.
+
+                        </div>
+
+
+                        <div class="app-card">
+
+                            <div class="app-card-top">
+
+                                <div class="app-avatar">
+                                    MA
+                                </div>
+
+                                <div class="app-mini">
+                                    ONLINE
+                                </div>
+
+                            </div>
+
+
+                            <div class="app-line"></div>
+
+                            <div class="app-line short"></div>
+
+                            <div class="app-line tiny"></div>
+
+                        </div>
+
+
+                        <div class="app-card">
+
+                            <div class="app-label">
+                                ENGINEERING
+                            </div>
+
+                            <div class="app-line"></div>
+
+                            <div class="app-line short"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="app-nav">
+
+                        <span class="active">
+                            Home
+                        </span>
+
+                        <span>
+                            Apps
+                        </span>
+
+                        <span>
+                            Lab
+                        </span>
+
+                        <span>
+                            Profile
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- ABOUT -->
-<section class="section" id="about">
-<div class="container">
 
-<div class="section-title reveal">
-<span class="section-number">01</span>
-<div>
-<small>ABOUT ME</small>
-<h2>من أنا؟</h2>
-</div>
-</div>
 
-<div class="about-grid">
+<!-- =========================================================
+     ABOUT
+========================================================= -->
 
-<div class="about reveal">
-<p class="lead">
-أنا محمد عبدالله إبراهيم، طالب في حاسبات ومعلومات،
-عمري 19 عامًا، ومطور Android شغوف بالتقنية.
-</p>
+<section
+    class="section"
+    id="about">
 
-<p>
-أحب البرمجة وبناء التطبيقات وتجربة الأفكار الجديدة،
-وأهتم بشكل خاص بـ Android و C++ والخوارزميات.
-</p>
+    <div class="container">
 
-<p>
-لدي اهتمام أيضًا بالأمن السيبراني والـ Ethical Hacking،
-مع التركيز على التعلم وفهم الأنظمة والشبكات وأمن التطبيقات
-والـ Secure Coding.
-</p>
 
-<p>
-وخارج عالم التقنية، أحب الكتب والروايات والكتابة،
-وأعتبر القراءة والكتابة مساحة مختلفة لاستكشاف الأفكار والقصص.
-</p>
-</div>
+        <div class="section-head reveal">
 
-<div class="facts reveal">
+            <div class="eyebrow">
+                About
+            </div>
 
-<div class="fact">
-<strong>19</strong>
-<span>العمر</span>
-</div>
+            <h2>
+                More than a developer.
+            </h2>
 
-<div class="fact">
-<strong>CS</strong>
-<span>حاسبات ومعلومات</span>
-</div>
+            <p>
+                A growing engineer focused on Android,
+                programming and security — while keeping
+                space for books, stories and writing.
+            </p>
 
-<div class="fact">
-<strong>AND</strong>
-<span>Android Developer</span>
-</div>
+        </div>
 
-<div class="fact">
-<strong>C++</strong>
-<span>Programming</span>
-</div>
 
-</div>
-</div>
-</div>
+        <div class="about-grid">
+
+
+            <div class="about-text reveal">
+
+                <p>
+
+                    أنا <span class="about-highlight">
+                    محمد عبدالله إبراهيم</span>،
+                    طالب في مجال حاسبات ومعلومات،
+                    ومطور Android شغوف ببناء التطبيقات
+                    وفهم ما يحدث خلف الواجهة.
+
+                </p>
+
+
+                <p>
+
+                    تركيزي الأساسي هو Android Development،
+                    مع اهتمام بالـArchitecture،
+                    الأداء، تجربة المستخدم،
+                    والـsecure coding.
+
+                </p>
+
+
+                <p>
+
+                    وبالتوازي، أتعلم Cybersecurity
+                    والـEthical Hacking لفهم الأنظمة
+                    من منظور مختلف:
+                    كيف تُبنى، كيف تُختبر،
+                    وكيف يمكن حمايتها.
+
+                </p>
+
+
+                <p>
+
+                    وخارج عالم البرمجة،
+                    أحب الكتب والروايات والكتابة.
+                    لأنها تعطيني طريقة مختلفة
+                    للتفكير وصناعة الأفكار.
+
+                </p>
+
+            </div>
+
+
+            <div class="facts reveal">
+
+
+                <div class="fact">
+
+                    <strong class="fact-number">
+                        19
+                    </strong>
+
+                    <span class="fact-label">
+                        Age
+                    </span>
+
+                </div>
+
+
+                <div class="fact">
+
+                    <strong class="fact-number">
+                        CS
+                    </strong>
+
+                    <span class="fact-label">
+                        Computer Science
+                    </span>
+
+                </div>
+
+
+                <div class="fact">
+
+                    <strong class="fact-number">
+                        ANDROID
+                    </strong>
+
+                    <span class="fact-label">
+                        Primary Focus
+                    </span>
+
+                </div>
+
+
+                <div class="fact">
+
+                    <strong class="fact-number">
+                        ∞
+                    </strong>
+
+                    <span class="fact-label">
+                        Continuous Learning
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- SKILLS -->
-<section class="section" id="skills">
-<div class="container">
 
-<div class="section-title reveal">
-<span class="section-number">02</span>
-<div>
-<small>SKILLS</small>
-<h2>المهارات</h2>
-</div>
-</div>
 
-<div class="skills-grid">
+<!-- =========================================================
+     ANDROID ENGINEERING
+========================================================= -->
 
-<article class="skill reveal">
-<div class="skill-num">01 / MOBILE</div>
-<h3>Android Development</h3>
-<p>تطوير تطبيقات Android وواجهات وتجارب استخدام حديثة.</p>
-<div class="tags">
-<span class="tag">Kotlin</span>
-<span class="tag">Java</span>
-<span class="tag">Android SDK</span>
-<span class="tag">Android Studio</span>
-<span class="tag">Jetpack</span>
-<span class="tag">Compose</span>
-<span class="tag">XML</span>
-<span class="tag">Material Design</span>
-<span class="tag">Firebase</span>
-<span class="tag">REST API</span>
-<span class="tag">JSON</span>
-<span class="tag">Room</span>
-<span class="tag">SQLite</span>
-<span class="tag">Gradle</span>
-</div>
-</article>
+<section
+    class="section android-section"
+    id="android">
 
-<article class="skill reveal">
-<div class="skill-num">02 / C++ & CODE</div>
-<h3>C++ & Programming</h3>
-<p>البرمجة والخوارزميات وهياكل البيانات وحل المشكلات.</p>
-<div class="tags">
-<span class="tag">C++</span>
-<span class="tag">C</span>
-<span class="tag">OOP</span>
-<span class="tag">STL</span>
-<span class="tag">Algorithms</span>
-<span class="tag">Data Structures</span>
-<span class="tag">Pointers</span>
-<span class="tag">References</span>
-<span class="tag">Templates</span>
-<span class="tag">Memory Management</span>
-<span class="tag">Problem Solving</span>
-<span class="tag">Debugging</span>
-</div>
-</article>
+    <div class="container">
 
-<article class="skill reveal">
-<div class="skill-num">03 / SECURITY</div>
-<h3>Cybersecurity</h3>
-<p>اهتمام بالأمن السيبراني وحماية الأنظمة والتطبيقات.</p>
-<div class="tags">
-<span class="tag">Cybersecurity</span>
-<span class="tag">Ethical Hacking</span>
-<span class="tag">Linux</span>
-<span class="tag">Networking</span>
-<span class="tag">OWASP</span>
-<span class="tag">Web Security</span>
-<span class="tag">Secure Coding</span>
-<span class="tag">Cryptography Basics</span>
-<span class="tag">Security Analysis</span>
-<span class="tag">Privacy</span>
-</div>
-</article>
 
-<article class="skill reveal">
-<div class="skill-num">04 / DEVELOPMENT</div>
-<h3>Tools & Technologies</h3>
-<p>أدوات وتقنيات التطوير وإدارة المشاريع والتعلم.</p>
-<div class="tags">
-<span class="tag">Python</span>
-<span class="tag">JavaScript</span>
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">SQL</span>
-<span class="tag">Git</span>
-<span class="tag">GitHub</span>
-<span class="tag">VS Code</span>
-<span class="tag">APIs</span>
-<span class="tag">Databases</span>
-<span class="tag">Testing</span>
-</div>
-</article>
+        <div class="section-head reveal">
 
-</div>
-</div>
+            <div class="eyebrow">
+                Android Engineering
+            </div>
+
+            <h2>
+                Kotlin-first.
+                <span class="accent">
+                    Engineering-minded.
+                </span>
+            </h2>
+
+            <p>
+                Android development بالنسبة لي مش مجرد
+                كتابة UI. الفكرة تبدأ من architecture
+                واضحة وتنتهي بتطبيق قابل للصيانة
+                والتطوير والاختبار.
+            </p>
+
+        </div>
+
+
+        <div class="engineering-grid">
+
+
+            <div class="engineering-intro reveal">
+
+                <h3>
+                    From interface
+                    to architecture.
+                </h3>
+
+
+                <p>
+
+                    كل جزء من التطبيق له وظيفة واضحة.
+                    أحاول بناء الأنظمة بطريقة تجعل
+                    الكود أسهل للفهم والتطوير،
+                    بدل أن يصبح المشروع مجموعة
+                    من الملفات المترابطة بشكل عشوائي.
+
+                </p>
+
+
+                <div class="architecture">
+
+                    <div class="architecture-title">
+                        APPLICATION FLOW
+                    </div>
+
+
+                    <div class="architecture-flow">
+
+                        <div class="architecture-step">
+                            UI / Compose / XML
+                        </div>
+
+                        <div class="architecture-arrow">
+                            ↓
+                        </div>
+
+                        <div class="architecture-step">
+                            ViewModel
+                        </div>
+
+                        <div class="architecture-arrow">
+                            ↓
+                        </div>
+
+                        <div class="architecture-step">
+                            Use Cases
+                        </div>
+
+                        <div class="architecture-arrow">
+                            ↓
+                        </div>
+
+                        <div class="architecture-step">
+                            Repository
+                        </div>
+
+                        <div class="architecture-arrow">
+                            ↓
+                        </div>
+
+                        <div class="architecture-step">
+                            Data / API / Local
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="stack-grid reveal">
+
+
+                <div class="stack-item">
+
+                    <div class="stack-icon">
+                        01
+                    </div>
+
+                    <strong>
+                        Kotlin
+                    </strong>
+
+                    <span>
+                        Primary Language
+                    </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <div class="stack-icon">
+                        02
+                    </div>
+
+                    <strong>
+                        Jetpack Compose
+                    </strong>
+
+                    <span>
+                        Modern UI
+                    </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <div class="stack-icon">
+                        03
+                    </div>
+
+                    <strong>
+                        Android SDK
+                    </strong>
+
+                    <span>
+                        Platform
+                    </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <div class="stack-icon">
+                        04
+                    </div>
+
+                    <strong>
+                        MVVM
+                    </strong>
+
+                    <span>
+                        Architecture
+                    </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <div class="stack-icon">
+                        05
+                    </div>
+
+                    <strong>
+                        Coroutines
+                    </strong>
+
+                    <span>
+                        Async Work
+                    </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <div class="stack-icon">
+                        06
+                    </div>
+
+                    <strong>
+                        Room
+                    </strong>
+
+                    <span>
+                        Local Storage
+                    </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <div class="stack-icon">
+                        07
+                    </div>
+
+                    <strong>
+                        Retrofit
+                    </strong>
+
+                    <span>
+                        Networking
+                    </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <div class="stack-icon">
+                        08
+                    </div>
+
+                    <strong>
+                        Firebase
+                    </strong>
+
+                    <span>
+                        Backend Services
+                    </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <div class="stack-icon">
+                        09
+                    </div>
+
+                    <strong>
+                        REST APIs
+                    </strong>
+
+                    <span>
+                        Data Integration
+                    </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <div class="stack-icon">
+                        10
+                    </div>
+
+                    <strong>
+                        XML
+                    </strong>
+
+                    <span>
+                        Android UI
+                    </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <div class="stack-icon">
+                        11
+                    </div>
+
+                    <strong>
+                        Git
+                    </strong>
+
+                    <span>
+                        Version Control
+                    </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <div class="stack-icon">
+                        12
+                    </div>
+
+                    <strong>
+                        Testing
+                    </strong>
+
+                    <span>
+                        Reliability
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- C++ LAB -->
-<section class="section" id="cpp">
-<div class="container">
 
-<div class="section-title reveal">
-<span class="section-number">03</span>
-<div>
-<small>C++ LAB</small>
-<h2>مساحة C++</h2>
-</div>
-</div>
 
-<div class="cpp-lab reveal">
+<!-- =========================================================
+     CYBERSECURITY
+========================================================= -->
 
-<div class="cpp-label">PROGRAMMING / ALGORITHMS</div>
+<section
+    class="section"
+    id="security">
 
-<h3>C++ Lab</h3>
+    <div class="container">
 
-<p>
-تجربة تفاعلية داخل الـPortfolio لاستعراض مفاهيم
-C++ والخوارزميات. هذه النسخة تعمل بالكامل من ملف واحد
-باستخدام JavaScript داخل المتصفح، وليست WebAssembly فعلية.
-</p>
 
-<div class="cpp-grid">
+        <div class="section-head reveal">
 
-<div class="terminal">
+            <div class="eyebrow">
+                Cybersecurity
+            </div>
 
-<div class="terminal-head">
-<span class="dot"></span>
-<span class="dot"></span>
-<span class="dot"></span>
-<span class="terminal-name">cpp-demo</span>
-</div>
+            <h2>
+                Building apps.
+                <span class="accent">
+                    Thinking like an attacker.
+                </span>
+            </h2>
 
-<div class="terminal-body">
+        </div>
 
-<div class="code-input">
-<span class="purple">#include</span> &lt;iostream&gt;<br><br>
 
-<span class="purple">int</span> fibonacci(
-<span class="cyan">int</span> n) {<br>
-&nbsp;&nbsp;<span class="purple">if</span>(n &lt;= 1)
-<span class="purple">return</span> n;<br>
-&nbsp;&nbsp;<span class="purple">return</span>
-fibonacci(n-1)+fibonacci(n-2);<br>
-}
-</div>
+        <div class="security-grid">
 
-<div class="output">
-&gt; Output:
-<strong id="cppOutput">6765</strong>
-</div>
 
-<div class="cpp-actions">
-<button class="cpp-btn" onclick="runFibonacci()">RUN FIBONACCI</button>
-<button class="cpp-btn" onclick="runPrime()">CHECK PRIME</button>
-<button class="cpp-btn" onclick="runSort()">SORT ARRAY</button>
-</div>
+            <div class="security-copy reveal">
 
-</div>
-</div>
+                <div class="eyebrow">
+                    Security Journey
+                </div>
 
-<div class="cpp-info">
 
-<h4>Programming Focus</h4>
+                <h3>
+                    Understand.
+                    Test.
+                    Protect.
+                </h3>
 
-<p>
-مجموعة من المفاهيم التي أطور نفسي فيها
-ضمن البرمجة و C++ والخوارزميات.
-</p>
 
-<div class="cpp-list">
-<div>C++ / OOP</div>
-<div>STL & Containers</div>
-<div>Algorithms</div>
-<div>Data Structures</div>
-<div>Problem Solving</div>
-<div>Memory & Pointers</div>
-<div>Competitive Programming</div>
-<div>Debugging</div>
-</div>
+                <p>
 
-</div>
+                    الأمن السيبراني بالنسبة لي رحلة تعلم
+                    مستمرة. الهدف هو فهم الأنظمة
+                    والشبكات والتطبيقات، ثم استخدام
+                    المعرفة دي في الاختبار والحماية
+                    بشكل قانوني وأخلاقي.
 
-</div>
-</div>
-</div>
+                </p>
+
+
+                <div class="security-path">
+
+
+                    <div class="security-step">
+
+                        <span class="security-step-number">
+                            01
+                        </span>
+
+                        Networking
+
+                    </div>
+
+
+                    <div class="security-step">
+
+                        <span class="security-step-number">
+                            02
+                        </span>
+
+                        Linux
+
+                    </div>
+
+
+                    <div class="security-step">
+
+                        <span class="security-step-number">
+                            03
+                        </span>
+
+                        Web Security
+
+                    </div>
+
+
+                    <div class="security-step">
+
+                        <span class="security-step-number">
+                            04
+                        </span>
+
+                        OWASP
+
+                    </div>
+
+
+                    <div class="security-step">
+
+                        <span class="security-step-number">
+                            05
+                        </span>
+
+                        Mobile Security
+
+                    </div>
+
+
+                    <div class="security-step">
+
+                        <span class="security-step-number">
+                            06
+                        </span>
+
+                        Ethical Hacking
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="security-dashboard reveal">
+
+
+                <div class="dashboard-header">
+
+                    <span class="dashboard-title">
+                        SECURITY PROFILE
+                    </span>
+
+                    <span class="dashboard-status">
+                        LEARNING
+                    </span>
+
+                </div>
+
+
+                <div class="security-meter">
+
+
+                    <div class="meter-row">
+
+                        <span>
+                            Web Security
+                        </span>
+
+                        <div class="meter">
+                            <span style="--level:70%"></span>
+                        </div>
+
+                        <span class="meter-value">
+                            70
+                        </span>
+
+                    </div>
+
+
+                    <div class="meter-row">
+
+                        <span>
+                            Networking
+                        </span>
+
+                        <div class="meter">
+                            <span style="--level:60%"></span>
+                        </div>
+
+                        <span class="meter-value">
+                            60
+                        </span>
+
+                    </div>
+
+
+                    <div class="meter-row">
+
+                        <span>
+                            Linux
+                        </span>
+
+                        <div class="meter">
+                            <span style="--level:70%"></span>
+                        </div>
+
+                        <span class="meter-value">
+                            70
+                        </span>
+
+                    </div>
+
+
+                    <div class="meter-row">
+
+                        <span>
+                            OWASP
+                        </span>
+
+                        <div class="meter">
+                            <span style="--level:60%"></span>
+                        </div>
+
+                        <span class="meter-value">
+                            60
+                        </span>
+
+                    </div>
+
+
+                    <div class="meter-row">
+
+                        <span>
+                            Mobile Security
+                        </span>
+
+                        <div class="meter">
+                            <span style="--level:45%"></span>
+                        </div>
+
+                        <span class="meter-value">
+                            45
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="dashboard-footer">
+
+                    STATUS
+
+                    <br><br>
+
+                    Learning → Building → Testing
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- PROJECTS -->
-<section class="section" id="projects">
-<div class="container">
 
-<div class="section-title reveal">
-<span class="section-number">04</span>
-<div>
-<small>PROJECTS</small>
-<h2>المشاريع</h2>
-</div>
-</div>
 
-<div class="projects">
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
 
-<article class="project reveal">
-<div class="project-image">
-<div class="project-number">01</div>
-</div>
-<div class="project-content">
-<span class="project-label">ANDROID</span>
-<h3>سيتم الإضافة لاحقًا</h3>
-<p>سيتم إضافة مشروع Android وتفاصيله والتقنيات المستخدمة ورابط المشروع.</p>
-<span class="soon">سيتم الإضافة لاحقًا</span>
-</div>
-</article>
+<section
+    class="section"
+    id="projects">
 
-<article class="project reveal">
-<div class="project-image">
-<div class="project-number">02</div>
-</div>
-<div class="project-content">
-<span class="project-label">C++</span>
-<h3>سيتم الإضافة لاحقًا</h3>
-<p>مساحة مخصصة لمشاريع C++ والخوارزميات وهياكل البيانات.</p>
-<span class="soon">سيتم الإضافة لاحقًا</span>
-</div>
-</article>
+    <div class="container">
 
-<article class="project reveal">
-<div class="project-image">
-<div class="project-number">03</div>
-</div>
-<div class="project-content">
-<span class="project-label">SECURITY</span>
-<h3>سيتم الإضافة لاحقًا</h3>
-<p>سيتم إضافة مشاريع وتجارب الأمن السيبراني المسموح بعرضها.</p>
-<span class="soon">سيتم الإضافة لاحقًا</span>
-</div>
-</article>
 
-</div>
-</div>
+        <div class="section-head reveal">
+
+            <div class="eyebrow">
+                Selected Work
+            </div>
+
+            <h2>
+                Projects,
+                <span class="accent">
+                    not promises.
+                </span>
+            </h2>
+
+            <p>
+                المشاريع القادمة هتظهر هنا كـCase Studies
+                كاملة بدل مجرد Screenshots أو قائمة
+                Technologies.
+            </p>
+
+        </div>
+
+
+        <div class="project-card reveal">
+
+
+            <div class="project-visual">
+
+
+                <div class="project-phone">
+
+                    <div class="project-phone-screen">
+
+                        <div class="mock-label">
+                            ANDROID APPLICATION
+                        </div>
+
+                        <div class="mock-title">
+                            Project
+                        </div>
+
+
+                        <div class="mock-box"></div>
+
+                        <div class="mock-box"></div>
+
+                        <div class="mock-box"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="project-info">
+
+
+                <div class="project-index">
+                    PROJECT / 001
+                </div>
+
+
+                <h3>
+                    سيتم الإضافة لاحقًا
+                </h3>
+
+
+                <div class="project-type">
+                    Android Application
+                </div>
+
+
+                <p>
+
+                    هنا هنضع أول مشروع حقيقي مع
+                    شرح المشكلة، الحل، الـArchitecture،
+                    التقنيات، الاعتبارات الأمنية،
+                    والنتيجة النهائية.
+
+                </p>
+
+
+                <div class="case-study">
+
+
+                    <div class="case-item">
+
+                        <small>
+                            PROBLEM
+                        </small>
+
+                        <strong>
+                            سيتم الإضافة لاحقًا
+                        </strong>
+
+                    </div>
+
+
+                    <div class="case-item">
+
+                        <small>
+                            SOLUTION
+                        </small>
+
+                        <strong>
+                            سيتم الإضافة لاحقًا
+                        </strong>
+
+                    </div>
+
+
+                    <div class="case-item">
+
+                        <small>
+                            ENGINEERING
+                        </small>
+
+                        <strong>
+                            Kotlin / Android
+                        </strong>
+
+                    </div>
+
+
+                    <div class="case-item">
+
+                        <small>
+                            SECURITY
+                        </small>
+
+                        <strong>
+                            سيتم الإضافة لاحقًا
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-buttons">
+
+                    <span class="button button-secondary">
+                        Case Study — Soon
+                    </span>
+
+                    <span class="button button-secondary">
+                        GitHub — Soon
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- BOOKS -->
-<section class="section" id="books">
-<div class="container">
 
-<div class="section-title reveal">
-<span class="section-number">05</span>
-<div>
-<small>BOOKS & NOVELS</small>
-<h2>الكتب والروايات</h2>
-</div>
-</div>
 
-<div class="books-grid">
+<!-- =========================================================
+     LAB
+========================================================= -->
 
-<div class="book-card reveal">
-<div class="book-icon">📚</div>
-<h3>مكتبتي</h3>
-<p>
-الكتب التي قرأتها، الروايات المفضلة،
-قائمة القراءة، الاقتباسات والأعمال الأدبية
-التي سيتم إضافتها مستقبلًا.
-</p>
-<span class="soon">سيتم الإضافة لاحقًا</span>
-</div>
+<section
+    class="section"
+    id="lab">
 
-<div class="library reveal">
-<div>
-<div class="book-icon">⌕</div>
-<h3>Library Coming Soon</h3>
-<p>سيتم إضافة الكتب والروايات لاحقًا.</p>
-</div>
-</div>
+    <div class="container">
 
-</div>
-</div>
+
+        <div class="section-head reveal">
+
+            <div class="eyebrow">
+                The Lab
+            </div>
+
+            <h2>
+                Where ideas
+                <span class="accent">
+                    become experiments.
+                </span>
+            </h2>
+
+            <p>
+                مساحة للتجارب والأفكار التي لا تكون
+                بالضرورة Projects كاملة.
+            </p>
+
+        </div>
+
+
+        <div class="lab-grid">
+
+
+            <article class="lab-card reveal">
+
+                <div class="lab-number">
+                    01 / ANDROID
+                </div>
+
+                <h3>
+                    Android Experiments
+                </h3>
+
+                <ul class="lab-list">
+
+                    <li>
+                        UI Experiments
+                    </li>
+
+                    <li>
+                        Compose
+                    </li>
+
+                    <li>
+                        Architecture
+                    </li>
+
+                    <li>
+                        Performance
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+            <article class="lab-card reveal">
+
+                <div class="lab-number">
+                    02 / SECURITY
+                </div>
+
+                <h3>
+                    Security Labs
+                </h3>
+
+                <ul class="lab-list">
+
+                    <li>
+                        Security Research
+                    </li>
+
+                    <li>
+                        CTF Writeups
+                    </li>
+
+                    <li>
+                        Web Security
+                    </li>
+
+                    <li>
+                        Mobile Security
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+            <article class="lab-card reveal">
+
+                <div class="lab-number">
+                    03 / CODE
+                </div>
+
+                <h3>
+                    Code Experiments
+                </h3>
+
+                <ul class="lab-list">
+
+                    <li>
+                        Algorithms
+                    </li>
+
+                    <li>
+                        Problem Solving
+                    </li>
+
+                    <li>
+                        Open Source
+                    </li>
+
+                    <li>
+                        Small Tools
+                    </li>
+
+                </ul>
+
+            </article>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- WRITING -->
-<section class="section" id="writing">
-<div class="container">
 
-<div class="section-title reveal">
-<span class="section-number">06</span>
-<div>
-<small>WRITING</small>
-<h2>الكتابة</h2>
-</div>
-</div>
 
-<div class="writing-grid">
+<!-- =========================================================
+     BEYOND CODE
+========================================================= -->
 
-<div class="writing-main reveal">
-<h3>أكتب لأعبّر عن الأفكار.</h3>
-<p>
-مساحة للمقالات، الخواطر، القصص، الروايات،
-والأفكار التي سيتم نشرها مستقبلًا.
-</p>
-<span class="soon">سيتم الإضافة لاحقًا</span>
-</div>
+<section
+    class="section beyond"
+    id="writing">
 
-<div class="writing-card reveal">
-<small>ARTICLES</small>
-<h3>المقالات</h3>
-<p>سيتم إضافة المقالات والمحتوى التقني لاحقًا.</p>
-<span class="soon">سيتم الإضافة لاحقًا</span>
-</div>
+    <div class="container">
 
-<div class="writing-card reveal">
-<small>STORIES</small>
-<h3>القصص والروايات</h3>
-<p>سيتم إضافة الأعمال الأدبية والقصص والروايات لاحقًا.</p>
-<span class="soon">سيتم الإضافة لاحقًا</span>
-</div>
 
-</div>
-</div>
+        <div class="section-head reveal">
+
+            <div class="eyebrow">
+                Beyond Code
+            </div>
+
+        </div>
+
+
+        <div class="beyond-quote reveal">
+
+            Technology is what I build.
+            <span class="accent">
+                Books are what I think with.
+            </span>
+
+        </div>
+
+
+        <div class="beyond-grid">
+
+
+            <article
+                class="beyond-card reveal"
+                id="books">
+
+                <div class="beyond-icon">
+                    01
+                </div>
+
+                <div>
+
+                    <h3>
+                        Books
+                    </h3>
+
+                    <p>
+                        الكتب والروايات التي أقرأها،
+                        وقائمة القراءة القادمة.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="beyond-card reveal">
+
+                <div class="beyond-icon">
+                    02
+                </div>
+
+                <div>
+
+                    <h3>
+                        Writing
+                    </h3>
+
+                    <p>
+                        مقالات وأفكار وكتابات تقنية
+                        وشخصية سيتم نشرها لاحقًا.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="beyond-card reveal">
+
+                <div class="beyond-icon">
+                    03
+                </div>
+
+                <div>
+
+                    <h3>
+                        Stories
+                    </h3>
+
+                    <p>
+                        القصص والروايات والأعمال
+                        الأدبية المستقبلية.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- CERTIFICATES -->
-<section class="section" id="certificates">
-<div class="container">
 
-<div class="section-title reveal">
-<span class="section-number">07</span>
-<div>
-<small>CERTIFICATES</small>
-<h2>الشهادات والإنجازات</h2>
-</div>
-</div>
 
-<div class="certificate reveal">
+<!-- =========================================================
+     JOURNEY
+========================================================= -->
 
-<div class="certificate-icon">✦</div>
+<section
+    class="section"
+    id="journey">
 
-<div>
-<h3>الشهادات والإنجازات</h3>
-<p>
-سيتم إضافة الشهادات والدورات والمسابقات
-والجوائز والإنجازات لاحقًا.
-</p>
-</div>
+    <div class="container">
 
-<div class="certificate-status">سيتم الإضافة لاحقًا</div>
 
-</div>
+        <div class="section-head reveal">
 
-</div>
+            <div class="eyebrow">
+                The Journey
+            </div>
+
+            <h2>
+                Still learning.
+                <span class="accent">
+                    Still building.
+                </span>
+            </h2>
+
+            <p>
+                رحلة التطور أهم من الوصول إلى نقطة
+                ثابتة. هنا هنضيف المراحل والإنجازات
+                الحقيقية مع الوقت.
+            </p>
+
+        </div>
+
+
+        <div class="journey">
+
+
+            <div class="journey-item reveal">
+
+                <div class="journey-year">
+                    2026
+                </div>
+
+
+                <div class="journey-content">
+
+                    <h3>
+                        Android Development
+                    </h3>
+
+                    <p>
+                        التركيز على تطوير Android،
+                        Architecture، وبناء مشاريع حقيقية.
+                    </p>
+
+
+                    <div class="journey-tags">
+
+                        <span>
+                            Kotlin
+                        </span>
+
+                        <span>
+                            Android
+                        </span>
+
+                        <span>
+                            Compose
+                        </span>
+
+                        <span>
+                            Architecture
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="journey-item reveal">
+
+                <div class="journey-year">
+                    2026
+                </div>
+
+
+                <div class="journey-content">
+
+                    <h3>
+                        Cybersecurity
+                    </h3>
+
+                    <p>
+                        بناء أساس قوي في Linux،
+                        Networking، Web Security
+                        وOWASP.
+                    </p>
+
+
+                    <div class="journey-tags">
+
+                        <span>
+                            Linux
+                        </span>
+
+                        <span>
+                            Networking
+                        </span>
+
+                        <span>
+                            OWASP
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="journey-item reveal">
+
+                <div class="journey-year">
+                    2025
+                </div>
+
+
+                <div class="journey-content">
+
+                    <h3>
+                        Programming Foundations
+                    </h3>
+
+                    <p>
+                        البرمجة، الخوارزميات،
+                        حل المشكلات والأساسيات
+                        التي بني عليها التطور الحالي.
+                    </p>
+
+
+                    <div class="journey-tags">
+
+                        <span>
+                            C
+                        </span>
+
+                        <span>
+                            C++
+                        </span>
+
+                        <span>
+                            Java
+                        </span>
+
+                        <span>
+                            Python
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="journey-item reveal">
+
+                <div class="journey-year">
+                    NEXT
+                </div>
+
+
+                <div class="journey-content">
+
+                    <h3>
+                        More to come.
+                    </h3>
+
+                    <p>
+                        شهادات، مسابقات، مشاريع،
+                        Open Source وإنجازات جديدة
+                        سيتم إضافتها هنا.
+                    </p>
+
+
+                    <div class="journey-tags">
+
+                        <span>
+                            Learning
+                        </span>
+
+                        <span>
+                            Building
+                        </span>
+
+                        <span>
+                            Improving
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- CONTACT -->
-<section class="section" id="contact">
-<div class="container">
 
-<div class="contact reveal">
 
-<div>
-<div class="eyebrow">CONTACT ME</div>
+<!-- =========================================================
+     CONTACT
+========================================================= -->
 
-<h2>
-خلينا
-<br>
-<span>نتواصل.</span>
-</h2>
+<section
+    class="section"
+    id="contact">
 
-<p>
-للتواصل أو التعاون أو مشاركة فكرة،
-يمكنك استخدام أي وسيلة من وسائل التواصل الموجودة هنا.
-</p>
-</div>
+    <div class="container">
 
-<div class="contact-links">
 
-<a class="contact-link" href="https://wa.me/201027595528" target="_blank">
-<span>WhatsApp</span>
-<span>01027595528 ↗</span>
-</a>
+        <div class="contact-box reveal">
 
-<a class="contact-link" href="https://t.me/C_O_N_2" target="_blank">
-<span>Telegram</span>
-<span>@C_O_N_2 ↗</span>
-</a>
 
-<a class="contact-link" href="https://instagram.com/mhbdllh4861" target="_blank">
-<span>Instagram</span>
-<span>@mhbdllh4861 ↗</span>
-</a>
+            <div class="eyebrow">
+                Contact
+            </div>
 
-<a class="contact-link" href="https://www.linkedin.com/in/mohammed-con" target="_blank">
-<span>LinkedIn</span>
-<span>Mohammed Con ↗</span>
-</a>
 
-<a class="contact-link" href="https://www.facebook.com/share/1DsBQE5YmH/" target="_blank">
-<span>Facebook</span>
-<span>Profile ↗</span>
-</a>
+            <h2>
 
-<a class="contact-link" href="mailto:cconker63@gmail.com">
-<span>Email</span>
-<span>cconker63@gmail.com ↗</span>
-</a>
+                Have an idea?
 
-</div>
+                <br>
 
-</div>
-</div>
+                <span class="accent">
+                    Let's build it.
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                للتواصل أو التعاون أو مشاركة فكرة،
+                يمكنك التواصل معي من خلال أي وسيلة
+                من الوسائل التالية.
+
+            </p>
+
+
+            <div class="contact-links">
+
+
+                <a
+                    class="contact-link"
+                    href="mailto:cconker63@gmail.com">
+
+                    <small>
+                        EMAIL
+                    </small>
+
+                    <strong>
+                        cconker63@gmail.com
+                    </strong>
+
+                </a>
+
+
+                <a
+                    class="contact-link"
+                    href="https://wa.me/201027595528"
+                    target="_blank"
+                    rel="noopener">
+
+                    <small>
+                        WHATSAPP
+                    </small>
+
+                    <strong>
+                        01027595528
+                    </strong>
+
+                </a>
+
+
+                <a
+                    class="contact-link"
+                    href="https://t.me/C_O_N_2"
+                    target="_blank"
+                    rel="noopener">
+
+                    <small>
+                        TELEGRAM
+                    </small>
+
+                    <strong>
+                        @C_O_N_2
+                    </strong>
+
+                </a>
+
+
+                <a
+                    class="contact-link"
+                    href="https://www.instagram.com/mhbdllh4861/"
+                    target="_blank"
+                    rel="noopener">
+
+                    <small>
+                        INSTAGRAM
+                    </small>
+
+                    <strong>
+                        @mhbdllh4861
+                    </strong>
+
+                </a>
+
+
+                <a
+                    class="contact-link"
+                    href="https://www.linkedin.com/in/mohammed-con"
+                    target="_blank"
+                    rel="noopener">
+
+                    <small>
+                        LINKEDIN
+                    </small>
+
+                    <strong>
+                        Mohammed Con
+                    </strong>
+
+                </a>
+
+
+                <a
+                    class="contact-link"
+                    href="https://www.facebook.com/share/1DsBQE5YmH/"
+                    target="_blank"
+                    rel="noopener">
+
+                    <small>
+                        FACEBOOK
+                    </small>
+
+                    <strong>
+                        Profile
+                    </strong>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
+
 
 </main>
 
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
-<div class="container footer-inner">
-<span>© <span id="year"></span> محمد عبدالله إبراهيم</span>
-<span>Built with <strong>&lt;/&gt;</strong> & passion.</span>
-</div>
+
+    <div class="container footer-inner">
+
+        <span>
+            ©
+            <span id="year"></span>
+            Mohammed Abdullah
+        </span>
+
+
+        <span class="footer-mark">
+            ANDROID · SECURITY · BUILDING
+        </span>
+
+    </div>
+
 </footer>
 
-<button class="top" id="top">↑</button>
+
+
+<!-- TOP -->
+
+<button
+    class="top"
+    id="top"
+    aria-label="Back to top">
+
+    ↑
+
+</button>
+
+
 
 <script>
-/* MENU */
-const menu=document.getElementById("menu");
-const nav=document.getElementById("navLinks");
 
-menu.onclick=()=>{
-    nav.classList.toggle("open");
-};
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
 
-nav.querySelectorAll("a").forEach(a=>{
-    a.onclick=()=>{
-        nav.classList.remove("open");
-    };
-});
+    const menu =
+        document.getElementById("menu");
 
-/* HEADER */
-const header=document.querySelector(".header");
+    const navLinks =
+        document.getElementById("navLinks");
 
-window.addEventListener("scroll",()=>{
-    header.classList.toggle("scrolled",window.scrollY>20);
-});
 
-/* TOP */
-const topBtn=document.getElementById("top");
+    menu.addEventListener(
+        "click",
+        () => {
 
-window.addEventListener("scroll",()=>{
-    topBtn.classList.toggle("show",window.scrollY>500);
-});
+            navLinks.classList.toggle("open");
 
-topBtn.onclick=()=>{
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-};
-
-/* TYPING */
-const typed=document.getElementById("typed");
-
-const roles=[
-    "Android Developer",
-    "C++ Programmer",
-    "Cybersecurity Enthusiast",
-    "Writer & Reader"
-];
-
-let r=0;
-let c=0;
-let deleting=false;
-
-function typing(){
-
-    const text=roles[r];
-
-    if(!deleting){
-
-        typed.textContent=text.substring(0,c+1);
-        c++;
-
-        if(c===text.length){
-            deleting=true;
-
-            setTimeout(typing,1300);
-            return;
         }
-
-    }else{
-
-        typed.textContent=text.substring(0,c-1);
-        c--;
-
-        if(c===0){
-            deleting=false;
-            r=(r+1)%roles.length;
-        }
-    }
-
-    setTimeout(
-        typing,
-        deleting?45:75
     );
-}
 
-typing();
 
-/* REVEAL */
-const observer=new IntersectionObserver(
-    entries=>{
-        entries.forEach(entry=>{
-            if(entry.isIntersecting){
-                entry.target.classList.add("visible");
-            }
+    navLinks
+        .querySelectorAll("a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    navLinks.classList.remove(
+                        "open"
+                    );
+
+                }
+            );
+
         });
-    },
-    {threshold:.08}
-);
 
-document.querySelectorAll(".reveal").forEach(el=>{
-    observer.observe(el);
-});
 
-/* C++ LAB DEMOS */
 
-function fibonacci(n){
+    /* =========================================================
+       HEADER
+    ========================================================= */
 
-    if(n<=1) return n;
+    const header =
+        document.getElementById("header");
 
-    let a=0;
-    let b=1;
 
-    for(let i=2;i<=n;i++){
-        const next=a+b;
-        a=b;
-        b=next;
-    }
+    window.addEventListener(
+        "scroll",
+        () => {
 
-    return b;
-}
+            header.classList.toggle(
+                "scrolled",
+                window.scrollY > 20
+            );
 
-function isPrime(n){
+        },
+        {
+            passive: true
+        }
+    );
 
-    if(n<2) return false;
 
-    for(let i=2;i<=Math.sqrt(n);i++){
-        if(n%i===0) return false;
-    }
 
-    return true;
-}
+    /* =========================================================
+       BACK TO TOP
+    ========================================================= */
 
-function runFibonacci(){
+    const topButton =
+        document.getElementById("top");
 
-    const result=fibonacci(20);
 
-    document.getElementById("cppOutput")
-        .textContent=result;
-}
+    window.addEventListener(
+        "scroll",
+        () => {
 
-function runPrime(){
+            topButton.classList.toggle(
+                "show",
+                window.scrollY > 600
+            );
 
-    const n=97;
+        },
+        {
+            passive: true
+        }
+    );
 
-    document.getElementById("cppOutput")
-        .textContent=
-        n+" → "+(isPrime(n)?"PRIME":"NOT PRIME");
-}
 
-function runSort(){
+    topButton.addEventListener(
+        "click",
+        () => {
 
-    const arr=[9,3,7,1,8,2,6];
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
-    arr.sort((a,b)=>a-b);
+        }
+    );
 
-    document.getElementById("cppOutput")
-        .textContent=arr.join("  ");
-}
 
-/* YEAR */
-document.getElementById("year")
-    .textContent=new Date().getFullYear();
+
+    /* =========================================================
+       REVEAL
+    ========================================================= */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
+
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(
+                    entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: .08
+            }
+        );
+
+
+    revealElements.forEach(
+        element => {
+
+            observer.observe(
+                element
+            );
+
+        }
+    );
+
+
+
+    /* =========================================================
+       YEAR
+    ========================================================= */
+
+    document.getElementById(
+        "year"
+    ).textContent =
+        new Date().getFullYear();
+
 </script>
 
+
 </body>
+
     </html>
