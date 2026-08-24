@@ -1,152 +1,5790 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Mohammed Abdullah — Android Developer, Programmer & Cybersecurity Enthusiast.">
-<meta name="theme-color" content="#08090d">
-<meta property="og:title" content="Mohammed Abdullah — Android Developer">
-<meta property="og:description" content="Building mobile experiences with code, security and attention to detail.">
-<title>Mohammed Abdullah — Android Developer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Mohammed Abdullah — Android Developer, Programmer, Cybersecurity Enthusiast & Writer">
+
+    <meta name="theme-color" content="#07090f">
+
+    <meta property="og:title"
+          content="Mohammed Abdullah | Android Developer">
+
+    <meta property="og:description"
+          content="Android Engineering, Cybersecurity, Programming & Writing">
+
+    <title>
+        Mohammed Abdullah | Android Developer
+    </title>
+
+
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
 <style>
-:root{
---bg:#08090d;--surface:#0e1118;--surface2:#121620;--text:#f5f7fb;--muted:#929aaa;
---line:rgba(255,255,255,.09);--accent:#8b7cff;--cyan:#39d7ff;--green:#59e6a7;
---shadow:0 30px 100px rgba(0,0,0,.38);--radius:24px
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+    --bg: #07090f;
+    --bg-soft: #0b0f18;
+
+    --card: #0d121d;
+    --card-light: #111827;
+
+    --text: #f4f7ff;
+
+    --muted: #8d98ad;
+    --muted-2: #687389;
+
+    --line: rgba(255,255,255,.08);
+
+    --line-hover:
+        rgba(123,92,255,.45);
+
+    --primary: #7657ff;
+
+    --primary-light:
+        #9a86ff;
+
+    --cyan: #00d4ff;
+
+    --green:
+        #45e69b;
+
+    --danger:
+        #ff6584;
+
+    --radius:
+        22px;
+
+    --shadow:
+        0 25px 80px rgba(0,0,0,.35);
+
 }
-[data-theme="light"]{
---bg:#f4f6fa;--surface:#fff;--surface2:#eef1f6;--text:#10131a;--muted:#5e6675;
---line:rgba(10,20,40,.12);--accent:#6251e8;--cyan:#008db8;--green:#139c65;
---shadow:0 25px 70px rgba(30,40,70,.12)
+
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+[data-theme="light"] {
+
+    --bg: #f5f7fb;
+
+    --bg-soft: #edf1f7;
+
+    --card: #ffffff;
+
+    --card-light: #f8fafc;
+
+    --text: #101522;
+
+    --muted: #596579;
+
+    --muted-2: #7a8495;
+
+    --line:
+        rgba(16,21,34,.10);
+
+    --line-hover:
+        rgba(98,71,232,.40);
+
+    --primary:
+        #6247e8;
+
+    --primary-light:
+        #5339d4;
+
+    --cyan:
+        #007f9e;
+
+    --shadow:
+        0 25px 70px
+        rgba(30,40,65,.12);
+
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:Inter,"Noto Sans Arabic",sans-serif;line-height:1.7;overflow-x:hidden;transition:background .3s,color .3s}
-body:before{content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;background:radial-gradient(circle at 12% 8%,rgba(139,124,255,.12),transparent 28%),radial-gradient(circle at 90% 45%,rgba(57,215,255,.07),transparent 25%)}
-body:after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.25;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
-a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}.container{width:min(1180px,calc(100% - 40px));margin:auto}.section{padding:120px 0}
-.header{position:fixed;top:0;left:0;right:0;z-index:100;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid transparent;transition:.3s}
-.header.scrolled{border-color:var(--line);box-shadow:0 10px 40px rgba(0,0,0,.08)}
-.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font:700 15px "JetBrains Mono";letter-spacing:-.4px;white-space:nowrap}.logo b{color:var(--cyan)}
-.navlinks{display:flex;gap:25px;align-items:center}.navlinks a{font-size:12px;color:var(--muted);transition:.2s}.navlinks a:hover{color:var(--text)}
-.controls{display:flex;align-items:center;gap:8px}.control{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:7px 9px;font-size:11px;cursor:pointer}.menu{display:none;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 10px;cursor:pointer}
-.hero{min-height:100vh;display:flex;align-items:center;padding-top:110px}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}
-.eyebrow{font:700 10px "JetBrains Mono";letter-spacing:2px;color:var(--cyan);margin-bottom:17px}.availability{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;margin-bottom:22px}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 14px var(--green)}
-h1{font-size:clamp(42px,6.5vw,78px);line-height:1.03;letter-spacing:-3px;margin-bottom:20px}h1 span{display:block;color:var(--muted);font-weight:600;font-size:.44em;letter-spacing:-1px;margin-top:12px}
-.hero p{max-width:660px;color:var(--muted);font-size:15px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.btn{padding:12px 18px;border-radius:12px;font-size:12px;font-weight:700;border:1px solid var(--line);transition:.25s}.btn.primary{background:linear-gradient(135deg,var(--accent),#4d86ff);border:0;color:white;box-shadow:0 14px 35px rgba(100,80,230,.2)}.btn:hover{transform:translateY(-3px)}.socials{display:flex;gap:7px;margin-top:25px}.socials a{font:700 10px "JetBrains Mono";border:1px solid var(--line);padding:8px 10px;border-radius:9px;color:var(--muted)}
-.device-wrap{display:flex;justify-content:center}.phone{width:min(320px,90vw);height:620px;border:8px solid #1b1e27;border-radius:42px;background:#05070b;box-shadow:var(--shadow),0 0 0 1px rgba(255,255,255,.08);padding:10px;position:relative;overflow:hidden}.phone:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:115px;height:25px;background:#1b1e27;border-radius:0 0 18px 18px;z-index:3}.screen{height:100%;border-radius:30px;background:linear-gradient(160deg,#101522,#080b12);padding:48px 18px 20px;overflow:hidden}.android-top{display:flex;justify-content:space-between;color:#aeb7ca;font-size:9px}.app-brand{margin-top:48px;font-size:12px;color:var(--cyan);font-family:"JetBrains Mono"}.screen h3{font-size:30px;line-height:1.05;margin:8px 0 14px}.screen p{font-size:10px;color:#7f899c}.mock-card{margin-top:25px;padding:16px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);border-radius:18px}.mock-line{height:7px;border-radius:5px;background:#303849;margin:8px 0}.mock-line.short{width:55%}.mock-button{margin-top:18px;height:36px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#4d86ff);display:grid;place-items:center;font-size:10px;font-weight:700}.phone-note{text-align:center;margin-top:13px;color:var(--muted);font:10px "JetBrains Mono"}
-.section-head{display:flex;gap:15px;align-items:flex-start;margin-bottom:50px}.num{font:700 10px "JetBrains Mono";color:var(--cyan);border:1px solid rgba(57,215,255,.2);padding:5px 8px;border-radius:7px}.section-head small{font:700 10px "JetBrains Mono";color:var(--cyan);letter-spacing:2px}.section-head h2{font-size:clamp(30px,4vw,48px);line-height:1.15;margin-top:5px;letter-spacing:-1.5px}
-.intro-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px}.lead{font-size:21px;font-weight:600;margin-bottom:18px}.muted{color:var(--muted);font-size:14px;margin-bottom:15px}.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fact{padding:22px;border:1px solid var(--line);background:var(--surface);border-radius:18px}.fact strong{display:block;font:800 24px "JetBrains Mono"}.fact small{color:var(--muted);font-size:10px}
-.engineering{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{border:1px solid var(--line);background:linear-gradient(145deg,var(--surface),var(--surface2));border-radius:var(--radius);padding:30px;transition:.3s}.card:hover{transform:translateY(-5px);border-color:rgba(139,124,255,.45);box-shadow:var(--shadow)}.card-label{font:700 9px "JetBrains Mono";color:var(--cyan)}.card h3{font-size:22px;margin:8px 0}.card p{font-size:12px;color:var(--muted)}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}.tag{font:500 10px "JetBrains Mono";padding:6px 8px;border:1px solid var(--line);border-radius:7px;color:var(--muted)}
-.arch{margin-top:18px;display:grid;gap:8px}.arch div{padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025);font:600 10px "JetBrains Mono"}.arch div:after{content:"↓";float:right;color:var(--cyan)}.arch div:last-child:after{content:""}
-.security{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}.security-box{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:30px}.bars{margin-top:22px;display:grid;gap:16px}.barrow{font:600 10px "JetBrains Mono";color:var(--muted)}.track{height:6px;background:var(--surface2);border-radius:9px;margin-top:6px;overflow:hidden}.fill{height:100%;width:var(--w);background:linear-gradient(90deg,var(--accent),var(--cyan));border-radius:inherit}
-.projects{display:grid;gap:18px}.project{display:grid;grid-template-columns:.85fr 1.15fr;min-height:360px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}.project-visual{display:grid;place-items:center;background:radial-gradient(circle,rgba(139,124,255,.16),transparent 60%);border-right:1px solid var(--line)}.project-visual div{font:700 60px "JetBrains Mono";color:rgba(255,255,255,.16)}.project-body{padding:36px}.project-body h3{font-size:28px}.project-body p{color:var(--muted);font-size:13px;margin:10px 0 20px}.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}.case-grid div{padding:15px;border:1px solid var(--line);border-radius:12px}.case-grid small{display:block;color:var(--cyan);font:700 9px "JetBrains Mono";margin-bottom:5px}.case-grid span{font-size:11px;color:var(--muted)}
-.lab-grid,.writing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.lab-item{min-height:210px}.lab-icon{font:700 25px "JetBrains Mono";color:var(--accent);margin-bottom:20px}
-.beyond{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.quote{padding:45px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(120deg,rgba(139,124,255,.11),rgba(57,215,255,.03))}.quote h3{font-size:31px;line-height:1.2}.quote p{color:var(--muted);margin-top:10px}.mini-stack{display:grid;gap:17px}.mini{padding:26px;border:1px solid var(--line);border-radius:20px;background:var(--surface)}.mini b{font-size:18px}.mini p{font-size:11px;color:var(--muted);margin-top:5px}
-.timeline{position:relative;margin-left:10px;border-left:1px solid var(--line);padding-left:30px;display:grid;gap:28px}.event{position:relative}.event:before{content:"";position:absolute;left:-36px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--bg)}.event small{font:700 10px "JetBrains Mono";color:var(--cyan)}.event h3{margin:5px 0}.event p{color:var(--muted);font-size:12px}
-.contact{padding:55px;border:1px solid var(--line);border-radius:30px;background:radial-gradient(circle at 90% 10%,rgba(139,124,255,.14),transparent 38%),var(--surface);display:grid;grid-template-columns:1fr .9fr;gap:60px}.contact h2{font-size:clamp(38px,5vw,60px);line-height:1.1}.contact h2 span{color:var(--accent)}.contact p{color:var(--muted);font-size:13px;margin-top:14px}.contact-links{display:grid}.contact-link{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:12px}.contact-link span:last-child{font:700 10px "JetBrains Mono";color:var(--cyan)}
-footer{padding:25px 0;border-top:1px solid var(--line);color:var(--muted);font-size:10px}.footer{display:flex;justify-content:space-between}
-.reveal{opacity:0;transform:translateY(18px);transition:.7s}.reveal.show{opacity:1;transform:none}
-.lang-ar{font-family:"Noto Sans Arabic",sans-serif}
-@media(max-width:900px){.navlinks{display:none;position:absolute;top:70px;left:20px;right:20px;padding:15px;flex-direction:column;align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:18px}.navlinks.open{display:flex}.menu{display:block}.hero-grid,.intro-grid,.security,.beyond,.contact,.project{grid-template-columns:1fr}.project-visual{min-height:250px;border-right:0;border-bottom:1px solid var(--line)}.engineering{grid-template-columns:1fr}.lab-grid,.writing-grid{grid-template-columns:1fr 1fr}.hero{padding-top:110px}.phone{height:560px}}
-@media(max-width:600px){.container{width:calc(100% - 28px)}.section{padding:85px 0}h1{font-size:47px;letter-spacing:-2px}.hero p{font-size:13px}.nav{height:70px}.controls .control:first-child{display:none}.lab-grid,.writing-grid,.case-grid{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}.contact{padding:28px}.project-body{padding:25px}.footer{flex-direction:column;gap:7px;text-align:center}}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior:
+        smooth;
+
+}
+
+
+body {
+
+    background:
+        var(--bg);
+
+    color:
+        var(--text);
+
+    font-family:
+        "Cairo",
+        sans-serif;
+
+    line-height:
+        1.8;
+
+    overflow-x:
+        hidden;
+
+    transition:
+        background .3s,
+        color .3s;
+
+}
+
+
+::selection {
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+}
+
+
+a {
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+
+}
+
+
+button {
+
+    font-family:
+        inherit;
+
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before {
+
+    content:
+        "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    z-index:
+        -6;
+
+    background:
+
+        radial-gradient(
+            circle at 12% 10%,
+            rgba(118,87,255,.11),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 45%,
+            rgba(0,212,255,.06),
+            transparent 27%
+        );
+
+}
+
+
+.grid-bg {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    z-index:
+        -5;
+
+    opacity:
+        .32;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        45px 45px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+
+}
+
+
+[data-theme="light"] .grid-bg {
+
+    opacity:
+        .14;
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+
+    width:
+        min(
+            1160px,
+            calc(100% - 40px)
+        );
+
+    margin:
+        auto;
+
+}
+
+
+.section {
+
+    padding:
+        110px 0;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    position:
+        fixed;
+
+    top:
+        0;
+
+    right:
+        0;
+
+    left:
+        0;
+
+    z-index:
+        100;
+
+    background:
+        rgba(7,9,15,.68);
+
+    backdrop-filter:
+        blur(18px);
+
+    border-bottom:
+        1px solid transparent;
+
+    transition:
+        .3s;
+
+}
+
+
+[data-theme="light"] .header {
+
+    background:
+        rgba(245,247,251,.75);
+
+}
+
+
+.header.scrolled {
+
+    background:
+        rgba(7,9,15,.94);
+
+    border-color:
+        var(--line);
+
+}
+
+
+[data-theme="light"]
+.header.scrolled {
+
+    background:
+        rgba(245,247,251,.95);
+
+}
+
+
+.nav {
+
+    height:
+        78px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+}
+
+
+.logo {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        11px;
+
+    font:
+        700 14px
+        "JetBrains Mono";
+
+}
+
+
+.logo-icon {
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        12px;
+
+    border:
+        1px solid
+        rgba(118,87,255,.5);
+
+    background:
+        rgba(118,87,255,.08);
+
+    color:
+        var(--primary-light);
+
+    font-size:
+        12px;
+
+}
+
+
+.logo span span {
+
+    color:
+        var(--cyan);
+
+}
+
+
+.nav-right {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        18px;
+
+}
+
+
+.nav-links {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        25px;
+
+}
+
+
+.nav-links a {
+
+    color:
+        #aab3c7;
+
+    font-size:
+        12px;
+
+    transition:
+        .25s;
+
+}
+
+
+[data-theme="light"]
+.nav-links a {
+
+    color:
+        #596579;
+
+}
+
+
+.nav-links a:hover {
+
+    color:
+        var(--text);
+
+}
+
+
+.controls {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+}
+
+
+.control {
+
+    height:
+        35px;
+
+    border:
+        1px solid
+        var(--line);
+
+    background:
+        rgba(255,255,255,.025);
+
+    border-radius:
+        10px;
+
+    padding:
+        0 9px;
+
+    cursor:
+        pointer;
+
+    font-size:
+        10px;
+
+}
+
+
+.lang {
+
+    font:
+        700 10px
+        "JetBrains Mono";
+
+}
+
+
+.menu {
+
+    display:
+        none;
+
+    border:
+        0;
+
+    background:
+        none;
+
+    cursor:
+        pointer;
+
+}
+
+
+.menu span {
+
+    display:
+        block;
+
+    width:
+        25px;
+
+    height:
+        2px;
+
+    background:
+        var(--text);
+
+    margin:
+        5px 0;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height:
+        100vh;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    padding-top:
+        125px;
+
+}
+
+
+.hero-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.1fr .9fr;
+
+    gap:
+        75px;
+
+    align-items:
+        center;
+
+}
+
+
+.status {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    color:
+        #aeb8cb;
+
+    font-size:
+        11px;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.status-dot {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--green);
+
+    box-shadow:
+        0 0 12px
+        rgba(69,230,155,.7);
+
+}
+
+
+.kicker {
+
+    color:
+        var(--cyan);
+
+    font:
+        700 11px
+        "JetBrains Mono";
+
+    letter-spacing:
+        2px;
+
+    margin-bottom:
+        11px;
+
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(
+            42px,
+            5.6vw,
+            70px
+        );
+
+    line-height:
+        1.08;
+
+    letter-spacing:
+        -2.5px;
+
+    font-weight:
+        900;
+
+    white-space:
+        nowrap;
+
+}
+
+
+.gradient {
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--text),
+            #9e8cff,
+            var(--cyan)
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    color:
+        transparent;
+
+}
+
+
+.hero-role {
+
+    margin-top:
+        17px;
+
+    font:
+        600 19px
+        "JetBrains Mono";
+
+}
+
+
+.cursor {
+
+    color:
+        var(--cyan);
+
+    animation:
+        blink .8s infinite;
+
+}
+
+
+@keyframes blink {
+
+    50% {
+        opacity:
+            0;
+    }
+
+}
+
+
+.hero-description {
+
+    max-width:
+        660px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
+
+    margin:
+        19px 0 29px;
+
+}
+
+
+.buttons {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+}
+
+
+.btn {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        12px 18px;
+
+    border-radius:
+        12px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    transition:
+        .25s;
+
+}
+
+
+.btn-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #4d80ff
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(118,87,255,.2);
+
+}
+
+
+.btn-primary:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(118,87,255,.3);
+
+}
+
+
+.btn-outline {
+
+    border:
+        1px solid
+        var(--line);
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+
+.btn-outline:hover {
+
+    border-color:
+        var(--line-hover);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.socials {
+
+    display:
+        flex;
+
+    gap:
+        8px;
+
+    margin-top:
+        23px;
+
+}
+
+
+.socials a {
+
+    width:
+        37px;
+
+    height:
+        37px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        10px;
+
+    color:
+        #a4aec3;
+
+    font:
+        600 10px
+        "JetBrains Mono";
+
+    transition:
+        .25s;
+
+}
+
+
+.socials a:hover {
+
+    color:
+        var(--text);
+
+    border-color:
+        rgba(0,212,255,.35);
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =========================================================
+   ANDROID DEVICE
+========================================================= */
+
+.phone-wrap {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    position:
+        relative;
+
+}
+
+
+.phone-glow {
+
+    position:
+        absolute;
+
+    width:
+        390px;
+
+    height:
+        390px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(118,87,255,.18),
+            transparent 68%
+        );
+
+    filter:
+        blur(12px);
+
+}
+
+
+.phone {
+
+    position:
+        relative;
+
+    width:
+        245px;
+
+    height:
+        500px;
+
+    border:
+        7px solid
+        #1e2635;
+
+    border-radius:
+        38px;
+
+    background:
+        #080b12;
+
+    box-shadow:
+        var(--shadow),
+        0 0 0 1px
+        rgba(255,255,255,.05);
+
+    overflow:
+        hidden;
+
+    transform:
+        rotate(2deg);
+
+}
+
+
+.phone-notch {
+
+    position:
+        absolute;
+
+    top:
+        9px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        82px;
+
+    height:
+        20px;
+
+    background:
+        #05070b;
+
+    border-radius:
+        0 0 15px 15px;
+
+    z-index:
+        5;
+
+}
+
+
+.phone-screen {
+
+    height:
+        100%;
+
+    padding:
+        44px 18px 18px;
+
+    background:
+        linear-gradient(
+            160deg,
+            #101827,
+            #080b12
+        );
+
+}
+
+
+.phone-top {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+    color:
+        #8e9ab0;
+
+    margin-bottom:
+        28px;
+
+}
+
+
+.phone-title {
+
+    font:
+        800 20px
+        "Cairo";
+
+    line-height:
+        1.25;
+
+    margin-bottom:
+        6px;
+
+}
+
+
+.phone-sub {
+
+    color:
+        #7f8ba0;
+
+    font-size:
+        9px;
+
+    margin-bottom:
+        22px;
+
+}
+
+
+.app-card {
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:
+        15px;
+
+    padding:
+        15px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.app-card-top {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+.app-icon {
+
+    width:
+        36px;
+
+    height:
+        36px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #3d83ff
+        );
+
+    font:
+        700 13px
+        "JetBrains Mono";
+
+}
+
+
+.app-card strong {
+
+    font-size:
+        11px;
+
+}
+
+
+.app-card small {
+
+    display:
+        block;
+
+    color:
+        #738096;
+
+    font-size:
+        8px;
+
+}
+
+
+.phone-stat {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    margin-top:
+        15px;
+
+}
+
+
+.phone-stat div {
+
+    width:
+        31%;
+
+    padding:
+        10px 7px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:
+        10px;
+
+    text-align:
+        center;
+
+}
+
+
+.phone-stat b {
+
+    display:
+        block;
+
+    font:
+        700 11px
+        "JetBrains Mono";
+
+}
+
+
+.phone-stat span {
+
+    color:
+        #68758a;
+
+    font-size:
+        7px;
+
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title {
+
+    margin-bottom:
+        55px;
+
+    display:
+        flex;
+
+    gap:
+        18px;
+
+    align-items:
+        flex-start;
+
+}
+
+
+.section-number {
+
+    color:
+        var(--cyan);
+
+    font:
+        700 11px
+        "JetBrains Mono";
+
+    border:
+        1px solid
+        rgba(0,212,255,.22);
+
+    padding:
+        5px 8px;
+
+    border-radius:
+        7px;
+
+    margin-top:
+        8px;
+
+}
+
+
+.section-title small {
+
+    display:
+        block;
+
+    color:
+        var(--cyan);
+
+    font:
+        700 10px
+        "JetBrains Mono";
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.section-title h2 {
+
+    font-size:
+        clamp(
+            32px,
+            4vw,
+            48px
+        );
+
+    line-height:
+        1.2;
+
+    margin-top:
+        5px;
+
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.15fr .85fr;
+
+    gap:
+        70px;
+
+}
+
+
+.about-content p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
+
+    margin-bottom:
+        18px;
+
+}
+
+
+.about-content .lead {
+
+    color:
+        var(--text);
+
+    font-size:
+        20px;
+
+    font-weight:
+        600;
+
+}
+
+
+.facts {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        12px;
+
+}
+
+
+.fact {
+
+    padding:
+        25px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        18px;
+
+}
+
+
+.fact strong {
+
+    display:
+        block;
+
+    font:
+        800 27px
+        "JetBrains Mono";
+
+}
+
+
+.fact span {
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+
+}
+
+
+/* =========================================================
+   ANDROID ENGINEERING
+========================================================= */
+
+.engineering {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        .85fr 1.15fr;
+
+    gap:
+        18px;
+
+}
+
+
+.engineering-intro,
+.architecture {
+
+    padding:
+        35px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18,24,38,.82),
+            rgba(10,14,23,.72)
+        );
+
+}
+
+
+.engineering-intro h3 {
+
+    font-size:
+        28px;
+
+    margin:
+        10px 0;
+
+}
+
+
+.engineering-intro p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+}
+
+
+.mono-label {
+
+    color:
+        var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.architecture h3 {
+
+    font-size:
+        20px;
+
+    margin-bottom:
+        22px;
+
+}
+
+
+.arch-stack {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        7px;
+
+}
+
+
+.arch-row {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+}
+
+
+.arch-box {
+
+    width:
+        150px;
+
+    padding:
+        10px 13px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+}
+
+
+.arch-arrow {
+
+    color:
+        var(--primary-light);
+
+    font:
+        700 12px
+        "JetBrains Mono";
+
+}
+
+
+.tech-tags {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        7px;
+
+    margin-top:
+        22px;
+
+}
+
+
+.tech-tags span {
+
+    padding:
+        5px 8px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        7px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        17px;
+
+}
+
+
+.skill-card {
+
+    padding:
+        30px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18,24,38,.82),
+            rgba(10,14,23,.72)
+        );
+
+    transition:
+        .3s;
+
+}
+
+
+.skill-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        var(--line-hover);
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+
+.skill-number {
+
+    color:
+        var(--cyan);
+
+    font:
+        700 10px
+        "JetBrains Mono";
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.skill-card h3 {
+
+    font-size:
+        20px;
+
+    margin-bottom:
+        7px;
+
+}
+
+
+.skill-card p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.tags {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        7px;
+
+}
+
+
+.tags span {
+
+    color:
+        var(--muted);
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        7px;
+
+    padding:
+        5px 8px;
+
+    font-size:
+        9px;
+
+}
+
+
+/* =========================================================
+   CYBERSECURITY
+========================================================= */
+
+.security-layout {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        18px;
+
+}
+
+
+.security-intro {
+
+    padding:
+        38px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(118,87,255,.10),
+            rgba(0,212,255,.025)
+        );
+
+}
+
+
+.security-intro h3 {
+
+    font-size:
+        28px;
+
+    line-height:
+        1.35;
+
+    margin:
+        10px 0 14px;
+
+}
+
+
+.security-intro p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+}
+
+
+.security-bars {
+
+    padding:
+        35px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+
+.security-row {
+
+    margin-bottom:
+        17px;
+
+}
+
+
+.security-head {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    font-size:
+        10px;
+
+    margin-bottom:
+        6px;
+
+}
+
+
+.security-head span:last-child {
+
+    color:
+        var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+}
+
+
+.bar {
+
+    height:
+        5px;
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    overflow:
+        hidden;
+
+}
+
+
+.bar i {
+
+    display:
+        block;
+
+    height:
+        100%;
+
+    width:
+        var(--value);
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--cyan)
+        );
+
+    border-radius:
+        inherit;
+
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        17px;
+
+}
+
+
+.project {
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    overflow:
+        hidden;
+
+    transition:
+        .3s;
+
+}
+
+
+.project:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        var(--line-hover);
+
+}
+
+
+.project-top {
+
+    height:
+        175px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(118,87,255,.14),
+            transparent 65%
+        );
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+}
+
+
+.project-placeholder {
+
+    width:
+        65px;
+
+    height:
+        65px;
+
+    border:
+        1px dashed
+        rgba(118,87,255,.5);
+
+    border-radius:
+        17px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    color:
+        var(--primary-light);
+
+    font:
+        700 20px
+        "JetBrains Mono";
+
+}
+
+
+.project-content {
+
+    padding:
+        23px;
+
+}
+
+
+.project-label {
+
+    color:
+        var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+}
+
+
+.project h3 {
+
+    font-size:
+        18px;
+
+    margin:
+        7px 0;
+
+}
+
+
+.project p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+}
+
+
+.project-meta {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        6px;
+
+    margin-top:
+        14px;
+
+}
+
+
+.project-meta span {
+
+    font:
+        600 8px
+        "JetBrains Mono";
+
+    color:
+        var(--muted);
+
+    padding:
+        4px 6px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        6px;
+
+}
+
+
+.coming {
+
+    margin-top:
+        15px;
+
+    display:
+        inline-block;
+
+    padding:
+        5px 9px;
+
+    border-radius:
+        7px;
+
+    background:
+        rgba(118,87,255,.08);
+
+    border:
+        1px solid
+        rgba(118,87,255,.2);
+
+    color:
+        #b8aaff;
+
+    font-size:
+        9px;
+
+}
+
+
+/* =========================================================
+   LAB
+========================================================= */
+
+.lab-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        17px;
+
+}
+
+
+.lab-card {
+
+    padding:
+        30px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+
+.lab-icon {
+
+    width:
+        44px;
+
+    height:
+        44px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(118,87,255,.09);
+
+    border:
+        1px solid
+        rgba(118,87,255,.2);
+
+    color:
+        var(--primary-light);
+
+    font:
+        700 14px
+        "JetBrains Mono";
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.lab-card h3 {
+
+    font-size:
+        18px;
+
+}
+
+
+.lab-card p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+    margin:
+        7px 0 16px;
+
+}
+
+
+.lab-list {
+
+    list-style:
+        none;
+
+}
+
+
+.lab-list li {
+
+    padding:
+        7px 0;
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+
+}
+
+
+.lab-list li::before {
+
+    content:
+        "→";
+
+    color:
+        var(--cyan);
+
+    margin-right:
+        7px;
+
+}
+
+
+/* =========================================================
+   BEYOND CODE
+========================================================= */
+
+.beyond-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.15fr .85fr;
+
+    gap:
+        18px;
+
+}
+
+
+.beyond-main {
+
+    padding:
+        40px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(118,87,255,.10),
+            rgba(0,212,255,.025)
+        );
+
+}
+
+
+.beyond-main h3 {
+
+    font-size:
+        28px;
+
+    line-height:
+        1.35;
+
+}
+
+
+.beyond-main p {
+
+    max-width:
+        700px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+    margin-top:
+        10px;
+
+}
+
+
+.beyond-side {
+
+    display:
+        grid;
+
+    gap:
+        12px;
+
+}
+
+
+.beyond-card {
+
+    padding:
+        25px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+
+.beyond-card small {
+
+    color:
+        var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+}
+
+
+.beyond-card h3 {
+
+    margin:
+        6px 0;
+
+    font-size:
+        18px;
+
+}
+
+
+.beyond-card p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+}
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.timeline {
+
+    position:
+        relative;
+
+    max-width:
+        850px;
+
+    margin:
+        auto;
+
+}
+
+
+.timeline::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    bottom:
+        0;
+
+    left:
+        10px;
+
+    width:
+        1px;
+
+    background:
+        var(--line);
+
+}
+
+
+.timeline-item {
+
+    position:
+        relative;
+
+    padding:
+        0 0 38px 42px;
+
+}
+
+
+.timeline-dot {
+
+    position:
+        absolute;
+
+    left:
+        5px;
+
+    top:
+        7px;
+
+    width:
+        11px;
+
+    height:
+        11px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 5px
+        rgba(118,87,255,.09);
+
+}
+
+
+.timeline-year {
+
+    color:
+        var(--cyan);
+
+    font:
+        700 10px
+        "JetBrains Mono";
+
+}
+
+
+.timeline-item h3 {
+
+    margin:
+        4px 0;
+
+    font-size:
+        18px;
+
+}
+
+
+.timeline-item p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+}
+
+
+/* =========================================================
+   CERTIFICATES
+========================================================= */
+
+.cert-box {
+
+    padding:
+        35px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    border:
+        1px dashed
+        rgba(118,87,255,.4);
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(118,87,255,.035);
+
+}
+
+
+.cert-icon {
+
+    width:
+        55px;
+
+    height:
+        55px;
+
+    flex-shrink:
+        0;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        15px;
+
+    background:
+        rgba(118,87,255,.12);
+
+    color:
+        var(--primary-light);
+
+    font-size:
+        22px;
+
+}
+
+
+.cert-box h3 {
+
+    font-size:
+        18px;
+
+}
+
+
+.cert-box p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+}
+
+
+.cert-status {
+
+    margin-left:
+        auto;
+
+    color:
+        var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-box {
+
+    padding:
+        55px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr .9fr;
+
+    gap:
+        60px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        28px;
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(118,87,255,.14),
+            transparent 40%
+        ),
+        rgba(255,255,255,.025);
+
+}
+
+
+.contact-box h2 {
+
+    font-size:
+        clamp(
+            38px,
+            5vw,
+            58px
+        );
+
+    line-height:
+        1.2;
+
+    margin:
+        8px 0 15px;
+
+}
+
+
+.contact-box h2 span {
+
+    color:
+        var(--primary-light);
+
+}
+
+
+.contact-box p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+}
+
+
+.contact-links {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+}
+
+
+.contact-link {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        16px 0;
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+    transition:
+        .25s;
+
+}
+
+
+.contact-link:hover {
+
+    padding-right:
+        8px;
+
+}
+
+
+.contact-link span:first-child {
+
+    color:
+        var(--text);
+
+    font-size:
+        12px;
+
+}
+
+
+.contact-link span:last-child {
+
+    color:
+        var(--cyan);
+
+    font:
+        700 9px
+        "JetBrains Mono";
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    border-top:
+        1px solid
+        var(--line);
+
+    padding:
+        25px 0;
+
+    color:
+        var(--muted-2);
+
+    font-size:
+        10px;
+
+}
+
+
+.footer-inner {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+}
+
+
+footer strong {
+
+    color:
+        var(--cyan);
+
+}
+
+
+/* =========================================================
+   TOP BUTTON
+========================================================= */
+
+.top-button {
+
+    position:
+        fixed;
+
+    left:
+        25px;
+
+    bottom:
+        25px;
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(10,14,23,.9);
+
+    color:
+        white;
+
+    cursor:
+        pointer;
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        .3s;
+
+    z-index:
+        50;
+
+}
+
+
+.top-button.show {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    transform:
+        none;
+
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+}
+
+
+.reveal.visible {
+
+    opacity:
+        1;
+
+    transform:
+        none;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:950px) {
+
+    .nav-right {
+
+        gap:
+            10px;
+
+    }
+
+
+    .nav-links {
+
+        position:
+            fixed;
+
+        top:
+            78px;
+
+        right:
+            20px;
+
+        left:
+            20px;
+
+        display:
+            none;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        padding:
+            18px;
+
+        background:
+            rgba(8,11,18,.97);
+
+        border:
+            1px solid
+            var(--line);
+
+        border-radius:
+            18px;
+
+    }
+
+
+    [data-theme="light"]
+    .nav-links {
+
+        background:
+            rgba(255,255,255,.98);
+
+    }
+
+
+    .nav-links.open {
+
+        display:
+            flex;
+
+    }
+
+
+    .nav-links a {
+
+        padding:
+            9px;
+
+    }
+
+
+    .menu {
+
+        display:
+            block;
+
+    }
+
+
+    .hero-grid,
+    .about-grid,
+    .engineering,
+    .security-layout,
+    .beyond-grid,
+    .contact-box {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .hero {
+
+        padding-top:
+            120px;
+
+    }
+
+
+    .phone-wrap {
+
+        margin-top:
+            25px;
+
+    }
+
+
+    .projects-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    .lab-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+}
+
+
+@media(max-width:650px) {
+
+    .container {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+
+    .section {
+
+        padding:
+            85px 0;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            39px;
+
+        letter-spacing:
+            -1.5px;
+
+    }
+
+
+    .hero-role {
+
+        font-size:
+            15px;
+
+    }
+
+
+    .hero-description {
+
+        font-size:
+            13px;
+
+    }
+
+
+    .skills-grid,
+    .projects-grid,
+    .lab-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .facts {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    .architecture,
+    .engineering-intro,
+    .security-intro,
+    .security-bars,
+    .beyond-main,
+    .contact-box {
+
+        padding:
+            27px;
+
+    }
+
+
+    .arch-box {
+
+        width:
+            125px;
+
+    }
+
+
+    .cert-box {
+
+        align-items:
+            flex-start;
+
+        flex-wrap:
+            wrap;
+
+    }
+
+
+    .cert-status {
+
+        margin-left:
+            0;
+
+        width:
+            100%;
+
+    }
+
+
+    .footer-inner {
+
+        flex-direction:
+            column;
+
+        gap:
+            7px;
+
+        text-align:
+            center;
+
+    }
+
+
+    .top-button {
+
+        left:
+            18px;
+
+        bottom:
+            18px;
+
+    }
+
+
+    .controls {
+
+        gap:
+            4px;
+
+    }
+
+
+    .control {
+
+        padding:
+            0 7px;
+
+    }
+
+}
+
 </style>
+
 </head>
+
+
 <body>
 
-<header class="header" id="header">
-<div class="container nav">
-<a class="logo" href="#home">MOHAMMED <b>ABDULLAH</b></a>
-<nav class="navlinks" id="navlinks">
-<a href="#home" data-i="navHome">Home</a><a href="#about" data-i="navAbout">About</a><a href="#android" data-i="navAndroid">Android</a><a href="#security" data-i="navSecurity">Cybersecurity</a><a href="#projects" data-i="navProjects">Projects</a><a href="#lab" data-i="navLab">Lab</a><a href="#writing" data-i="navWriting">Writing</a><a href="#books" data-i="navBooks">Books</a><a href="#journey" data-i="navJourney">Journey</a><a href="#contact" data-i="navContact">Contact</a>
-</nav>
-<div class="controls"><button class="control" id="lang">EN</button><button class="control" id="theme">☾</button><button class="menu" id="menu">☰</button></div>
-</div>
+
+<div class="grid-bg"></div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="container nav">
+
+
+        <a href="#home" class="logo">
+
+            <span class="logo-icon">
+                &lt;/&gt;
+            </span>
+
+            <span>
+                Mohammed<span>.dev</span>
+            </span>
+
+        </a>
+
+
+        <div class="nav-right">
+
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#android">
+                    Android
+                </a>
+
+                <a href="#security">
+                    Security
+                </a>
+
+                <a href="#projects">
+                    Projects
+                </a>
+
+                <a href="#lab">
+                    Lab
+                </a>
+
+                <a href="#beyond">
+                    Beyond Code
+                </a>
+
+                <a href="#journey">
+                    Journey
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </nav>
+
+
+            <div class="controls">
+
+
+                <button
+                    class="control lang"
+                    id="langBtn"
+                    type="button">
+
+                    EN
+
+                </button>
+
+
+                <button
+                    class="control"
+                    id="themeBtn"
+                    type="button"
+                    aria-label="Toggle theme">
+
+                    ☾
+
+                </button>
+
+
+            </div>
+
+
+            <button
+                class="menu"
+                id="menu"
+                type="button">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+
+        </div>
+
+    </div>
+
 </header>
 
+
+
 <main>
-<section class="hero section" id="home">
-<div class="container hero-grid">
-<div class="reveal">
-<div class="availability"><span class="dot"></span><span data-i="available">Available for collaboration</span></div>
-<div class="eyebrow">ANDROID • SECURITY • CODE</div>
-<h1>Mohammed Abdullah<span data-i="heroRole">Android Developer & Security Enthusiast</span></h1>
-<p data-i="heroDesc">I build mobile experiences that are fast, reliable and secure — with a Kotlin-first mindset and an obsession for clean engineering.</p>
-<div class="hero-actions"><a class="btn primary" href="#projects" data-i="viewProjects">View Selected Work ↗</a><a class="btn" href="#journey" data-i="journeyBtn">Explore My Journey</a><a class="btn" href="#contact" data-i="contactBtn">Contact Me</a></div>
-<div class="socials"><a href="https://wa.me/201027595528" target="_blank">WA</a><a href="https://t.me/C_O_N_2" target="_blank">TG</a><a href="https://www.instagram.com/mhbdllh4861/" target="_blank">IG</a><a href="https://www.linkedin.com/in/mohammed-con" target="_blank">IN</a><a href="mailto:cconker63@gmail.com">@</a></div>
-</div>
-<div class="device-wrap reveal">
-<div><div class="phone"><div class="screen"><div class="android-top"><span>9:41</span><span>● ● ▰</span></div><div class="app-brand">MOHAMMED.OS</div><h3>Build.<br>Secure.<br>Ship.</h3><p>Android engineering with thoughtful architecture and security.</p><div class="mock-card"><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-button">EXPLORE PROJECT</div></div><div class="mock-card"><div class="mock-line short"></div><div class="mock-line"></div></div></div></div><div class="phone-note">ANDROID ENGINEERING / 01</div></div>
-</div>
-</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section
+    class="hero section"
+    id="home">
+
+
+    <div class="container hero-grid">
+
+
+        <div class="reveal">
+
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                Available for collaboration
+
+            </div>
+
+
+            <p class="kicker">
+                HELLO, I'M
+            </p>
+
+
+            <h1>
+                Mohammed Abdullah
+            </h1>
+
+
+            <div class="hero-role">
+
+                <span id="typed">
+                    Android Developer
+                </span>
+
+                <span class="cursor">
+                    _
+                </span>
+
+            </div>
+
+
+            <p class="hero-description">
+
+                I build mobile experiences with
+                clean engineering, thoughtful design
+                and a security-first mindset.
+
+                <br>
+
+                Android development is my main path.
+                Programming, cybersecurity, books
+                and writing are part of the journey.
+
+            </p>
+
+
+            <div class="buttons">
+
+
+                <a
+                    href="#projects"
+                    class="btn btn-primary">
+
+                    View Selected Work
+                    ↗
+
+                </a>
+
+
+                <a
+                    href="#android"
+                    class="btn btn-outline">
+
+                    Explore Android
+
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="btn btn-outline">
+
+                    Contact Me
+
+                </a>
+
+
+            </div>
+
+
+            <div class="socials">
+
+
+                <a
+                    href="https://www.facebook.com/share/1DsBQE5YmH/"
+                    target="_blank"
+                    rel="noopener">
+
+                    FB
+
+                </a>
+
+
+                <a
+                    href="https://wa.me/201027595528"
+                    target="_blank"
+                    rel="noopener">
+
+                    WA
+
+                </a>
+
+
+                <a
+                    href="https://t.me/C_O_N_2"
+                    target="_blank"
+                    rel="noopener">
+
+                    TG
+
+                </a>
+
+
+                <a
+                    href="https://instagram.com/mhbdllh4861"
+                    target="_blank"
+                    rel="noopener">
+
+                    IG
+
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/mohammed-con"
+                    target="_blank"
+                    rel="noopener">
+
+                    IN
+
+                </a>
+
+
+                <a
+                    href="mailto:cconker63@gmail.com">
+
+                    @
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ANDROID DEVICE -->
+
+        <div class="phone-wrap reveal">
+
+
+            <div class="phone-glow"></div>
+
+
+            <div class="phone">
+
+
+                <div class="phone-notch"></div>
+
+
+                <div class="phone-screen">
+
+
+                    <div class="phone-top">
+
+                        <span>
+                            9:41
+                        </span>
+
+                        <span>
+                            ● ● ▰
+                        </span>
+
+                    </div>
+
+
+                    <div class="phone-title">
+
+                        Build.
+                        <br>
+                        Secure.
+                        <br>
+                        Ship.
+
+                    </div>
+
+
+                    <div class="phone-sub">
+
+                        Android Engineering
+                        / Mohammed
+
+                    </div>
+
+
+                    <div class="app-card">
+
+
+                        <div class="app-card-top">
+
+
+                            <div class="app-icon">
+                                M
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Android Project
+                                </strong>
+
+                                <small>
+                                    Kotlin • Compose
+                                </small>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="app-card">
+
+
+                        <div class="app-card-top">
+
+
+                            <div class="app-icon">
+                                S
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Security Layer
+                                </strong>
+
+                                <small>
+                                    Secure by design
+                                </small>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="phone-stat">
+
+
+                        <div>
+
+                            <b>
+                                Kotlin
+                            </b>
+
+                            <span>
+                                CORE
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <b>
+                                MVVM
+                            </b>
+
+                            <span>
+                                ARCH
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <b>
+                                API
+                            </b>
+
+                            <span>
+                                DATA
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section class="section" id="about"><div class="container">
-<div class="section-head reveal"><span class="num">01</span><div><small>ABOUT</small><h2 data-i="aboutTitle">The Developer Behind the Code</h2></div></div>
-<div class="intro-grid"><div class="reveal"><p class="lead" data-i="aboutLead">I’m Mohammed Abdullah — a Computer Science student, Android Developer and lifelong learner.</p><p class="muted" data-i="aboutP1">I enjoy turning ideas into real products, learning how systems work, and building software with attention to performance, usability and maintainability.</p><p class="muted" data-i="aboutP2">Alongside Android development, I’m building my foundation in cybersecurity, networking and secure application development.</p></div><div class="facts reveal"><div class="fact"><strong>19</strong><small data-i="age">Age</small></div><div class="fact"><strong>CS</strong><small data-i="study">Computer Science</small></div><div class="fact"><strong>KOTLIN</strong><small data-i="focus">Primary focus</small></div><div class="fact"><strong>∞</strong><small data-i="learning">Continuous learning</small></div></div></div>
-</div></section>
 
-<section class="section" id="android"><div class="container">
-<div class="section-head reveal"><span class="num">02</span><div><small>ANDROID ENGINEERING</small><h2>Kotlin-first. Architecture-driven.</h2></div></div>
-<div class="engineering">
-<div class="card reveal"><div class="card-label">STACK / 01</div><h3>Modern Android</h3><p>Tools and technologies I use to explore and build Android applications.</p><div class="tags"><span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span><span class="tag">Android SDK</span><span class="tag">XML</span><span class="tag">MVVM</span><span class="tag">Clean Architecture</span><span class="tag">Coroutines</span><span class="tag">Room</span><span class="tag">Retrofit</span><span class="tag">Firebase</span><span class="tag">REST APIs</span><span class="tag">Git</span></div></div>
-<div class="card reveal"><div class="card-label">ARCHITECTURE / 02</div><h3>How I Think About Apps</h3><p>Separation of concerns keeps features understandable, testable and scalable.</p><div class="arch"><div>UI / Compose</div><div>ViewModel</div><div>Use Cases</div><div>Repository</div><div>Data / API / Room</div></div></div>
-</div></div></section>
 
-<section class="section" id="security"><div class="container">
-<div class="section-head reveal"><span class="num">03</span><div><small>CYBERSECURITY</small><h2>Build apps. Think like an attacker.</h2></div></div>
-<div class="security"><div class="security-box reveal"><p class="muted">My security journey is focused on understanding systems, identifying weaknesses responsibly, and designing safer software. Levels shown are learning directions, not professional certifications.</p><div class="tags"><span class="tag">Linux</span><span class="tag">Networking</span><span class="tag">OWASP</span><span class="tag">Web Security</span><span class="tag">Mobile Security</span><span class="tag">Ethical Hacking</span><span class="tag">Secure Coding</span></div></div><div class="security-box reveal"><div class="card-label">SECURITY PROFILE</div><div class="bars"><div class="barrow">Web Security<div class="track"><div class="fill" style="--w:70%"></div></div></div><div class="barrow">Networking<div class="track"><div class="fill" style="--w:62%"></div></div></div><div class="barrow">Linux<div class="track"><div class="fill" style="--w:72%"></div></div></div><div class="barrow">OWASP<div class="track"><div class="fill" style="--w:60%"></div></div></div><div class="barrow">Mobile Security<div class="track"><div class="fill" style="--w:45%"></div></div></div></div></div></div>
-</div></section>
+<!-- =========================================================
+     ABOUT
+========================================================= -->
 
-<section class="section" id="projects"><div class="container">
-<div class="section-head reveal"><span class="num">04</span><div><small>SELECTED WORK</small><h2>Projects, explained properly.</h2></div></div>
-<div class="projects"><article class="project reveal"><div class="project-visual"><div>01</div></div><div class="project-body"><div class="card-label">ANDROID APPLICATION</div><h3>Project Case Study</h3><p>A dedicated space for the next real Android project — presented around the problem, solution, engineering decisions and security considerations rather than a simple screenshot.</p><div class="tags"><span class="tag">Kotlin</span><span class="tag">Compose</span><span class="tag">Firebase</span><span class="tag">Architecture</span></div><div class="case-grid"><div><small>THE PROBLEM</small><span>Will be documented with the actual project.</span></div><div><small>THE SOLUTION</small><span>Will be added with implementation details.</span></div><div><small>ENGINEERING</small><span>Architecture, APIs and performance.</span></div><div><small>SECURITY</small><span>Threats and protections will be documented.</span></div></div><div class="hero-actions"><span class="btn">GitHub — Coming Soon</span></div></div></article></div>
-</div></section>
+<section
+    class="section"
+    id="about">
 
-<section class="section" id="lab"><div class="container">
-<div class="section-head reveal"><span class="num">05</span><div><small>THE LAB</small><h2>Experiments before products.</h2></div></div>
-<div class="lab-grid"><div class="card lab-item reveal"><div class="lab-icon">01</div><h3>Android</h3><p class="muted">UI experiments, architecture patterns and performance investigations.</p><span class="tag">Coming later</span></div><div class="card lab-item reveal"><div class="lab-icon">02</div><h3>Security</h3><p class="muted">Security labs, CTF writeups and responsible research.</p><span class="tag">Coming later</span></div><div class="card lab-item reveal"><div class="lab-icon">03</div><h3>Code</h3><p class="muted">Algorithms, experiments, utilities and open-source work.</p><span class="tag">Coming later</span></div></div>
-</div></section>
 
-<section class="section" id="writing"><div class="container">
-<div class="section-head reveal"><span class="num">06</span><div><small>BEYOND CODE</small><h2>Technology is what I build.</h2></div></div>
-<div class="beyond"><div class="quote reveal"><h3>Books are what I think with.</h3><p>Reading, writing and stories are part of the identity behind the developer.</p></div><div class="mini-stack"><div class="mini reveal"><b>✍ Writing</b><p>Articles, thoughts and technical writing — coming later.</p></div><div class="mini reveal" id="books"><b>📚 Books</b><p>Reading list, favorite novels and notes — coming later.</p></div></div></div>
-</div></section>
+    <div class="container">
 
-<section class="section" id="journey"><div class="container">
-<div class="section-head reveal"><span class="num">07</span><div><small>THE JOURNEY</small><h2>Learning. Building. Improving.</h2></div></div>
-<div class="timeline"><div class="event reveal"><small>2026 — NOW</small><h3>Android Development</h3><p>Kotlin, modern Android, architecture and real project building.</p></div><div class="event reveal"><small>2026 — NOW</small><h3>Cybersecurity</h3><p>Networking, Linux, web security, OWASP and mobile security foundations.</p></div><div class="event reveal"><small>ONGOING</small><h3>Programming</h3><p>Strengthening problem solving, algorithms and software engineering fundamentals.</p></div><div class="event reveal"><small>NEXT</small><h3>Projects & Open Source</h3><p>Real products, case studies, experiments and contributions.</p></div></div>
-</div></section>
 
-<section class="section" id="contact"><div class="container">
-<div class="contact reveal"><div><div class="eyebrow">CONTACT ME</div><h2>Let’s build<br><span>something real.</span></h2><p>For collaboration, ideas or opportunities, reach me through any channel.</p></div><div class="contact-links"><a class="contact-link" href="https://wa.me/201027595528" target="_blank"><span>WhatsApp</span><span>01027595528 ↗</span></a><a class="contact-link" href="https://t.me/C_O_N_2" target="_blank"><span>Telegram</span><span>@C_O_N_2 ↗</span></a><a class="contact-link" href="https://www.instagram.com/mhbdllh4861/" target="_blank"><span>Instagram</span><span>@mhbdllh4861 ↗</span></a><a class="contact-link" href="https://www.linkedin.com/in/mohammed-con" target="_blank"><span>LinkedIn</span><span>Mohammed Con ↗</span></a><a class="contact-link" href="https://www.facebook.com/share/1DsBQE5YmH/" target="_blank"><span>Facebook</span><span>Profile ↗</span></a><a class="contact-link" href="mailto:cconker63@gmail.com"><span>Email</span><span>cconker63@gmail.com ↗</span></a></div></div>
-</div></section>
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                01
+            </span>
+
+            <div>
+
+                <small>
+                    ABOUT ME
+                </small>
+
+                <h2>
+                    More than a developer.
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="about-grid">
+
+
+            <div class="about-content reveal">
+
+
+                <p class="lead">
+
+                    I'm Mohammed Abdullah,
+                    a Computer Science student and
+                    Android Developer focused on
+                    learning, building and improving.
+
+                </p>
+
+
+                <p>
+
+                    I enjoy turning ideas into useful
+                    mobile applications and understanding
+                    what happens behind the interface —
+                    from architecture and data flow
+                    to performance and reliability.
+
+                </p>
+
+
+                <p>
+
+                    Cybersecurity is another major part
+                    of my journey. I'm interested in
+                    networking, Linux, application security,
+                    OWASP and ethical hacking.
+
+                </p>
+
+
+                <p>
+
+                    Outside technology, I enjoy books,
+                    novels and writing. They give the
+                    technical side of my work a more
+                    human perspective.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="facts reveal">
+
+
+                <div class="fact">
+
+                    <strong>
+                        19
+                    </strong>
+
+                    <span>
+                        Age
+                    </span>
+
+                </div>
+
+
+                <div class="fact">
+
+                    <strong>
+                        CS
+                    </strong>
+
+                    <span>
+                        Computer Science
+                    </span>
+
+                </div>
+
+
+                <div class="fact">
+
+                    <strong>
+                        ANDROID
+                    </strong>
+
+                    <span>
+                        Main Focus
+                    </span>
+
+                </div>
+
+
+                <div class="fact">
+
+                    <strong>
+                        ∞
+                    </strong>
+
+                    <span>
+                        Continuous Learning
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ANDROID
+========================================================= -->
+
+<section
+    class="section"
+    id="android">
+
+
+    <div class="container">
+
+
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                02
+            </span>
+
+            <div>
+
+                <small>
+                    ANDROID ENGINEERING
+                </small>
+
+                <h2>
+                    Kotlin-first.
+                    <br>
+                    Engineering-minded.
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="engineering">
+
+
+            <div class="engineering-intro reveal">
+
+
+                <span class="mono-label">
+                    ANDROID / CORE
+                </span>
+
+
+                <h3>
+                    Building apps that
+                    are made to last.
+                </h3>
+
+
+                <p>
+
+                    My Android path is centered around
+                    Kotlin, modern Android tooling,
+                    clean architecture, maintainable code
+                    and thoughtful user experiences.
+
+                </p>
+
+
+                <div class="tech-tags">
+
+                    <span>Kotlin</span>
+                    <span>Jetpack Compose</span>
+                    <span>Android SDK</span>
+                    <span>XML</span>
+                    <span>MVVM</span>
+                    <span>Clean Architecture</span>
+                    <span>Coroutines</span>
+                    <span>Room</span>
+                    <span>Retrofit</span>
+                    <span>Firebase</span>
+                    <span>REST API</span>
+                    <span>Git</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="architecture reveal">
+
+
+                <span class="mono-label">
+                    ARCHITECTURE
+                </span>
+
+
+                <h3>
+                    A simple mental model
+                    for scalable applications.
+                </h3>
+
+
+                <div class="arch-stack">
+
+
+                    <div class="arch-row">
+
+                        <div class="arch-box">
+                            UI / Compose
+                        </div>
+
+                        <span class="arch-arrow">
+                            ↓
+                        </span>
+
+                    </div>
+
+
+                    <div class="arch-row">
+
+                        <div class="arch-box">
+                            ViewModel
+                        </div>
+
+                        <span class="arch-arrow">
+                            ↓
+                        </span>
+
+                    </div>
+
+
+                    <div class="arch-row">
+
+                        <div class="arch-box">
+                            Use Cases
+                        </div>
+
+                        <span class="arch-arrow">
+                            ↓
+                        </span>
+
+                    </div>
+
+
+                    <div class="arch-row">
+
+                        <div class="arch-box">
+                            Repository
+                        </div>
+
+                        <span class="arch-arrow">
+                            ↓
+                        </span>
+
+                    </div>
+
+
+                    <div class="arch-row">
+
+                        <div class="arch-box">
+                            Data / API / DB
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section
+    class="section">
+
+
+    <div class="container">
+
+
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                03
+            </span>
+
+            <div>
+
+                <small>
+                    CAPABILITIES
+                </small>
+
+                <h2>
+                    The toolkit.
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="skills-grid">
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-number">
+                    01 / MOBILE
+                </div>
+
+                <h3>
+                    Android Development
+                </h3>
+
+                <p>
+                    Modern Android development
+                    and application architecture.
+                </p>
+
+
+                <div class="tags">
+
+                    <span>Kotlin</span>
+                    <span>Java</span>
+                    <span>Android SDK</span>
+                    <span>Compose</span>
+                    <span>XML</span>
+                    <span>Material Design</span>
+                    <span>Room</span>
+                    <span>Retrofit</span>
+                    <span>Firebase</span>
+                    <span>Gradle</span>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-number">
+                    02 / PROGRAMMING
+                </div>
+
+                <h3>
+                    Programming
+                </h3>
+
+                <p>
+                    Fundamentals, problem solving
+                    and software development.
+                </p>
+
+
+                <div class="tags">
+
+                    <span>C</span>
+                    <span>C++</span>
+                    <span>Java</span>
+                    <span>Python</span>
+                    <span>JavaScript</span>
+                    <span>SQL</span>
+                    <span>OOP</span>
+                    <span>Algorithms</span>
+                    <span>Data Structures</span>
+                    <span>Git</span>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-number">
+                    03 / SECURITY
+                </div>
+
+                <h3>
+                    Cybersecurity
+                </h3>
+
+                <p>
+                    Learning security from both
+                    defensive and attacker perspectives.
+                </p>
+
+
+                <div class="tags">
+
+                    <span>Linux</span>
+                    <span>Networking</span>
+                    <span>OWASP</span>
+                    <span>Web Security</span>
+                    <span>Secure Coding</span>
+                    <span>Mobile Security</span>
+                    <span>Ethical Hacking</span>
+                    <span>Privacy</span>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-number">
+                    04 / WORKFLOW
+                </div>
+
+                <h3>
+                    Tools & Workflow
+                </h3>
+
+                <p>
+                    Tools that support development,
+                    debugging and continuous learning.
+                </p>
+
+
+                <div class="tags">
+
+                    <span>Git</span>
+                    <span>GitHub</span>
+                    <span>Android Studio</span>
+                    <span>VS Code</span>
+                    <span>Firebase</span>
+                    <span>Linux</span>
+                    <span>CLI</span>
+                    <span>Debugging</span>
+                    <span>Testing</span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CYBERSECURITY
+========================================================= -->
+
+<section
+    class="section"
+    id="security">
+
+
+    <div class="container">
+
+
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                04
+            </span>
+
+            <div>
+
+                <small>
+                    CYBERSECURITY
+                </small>
+
+                <h2>
+                    Build apps.
+                    <br>
+                    Think like an attacker.
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="security-layout">
+
+
+            <div class="security-intro reveal">
+
+
+                <span class="mono-label">
+                    SECURITY JOURNEY
+                </span>
+
+
+                <h3>
+                    Security is not a feature
+                    added at the end.
+                </h3>
+
+
+                <p>
+
+                    I'm building my cybersecurity
+                    foundation through networking,
+                    Linux, web security, OWASP,
+                    secure coding and mobile security.
+
+                    <br><br>
+
+                    The goal is not to claim expertise
+                    before earning it — the goal is
+                    continuous, measurable learning.
+
+                </p>
+
+
+                <div class="tech-tags">
+
+                    <span>Networking</span>
+                    <span>Linux</span>
+                    <span>Web Security</span>
+                    <span>OWASP</span>
+                    <span>Mobile Security</span>
+                    <span>Ethical Hacking</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="security-bars reveal">
+
+
+                <div class="security-row">
+
+                    <div class="security-head">
+
+                        <span>
+                            Networking
+                        </span>
+
+                        <span>
+                            LEARNING
+                        </span>
+
+                    </div>
+
+                    <div class="bar">
+                        <i style="--value:62%"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="security-row">
+
+                    <div class="security-head">
+
+                        <span>
+                            Linux
+                        </span>
+
+                        <span>
+                            LEARNING
+                        </span>
+
+                    </div>
+
+                    <div class="bar">
+                        <i style="--value:67%"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="security-row">
+
+                    <div class="security-head">
+
+                        <span>
+                            Web Security
+                        </span>
+
+                        <span>
+                            LEARNING
+                        </span>
+
+                    </div>
+
+                    <div class="bar">
+                        <i style="--value:58%"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="security-row">
+
+                    <div class="security-head">
+
+                        <span>
+                            OWASP
+                        </span>
+
+                        <span>
+                            LEARNING
+                        </span>
+
+                    </div>
+
+                    <div class="bar">
+                        <i style="--value:55%"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="security-row">
+
+                    <div class="security-head">
+
+                        <span>
+                            Mobile Security
+                        </span>
+
+                        <span>
+                            EXPLORING
+                        </span>
+
+                    </div>
+
+                    <div class="bar">
+                        <i style="--value:42%"></i>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section
+    class="section"
+    id="projects">
+
+
+    <div class="container">
+
+
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                05
+            </span>
+
+            <div>
+
+                <small>
+                    SELECTED WORK
+                </small>
+
+                <h2>
+                    Projects,
+                    <br>
+                    not promises.
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="projects-grid">
+
+
+            <article class="project reveal">
+
+
+                <div class="project-top">
+
+                    <div class="project-placeholder">
+                        01
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+
+                    <span class="project-label">
+                        ANDROID / CASE STUDY
+                    </span>
+
+
+                    <h3>
+                        Project will be added
+                    </h3>
+
+
+                    <p>
+
+                        A dedicated space for a real
+                        Android project, its problem,
+                        architecture, engineering decisions
+                        and final result.
+
+                    </p>
+
+
+                    <div class="project-meta">
+
+                        <span>
+                            Kotlin
+                        </span>
+
+                        <span>
+                            Compose
+                        </span>
+
+                        <span>
+                            Architecture
+                        </span>
+
+                    </div>
+
+
+                    <span class="coming">
+                        Coming later
+                    </span>
+
+
+                </div>
+
+            </article>
+
+
+
+            <article class="project reveal">
+
+
+                <div class="project-top">
+
+                    <div class="project-placeholder">
+                        02
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+
+                    <span class="project-label">
+                        SECURITY / RESEARCH
+                    </span>
+
+
+                    <h3>
+                        Security project
+                    </h3>
+
+
+                    <p>
+
+                        A future case study covering
+                        security research, testing,
+                        findings and lessons learned.
+
+                    </p>
+
+
+                    <div class="project-meta">
+
+                        <span>
+                            Security
+                        </span>
+
+                        <span>
+                            Linux
+                        </span>
+
+                        <span>
+                            OWASP
+                        </span>
+
+                    </div>
+
+
+                    <span class="coming">
+                        Coming later
+                    </span>
+
+
+                </div>
+
+            </article>
+
+
+
+            <article class="project reveal">
+
+
+                <div class="project-top">
+
+                    <div class="project-placeholder">
+                        03
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+
+                    <span class="project-label">
+                        EXPERIMENT
+                    </span>
+
+
+                    <h3>
+                        More work incoming
+                    </h3>
+
+
+                    <p>
+
+                        The portfolio is designed to grow
+                        with every serious project and
+                        experiment.
+
+                    </p>
+
+
+                    <div class="project-meta">
+
+                        <span>
+                            R&D
+                        </span>
+
+                        <span>
+                            Code
+                        </span>
+
+                        <span>
+                            Learning
+                        </span>
+
+                    </div>
+
+
+                    <span class="coming">
+                        Coming later
+                    </span>
+
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     LAB
+========================================================= -->
+
+<section
+    class="section"
+    id="lab">
+
+
+    <div class="container">
+
+
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                06
+            </span>
+
+            <div>
+
+                <small>
+                    THE LAB
+                </small>
+
+                <h2>
+                    Where ideas
+                    become experiments.
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="lab-grid">
+
+
+            <article class="lab-card reveal">
+
+                <div class="lab-icon">
+                    A
+                </div>
+
+                <h3>
+                    Android Lab
+                </h3>
+
+                <p>
+                    Small experiments around
+                    interfaces, architecture and performance.
+                </p>
+
+
+                <ul class="lab-list">
+
+                    <li>
+                        UI Experiments
+                    </li>
+
+                    <li>
+                        Architecture
+                    </li>
+
+                    <li>
+                        Performance
+                    </li>
+
+                    <li>
+                        Compose Experiments
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+
+            <article class="lab-card reveal">
+
+                <div class="lab-icon">
+                    S
+                </div>
+
+                <h3>
+                    Security Lab
+                </h3>
+
+                <p>
+                    A future space for legal labs,
+                    writeups and security research.
+                </p>
+
+
+                <ul class="lab-list">
+
+                    <li>
+                        Security Labs
+                    </li>
+
+                    <li>
+                        CTF Writeups
+                    </li>
+
+                    <li>
+                        Mobile Security
+                    </li>
+
+                    <li>
+                        Research Notes
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+
+            <article class="lab-card reveal">
+
+                <div class="lab-icon">
+                    C
+                </div>
+
+                <h3>
+                    Code Lab
+                </h3>
+
+                <p>
+                    Programming experiments,
+                    algorithms and open-source work.
+                </p>
+
+
+                <ul class="lab-list">
+
+                    <li>
+                        Algorithms
+                    </li>
+
+                    <li>
+                        Experiments
+                    </li>
+
+                    <li>
+                        Problem Solving
+                    </li>
+
+                    <li>
+                        Open Source
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     BEYOND CODE
+========================================================= -->
+
+<section
+    class="section"
+    id="beyond">
+
+
+    <div class="container">
+
+
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                07
+            </span>
+
+            <div>
+
+                <small>
+                    BEYOND CODE
+                </small>
+
+                <h2>
+                    Technology is what I build.
+                    <br>
+                    Books are what I think with.
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="beyond-grid">
+
+
+            <div class="beyond-main reveal">
+
+
+                <span class="mono-label">
+                    BOOKS / STORIES / WRITING
+                </span>
+
+
+                <h3>
+                    A technical portfolio
+                    with a human side.
+                </h3>
+
+
+                <p>
+
+                    Programming is one way I understand
+                    the world. Books, novels and writing
+                    are another.
+
+                    <br><br>
+
+                    This space will eventually contain
+                    reading lists, favorite books,
+                    articles, thoughts, stories and
+                    creative writing.
+
+                </p>
+
+
+                <span class="coming">
+                    Content will be added later
+                </span>
+
+
+            </div>
+
+
+
+            <div class="beyond-side">
+
+
+                <article class="beyond-card reveal">
+
+                    <small>
+                        BOOKS
+                    </small>
+
+                    <h3>
+                        Reading
+                    </h3>
+
+                    <p>
+                        Books, novels, notes
+                        and future reading lists.
+                    </p>
+
+                </article>
+
+
+                <article class="beyond-card reveal">
+
+                    <small>
+                        WRITING
+                    </small>
+
+                    <h3>
+                        Articles
+                    </h3>
+
+                    <p>
+                        Technical writing,
+                        ideas and personal reflections.
+                    </p>
+
+                </article>
+
+
+                <article class="beyond-card reveal">
+
+                    <small>
+                        STORIES
+                    </small>
+
+                    <h3>
+                        Fiction
+                    </h3>
+
+                    <p>
+                        Stories and creative work
+                        will live here in the future.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     JOURNEY
+========================================================= -->
+
+<section
+    class="section"
+    id="journey">
+
+
+    <div class="container">
+
+
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                08
+            </span>
+
+            <div>
+
+                <small>
+                    THE JOURNEY
+                </small>
+
+                <h2>
+                    Learning in public.
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item reveal">
+
+                <span class="timeline-dot"></span>
+
+                <span class="timeline-year">
+                    2026
+                </span>
+
+                <h3>
+                    Android Development
+                </h3>
+
+                <p>
+                    Deepening Android engineering,
+                    architecture and real project work.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <span class="timeline-dot"></span>
+
+                <span class="timeline-year">
+                    2026
+                </span>
+
+                <h3>
+                    Cybersecurity
+                </h3>
+
+                <p>
+                    Building stronger foundations
+                    in Linux, networking and application security.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <span class="timeline-dot"></span>
+
+                <span class="timeline-year">
+                    2025 — →
+                </span>
+
+                <h3>
+                    Programming & Computer Science
+                </h3>
+
+                <p>
+                    Strengthening fundamentals,
+                    problem solving and software engineering.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <span class="timeline-dot"></span>
+
+                <span class="timeline-year">
+                    CONTINUOUS
+                </span>
+
+                <h3>
+                    Build → Learn → Improve
+                </h3>
+
+                <p>
+                    The journey is still being written.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CERTIFICATES
+========================================================= -->
+
+<section
+    class="section">
+
+
+    <div class="container">
+
+
+        <div class="section-title reveal">
+
+            <span class="section-number">
+                09
+            </span>
+
+            <div>
+
+                <small>
+                    CERTIFICATES & ACHIEVEMENTS
+                </small>
+
+                <h2>
+                    Proof, when earned.
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="cert-box reveal">
+
+
+            <div class="cert-icon">
+                ✦
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Certificates & Achievements
+                </h3>
+
+                <p>
+
+                    Courses, certifications,
+                    competitions, awards and
+                    meaningful milestones will
+                    be added here.
+
+                </p>
+
+            </div>
+
+
+            <span class="cert-status">
+                COMING LATER
+            </span>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+    class="section"
+    id="contact">
+
+
+    <div class="container">
+
+
+        <div class="contact-box reveal">
+
+
+            <div>
+
+
+                <span class="mono-label">
+                    CONTACT ME
+                </span>
+
+
+                <h2>
+
+                    Let's
+                    <br>
+
+                    <span>
+                        build something.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    For collaboration,
+                    ideas, projects or simply
+                    starting a conversation.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="contact-links">
+
+
+                <a
+                    class="contact-link"
+                    href="https://wa.me/201027595528"
+                    target="_blank"
+                    rel="noopener">
+
+                    <span>
+                        WhatsApp
+                    </span>
+
+                    <span>
+                        01027595528 ↗
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="contact-link"
+                    href="https://t.me/C_O_N_2"
+                    target="_blank"
+                    rel="noopener">
+
+                    <span>
+                        Telegram
+                    </span>
+
+                    <span>
+                        @C_O_N_2 ↗
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="contact-link"
+                    href="https://www.instagram.com/mhbdllh4861/"
+                    target="_blank"
+                    rel="noopener">
+
+                    <span>
+                        Instagram
+                    </span>
+
+                    <span>
+                        @mhbdllh4861 ↗
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="contact-link"
+                    href="https://www.linkedin.com/in/mohammed-con"
+                    target="_blank"
+                    rel="noopener">
+
+                    <span>
+                        LinkedIn
+                    </span>
+
+                    <span>
+                        Mohammed Con ↗
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="contact-link"
+                    href="https://www.facebook.com/share/1DsBQE5YmH/"
+                    target="_blank"
+                    rel="noopener">
+
+                    <span>
+                        Facebook
+                    </span>
+
+                    <span>
+                        Profile ↗
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="contact-link"
+                    href="mailto:cconker63@gmail.com">
+
+                    <span>
+                        Email
+                    </span>
+
+                    <span>
+                        cconker63@gmail.com ↗
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 </main>
 
-<footer><div class="container footer"><span>© <span id="year"></span> Mohammed Abdullah</span><span>Android • Security • Code • <b>Passion</b></span></div></footer>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <span>
+
+            ©
+            <span id="year"></span>
+
+            Mohammed Abdullah
+
+        </span>
+
+
+        <span>
+
+            Built with
+
+            <strong>
+                &lt;/&gt;
+            </strong>
+
+            & passion.
+
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     TOP
+========================================================= -->
+
+<button
+    class="top-button"
+    id="topButton"
+    aria-label="Back to top">
+
+    ↑
+
+</button>
+
+
 
 <script>
-const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
-const header=$("#header"), menu=$("#menu"), nav=$("#navlinks"), theme=$("#theme"), lang=$("#lang");
-menu.onclick=()=>nav.classList.toggle("open");
-$$(".navlinks a").forEach(a=>a.onclick=()=>nav.classList.remove("open"));
-addEventListener("scroll",()=>header.classList.toggle("scrolled",scrollY>20));
-const savedTheme=localStorage.getItem("theme"); if(savedTheme) document.documentElement.dataset.theme=savedTheme;
-theme.onclick=()=>{const dark=document.documentElement.dataset.theme!=="light";document.documentElement.dataset.theme=dark?"light":"dark";theme.textContent=dark?"☀":"☾";localStorage.setItem("theme",document.documentElement.dataset.theme)};
-theme.textContent=document.documentElement.dataset.theme==="light"?"☀":"☾";
-const translations={
-en:{navHome:"Home",navAbout:"About",navAndroid:"Android",navSecurity:"Cybersecurity",navProjects:"Projects",navLab:"Lab",navWriting:"Writing",navBooks:"Books",navJourney:"Journey",navContact:"Contact",available:"Available for collaboration",heroRole:"Android Developer & Security Enthusiast",heroDesc:"I build mobile experiences that are fast, reliable and secure — with a Kotlin-first mindset and an obsession for clean engineering.",viewProjects:"View Selected Work ↗",journeyBtn:"Explore My Journey",contactBtn:"Contact Me",aboutTitle:"The Developer Behind the Code",aboutLead:"I’m Mohammed Abdullah — a Computer Science student, Android Developer and lifelong learner.",aboutP1:"I enjoy turning ideas into real products, learning how systems work, and building software with attention to performance, usability and maintainability.",aboutP2:"Alongside Android development, I’m building my foundation in cybersecurity, networking and secure application development.",age:"Age",study:"Computer Science",focus:"Primary focus",learning:"Continuous learning"},
-ar:{navHome:"الرئيسية",navAbout:"من أنا",navAndroid:"أندرويد",navSecurity:"الأمن السيبراني",navProjects:"المشاريع",navLab:"المعمل",navWriting:"الكتابة",navBooks:"الكتب",navJourney:"الرحلة",navContact:"تواصل",available:"متاح للتعاون",heroRole:"مطور Android ومهتم بالأمن السيبراني",heroDesc:"أبني تجارب موبايل سريعة وموثوقة وآمنة، بعقلية Kotlin واهتمام كبير بجودة الهندسة.",viewProjects:"استكشف المشاريع ↗",journeyBtn:"اكتشف رحلتي",contactBtn:"تواصل معي",aboutTitle:"المطور خلف الكود",aboutLead:"أنا محمد عبدالله — طالب حاسبات ومعلومات، مطور Android ومتعلم باستمرار.",aboutP1:"أحب تحويل الأفكار إلى منتجات حقيقية، وفهم طريقة عمل الأنظمة، وبناء برمجيات تهتم بالأداء وتجربة الاستخدام وقابلية الصيانة.",aboutP2:"وبجانب تطوير Android، أبني أساسًا قويًا في الأمن السيبراني والشبكات وتطوير التطبيقات الآمنة.",age:"العمر",study:"حاسبات ومعلومات",focus:"المجال الأساسي",learning:"تعلم مستمر"},
-ja:{navHome:"ホーム",navAbout:"プロフィール",navAndroid:"Android",navSecurity:"サイバーセキュリティ",navProjects:"プロジェクト",navLab:"ラボ",navWriting:"ライティング",navBooks:"本",navJourney:"ジャーニー",navContact:"連絡先",available:"コラボレーション受付中",heroRole:"Android Developer & Security Enthusiast",heroDesc:"高速で信頼性が高く、安全なモバイル体験をKotlin中心の設計思想で構築しています。",viewProjects:"プロジェクトを見る ↗",journeyBtn:"Journeyを見る",contactBtn:"お問い合わせ",aboutTitle:"コードの向こう側にいる開発者",aboutLead:"Mohammed Abdullah — Computer Science学生、Android Developer、そして継続的な学習者です。",aboutP1:"アイデアを実際のプロダクトへ変え、システムを理解し、性能・使いやすさ・保守性を意識したソフトウェアを作ることが好きです。",aboutP2:"Android開発と並行して、サイバーセキュリティ、ネットワーク、安全なアプリケーション開発の基礎を学んでいます。",age:"年齢",study:"Computer Science",focus:"主な分野",learning:"継続的な学習"}};
-let current=localStorage.getItem("lang")||"en";
-function applyLang(){const t=translations[current];$$("[data-i]").forEach(e=>{if(t[e.dataset.i])e.textContent=t[e.dataset.i]});document.documentElement.lang=current;document.documentElement.dir=current==="ar"?"rtl":"ltr";lang.textContent=current==="en"?"AR":current==="ar"?"JP":"EN";document.body.classList.toggle("lang-ar",current==="ar");localStorage.setItem("lang",current)}
-lang.onclick=()=>{current=current==="en"?"ar":current==="ar"?"ja":"en";applyLang()};applyLang();
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.1});$$(".reveal").forEach(e=>io.observe(e));
-$("#year").textContent=new Date().getFullYear();
+
+/* =========================================================
+   THEME
+========================================================= */
+
+const themeBtn =
+    document.getElementById("themeBtn");
+
+const savedTheme =
+    localStorage.getItem("theme");
+
+
+if (savedTheme === "light") {
+
+    document.documentElement
+        .setAttribute(
+            "data-theme",
+            "light"
+        );
+
+    themeBtn.textContent = "☀";
+
+}
+
+
+themeBtn.addEventListener(
+    "click",
+    () => {
+
+        const isLight =
+            document.documentElement
+                .getAttribute("data-theme")
+            === "light";
+
+
+        if (isLight) {
+
+            document.documentElement
+                .removeAttribute("data-theme");
+
+            themeBtn.textContent = "☾";
+
+            localStorage.setItem(
+                "theme",
+                "dark"
+            );
+
+        } else {
+
+            document.documentElement
+                .setAttribute(
+                    "data-theme",
+                    "light"
+                );
+
+            themeBtn.textContent = "☀";
+
+            localStorage.setItem(
+                "theme",
+                "light"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menu =
+    document.getElementById("menu");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menu.addEventListener(
+    "click",
+    () => {
+
+        navLinks.classList.toggle(
+            "open"
+        );
+
+    }
+);
+
+
+navLinks
+    .querySelectorAll("a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                navLinks.classList.remove(
+                    "open"
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+const header =
+    document.querySelector(".header");
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        header.classList.toggle(
+            "scrolled",
+            window.scrollY > 20
+        );
+
+    }
+);
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+const topButton =
+    document.getElementById(
+        "topButton"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        topButton.classList.toggle(
+            "show",
+            window.scrollY > 500
+        );
+
+    }
+);
+
+
+topButton.addEventListener(
+    "click",
+    () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+);
+
+
+/* =========================================================
+   TYPING
+========================================================= */
+
+const typed =
+    document.getElementById(
+        "typed"
+    );
+
+
+const roles = [
+
+    "Android Developer",
+
+    "Programmer",
+
+    "Cybersecurity Enthusiast",
+
+    "Writer & Reader"
+
+];
+
+
+let roleIndex = 0;
+
+let charIndex = 0;
+
+let deleting = false;
+
+
+function typeEffect() {
+
+    const current =
+        roles[roleIndex];
+
+
+    if (!deleting) {
+
+        typed.textContent =
+            current.substring(
+                0,
+                charIndex + 1
+            );
+
+        charIndex++;
+
+
+        if (
+            charIndex ===
+            current.length
+        ) {
+
+            deleting = true;
+
+            setTimeout(
+                typeEffect,
+                1300
+            );
+
+            return;
+
+        }
+
+    } else {
+
+        typed.textContent =
+            current.substring(
+                0,
+                charIndex - 1
+            );
+
+        charIndex--;
+
+
+        if (
+            charIndex === 0
+        ) {
+
+            deleting = false;
+
+            roleIndex =
+                (
+                    roleIndex + 1
+                )
+                %
+                roles.length;
+
+        }
+
+    }
+
+
+    setTimeout(
+        typeEffect,
+        deleting ? 45 : 80
+    );
+
+}
+
+
+typeEffect();
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target
+                            .classList
+                            .add(
+                                "visible"
+                            );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold:
+                .10
+        }
+
+    );
+
+
+revealElements.forEach(
+    element => {
+
+        observer.observe(
+            element
+        );
+
+    }
+);
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+const langBtn =
+    document.getElementById(
+        "langBtn"
+    );
+
+
+const languages = [
+    "EN",
+    "AR",
+    "JP"
+];
+
+
+let currentLanguage =
+    localStorage.getItem(
+        "language"
+    ) || "EN";
+
+
+function setLanguage(language) {
+
+    currentLanguage =
+        language;
+
+    langBtn.textContent =
+        language;
+
+    localStorage.setItem(
+        "language",
+        language
+    );
+
+
+    /*
+       The full multilingual
+       content system is intentionally
+       kept ready here.
+
+       EN = English
+       AR = Arabic
+       JP = Japanese
+
+       Add translated data later
+       without changing the layout.
+    */
+
+    document.documentElement
+        .setAttribute(
+            "lang",
+            language === "AR"
+                ? "ar"
+                : language === "JP"
+                    ? "ja"
+                    : "en"
+        );
+
+
+    document.documentElement
+        .setAttribute(
+            "dir",
+            language === "AR"
+                ? "rtl"
+                : "ltr"
+        );
+
+}
+
+
+langBtn.addEventListener(
+    "click",
+    () => {
+
+        const index =
+            languages.indexOf(
+                currentLanguage
+            );
+
+        const next =
+            languages[
+                (index + 1)
+                %
+                languages.length
+            ];
+
+        setLanguage(next);
+
+    }
+);
+
+
+setLanguage(
+    currentLanguage
+);
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById(
+    "year"
+).textContent =
+    new Date().getFullYear();
+
+
 </script>
+
+
 </body>
-</html>
+
+  </html>
