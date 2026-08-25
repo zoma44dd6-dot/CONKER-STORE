@@ -1,0 +1,4404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Mohamed Abdullah Ibrahim | Android Developer</title>
+
+  <meta
+    name="description"
+    content="Mohamed Abdullah Ibrahim — Android Developer and Cybersecurity Enthusiast from Cairo, Egypt."
+  >
+
+  <meta name="theme-color" content="#070912">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <style>
+
+    /* =========================================================
+       ROOT
+    ========================================================= */
+
+    :root {
+      --bg: #060811;
+      --bg-soft: #0a0e18;
+
+      --card: rgba(15, 20, 34, .72);
+      --card-2: rgba(255,255,255,.045);
+
+      --text: #f7f9ff;
+      --muted: #98a4b8;
+
+      --border: rgba(255,255,255,.09);
+
+      --blue: #5b8cff;
+      --cyan: #24d9ff;
+      --purple: #a46cff;
+      --green: #43df86;
+      --pink: #ff5f9e;
+      --orange: #ffad5a;
+
+      --radius: 24px;
+
+      --gradient:
+        linear-gradient(
+          120deg,
+          #5b8cff,
+          #a46cff 48%,
+          #24d9ff
+        );
+
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+
+      font-family: Inter, sans-serif;
+
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 10% 5%,
+          rgba(91,140,255,.12),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(164,108,255,.10),
+          transparent 30%
+        ),
+        var(--bg);
+
+      overflow-x: hidden;
+
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body.light {
+      --bg: #f5f7fb;
+      --bg-soft: #ffffff;
+
+      --card: rgba(255,255,255,.78);
+      --card-2: rgba(15,23,42,.045);
+
+      --text: #101828;
+      --muted: #667085;
+
+      --border: rgba(15,23,42,.10);
+    }
+
+    ::selection {
+      background: var(--blue);
+      color: white;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+
+    /* =========================================================
+       BOOT SCREEN
+    ========================================================= */
+
+    #boot {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 99999;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background: #05060a;
+
+      transition:
+        opacity .7s ease,
+        visibility .7s ease;
+    }
+
+    #boot.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .boot-box {
+      width: min(90%, 470px);
+
+      font-family: monospace;
+
+      color: #7fffb0;
+
+      font-size: 12px;
+
+      line-height: 1.9;
+    }
+
+    .boot-title {
+      font-size: 18px;
+
+      color: white;
+
+      margin-bottom: 18px;
+    }
+
+    .boot-line {
+      opacity: 0;
+
+      animation:
+        bootLine .25s forwards;
+    }
+
+    .boot-line:nth-child(2) { animation-delay: .15s; }
+    .boot-line:nth-child(3) { animation-delay: .3s; }
+    .boot-line:nth-child(4) { animation-delay: .45s; }
+    .boot-line:nth-child(5) { animation-delay: .6s; }
+    .boot-line:nth-child(6) { animation-delay: .75s; }
+
+    @keyframes bootLine {
+      to {
+        opacity: 1;
+      }
+    }
+
+
+    /* =========================================================
+       PROGRESS
+    ========================================================= */
+
+    #progress {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 0;
+      height: 3px;
+
+      background: var(--gradient);
+
+      z-index: 9998;
+    }
+
+
+    /* =========================================================
+       CURSOR
+    ========================================================= */
+
+    .cursor {
+      position: fixed;
+
+      width: 220px;
+      height: 220px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(91,140,255,.09),
+          transparent 70%
+        );
+
+      transform:
+        translate(-50%, -50%);
+
+      pointer-events: none;
+
+      z-index: 0;
+    }
+
+
+    /* =========================================================
+       CONTAINER
+    ========================================================= */
+
+    .container {
+      width: min(1160px, 92%);
+
+      margin: auto;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+    section {
+      padding: 95px 0;
+    }
+
+
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
+
+    .nav {
+      position: fixed;
+
+      top: 12px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: min(1120px, 94%);
+
+      z-index: 5000;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 20px;
+
+      background:
+        rgba(7,9,18,.72);
+
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+
+      box-shadow:
+        0 20px 70px rgba(0,0,0,.22);
+    }
+
+    body.light .nav {
+      background:
+        rgba(255,255,255,.75);
+    }
+
+    .nav-inner {
+      min-height: 64px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 7px 8px;
+    }
+
+    .logo {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      font-size: 13px;
+
+      font-weight: 900;
+
+      white-space: nowrap;
+    }
+
+    .logo-box {
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 14px;
+
+      color: white;
+
+      background: var(--gradient);
+
+      box-shadow:
+        0 10px 35px rgba(91,140,255,.25);
+    }
+
+    .nav-links {
+      display: flex;
+
+      align-items: center;
+
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      transition: .25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-actions {
+      display: flex;
+
+      align-items: center;
+
+      gap: 6px;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 13px;
+
+      display: grid;
+
+      place-items: center;
+
+      border: 1px solid var(--border);
+
+      background: var(--card-2);
+
+      color: var(--text);
+
+      cursor: pointer;
+
+      transition: .25s;
+    }
+
+    .icon-btn:hover,
+    .icon-btn:active {
+      color: white;
+
+      background: var(--gradient);
+
+      border-color: transparent;
+
+      transform: translateY(-2px);
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100svh;
+
+      display: flex;
+
+      align-items: center;
+
+      padding-top: 135px;
+
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.08fr .92fr;
+
+      align-items: center;
+
+      gap: 60px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 8px 12px;
+
+      border-radius: 999px;
+
+      background:
+        rgba(67,223,134,.06);
+
+      border:
+        1px solid rgba(67,223,134,.17);
+
+      color: var(--green);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      margin-bottom: 22px;
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      box-shadow:
+        0 0 0 6px rgba(67,223,134,.08);
+    }
+
+    .hero h1 {
+      font-size:
+        clamp(45px, 7vw, 84px);
+
+      line-height: 1.03;
+
+      letter-spacing: -4px;
+
+      font-weight: 900;
+
+      margin-bottom: 20px;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+
+      background-size: 200% 200%;
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+
+      animation:
+        gradientMove 5s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0%,100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .hero-role {
+      font-size:
+        clamp(21px, 3vw, 32px);
+
+      font-weight: 800;
+
+      margin-bottom: 17px;
+    }
+
+    .hero-role span {
+      color: var(--green);
+    }
+
+    .hero-description {
+      max-width: 650px;
+
+      color: var(--muted);
+
+      font-size: 15px;
+
+      line-height: 1.9;
+
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+    }
+
+    .btn {
+      min-height: 49px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 9px;
+
+      padding: 0 18px;
+
+      border-radius: 15px;
+
+      border: 1px solid var(--border);
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition: .25s;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .btn.primary {
+      color: white;
+
+      background: var(--gradient);
+
+      border: 0;
+
+      box-shadow:
+        0 15px 40px rgba(91,140,255,.20);
+    }
+
+    .btn.primary:hover,
+    .btn.primary:active {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 20px 55px rgba(91,140,255,.34);
+    }
+
+    .btn.secondary {
+      background: var(--card-2);
+
+      color: var(--text);
+    }
+
+    .btn.secondary:hover,
+    .btn.secondary:active {
+      color: var(--cyan);
+
+      border-color:
+        rgba(36,217,255,.35);
+
+      background:
+        rgba(36,217,255,.07);
+
+      transform: translateY(-3px);
+    }
+
+    .meta {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-top: 25px;
+    }
+
+    .meta-item {
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      padding: 8px 11px;
+
+      border-radius: 11px;
+
+      border: 1px solid var(--border);
+
+      background: var(--card-2);
+
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    .meta-item i {
+      color: var(--blue);
+    }
+
+
+    /* =========================================================
+       HERO DEVICE
+    ========================================================= */
+
+    .visual {
+      min-height: 500px;
+
+      display: grid;
+
+      place-items: center;
+
+      position: relative;
+    }
+
+    .orb {
+      position: absolute;
+
+      width: 380px;
+      height: 380px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(91,140,255,.16),
+          transparent 65%
+        );
+
+      filter: blur(8px);
+    }
+
+    .phone {
+      position: relative;
+
+      width: 255px;
+      height: 490px;
+
+      border-radius: 40px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #161d2d,
+          #05070c
+        );
+
+      border:
+        1px solid rgba(255,255,255,.16);
+
+      box-shadow:
+        0 45px 100px rgba(0,0,0,.55),
+        0 0 70px rgba(91,140,255,.10);
+
+      transform:
+        rotate(-6deg)
+        perspective(900px)
+        rotateY(7deg);
+
+      animation:
+        phoneFloat 5s ease-in-out infinite;
+
+      overflow: hidden;
+    }
+
+    @keyframes phoneFloat {
+
+      0%,100% {
+        transform:
+          translateY(0)
+          rotate(-6deg)
+          perspective(900px)
+          rotateY(7deg);
+      }
+
+      50% {
+        transform:
+          translateY(-12px)
+          rotate(-4deg)
+          perspective(900px)
+          rotateY(7deg);
+      }
+
+    }
+
+    .notch {
+      position: absolute;
+
+      top: 9px;
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      width: 88px;
+      height: 23px;
+
+      border-radius:
+        0 0 15px 15px;
+
+      background: #020307;
+
+      z-index: 3;
+    }
+
+    .screen {
+      position: absolute;
+
+      inset: 8px;
+
+      border-radius: 33px;
+
+      padding:
+        70px 21px 25px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 10% 20%,
+          rgba(91,140,255,.25),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(164,108,255,.22),
+          transparent 38%
+        ),
+        #080c16;
+    }
+
+    .android-logo {
+      width: 62px;
+      height: 62px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 20px;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          #43df86,
+          #20bf6b
+        );
+
+      box-shadow:
+        0 15px 35px rgba(67,223,134,.22);
+
+      margin-bottom: 25px;
+    }
+
+    .screen h3 {
+      font-size: 23px;
+
+      margin-bottom: 8px;
+    }
+
+    .screen p {
+      color: #91a0b7;
+
+      font-size: 10px;
+
+      line-height: 1.8;
+
+      margin-bottom: 24px;
+    }
+
+    .code-line {
+      height: 8px;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--purple)
+        );
+
+      margin-bottom: 11px;
+
+      opacity: .82;
+    }
+
+    .code-line.short {
+      width: 52%;
+
+      opacity: .38;
+    }
+
+    .float-card {
+      position: absolute;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 11px 13px;
+
+      border-radius: 14px;
+
+      border: 1px solid var(--border);
+
+      background:
+        rgba(12,16,27,.78);
+
+      backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.35);
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      animation:
+        chipFloat 4s ease-in-out infinite;
+    }
+
+    .float-card i {
+      font-size: 15px;
+    }
+
+    .android-chip {
+      top: 95px;
+      right: 2px;
+
+      color: var(--green);
+    }
+
+    .security-chip {
+      bottom: 85px;
+      left: 0;
+
+      color: var(--pink);
+
+      animation-delay: 1s;
+    }
+
+    .kotlin-chip {
+      top: 275px;
+      right: -18px;
+
+      color: var(--cyan);
+
+      animation-delay: 2s;
+    }
+
+    @keyframes chipFloat {
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-9px);
+      }
+    }
+
+
+    /* =========================================================
+       SECTION HEAD
+    ========================================================= */
+
+    .section-head {
+      text-align: center;
+
+      max-width: 700px;
+
+      margin:
+        0 auto 48px;
+    }
+
+    .kicker {
+      color: var(--blue);
+
+      font-size: 10px;
+
+      font-weight: 900;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 9px;
+    }
+
+    .section-title {
+      font-size:
+        clamp(30px, 5vw, 50px);
+
+      letter-spacing: -1.5px;
+
+      line-height: 1.15;
+
+      margin-bottom: 12px;
+    }
+
+    .section-text {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      line-height: 1.9;
+    }
+
+
+    /* =========================================================
+       CARDS
+    ========================================================= */
+
+    .glass {
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 25px 80px rgba(0,0,0,.18);
+
+      transition:
+        transform .3s,
+        border .3s,
+        box-shadow .3s;
+    }
+
+    .glass:hover {
+      transform: translateY(-6px);
+
+      border-color:
+        rgba(91,140,255,.25);
+
+      box-shadow:
+        0 35px 90px rgba(0,0,0,.28);
+    }
+
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.15fr .85fr;
+
+      gap: 18px;
+    }
+
+    .about-card {
+      padding: 30px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 2;
+    }
+
+    .info-card {
+      padding: 20px;
+    }
+
+    .info-row {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      padding: 14px;
+
+      border-radius: 13px;
+
+      background: var(--card-2);
+
+      border:
+        1px solid var(--border);
+
+      margin-bottom: 8px;
+
+      font-size: 11px;
+    }
+
+    .info-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-row span {
+      color: var(--muted);
+    }
+
+    .available {
+      color: var(--green);
+    }
+
+
+    /* =========================================================
+       SKILLS
+    ========================================================= */
+
+    .skills-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 15px;
+    }
+
+    .skill-card {
+      padding: 25px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      --accent: var(--blue);
+    }
+
+    .skill-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      border-radius: 50%;
+
+      right: -80px;
+      top: -80px;
+
+      background: var(--accent);
+
+      filter: blur(60px);
+
+      opacity: .08;
+
+      transition: .4s;
+    }
+
+    .skill-card:hover::after {
+      opacity: .18;
+
+      transform: scale(1.3);
+    }
+
+    .skill-top {
+      display: flex;
+
+      align-items: center;
+
+      gap: 13px;
+
+      margin-bottom: 20px;
+    }
+
+    .skill-icon {
+      width: 53px;
+      height: 53px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 16px;
+
+      color: var(--accent);
+
+      background:
+        color-mix(
+          in srgb,
+          var(--accent) 9%,
+          transparent
+        );
+
+      border:
+        1px solid
+        color-mix(
+          in srgb,
+          var(--accent) 20%,
+          transparent
+        );
+
+      font-size: 20px;
+
+      transition: .3s;
+    }
+
+    .skill-card:hover .skill-icon {
+      color: white;
+
+      background: var(--accent);
+
+      transform:
+        rotate(-5deg)
+        scale(1.06);
+    }
+
+    .skill-top h3 {
+      font-size: 15px;
+    }
+
+    .skill-top p {
+      color: var(--muted);
+
+      font-size: 9px;
+
+      margin-top: 3px;
+    }
+
+    .tags {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+    }
+
+    .tag {
+      padding: 7px 9px;
+
+      border-radius: 9px;
+
+      background: var(--card-2);
+
+      border:
+        1px solid var(--border);
+
+      color: var(--muted);
+
+      font-size: 9px;
+
+      transition: .25s;
+    }
+
+    .tag:hover,
+    .tag:active {
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--purple)
+        );
+
+      border-color: transparent;
+
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================================================
+       SECURITY LAB
+    ========================================================= */
+
+    .security-box {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 30px;
+
+      border-radius: 28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,95,158,.07),
+          rgba(91,140,255,.07)
+        );
+
+      border:
+        1px solid var(--border);
+    }
+
+    .security-box::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 4px,
+          rgba(255,255,255,.012) 5px
+        );
+
+      pointer-events: none;
+    }
+
+    .security-head {
+      display: flex;
+
+      align-items: center;
+
+      gap: 14px;
+
+      margin-bottom: 25px;
+    }
+
+    .security-icon {
+      width: 60px;
+      height: 60px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 18px;
+
+      color: var(--pink);
+
+      background:
+        rgba(255,95,158,.08);
+
+      border:
+        1px solid rgba(255,95,158,.18);
+
+      font-size: 23px;
+    }
+
+    .security-head h3 {
+      font-size: 20px;
+    }
+
+    .security-head p {
+      color: var(--muted);
+
+      font-size: 10px;
+
+      margin-top: 4px;
+    }
+
+    .security-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 9px;
+    }
+
+    .security-item {
+      padding: 17px 10px;
+
+      text-align: center;
+
+      border-radius: 15px;
+
+      background: rgba(255,255,255,.035);
+
+      border:
+        1px solid var(--border);
+
+      transition: .25s;
+    }
+
+    .security-item:hover,
+    .security-item:active {
+      background:
+        rgba(255,95,158,.07);
+
+      border-color:
+        rgba(255,95,158,.3);
+
+      transform: translateY(-3px);
+    }
+
+    .security-item i {
+      color: var(--pink);
+
+      font-size: 17px;
+
+      margin-bottom: 8px;
+    }
+
+    .security-item span {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 9px;
+    }
+
+
+    /* =========================================================
+       PROJECT
+    ========================================================= */
+
+    .project-card {
+      min-height: 360px;
+
+      display: grid;
+
+      place-items: center;
+
+      text-align: center;
+
+      padding: 35px;
+
+      overflow: hidden;
+
+      position: relative;
+    }
+
+    .project-icon {
+      width: 80px;
+      height: 80px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 25px;
+
+      color: white;
+
+      background: var(--gradient);
+
+      font-size: 30px;
+
+      box-shadow:
+        0 20px 60px rgba(91,140,255,.25);
+
+      margin: 0 auto 20px;
+
+      animation:
+        projectFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes projectFloat {
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-9px);
+      }
+    }
+
+    .project-card h3 {
+      font-size: 24px;
+
+      margin-bottom: 9px;
+    }
+
+    .project-card p {
+      max-width: 560px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      line-height: 1.9;
+
+      margin: 0 auto 17px;
+    }
+
+    .coming {
+      display: inline-block;
+
+      padding: 8px 12px;
+
+      border-radius: 999px;
+
+      color: var(--orange);
+
+      background:
+        rgba(255,173,90,.06);
+
+      border:
+        1px solid rgba(255,173,90,.18);
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+    }
+
+
+    /* =========================================================
+       ACHIEVEMENTS
+    ========================================================= */
+
+    .achievements {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 14px;
+    }
+
+    .achievement {
+      padding: 24px;
+
+      text-align: center;
+    }
+
+    .achievement i {
+      font-size: 28px;
+
+      color: var(--orange);
+
+      margin-bottom: 15px;
+    }
+
+    .achievement h3 {
+      font-size: 14px;
+
+      margin-bottom: 5px;
+    }
+
+    .achievement p {
+      color: var(--muted);
+
+      font-size: 10px;
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       TERMINAL
+    ========================================================= */
+
+    .terminal {
+      overflow: hidden;
+
+      border-radius: 22px;
+
+      background: #070a11;
+
+      border:
+        1px solid rgba(255,255,255,.09);
+
+      box-shadow:
+        0 30px 100px rgba(0,0,0,.35);
+    }
+
+    .terminal-bar {
+      height: 43px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      padding: 0 14px;
+
+      background:
+        rgba(255,255,255,.035);
+
+      border-bottom:
+        1px solid rgba(255,255,255,.07);
+    }
+
+    .terminal-dot {
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      background: #ff5f57;
+    }
+
+    .terminal-dot:nth-child(2) {
+      background: #ffbd2e;
+    }
+
+    .terminal-dot:nth-child(3) {
+      background: #28c840;
+    }
+
+    .terminal-title {
+      color: #77829a;
+
+      font-family: monospace;
+
+      font-size: 10px;
+
+      margin-left: 6px;
+    }
+
+    .terminal-body {
+      min-height: 330px;
+
+      padding: 20px;
+
+      color: #a7ffbf;
+
+      font-family: monospace;
+
+      font-size: 11px;
+
+      line-height: 1.8;
+    }
+
+    .terminal-output {
+      white-space: pre-wrap;
+
+      min-height: 245px;
+
+      overflow-wrap: anywhere;
+    }
+
+    .terminal-input {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      color: #7fffb0;
+    }
+
+    .terminal-input input {
+      width: 100%;
+
+      border: 0;
+
+      outline: 0;
+
+      background: transparent;
+
+      color: #fff;
+
+      font: inherit;
+    }
+
+    .terminal-help {
+      color: #69758b;
+
+      font-size: 9px;
+
+      margin-top: 8px;
+    }
+
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        .75fr 1.25fr;
+
+      gap: 16px;
+    }
+
+    .contact-intro {
+      padding: 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(91,140,255,.11),
+          rgba(164,108,255,.07)
+        );
+    }
+
+    .contact-intro h3 {
+      font-size: 25px;
+
+      line-height: 1.3;
+
+      margin-bottom: 10px;
+    }
+
+    .contact-intro p {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      line-height: 1.9;
+
+      margin-bottom: 22px;
+    }
+
+    .status {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      padding: 8px 11px;
+
+      border-radius: 999px;
+
+      color: var(--green);
+
+      background:
+        rgba(67,223,134,.06);
+
+      border:
+        1px solid rgba(67,223,134,.16);
+
+      font-size: 9px;
+
+      font-weight: 900;
+    }
+
+    .social-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 10px;
+    }
+
+    .social {
+      --social: var(--blue);
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 11px;
+
+      min-height: 72px;
+
+      padding: 12px;
+
+      border-radius: 17px;
+
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
+
+      transition: .3s;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .social:hover,
+    .social:active {
+      transform: translateY(-4px);
+
+      border-color: var(--social);
+
+      box-shadow:
+        0 18px 50px
+        color-mix(
+          in srgb,
+          var(--social) 10%,
+          transparent
+        );
+    }
+
+    .social-icon {
+      width: 43px;
+      height: 43px;
+
+      flex-shrink: 0;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 13px;
+
+      color: var(--social);
+
+      background:
+        color-mix(
+          in srgb,
+          var(--social) 9%,
+          transparent
+        );
+
+      transition: .3s;
+    }
+
+    .social:hover .social-icon,
+    .social:active .social-icon {
+      color: white;
+
+      background: var(--social);
+
+      transform:
+        rotate(-5deg)
+        scale(1.05);
+    }
+
+    .social small {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 8px;
+
+      margin-bottom: 2px;
+    }
+
+    .social strong {
+      display: block;
+
+      font-size: 10px;
+
+      overflow-wrap: anywhere;
+    }
+
+    .facebook { --social: #1877f2; }
+    .whatsapp { --social: #25d366; }
+    .telegram { --social: #229ed9; }
+    .instagram { --social: #e4405f; }
+    .linkedin { --social: #0a66c2; }
+    .email { --social: #ffad5a; }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding: 35px 0 calc(35px + var(--safe-bottom));
+
+      text-align: center;
+
+      border-top:
+        1px solid var(--border);
+
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    .footer-icons {
+      display: flex;
+
+      justify-content: center;
+
+      gap: 7px;
+
+      margin-bottom: 15px;
+    }
+
+    .footer-icons a {
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 12px;
+
+      background: var(--card-2);
+
+      border:
+        1px solid var(--border);
+
+      transition: .25s;
+    }
+
+    .footer-icons a:hover,
+    .footer-icons a:active {
+      color: white;
+
+      background: var(--gradient);
+
+      border-color: transparent;
+
+      transform: translateY(-3px);
+    }
+
+
+    /* =========================================================
+       BACK TOP
+    ========================================================= */
+
+    #backTop {
+      position: fixed;
+
+      right: 18px;
+
+      bottom:
+        calc(18px + var(--safe-bottom));
+
+      width: 45px;
+      height: 45px;
+
+      border-radius: 14px;
+
+      border:
+        1px solid var(--border);
+
+      background: var(--card);
+
+      color: var(--text);
+
+      display: grid;
+
+      place-items: center;
+
+      cursor: pointer;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transform: translateY(15px);
+
+      transition: .3s;
+
+      z-index: 4000;
+    }
+
+    #backTop.show {
+      opacity: 1;
+
+      visibility: visible;
+
+      transform: translateY(0);
+    }
+
+    #backTop:hover,
+    #backTop:active {
+      color: white;
+
+      background: var(--gradient);
+
+      border-color: transparent;
+    }
+
+
+    /* =========================================================
+       REVEAL
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(25px);
+
+      transition:
+        opacity .7s ease,
+        transform .7s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+
+    /* =========================================================
+       COMMAND PALETTE
+    ========================================================= */
+
+    .command-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 8000;
+
+      display: flex;
+
+      align-items: flex-start;
+
+      justify-content: center;
+
+      padding-top: 110px;
+
+      background:
+        rgba(0,0,0,.55);
+
+      backdrop-filter: blur(12px);
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition: .25s;
+    }
+
+    .command-overlay.open {
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+    .command {
+      width: min(92%, 560px);
+
+      border-radius: 20px;
+
+      background:
+        #0c111d;
+
+      border:
+        1px solid rgba(255,255,255,.11);
+
+      box-shadow:
+        0 35px 120px rgba(0,0,0,.55);
+
+      overflow: hidden;
+
+      transform: translateY(-15px);
+
+      transition: .25s;
+    }
+
+    .command-overlay.open .command {
+      transform: translateY(0);
+    }
+
+    .command-search {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 15px;
+
+      border-bottom:
+        1px solid rgba(255,255,255,.07);
+    }
+
+    .command-search i {
+      color: #6f7b91;
+    }
+
+    .command-search input {
+      width: 100%;
+
+      border: 0;
+
+      outline: 0;
+
+      background: transparent;
+
+      color: white;
+
+      font-size: 13px;
+    }
+
+    .command-list {
+      padding: 8px;
+    }
+
+    .command-item {
+      width: 100%;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 11px;
+
+      padding: 12px;
+
+      border: 0;
+
+      border-radius: 12px;
+
+      color: #b9c3d5;
+
+      background: transparent;
+
+      text-align: left;
+
+      cursor: pointer;
+
+      font-size: 11px;
+
+      transition: .2s;
+    }
+
+    .command-item:hover,
+    .command-item:active {
+      color: white;
+
+      background:
+        rgba(91,140,255,.12);
+    }
+
+    .command-item i {
+      width: 24px;
+
+      color: var(--blue);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media(max-width: 900px) {
+
+      .nav-links {
+        position: absolute;
+
+        top: calc(100% + 9px);
+
+        right: 0;
+
+        width: 100%;
+
+        padding: 10px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 3px;
+
+        background:
+          rgba(8,11,20,.94);
+
+        border:
+          1px solid var(--border);
+
+        border-radius: 18px;
+
+        backdrop-filter: blur(20px);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: translateY(-10px);
+
+        transition: .25s;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateY(0);
+      }
+
+      .nav-links a {
+        padding: 13px;
+
+        border-radius: 11px;
+      }
+
+      .nav-links a:hover {
+        background:
+          rgba(91,140,255,.08);
+      }
+
+      .menu-btn {
+        display: grid;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-inline: auto;
+      }
+
+      .buttons,
+      .meta {
+        justify-content: center;
+      }
+
+      .visual {
+        min-height: 430px;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    @media(max-width: 650px) {
+
+      .cursor {
+        display: none;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .hero {
+        padding-top: 115px;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+
+        letter-spacing: -2.5px;
+      }
+
+      .hero-role {
+        font-size: 21px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .meta {
+        flex-direction: column;
+      }
+
+      .meta-item {
+        justify-content: center;
+      }
+
+      .visual {
+        min-height: 390px;
+      }
+
+      .phone {
+        width: 205px;
+        height: 400px;
+      }
+
+      .orb {
+        width: 300px;
+        height: 300px;
+      }
+
+      .kotlin-chip {
+        right: -2px;
+        top: 230px;
+      }
+
+      .android-chip {
+        right: -3px;
+        top: 65px;
+      }
+
+      .security-chip {
+        left: -3px;
+        bottom: 55px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .security-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .achievements {
+        grid-template-columns: 1fr;
+      }
+
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card {
+        padding: 24px;
+      }
+
+      .terminal-body {
+        min-height: 310px;
+
+        padding: 15px;
+
+        font-size: 10px;
+      }
+
+      .command-overlay {
+        padding-top: 80px;
+      }
+
+    }
+
+
+    @media(max-width: 390px) {
+
+      .logo span {
+        display: none;
+      }
+
+      .logo-box {
+        width: 40px;
+        height: 40px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .phone {
+        width: 185px;
+        height: 360px;
+      }
+
+      .security-chip,
+      .kotlin-chip {
+        display: none;
+      }
+
+      .security-grid {
+        gap: 7px;
+      }
+
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media(prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- ========================================================
+       BOOT SCREEN
+  ========================================================= -->
+
+  <div id="boot">
+
+    <div class="boot-box">
+
+      <div class="boot-title">
+        MOHAMED ABDULLAH OS
+      </div>
+
+      <div class="boot-line">
+        [ OK ] Initializing portfolio...
+      </div>
+
+      <div class="boot-line">
+        [ OK ] Loading Android environment...
+      </div>
+
+      <div class="boot-line">
+        [ OK ] Loading security modules...
+      </div>
+
+      <div class="boot-line">
+        [ OK ] Connecting to Cairo, Egypt...
+      </div>
+
+      <div class="boot-line">
+        [ OK ] System ready.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="cursor" id="cursor"></div>
+
+  <div id="progress"></div>
+
+
+  <!-- ========================================================
+       NAV
+  ========================================================= -->
+
+  <header class="nav">
+
+    <div class="nav-inner">
+
+      <a href="#home" class="logo">
+
+        <span class="logo-box">
+          MA
+        </span>
+
+        <span>
+          Mohamed Abdullah
+        </span>
+
+      </a>
+
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#skills">Skills</a>
+
+        <a href="#projects">Projects</a>
+
+        <a href="#terminal">Terminal</a>
+
+        <a href="#contact">Contact</a>
+
+      </nav>
+
+
+      <div class="nav-actions">
+
+        <button
+          class="icon-btn"
+          id="commandBtn"
+          aria-label="Command palette"
+        >
+          <i class="fa-solid fa-terminal"></i>
+        </button>
+
+        <button
+          class="icon-btn"
+          id="themeBtn"
+          aria-label="Theme"
+        >
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button
+          class="icon-btn menu-btn"
+          id="menuBtn"
+          aria-label="Menu"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+
+    <!-- ======================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero" id="home">
+
+      <div class="container">
+
+        <div class="hero-grid">
+
+
+          <div class="reveal">
+
+            <div class="eyebrow">
+
+              <span class="pulse"></span>
+
+              Available for opportunities
+
+            </div>
+
+
+            <h1>
+
+              Mohamed
+
+              <br>
+
+              <span class="gradient-text">
+                Abdullah Ibrahim
+              </span>
+
+            </h1>
+
+
+            <div class="hero-role">
+
+              <span>Android Developer</span>
+
+              <br>
+
+              & Cybersecurity Enthusiast
+
+            </div>
+
+
+            <p class="hero-description">
+
+              Computer Science student from Cairo, Egypt,
+              focused on Android development, modern software
+              engineering, and ethical cybersecurity.
+
+            </p>
+
+
+            <div class="buttons">
+
+              <a
+                href="#skills"
+                class="btn primary"
+              >
+
+                Explore Skills
+
+                <i class="fa-solid fa-arrow-down"></i>
+
+              </a>
+
+
+              <a
+                href="#contact"
+                class="btn secondary"
+              >
+
+                Let's Connect
+
+                <i class="fa-regular fa-paper-plane"></i>
+
+              </a>
+
+            </div>
+
+
+            <div class="meta">
+
+              <div class="meta-item">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                Cairo, Egypt
+
+              </div>
+
+
+              <div class="meta-item">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+                Computer Science
+
+              </div>
+
+
+              <div class="meta-item">
+
+                <i class="fa-solid fa-code"></i>
+
+                2nd Year
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- PHONE -->
+
+          <div class="visual reveal">
+
+            <div class="orb"></div>
+
+
+            <div class="phone" id="phone">
+
+              <div class="notch"></div>
+
+              <div class="screen">
+
+                <div class="android-logo">
+
+                  <i class="fa-brands fa-android"></i>
+
+                </div>
+
+                <h3>
+                  Android
+                </h3>
+
+                <p>
+                  Build. Learn. Create.
+                  <br>
+                  One line of code at a time.
+                </p>
+
+                <div class="code-line"></div>
+
+                <div class="code-line short"></div>
+
+                <div class="code-line"></div>
+
+                <div class="code-line short"></div>
+
+                <div class="code-line"></div>
+
+              </div>
+
+            </div>
+
+
+            <div class="float-card android-chip">
+
+              <i class="fa-brands fa-android"></i>
+
+              Android
+
+            </div>
+
+
+            <div class="float-card security-chip">
+
+              <i class="fa-solid fa-shield-halved"></i>
+
+              Cybersecurity
+
+            </div>
+
+
+            <div class="float-card kotlin-chip">
+
+              <i class="fa-solid fa-code"></i>
+
+              Kotlin
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         ABOUT
+    ====================================================== -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            About Me
+          </div>
+
+          <h2 class="section-title">
+            Building skills today.
+            Creating bigger things tomorrow.
+          </h2>
+
+          <p class="section-text">
+            A young developer focused on learning,
+            experimenting, and turning ideas into technology.
+          </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+          <div class="glass about-card reveal">
+
+            <p>
+
+              I'm Mohamed Abdullah Ibrahim, a 19-year-old
+              Computer Science student based in Cairo, Egypt.
+
+              <br><br>
+
+              My main focus is Android development.
+              I enjoy learning how applications are built,
+              how systems communicate, and how technology
+              can solve real problems.
+
+              <br><br>
+
+              I'm also exploring cybersecurity and ethical
+              hacking with a strong interest in Linux,
+              networking, application security, and
+              vulnerability analysis.
+
+            </p>
+
+          </div>
+
+
+          <div class="glass info-card reveal">
+
+            <div class="info-row">
+
+              <span>Age</span>
+
+              <strong>19</strong>
+
+            </div>
+
+
+            <div class="info-row">
+
+              <span>Location</span>
+
+              <strong>Cairo, Egypt 🇪🇬</strong>
+
+            </div>
+
+
+            <div class="info-row">
+
+              <span>Education</span>
+
+              <strong>Computer Science</strong>
+
+            </div>
+
+
+            <div class="info-row">
+
+              <span>Year</span>
+
+              <strong>2nd Year</strong>
+
+            </div>
+
+
+            <div class="info-row">
+
+              <span>Status</span>
+
+              <strong class="available">
+                ● Available
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         SKILLS
+    ====================================================== -->
+
+    <section id="skills">
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            Skills
+          </div>
+
+          <h2 class="section-title">
+            My Technical Arsenal
+          </h2>
+
+          <p class="section-text">
+            Technologies and areas I'm learning,
+            practicing, and building with.
+          </p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+          <div
+            class="glass skill-card reveal"
+            style="--accent:#43df86"
+          >
+
+            <div class="skill-top">
+
+              <div class="skill-icon">
+
+                <i class="fa-brands fa-android"></i>
+
+              </div>
+
+              <div>
+
+                <h3>
+                  Android Development
+                </h3>
+
+                <p>
+                  Mobile application development
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="tags">
+
+              <span class="tag">Kotlin</span>
+              <span class="tag">Java</span>
+              <span class="tag">Android Studio</span>
+              <span class="tag">Jetpack Compose</span>
+              <span class="tag">XML</span>
+              <span class="tag">Material Design</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Room</span>
+              <span class="tag">SQLite</span>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="glass skill-card reveal"
+            style="--accent:#5b8cff"
+          >
+
+            <div class="skill-top">
+
+              <div class="skill-icon">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+              </div>
+
+              <div>
+
+                <h3>
+                  Architecture & APIs
+                </h3>
+
+                <p>
+                  Modern application architecture
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="tags">
+
+              <span class="tag">MVVM</span>
+              <span class="tag">Clean Architecture</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">JSON</span>
+              <span class="tag">Retrofit</span>
+              <span class="tag">Coroutines</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="glass skill-card reveal"
+            style="--accent:#a46cff"
+          >
+
+            <div class="skill-top">
+
+              <div class="skill-icon">
+
+                <i class="fa-solid fa-code"></i>
+
+              </div>
+
+              <div>
+
+                <h3>
+                  Programming
+                </h3>
+
+                <p>
+                  Software engineering foundations
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="tags">
+
+              <span class="tag">C++</span>
+              <span class="tag">OOP</span>
+              <span class="tag">Data Structures</span>
+              <span class="tag">Algorithms</span>
+              <span class="tag">Debugging</span>
+              <span class="tag">Problem Solving</span>
+              <span class="tag">Linux</span>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="glass skill-card reveal"
+            style="--accent:#ff5f9e"
+          >
+
+            <div class="skill-top">
+
+              <div class="skill-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+              </div>
+
+              <div>
+
+                <h3>
+                  Cybersecurity
+                </h3>
+
+                <p>
+                  Ethical security exploration
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="tags">
+
+              <span class="tag">Cybersecurity</span>
+              <span class="tag">Ethical Hacking</span>
+              <span class="tag">Networking</span>
+              <span class="tag">Linux</span>
+              <span class="tag">OWASP</span>
+              <span class="tag">Web Security</span>
+              <span class="tag">Security Analysis</span>
+              <span class="tag">Vulnerability Assessment</span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         SECURITY LAB
+    ====================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            Security Lab
+          </div>
+
+          <h2 class="section-title">
+            Exploring The Security Side
+          </h2>
+
+        </div>
+
+
+        <div class="security-box reveal">
+
+          <div class="security-head">
+
+            <div class="security-icon">
+
+              <i class="fa-solid fa-user-secret"></i>
+
+            </div>
+
+            <div>
+
+              <h3>
+                Cybersecurity Journey
+              </h3>
+
+              <p>
+                Currently learning and exploring.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="security-grid">
+
+
+            <div class="security-item">
+
+              <i class="fa-brands fa-linux"></i>
+
+              <span>
+                Linux
+              </span>
+
+            </div>
+
+
+            <div class="security-item">
+
+              <i class="fa-solid fa-network-wired"></i>
+
+              <span>
+                Networking
+              </span>
+
+            </div>
+
+
+            <div class="security-item">
+
+              <i class="fa-solid fa-globe"></i>
+
+              <span>
+                Web Security
+              </span>
+
+            </div>
+
+
+            <div class="security-item">
+
+              <i class="fa-solid fa-bug"></i>
+
+              <span>
+                Vulnerabilities
+              </span>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         PROJECTS
+    ====================================================== -->
+
+    <section id="projects">
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            Projects
+          </div>
+
+          <h2 class="section-title">
+            The Best Is Still Loading.
+          </h2>
+
+          <p class="section-text">
+            Real projects will appear here as they are built.
+          </p>
+
+        </div>
+
+
+        <div class="glass project-card reveal">
+
+          <div>
+
+            <div class="project-icon">
+
+              <i class="fa-solid fa-rocket"></i>
+
+            </div>
+
+            <h3>
+              Projects Coming Soon
+            </h3>
+
+            <p>
+              This space is reserved for Android applications,
+              security projects, experiments, and future work.
+            </p>
+
+            <span class="coming">
+              Coming Soon
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         ACHIEVEMENTS
+    ====================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            Achievements
+          </div>
+
+          <h2 class="section-title">
+            More To Come.
+          </h2>
+
+          <p class="section-text">
+            This section is ready for certifications,
+            competitions, projects, and future milestones.
+          </p>
+
+        </div>
+
+
+        <div class="achievements">
+
+
+          <div class="glass achievement reveal">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            <h3>
+              Computer Science
+            </h3>
+
+            <p>
+              Second-year Computer Science student.
+            </p>
+
+          </div>
+
+
+          <div class="glass achievement reveal">
+
+            <i class="fa-brands fa-android"></i>
+
+            <h3>
+              Android Journey
+            </h3>
+
+            <p>
+              Building knowledge in modern Android development.
+            </p>
+
+          </div>
+
+
+          <div class="glass achievement reveal">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <h3>
+              Security Journey
+            </h3>
+
+            <p>
+              Exploring cybersecurity and ethical hacking.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         TERMINAL
+    ====================================================== -->
+
+    <section id="terminal">
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            Interactive Terminal
+          </div>
+
+          <h2 class="section-title">
+            Talk To The System.
+          </h2>
+
+          <p class="section-text">
+            Type a command and explore the portfolio.
+          </p>
+
+        </div>
+
+
+        <div class="terminal reveal">
+
+          <div class="terminal-bar">
+
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+
+            <span class="terminal-title">
+              mohamed@portfolio:~
+            </span>
+
+          </div>
+
+
+          <div class="terminal-body">
+
+            <div
+              class="terminal-output"
+              id="terminalOutput"
+            ></div>
+
+
+            <div class="terminal-input">
+
+              <span>
+                $
+              </span>
+
+              <input
+                id="terminalInput"
+                type="text"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="type a command..."
+              >
+
+            </div>
+
+
+            <div class="terminal-help">
+
+              Available:
+              help · whoami · skills · projects · contact · clear
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         CONTACT
+    ====================================================== -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            Contact
+          </div>
+
+          <h2 class="section-title">
+            Let's Build Something.
+          </h2>
+
+          <p class="section-text">
+            Have an opportunity, idea, or simply want to connect?
+          </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+          <div class="glass contact-intro reveal">
+
+            <h3>
+              Open To New Opportunities.
+            </h3>
+
+            <p>
+              I'm always interested in learning,
+              meeting new people, exploring ideas,
+              and working toward better technology.
+            </p>
+
+
+            <div class="status">
+
+              <i class="fa-solid fa-circle"></i>
+
+              Available for opportunities
+
+            </div>
+
+          </div>
+
+
+          <div class="social-grid reveal">
+
+
+            <a
+              class="social facebook"
+              href="https://www.facebook.com/share/1DsBQE5YmH/"
+              target="_blank"
+              rel="noopener"
+            >
+
+              <div class="social-icon">
+                <i class="fa-brands fa-facebook-f"></i>
+              </div>
+
+              <div>
+
+                <small>
+                  Facebook
+                </small>
+
+                <strong>
+                  Mohamed Abdullah
+                </strong>
+
+              </div>
+
+            </a>
+
+
+            <a
+              class="social whatsapp"
+              href="https://wa.me/201027595528"
+              target="_blank"
+              rel="noopener"
+            >
+
+              <div class="social-icon">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+
+              <div>
+
+                <small>
+                  WhatsApp
+                </small>
+
+                <strong>
+                  01027595528
+                </strong>
+
+              </div>
+
+            </a>
+
+
+            <a
+              class="social telegram"
+              href="https://t.me/C_O_N_2"
+              target="_blank"
+              rel="noopener"
+            >
+
+              <div class="social-icon">
+                <i class="fa-brands fa-telegram"></i>
+              </div>
+
+              <div>
+
+                <small>
+                  Telegram
+                </small>
+
+                <strong>
+                  @C_O_N_2
+                </strong>
+
+              </div>
+
+            </a>
+
+
+            <a
+              class="social instagram"
+              href="https://instagram.com/mhbdllh4861"
+              target="_blank"
+              rel="noopener"
+            >
+
+              <div class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+
+              <div>
+
+                <small>
+                  Instagram
+                </small>
+
+                <strong>
+                  @mhbdllh4861
+                </strong>
+
+              </div>
+
+            </a>
+
+
+            <a
+              class="social linkedin"
+              href="https://www.linkedin.com/in/mohammed-con"
+              target="_blank"
+              rel="noopener"
+            >
+
+              <div class="social-icon">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+
+              <div>
+
+                <small>
+                  LinkedIn
+                </small>
+
+                <strong>
+                  Mohammed CON
+                </strong>
+
+              </div>
+
+            </a>
+
+
+            <a
+              class="social email"
+              href="mailto:cconker63@gmail.com"
+            >
+
+              <div class="social-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+
+              <div>
+
+                <small>
+                  Email
+                </small>
+
+                <strong>
+                  cconker63@gmail.com
+                </strong>
+
+              </div>
+
+            </a>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-icons">
+
+        <a
+          href="https://www.facebook.com/share/1DsBQE5YmH/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a
+          href="https://wa.me/201027595528"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+        <a
+          href="https://t.me/C_O_N_2"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-telegram"></i>
+        </a>
+
+        <a
+          href="https://instagram.com/mhbdllh4861"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/mohammed-con"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="mailto:cconker63@gmail.com">
+
+          <i class="fa-solid fa-envelope"></i>
+
+        </a>
+
+      </div>
+
+
+      <p>
+
+        © <span id="year"></span>
+
+        Mohamed Abdullah Ibrahim
+
+        ·
+
+        All rights reserved.
+
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ========================================================
+       BACK TOP
+  ========================================================= -->
+
+  <button id="backTop">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+  </button>
+
+
+  <!-- ========================================================
+       COMMAND PALETTE
+  ========================================================= -->
+
+  <div
+    class="command-overlay"
+    id="commandOverlay"
+  >
+
+    <div class="command">
+
+      <div class="command-search">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          id="commandSearch"
+          placeholder="Search or type a command..."
+          autocomplete="off"
+        >
+
+      </div>
+
+
+      <div class="command-list">
+
+        <button
+          class="command-item"
+          data-target="#home"
+        >
+          <i class="fa-solid fa-house"></i>
+          Go Home
+        </button>
+
+
+        <button
+          class="command-item"
+          data-target="#skills"
+        >
+          <i class="fa-solid fa-code"></i>
+          View Skills
+        </button>
+
+
+        <button
+          class="command-item"
+          data-target="#projects"
+        >
+          <i class="fa-solid fa-rocket"></i>
+          View Projects
+        </button>
+
+
+        <button
+          class="command-item"
+          data-target="#terminal"
+        >
+          <i class="fa-solid fa-terminal"></i>
+          Open Terminal
+        </button>
+
+
+        <button
+          class="command-item"
+          data-target="#contact"
+        >
+          <i class="fa-solid fa-envelope"></i>
+          Contact Mohamed
+        </button>
+
+
+        <button
+          class="command-item"
+          id="commandTheme"
+        >
+          <i class="fa-solid fa-circle-half-stroke"></i>
+          Toggle Theme
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* =========================================================
+       YEAR
+    ========================================================= */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* =========================================================
+       BOOT
+    ========================================================= */
+
+    window.addEventListener("load", () => {
+
+      setTimeout(() => {
+
+        document
+          .getElementById("boot")
+          .classList.add("hide");
+
+      }, 1400);
+
+    });
+
+
+    /* =========================================================
+       CURSOR
+    ========================================================= */
+
+    const cursor =
+      document.getElementById("cursor");
+
+    window.addEventListener("mousemove", e => {
+
+      cursor.style.left =
+        e.clientX + "px";
+
+      cursor.style.top =
+        e.clientY + "px";
+
+    });
+
+
+    /* =========================================================
+       THEME
+    ========================================================= */
+
+    const themeBtn =
+      document.getElementById("themeBtn");
+
+
+    function applyTheme() {
+
+      const light =
+        localStorage.getItem("theme")
+        === "light";
+
+      document.body.classList.toggle(
+        "light",
+        light
+      );
+
+      themeBtn.innerHTML = light
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
+
+    }
+
+
+    themeBtn.addEventListener("click", () => {
+
+      const light =
+        document.body.classList.contains("light");
+
+      localStorage.setItem(
+        "theme",
+        light ? "dark" : "light"
+      );
+
+      applyTheme();
+
+    });
+
+
+    applyTheme();
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener("click", () => {
+
+      navLinks.classList.toggle("open");
+
+      const icon =
+        menuBtn.querySelector("i");
+
+      icon.className =
+        navLinks.classList.contains("open")
+          ? "fa-solid fa-xmark"
+          : "fa-solid fa-bars";
+
+    });
+
+
+    navLinks.querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navLinks.classList.remove("open");
+
+          menuBtn.querySelector("i")
+            .className =
+            "fa-solid fa-bars";
+
+        });
+
+      });
+
+
+    /* =========================================================
+       REVEAL
+    ========================================================= */
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add(
+                "active"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: .10
+        }
+      );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach(el => {
+
+        observer.observe(el);
+
+      });
+
+
+    /* =========================================================
+       SCROLL PROGRESS
+    ========================================================= */
+
+    const progress =
+      document.getElementById("progress");
+
+
+    window.addEventListener("scroll", () => {
+
+      const scroll =
+        window.scrollY;
+
+      const total =
+        document.documentElement.scrollHeight
+        - window.innerHeight;
+
+      const percentage =
+        total > 0
+          ? (scroll / total) * 100
+          : 0;
+
+      progress.style.width =
+        percentage + "%";
+
+    });
+
+
+    /* =========================================================
+       BACK TO TOP
+    ========================================================= */
+
+    const backTop =
+      document.getElementById("backTop");
+
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 600) {
+
+        backTop.classList.add("show");
+
+      } else {
+
+        backTop.classList.remove("show");
+
+      }
+
+    });
+
+
+    backTop.addEventListener("click", () => {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+
+    /* =========================================================
+       PHONE PARALLAX
+    ========================================================= */
+
+    const visual =
+      document.querySelector(".visual");
+
+    const phone =
+      document.getElementById("phone");
+
+
+    if (window.innerWidth > 900) {
+
+      visual.addEventListener(
+        "mousemove",
+        e => {
+
+          const rect =
+            visual.getBoundingClientRect();
+
+          const x =
+            e.clientX - rect.left;
+
+          const y =
+            e.clientY - rect.top;
+
+          const centerX =
+            rect.width / 2;
+
+          const centerY =
+            rect.height / 2;
+
+          const rotateY =
+            (x - centerX) / 40;
+
+          const rotateX =
+            (centerY - y) / 40;
+
+          phone.style.animation =
+            "none";
+
+          phone.style.transform =
+            `
+              rotate(-5deg)
+              perspective(900px)
+              rotateY(${7 + rotateY}deg)
+              rotateX(${rotateX}deg)
+              translateY(-5px)
+            `;
+
+        }
+      );
+
+
+      visual.addEventListener(
+        "mouseleave",
+        () => {
+
+          phone.style.animation =
+            "";
+
+          phone.style.transform =
+            "";
+
+        }
+      );
+
+    }
+
+
+    /* =========================================================
+       COMMAND PALETTE
+    ========================================================= */
+
+    const commandBtn =
+      document.getElementById("commandBtn");
+
+    const commandOverlay =
+      document.getElementById("commandOverlay");
+
+    const commandSearch =
+      document.getElementById("commandSearch");
+
+
+    function openCommand() {
+
+      commandOverlay.classList.add("open");
+
+      setTimeout(() => {
+
+        commandSearch.focus();
+
+      }, 100);
+
+    }
+
+
+    function closeCommand() {
+
+      commandOverlay.classList.remove("open");
+
+      commandSearch.value = "";
+
+      filterCommands("");
+
+    }
+
+
+    commandBtn.addEventListener(
+      "click",
+      openCommand
+    );
+
+
+    commandOverlay.addEventListener(
+      "click",
+      e => {
+
+        if (e.target === commandOverlay) {
+
+          closeCommand();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      e => {
+
+        if (
+          (e.ctrlKey || e.metaKey)
+          && e.key.toLowerCase() === "k"
+        ) {
+
+          e.preventDefault();
+
+          openCommand();
+
+        }
+
+        if (e.key === "Escape") {
+
+          closeCommand();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       COMMAND ITEMS
+    ========================================================= */
+
+    const commandItems =
+      document.querySelectorAll(
+        ".command-item"
+      );
+
+
+    commandItems.forEach(item => {
+
+      item.addEventListener(
+        "click",
+        () => {
+
+          const target =
+            item.dataset.target;
+
+          if (target) {
+
+            closeCommand();
+
+            document
+              .querySelector(target)
+              .scrollIntoView({
+                behavior: "smooth"
+              });
+
+          }
+
+        }
+      );
+
+    });
+
+
+    document
+      .getElementById("commandTheme")
+      .addEventListener(
+        "click",
+        () => {
+
+          themeBtn.click();
+
+        }
+      );
+
+
+    /* =========================================================
+       COMMAND SEARCH
+    ========================================================= */
+
+    function filterCommands(query) {
+
+      const value =
+        query.toLowerCase();
+
+      commandItems.forEach(item => {
+
+        const text =
+          item.textContent.toLowerCase();
+
+        item.style.display =
+          text.includes(value)
+            ? "flex"
+            : "none";
+
+      });
+
+    }
+
+
+    commandSearch.addEventListener(
+      "input",
+      e => {
+
+        filterCommands(
+          e.target.value
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       TERMINAL
+    ========================================================= */
+
+    const terminalOutput =
+      document.getElementById(
+        "terminalOutput"
+      );
+
+    const terminalInput =
+      document.getElementById(
+        "terminalInput"
+      );
+
+
+    const welcome =
+`Mohamed Abdullah OS
+-------------------
+
+Welcome to the interactive portfolio.
+
+Type "help" to see available commands.
+
+`;
+
+
+    terminalOutput.textContent =
+      welcome;
+
+
+    function terminalPrint(text) {
+
+      terminalOutput.textContent +=
+        text + "\n";
+
+      terminalOutput.scrollTop =
+        terminalOutput.scrollHeight;
+
+    }
+
+
+    function runCommand(command) {
+
+      const cmd =
+        command.trim().toLowerCase();
+
+
+      if (!cmd) return;
+
+
+      terminalPrint(
+        "$ " + command
+      );
+
+
+      switch(cmd) {
+
+        case "help":
+
+          terminalPrint(
+`Available commands:
+
+whoami      → About Mohamed
+skills      → Technical skills
+projects    → Projects
+contact     → Contact information
+clear       → Clear terminal
+neofetch    → System information`
+          );
+
+          break;
+
+
+        case "whoami":
+
+          terminalPrint(
+`Mohamed Abdullah Ibrahim
+
+Role:
+Android Developer
+
+Focus:
+Android Development
+Cybersecurity
+
+Location:
+Cairo, Egypt
+
+Education:
+Computer Science — 2nd Year`
+          );
+
+          break;
+
+
+        case "skills":
+
+          terminalPrint(
+`Android:
+Kotlin, Java, Jetpack Compose,
+Firebase, Room, REST APIs
+
+Programming:
+C++, OOP, Algorithms,
+Data Structures
+
+Cybersecurity:
+Linux, Networking,
+OWASP, Web Security,
+Ethical Hacking`
+          );
+
+          break;
+
+
+        case "projects":
+
+          terminalPrint(
+`PROJECTS
+
+No public projects yet.
+
+Status:
+COMING SOON 🚀`
+          );
+
+          break;
+
+
+        case "contact":
+
+          terminalPrint(
+`CONTACT
+
+WhatsApp:
+01027595528
+
+Telegram:
+@C_O_N_2
+
+Instagram:
+@mhbdllh4861
+
+Email:
+cconker63@gmail.com`
+          );
+
+          break;
+
+
+        case "neofetch":
+
+          terminalPrint(
+`MOHAMED@PORTFOLIO
+
+OS        Android / Linux
+Role      Android Developer
+Focus     Cybersecurity
+Location  Cairo, Egypt
+Status    Learning & Building
+Projects  Coming Soon`
+          );
+
+          break;
+
+
+        case "clear":
+
+          terminalOutput.textContent =
+            "";
+
+          break;
+
+
+        default:
+
+          terminalPrint(
+            `Command not found: ${command}
+
+Type "help" for available commands.`
+          );
+
+      }
+
+
+      terminalOutput.scrollTop =
+        terminalOutput.scrollHeight;
+
+    }
+
+
+    terminalInput.addEventListener(
+      "keydown",
+      e => {
+
+        if (e.key === "Enter") {
+
+          runCommand(
+            terminalInput.value
+          );
+
+          terminalInput.value =
+            "";
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       PHONE TOUCH FEEDBACK
+    ========================================================= */
+
+    document
+      .querySelectorAll(
+        ".btn, .social, .skill-card, .security-item, .achievement"
+      )
+      .forEach(element => {
+
+        element.addEventListener(
+          "touchstart",
+          () => {
+
+            element.style.transform =
+              "scale(.98)";
+
+          },
+          {
+            passive: true
+          }
+        );
+
+
+        element.addEventListener(
+          "touchend",
+          () => {
+
+            element.style.transform =
+              "";
+
+          },
+          {
+            passive: true
+          }
+        );
+
+      });
+
+
+  </script>
+
+</body>
+        </html>
