@@ -1,36 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
-
-  <title>
-    Mohamed Abdullah Ibrahim | Android Developer
-  </title>
+  <title>Mohamed Abdullah Ibrahim | Android Developer</title>
 
   <meta
     name="description"
     content="Mohamed Abdullah Ibrahim — Android Developer and Cybersecurity Enthusiast from Cairo, Egypt."
   >
 
-  <meta
-    name="theme-color"
-    content="#070912"
-  >
+  <meta name="theme-color" content="#070912">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
@@ -42,7 +26,6 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   >
 
-
   <style>
 
     /* =========================================================
@@ -50,32 +33,25 @@
     ========================================================= */
 
     :root {
-
       --bg: #060811;
-
       --bg-soft: #0a0e18;
 
       --card: rgba(15, 20, 34, .72);
-
       --card-2: rgba(255,255,255,.045);
 
       --text: #f7f9ff;
-
       --muted: #98a4b8;
 
       --border: rgba(255,255,255,.09);
 
       --blue: #5b8cff;
-
       --cyan: #24d9ff;
-
       --purple: #a46cff;
-
       --green: #43df86;
-
       --pink: #ff5f9e;
-
       --orange: #ffad5a;
+
+      --radius: 24px;
 
       --gradient:
         linear-gradient(
@@ -85,32 +61,7 @@
           #24d9ff
         );
 
-      --safe-bottom:
-        env(safe-area-inset-bottom, 0px);
-
-    }
-
-
-    /* =========================================================
-       LIGHT THEME
-    ========================================================= */
-
-    body.light {
-
-      --bg: #f5f7fb;
-
-      --bg-soft: #ffffff;
-
-      --card: rgba(255,255,255,.78);
-
-      --card-2: rgba(15,23,42,.045);
-
-      --text: #101828;
-
-      --muted: #667085;
-
-      --border: rgba(15,23,42,.10);
-
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
 
 
@@ -119,25 +70,16 @@
     ========================================================= */
 
     * {
-
       margin: 0;
-
       padding: 0;
-
       box-sizing: border-box;
-
     }
-
 
     html {
-
       scroll-behavior: smooth;
-
     }
 
-
     body {
-
       min-height: 100vh;
 
       font-family: Inter, sans-serif;
@@ -145,101 +87,48 @@
       color: var(--text);
 
       background:
-
         radial-gradient(
           circle at 10% 5%,
           rgba(91,140,255,.12),
           transparent 28%
         ),
-
         radial-gradient(
           circle at 90% 20%,
           rgba(164,108,255,.10),
           transparent 30%
         ),
-
         var(--bg);
 
       overflow-x: hidden;
 
       -webkit-tap-highlight-color: transparent;
-
-      transition:
-        background .3s ease,
-        color .3s ease;
-
     }
-
 
     body.light {
+      --bg: #f5f7fb;
+      --bg-soft: #ffffff;
 
-      background:
+      --card: rgba(255,255,255,.78);
+      --card-2: rgba(15,23,42,.045);
 
-        radial-gradient(
-          circle at 10% 5%,
-          rgba(91,140,255,.10),
-          transparent 28%
-        ),
+      --text: #101828;
+      --muted: #667085;
 
-        radial-gradient(
-          circle at 90% 20%,
-          rgba(164,108,255,.08),
-          transparent 30%
-        ),
-
-        var(--bg);
-
+      --border: rgba(15,23,42,.10);
     }
-
 
     ::selection {
-
       background: var(--blue);
-
       color: white;
-
     }
-
 
     a {
-
       color: inherit;
-
       text-decoration: none;
-
     }
-
-
-    button,
-    input {
-
-      font: inherit;
-
-    }
-
 
     button {
-
-      border: 0;
-
-    }
-
-
-    img {
-
-      max-width: 100%;
-
-      display: block;
-
-    }
-
-
-    .container {
-
-      width: min(1120px, 92%);
-
-      margin-inline: auto;
-
+      font: inherit;
     }
 
 
@@ -248,7 +137,6 @@
     ========================================================= */
 
     #boot {
-
       position: fixed;
 
       inset: 0;
@@ -258,186 +146,57 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       background: #05060a;
 
       transition:
-
         opacity .7s ease,
-
         visibility .7s ease;
-
     }
-
 
     #boot.hide {
-
       opacity: 0;
-
       visibility: hidden;
-
-      pointer-events: none;
-
     }
-
 
     .boot-box {
+      width: min(90%, 470px);
 
-      width: min(90%, 620px);
+      font-family: monospace;
 
-      padding: 30px;
-
-      border:
-
-        1px solid rgba(91,140,255,.25);
-
-      border-radius: 18px;
-
-      background:
-
-        rgba(8,11,20,.85);
-
-      box-shadow:
-
-        0 30px 100px rgba(0,0,0,.5);
-
-      font-family:
-
-        "Courier New",
-        monospace;
-
-      color: #8fa8d8;
-
-    }
-
-
-    .boot-title {
-
-      margin-bottom: 20px;
-
-      color: white;
-
-      font-weight: 800;
-
-      letter-spacing: 2px;
-
-      font-size: 14px;
-
-    }
-
-
-    .boot-line {
-
-      opacity: 0;
-
-      margin: 8px 0;
+      color: #7fffb0;
 
       font-size: 12px;
 
+      line-height: 1.9;
+    }
+
+    .boot-title {
+      font-size: 18px;
+
+      color: white;
+
+      margin-bottom: 18px;
+    }
+
+    .boot-line {
+      opacity: 0;
+
       animation:
-
-        bootLine .45s forwards;
-
+        bootLine .25s forwards;
     }
 
-
-    .boot-line:nth-child(2) {
-
-      animation-delay: .2s;
-
-    }
-
-
-    .boot-line:nth-child(3) {
-
-      animation-delay: .45s;
-
-    }
-
-
-    .boot-line:nth-child(4) {
-
-      animation-delay: .7s;
-
-    }
-
-
-    .boot-line:nth-child(5) {
-
-      animation-delay: .95s;
-
-    }
-
-
-    .boot-line:nth-child(6) {
-
-      animation-delay: 1.2s;
-
-    }
-
+    .boot-line:nth-child(2) { animation-delay: .15s; }
+    .boot-line:nth-child(3) { animation-delay: .3s; }
+    .boot-line:nth-child(4) { animation-delay: .45s; }
+    .boot-line:nth-child(5) { animation-delay: .6s; }
+    .boot-line:nth-child(6) { animation-delay: .75s; }
 
     @keyframes bootLine {
-
       to {
-
         opacity: 1;
-
       }
-
-    }
-
-
-    /* =========================================================
-       CURSOR
-    ========================================================= */
-
-    .cursor {
-
-      position: fixed;
-
-      width: 20px;
-
-      height: 20px;
-
-      border:
-
-        1px solid rgba(91,140,255,.8);
-
-      border-radius: 50%;
-
-      pointer-events: none;
-
-      z-index: 99998;
-
-      transform:
-
-        translate(-50%, -50%);
-
-      transition:
-
-        width .15s ease,
-
-        height .15s ease,
-
-        background .15s ease;
-
-      mix-blend-mode: screen;
-
-    }
-
-
-    .cursor.active {
-
-      width: 34px;
-
-      height: 34px;
-
-      background:
-
-        rgba(91,140,255,.08);
-
     }
 
 
@@ -446,82 +205,105 @@
     ========================================================= */
 
     #progress {
-
       position: fixed;
 
       top: 0;
-
       left: 0;
 
-      height: 3px;
-
       width: 0;
-
-      z-index: 10000;
+      height: 3px;
 
       background: var(--gradient);
 
+      z-index: 9998;
     }
 
 
     /* =========================================================
-       NAVIGATION
+       CURSOR
+    ========================================================= */
+
+    .cursor {
+      position: fixed;
+
+      width: 220px;
+      height: 220px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(91,140,255,.09),
+          transparent 70%
+        );
+
+      transform:
+        translate(-50%, -50%);
+
+      pointer-events: none;
+
+      z-index: 0;
+    }
+
+
+    /* =========================================================
+       CONTAINER
+    ========================================================= */
+
+    .container {
+      width: min(1160px, 92%);
+
+      margin: auto;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+    section {
+      padding: 95px 0;
+    }
+
+
+    /* =========================================================
+       NAVBAR
     ========================================================= */
 
     .nav {
-
       position: fixed;
 
-      top: 0;
+      top: 12px;
+      left: 50%;
 
-      left: 0;
+      transform: translateX(-50%);
 
-      width: 100%;
+      width: min(1120px, 94%);
 
-      z-index: 9000;
+      z-index: 5000;
 
-      padding: 15px 0;
+      border:
+        1px solid var(--border);
 
-      background:
-
-        rgba(6,8,17,.55);
-
-      backdrop-filter: blur(18px);
-
-      border-bottom:
-
-        1px solid transparent;
-
-      transition: .25s ease;
-
-    }
-
-
-    .nav.scrolled {
+      border-radius: 20px;
 
       background:
+        rgba(7,9,18,.72);
 
-        rgba(6,8,17,.82);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
 
-      border-color: var(--border);
-
+      box-shadow:
+        0 20px 70px rgba(0,0,0,.22);
     }
 
-
-    body.light .nav.scrolled {
-
+    body.light .nav {
       background:
-
-        rgba(245,247,251,.82);
-
+        rgba(255,255,255,.75);
     }
-
 
     .nav-inner {
-
-      width: min(1120px, 92%);
-
-      margin-inline: auto;
+      min-height: 64px;
 
       display: flex;
 
@@ -529,15 +311,10 @@
 
       justify-content: space-between;
 
-      gap: 20px;
-
-      position: relative;
-
+      padding: 7px 8px;
     }
 
-
     .logo {
-
       display: flex;
 
       align-items: center;
@@ -546,136 +323,93 @@
 
       font-size: 13px;
 
-      font-weight: 800;
+      font-weight: 900;
 
       white-space: nowrap;
-
     }
 
-
     .logo-box {
-
       width: 42px;
-
       height: 42px;
 
       display: grid;
 
       place-items: center;
 
-      border-radius: 12px;
-
-      background: var(--gradient);
+      border-radius: 14px;
 
       color: white;
 
+      background: var(--gradient);
+
       box-shadow:
-
-        0 10px 35px rgba(91,140,255,.22);
-
+        0 10px 35px rgba(91,140,255,.25);
     }
-
 
     .nav-links {
-
       display: flex;
 
       align-items: center;
 
-      gap: 4px;
-
+      gap: 24px;
     }
-
 
     .nav-links a {
-
-      padding: 9px 11px;
-
-      border-radius: 10px;
-
       color: var(--muted);
 
-      font-size: 11px;
+      font-size: 12px;
 
-      font-weight: 600;
+      font-weight: 700;
 
-      transition: .2s ease;
-
+      transition: .25s;
     }
-
 
     .nav-links a:hover {
-
       color: var(--text);
-
-      background:
-
-        rgba(91,140,255,.08);
-
     }
 
-
     .nav-actions {
-
       display: flex;
 
       align-items: center;
 
-      gap: 7px;
-
+      gap: 6px;
     }
 
-
     .icon-btn {
+      width: 40px;
+      height: 40px;
 
-      width: 38px;
-
-      height: 38px;
+      border-radius: 13px;
 
       display: grid;
 
       place-items: center;
 
-      border-radius: 11px;
+      border: 1px solid var(--border);
 
-      color: var(--muted);
+      background: var(--card-2);
 
-      background:
-
-        rgba(255,255,255,.045);
-
-      border:
-
-        1px solid var(--border);
+      color: var(--text);
 
       cursor: pointer;
 
-      transition: .2s ease;
-
+      transition: .25s;
     }
 
-
-    .icon-btn:hover {
-
+    .icon-btn:hover,
+    .icon-btn:active {
       color: white;
 
-      border-color:
+      background: var(--gradient);
 
-        rgba(91,140,255,.35);
-
-      background:
-
-        rgba(91,140,255,.10);
+      border-color: transparent;
 
       transform: translateY(-2px);
-
     }
 
-
     .menu-btn {
-
       display: none;
-
     }
 
 
@@ -684,72 +418,56 @@
     ========================================================= */
 
     .hero {
-
-      min-height: 100vh;
+      min-height: 100svh;
 
       display: flex;
 
       align-items: center;
 
-      padding:
+      padding-top: 135px;
 
-        130px 0 80px;
-
+      overflow: hidden;
     }
 
-
     .hero-grid {
-
       display: grid;
 
       grid-template-columns:
-
-        1.05fr .95fr;
+        1.08fr .92fr;
 
       align-items: center;
 
       gap: 60px;
-
     }
 
-
     .eyebrow {
-
-      width: fit-content;
-
-      display: flex;
+      display: inline-flex;
 
       align-items: center;
 
-      gap: 9px;
+      gap: 8px;
 
       padding: 8px 12px;
 
-      border:
-
-        1px solid rgba(67,223,134,.18);
-
-      border-radius: 100px;
-
-      color: #9ce9bb;
+      border-radius: 999px;
 
       background:
+        rgba(67,223,134,.06);
 
-        rgba(67,223,134,.07);
+      border:
+        1px solid rgba(67,223,134,.17);
 
-      font-size: 10px;
+      color: var(--green);
 
-      font-weight: 700;
+      font-size: 11px;
+
+      font-weight: 800;
 
       margin-bottom: 22px;
-
     }
 
-
     .pulse {
-
       width: 7px;
-
       height: 7px;
 
       border-radius: 50%;
@@ -757,110 +475,81 @@
       background: var(--green);
 
       box-shadow:
-
-        0 0 0 5px rgba(67,223,134,.08);
-
-      animation: pulse 1.8s infinite;
-
+        0 0 0 6px rgba(67,223,134,.08);
     }
-
-
-    @keyframes pulse {
-
-      50% {
-
-        box-shadow:
-
-          0 0 0 9px rgba(67,223,134,0);
-
-      }
-
-    }
-
 
     .hero h1 {
-
       font-size:
+        clamp(45px, 7vw, 84px);
 
-        clamp(48px, 7vw, 84px);
+      line-height: 1.03;
 
-      line-height: .98;
-
-      letter-spacing: -5px;
+      letter-spacing: -4px;
 
       font-weight: 900;
 
-      margin-bottom: 25px;
-
+      margin-bottom: 20px;
     }
 
-
     .gradient-text {
-
       background: var(--gradient);
 
-      -webkit-background-clip: text;
+      background-size: 200% 200%;
 
+      -webkit-background-clip: text;
       background-clip: text;
 
       color: transparent;
 
+      animation:
+        gradientMove 5s ease infinite;
     }
 
+    @keyframes gradientMove {
+      0%,100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
 
     .hero-role {
+      font-size:
+        clamp(21px, 3vw, 32px);
 
-      color: var(--muted);
+      font-weight: 800;
 
-      font-size: 25px;
-
-      line-height: 1.45;
-
-      font-weight: 600;
-
-      margin-bottom: 18px;
-
+      margin-bottom: 17px;
     }
-
 
     .hero-role span {
-
-      color: var(--text);
-
+      color: var(--green);
     }
 
-
     .hero-description {
-
-      max-width: 600px;
+      max-width: 650px;
 
       color: var(--muted);
 
-      font-size: 14px;
+      font-size: 15px;
 
       line-height: 1.9;
 
       margin-bottom: 28px;
-
     }
 
-
     .buttons {
-
       display: flex;
 
       flex-wrap: wrap;
 
       gap: 10px;
-
-      margin-bottom: 27px;
-
     }
 
-
     .btn {
-
-      min-height: 45px;
+      min-height: 49px;
 
       display: inline-flex;
 
@@ -872,374 +561,293 @@
 
       padding: 0 18px;
 
-      border-radius: 12px;
+      border-radius: 15px;
 
-      font-size: 11px;
+      border: 1px solid var(--border);
+
+      font-size: 12px;
 
       font-weight: 800;
 
-      transition: .25s ease;
+      cursor: pointer;
 
+      transition: .25s;
+
+      position: relative;
+
+      overflow: hidden;
     }
 
-
     .btn.primary {
-
       color: white;
 
       background: var(--gradient);
 
+      border: 0;
+
       box-shadow:
-
-        0 14px 40px rgba(91,140,255,.18);
-
+        0 15px 40px rgba(91,140,255,.20);
     }
 
-
-    .btn.secondary {
-
-      color: var(--text);
-
-      background:
-
-        rgba(255,255,255,.045);
-
-      border:
-
-        1px solid var(--border);
-
-    }
-
-
-    .btn:hover {
-
+    .btn.primary:hover,
+    .btn.primary:active {
       transform: translateY(-3px);
 
+      box-shadow:
+        0 20px 55px rgba(91,140,255,.34);
     }
 
+    .btn.secondary {
+      background: var(--card-2);
 
-    .btn.secondary:hover {
+      color: var(--text);
+    }
 
-      background:
-
-        rgba(91,140,255,.08);
+    .btn.secondary:hover,
+    .btn.secondary:active {
+      color: var(--cyan);
 
       border-color:
+        rgba(36,217,255,.35);
 
-        rgba(91,140,255,.25);
+      background:
+        rgba(36,217,255,.07);
 
+      transform: translateY(-3px);
     }
 
-
     .meta {
-
       display: flex;
 
       flex-wrap: wrap;
 
-      gap: 18px;
+      gap: 8px;
 
+      margin-top: 25px;
     }
 
-
     .meta-item {
-
       display: flex;
 
       align-items: center;
 
       gap: 7px;
 
+      padding: 8px 11px;
+
+      border-radius: 11px;
+
+      border: 1px solid var(--border);
+
+      background: var(--card-2);
+
       color: var(--muted);
 
       font-size: 10px;
-
-      font-weight: 600;
-
     }
 
-
     .meta-item i {
-
       color: var(--blue);
-
     }
 
 
     /* =========================================================
-       HERO VISUAL
+       HERO DEVICE
     ========================================================= */
 
     .visual {
-
-      min-height: 560px;
-
-      position: relative;
+      min-height: 500px;
 
       display: grid;
 
       place-items: center;
 
+      position: relative;
     }
 
-
     .orb {
-
       position: absolute;
 
-      width: 430px;
-
-      height: 430px;
+      width: 380px;
+      height: 380px;
 
       border-radius: 50%;
 
       background:
-
         radial-gradient(
           circle,
-          rgba(91,140,255,.20),
-          rgba(164,108,255,.10) 42%,
-          transparent 70%
+          rgba(91,140,255,.16),
+          transparent 65%
         );
 
-      filter: blur(5px);
-
-      animation: orbFloat 7s ease-in-out infinite;
-
+      filter: blur(8px);
     }
-
-
-    @keyframes orbFloat {
-
-      0%,100% {
-
-        transform: translateY(0) scale(1);
-
-      }
-
-      50% {
-
-        transform: translateY(-15px) scale(1.03);
-
-      }
-
-    }
-
 
     .phone {
-
       position: relative;
 
-      z-index: 3;
+      width: 255px;
+      height: 490px;
 
-      width: 270px;
-
-      height: 525px;
-
-      padding: 9px;
-
-      border-radius: 38px;
+      border-radius: 40px;
 
       background:
-
         linear-gradient(
           145deg,
-          #1e2534,
-          #080b12
+          #161d2d,
+          #05070c
         );
 
       border:
-
-        1px solid rgba(255,255,255,.14);
+        1px solid rgba(255,255,255,.16);
 
       box-shadow:
-
-        0 40px 100px rgba(0,0,0,.55),
-
-        0 0 70px rgba(91,140,255,.12);
+        0 45px 100px rgba(0,0,0,.55),
+        0 0 70px rgba(91,140,255,.10);
 
       transform:
-
-        perspective(1000px)
-        rotateY(-8deg)
-        rotateX(3deg);
+        rotate(-6deg)
+        perspective(900px)
+        rotateY(7deg);
 
       animation:
-
         phoneFloat 5s ease-in-out infinite;
 
+      overflow: hidden;
     }
-
 
     @keyframes phoneFloat {
 
       0%,100% {
-
         transform:
-
-          perspective(1000px)
-          rotateY(-8deg)
-          rotateX(3deg)
-          translateY(0);
-
+          translateY(0)
+          rotate(-6deg)
+          perspective(900px)
+          rotateY(7deg);
       }
 
       50% {
-
         transform:
-
-          perspective(1000px)
-          rotateY(-8deg)
-          rotateX(3deg)
-          translateY(-12px);
-
+          translateY(-12px)
+          rotate(-4deg)
+          perspective(900px)
+          rotateY(7deg);
       }
 
     }
 
-
     .notch {
-
       position: absolute;
 
-      top: 15px;
-
+      top: 9px;
       left: 50%;
 
-      transform: translateX(-50%);
+      transform:
+        translateX(-50%);
 
-      width: 90px;
+      width: 88px;
+      height: 23px;
 
-      height: 22px;
+      border-radius:
+        0 0 15px 15px;
 
-      border-radius: 0 0 15px 15px;
+      background: #020307;
 
-      background: #05070c;
-
-      z-index: 5;
-
+      z-index: 3;
     }
 
-
     .screen {
+      position: absolute;
 
-      width: 100%;
+      inset: 8px;
 
-      height: 100%;
+      border-radius: 33px;
 
-      border-radius: 30px;
+      padding:
+        70px 21px 25px;
 
       overflow: hidden;
 
-      padding: 80px 25px 30px;
-
-      text-align: center;
-
       background:
-
         radial-gradient(
-          circle at 50% 15%,
-          rgba(67,223,134,.13),
-          transparent 30%
+          circle at 10% 20%,
+          rgba(91,140,255,.25),
+          transparent 35%
         ),
-
-        linear-gradient(
-          145deg,
-          #0e1720,
-          #071018
-        );
-
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(164,108,255,.22),
+          transparent 38%
+        ),
+        #080c16;
     }
 
-
     .android-logo {
-
-      width: 70px;
-
-      height: 70px;
+      width: 62px;
+      height: 62px;
 
       display: grid;
 
       place-items: center;
 
-      margin: 0 auto 22px;
+      border-radius: 20px;
 
-      border-radius: 22px;
+      color: white;
 
       background:
-
-        rgba(67,223,134,.10);
-
-      border:
-
-        1px solid rgba(67,223,134,.20);
-
-      color: var(--green);
-
-      font-size: 32px;
+        linear-gradient(
+          135deg,
+          #43df86,
+          #20bf6b
+        );
 
       box-shadow:
+        0 15px 35px rgba(67,223,134,.22);
 
-        0 0 50px rgba(67,223,134,.08);
-
+      margin-bottom: 25px;
     }
-
 
     .screen h3 {
+      font-size: 23px;
 
-      font-size: 20px;
-
-      margin-bottom: 10px;
-
+      margin-bottom: 8px;
     }
 
-
     .screen p {
+      color: #91a0b7;
 
-      color: #7e8c9d;
-
-      font-size: 9px;
+      font-size: 10px;
 
       line-height: 1.8;
 
-      margin-bottom: 35px;
-
+      margin-bottom: 24px;
     }
 
-
     .code-line {
-
-      width: 85%;
-
-      height: 5px;
-
-      margin: 10px auto;
+      height: 8px;
 
       border-radius: 20px;
 
       background:
-
         linear-gradient(
           90deg,
-          rgba(67,223,134,.5),
-          rgba(91,140,255,.18)
+          var(--blue),
+          var(--purple)
         );
 
-    }
+      margin-bottom: 11px;
 
+      opacity: .82;
+    }
 
     .code-line.short {
+      width: 52%;
 
-      width: 58%;
-
+      opacity: .38;
     }
 
-
     .float-card {
-
       position: absolute;
-
-      z-index: 5;
 
       display: flex;
 
@@ -1247,179 +855,146 @@
 
       gap: 8px;
 
-      padding: 11px 14px;
+      padding: 11px 13px;
 
-      border-radius: 13px;
+      border-radius: 14px;
 
-      color: white;
+      border: 1px solid var(--border);
 
       background:
+        rgba(12,16,27,.78);
 
-        rgba(12,17,29,.82);
-
-      border:
-
-        1px solid var(--border);
-
-      backdrop-filter: blur(15px);
+      backdrop-filter: blur(18px);
 
       box-shadow:
-
-        0 18px 50px rgba(0,0,0,.35);
+        0 20px 60px rgba(0,0,0,.35);
 
       font-size: 10px;
 
       font-weight: 800;
 
       animation:
-
         chipFloat 4s ease-in-out infinite;
-
     }
-
 
     .float-card i {
-
       font-size: 15px;
-
     }
 
+    .android-chip {
+      top: 95px;
+      right: 2px;
+
+      color: var(--green);
+    }
+
+    .security-chip {
+      bottom: 85px;
+      left: 0;
+
+      color: var(--pink);
+
+      animation-delay: 1s;
+    }
+
+    .kotlin-chip {
+      top: 275px;
+      right: -18px;
+
+      color: var(--cyan);
+
+      animation-delay: 2s;
+    }
 
     @keyframes chipFloat {
-
       0%,100% {
-
         transform: translateY(0);
-
       }
 
       50% {
-
-        transform: translateY(-8px);
-
+        transform: translateY(-9px);
       }
-
-    }
-
-
-    .android-chip {
-
-      right: 0;
-
-      top: 130px;
-
-      color: #a9f5c7;
-
-    }
-
-
-    .security-chip {
-
-      left: 0;
-
-      bottom: 110px;
-
-      color: #ff9ac3;
-
-      animation-delay: .6s;
-
-    }
-
-
-    .kotlin-chip {
-
-      right: 35px;
-
-      top: 370px;
-
-      color: #c3b0ff;
-
-      animation-delay: 1s;
-
     }
 
 
     /* =========================================================
-       SECTIONS
+       SECTION HEAD
     ========================================================= */
 
-    section {
-
-      padding: 110px 0;
-
-    }
-
-
     .section-head {
+      text-align: center;
 
-      max-width: 720px;
+      max-width: 700px;
 
-      margin-bottom: 42px;
-
+      margin:
+        0 auto 48px;
     }
-
 
     .kicker {
-
       color: var(--blue);
 
       font-size: 10px;
 
       font-weight: 900;
 
-      text-transform: uppercase;
-
       letter-spacing: 2px;
 
-      margin-bottom: 12px;
+      text-transform: uppercase;
 
+      margin-bottom: 9px;
     }
-
 
     .section-title {
-
       font-size:
+        clamp(30px, 5vw, 50px);
 
-        clamp(34px, 5vw, 55px);
+      letter-spacing: -1.5px;
 
-      line-height: 1.05;
+      line-height: 1.15;
 
-      letter-spacing: -2.5px;
-
-      margin-bottom: 15px;
-
+      margin-bottom: 12px;
     }
 
-
     .section-text {
-
       color: var(--muted);
 
       font-size: 13px;
 
-      line-height: 1.8;
-
+      line-height: 1.9;
     }
 
 
     /* =========================================================
-       GLASS
+       CARDS
     ========================================================= */
 
     .glass {
-
       background: var(--card);
 
       border:
-
         1px solid var(--border);
 
+      border-radius: var(--radius);
+
+      backdrop-filter: blur(18px);
+
       box-shadow:
+        0 25px 80px rgba(0,0,0,.18);
 
-        0 25px 70px rgba(0,0,0,.18);
+      transition:
+        transform .3s,
+        border .3s,
+        box-shadow .3s;
+    }
 
-      backdrop-filter: blur(20px);
+    .glass:hover {
+      transform: translateY(-6px);
 
+      border-color:
+        rgba(91,140,255,.25);
+
+      box-shadow:
+        0 35px 90px rgba(0,0,0,.28);
     }
 
 
@@ -1428,93 +1003,61 @@
     ========================================================= */
 
     .about-grid {
-
       display: grid;
 
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns:
+        1.15fr .85fr;
 
-      gap: 20px;
-
+      gap: 18px;
     }
-
 
     .about-card {
-
-      padding: 34px;
-
-      border-radius: var(--radius);
-
+      padding: 30px;
     }
-
 
     .about-card p {
-
       color: var(--muted);
 
-      font-size: 13px;
+      font-size: 14px;
 
       line-height: 2;
-
     }
-
 
     .info-card {
-
-      border-radius: var(--radius);
-
-      padding: 12px 24px;
-
+      padding: 20px;
     }
 
-
     .info-row {
-
-      min-height: 65px;
-
       display: flex;
-
-      align-items: center;
 
       justify-content: space-between;
 
       gap: 15px;
 
-      border-bottom:
+      padding: 14px;
 
+      border-radius: 13px;
+
+      background: var(--card-2);
+
+      border:
         1px solid var(--border);
 
-    }
+      margin-bottom: 8px;
 
+      font-size: 11px;
+    }
 
     .info-row:last-child {
-
-      border-bottom: 0;
-
+      margin-bottom: 0;
     }
-
 
     .info-row span {
-
       color: var(--muted);
-
-      font-size: 11px;
-
     }
-
-
-    .info-row strong {
-
-      font-size: 11px;
-
-      text-align: right;
-
-    }
-
 
     .available {
-
       color: var(--green);
-
     }
 
 
@@ -1523,93 +1066,82 @@
     ========================================================= */
 
     .skills-grid {
-
       display: grid;
 
       grid-template-columns:
-
         repeat(2, 1fr);
 
-      gap: 18px;
-
+      gap: 15px;
     }
 
-
     .skill-card {
+      padding: 25px;
 
       position: relative;
 
       overflow: hidden;
 
-      border-radius: var(--radius);
-
-      padding: 26px;
-
+      --accent: var(--blue);
     }
 
-
-    .skill-card::before {
-
+    .skill-card::after {
       content: "";
 
       position: absolute;
 
-      left: 0;
+      width: 150px;
+      height: 150px;
 
-      top: 0;
+      border-radius: 50%;
 
-      width: 100%;
-
-      height: 2px;
+      right: -80px;
+      top: -80px;
 
       background: var(--accent);
 
-      box-shadow:
+      filter: blur(60px);
 
-        0 0 25px var(--accent);
+      opacity: .08;
 
+      transition: .4s;
     }
 
+    .skill-card:hover::after {
+      opacity: .18;
+
+      transform: scale(1.3);
+    }
 
     .skill-top {
-
       display: flex;
 
       align-items: center;
 
-      gap: 15px;
+      gap: 13px;
 
-      margin-bottom: 23px;
-
+      margin-bottom: 20px;
     }
 
-
     .skill-icon {
-
-      width: 48px;
-
-      height: 48px;
-
-      flex: 0 0 48px;
+      width: 53px;
+      height: 53px;
 
       display: grid;
 
       place-items: center;
 
-      border-radius: 14px;
+      border-radius: 16px;
 
       color: var(--accent);
 
       background:
-
         color-mix(
           in srgb,
-          var(--accent) 10%,
+          var(--accent) 9%,
           transparent
         );
 
       border:
-
         1px solid
         color-mix(
           in srgb,
@@ -1617,60 +1149,72 @@
           transparent
         );
 
-      font-size: 21px;
+      font-size: 20px;
 
+      transition: .3s;
     }
 
+    .skill-card:hover .skill-icon {
+      color: white;
+
+      background: var(--accent);
+
+      transform:
+        rotate(-5deg)
+        scale(1.06);
+    }
 
     .skill-top h3 {
-
       font-size: 15px;
-
-      margin-bottom: 4px;
-
     }
-
 
     .skill-top p {
-
       color: var(--muted);
 
-      font-size: 10px;
+      font-size: 9px;
 
+      margin-top: 3px;
     }
 
-
     .tags {
-
       display: flex;
 
       flex-wrap: wrap;
 
       gap: 7px;
-
     }
 
-
     .tag {
-
       padding: 7px 9px;
 
-      border-radius: 8px;
+      border-radius: 9px;
+
+      background: var(--card-2);
+
+      border:
+        1px solid var(--border);
 
       color: var(--muted);
 
-      background:
-
-        var(--card-2);
-
-      border:
-
-        1px solid var(--border);
-
       font-size: 9px;
 
-      font-weight: 700;
+      transition: .25s;
+    }
 
+    .tag:hover,
+    .tag:active {
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--purple)
+        );
+
+      border-color: transparent;
+
+      transform: translateY(-2px);
     }
 
 
@@ -1679,165 +1223,144 @@
     ========================================================= */
 
     .security-box {
+      position: relative;
+
+      overflow: hidden;
 
       padding: 30px;
 
-      border-radius: var(--radius);
+      border-radius: 28px;
 
       background:
-
         linear-gradient(
-          120deg,
-          rgba(255,95,158,.055),
-          rgba(91,140,255,.055)
+          145deg,
+          rgba(255,95,158,.07),
+          rgba(91,140,255,.07)
         );
 
       border:
-
         1px solid var(--border);
-
-      box-shadow:
-
-        0 30px 90px rgba(0,0,0,.18);
-
     }
 
+    .security-box::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 4px,
+          rgba(255,255,255,.012) 5px
+        );
+
+      pointer-events: none;
+    }
 
     .security-head {
-
       display: flex;
 
       align-items: center;
 
-      gap: 15px;
+      gap: 14px;
 
-      margin-bottom: 28px;
-
+      margin-bottom: 25px;
     }
 
-
     .security-icon {
-
-      width: 54px;
-
-      height: 54px;
+      width: 60px;
+      height: 60px;
 
       display: grid;
 
       place-items: center;
 
-      border-radius: 16px;
+      border-radius: 18px;
 
       color: var(--pink);
 
       background:
-
         rgba(255,95,158,.08);
 
       border:
-
         1px solid rgba(255,95,158,.18);
 
-      font-size: 22px;
-
+      font-size: 23px;
     }
-
 
     .security-head h3 {
-
-      font-size: 16px;
-
-      margin-bottom: 5px;
-
+      font-size: 20px;
     }
 
-
     .security-head p {
-
       color: var(--muted);
 
       font-size: 10px;
 
+      margin-top: 4px;
     }
 
-
     .security-grid {
-
       display: grid;
 
       grid-template-columns:
-
         repeat(4, 1fr);
 
-      gap: 12px;
-
+      gap: 9px;
     }
 
-
     .security-item {
+      padding: 17px 10px;
 
-      min-height: 95px;
+      text-align: center;
 
-      display: flex;
+      border-radius: 15px;
 
-      flex-direction: column;
+      background: rgba(255,255,255,.035);
 
-      align-items: center;
+      border:
+        1px solid var(--border);
 
-      justify-content: center;
+      transition: .25s;
+    }
 
-      gap: 9px;
+    .security-item:hover,
+    .security-item:active {
+      background:
+        rgba(255,95,158,.07);
 
-      border-radius: 14px;
+      border-color:
+        rgba(255,95,158,.3);
+
+      transform: translateY(-3px);
+    }
+
+    .security-item i {
+      color: var(--pink);
+
+      font-size: 17px;
+
+      margin-bottom: 8px;
+    }
+
+    .security-item span {
+      display: block;
 
       color: var(--muted);
 
-      background:
-
-        rgba(255,255,255,.025);
-
-      border:
-
-        1px solid var(--border);
-
-      font-size: 10px;
-
-      font-weight: 700;
-
-      transition: .2s ease;
-
-    }
-
-
-    .security-item:hover {
-
-      color: var(--text);
-
-      transform: translateY(-4px);
-
-      border-color:
-
-        rgba(255,95,158,.25);
-
-    }
-
-
-    .security-item i {
-
-      color: var(--pink);
-
-      font-size: 20px;
-
+      font-size: 9px;
     }
 
 
     /* =========================================================
-       PROJECTS
+       PROJECT
     ========================================================= */
 
     .project-card {
-
-      min-height: 330px;
+      min-height: 360px;
 
       display: grid;
 
@@ -1847,120 +1370,86 @@
 
       padding: 35px;
 
-      border-radius: var(--radius);
-
-      position: relative;
-
       overflow: hidden;
 
-    }
-
-
-    .project-card::before {
-
-      content: "";
-
-      position: absolute;
-
-      width: 250px;
-
-      height: 250px;
-
-      border-radius: 50%;
-
-      background:
-
-        rgba(91,140,255,.09);
-
-      filter: blur(60px);
-
-    }
-
-
-    .project-card > div {
-
       position: relative;
-
-      z-index: 2;
-
-      max-width: 500px;
-
     }
-
 
     .project-icon {
-
-      width: 65px;
-
-      height: 65px;
+      width: 80px;
+      height: 80px;
 
       display: grid;
 
       place-items: center;
 
+      border-radius: 25px;
+
+      color: white;
+
+      background: var(--gradient);
+
+      font-size: 30px;
+
+      box-shadow:
+        0 20px 60px rgba(91,140,255,.25);
+
       margin: 0 auto 20px;
 
-      border-radius: 20px;
-
-      color: var(--blue);
-
-      background:
-
-        rgba(91,140,255,.08);
-
-      border:
-
-        1px solid rgba(91,140,255,.18);
-
-      font-size: 25px;
-
+      animation:
+        projectFloat 4s ease-in-out infinite;
     }
 
+    @keyframes projectFloat {
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-9px);
+      }
+    }
 
     .project-card h3 {
+      font-size: 24px;
 
-      font-size: 21px;
-
-      margin-bottom: 12px;
-
+      margin-bottom: 9px;
     }
 
-
     .project-card p {
+      max-width: 560px;
 
       color: var(--muted);
 
       font-size: 12px;
 
-      line-height: 1.8;
+      line-height: 1.9;
 
-      margin-bottom: 18px;
-
+      margin: 0 auto 17px;
     }
 
-
     .coming {
-
-      display: inline-flex;
+      display: inline-block;
 
       padding: 8px 12px;
 
-      border-radius: 100px;
+      border-radius: 999px;
 
-      color: #b8c8ff;
+      color: var(--orange);
 
       background:
-
-        rgba(91,140,255,.08);
+        rgba(255,173,90,.06);
 
       border:
-
-        1px solid rgba(91,140,255,.16);
+        1px solid rgba(255,173,90,.18);
 
       font-size: 9px;
 
-      font-weight: 800;
+      font-weight: 900;
 
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
     }
 
 
@@ -1969,66 +1458,40 @@
     ========================================================= */
 
     .achievements {
-
       display: grid;
 
       grid-template-columns:
-
         repeat(3, 1fr);
 
-      gap: 18px;
-
+      gap: 14px;
     }
-
 
     .achievement {
+      padding: 24px;
 
-      padding: 28px;
-
-      border-radius: var(--radius);
-
-      transition: .25s ease;
-
+      text-align: center;
     }
 
+    .achievement i {
+      font-size: 28px;
 
-    .achievement:hover {
+      color: var(--orange);
 
-      transform: translateY(-5px);
-
+      margin-bottom: 15px;
     }
-
-
-    .achievement > i {
-
-      display: block;
-
-      margin-bottom: 20px;
-
-      color: var(--blue);
-
-      font-size: 24px;
-
-    }
-
 
     .achievement h3 {
+      font-size: 14px;
 
-      font-size: 15px;
-
-      margin-bottom: 8px;
-
+      margin-bottom: 5px;
     }
 
-
     .achievement p {
-
       color: var(--muted);
 
-      font-size: 11px;
+      font-size: 10px;
 
       line-height: 1.7;
-
     }
 
 
@@ -2037,27 +1500,21 @@
     ========================================================= */
 
     .terminal {
-
       overflow: hidden;
 
-      border-radius: 20px;
+      border-radius: 22px;
+
+      background: #070a11;
 
       border:
-
-        1px solid rgba(255,255,255,.10);
-
-      background: #080b12;
+        1px solid rgba(255,255,255,.09);
 
       box-shadow:
-
         0 30px 100px rgba(0,0,0,.35);
-
     }
 
-
     .terminal-bar {
-
-      height: 45px;
+      height: 43px;
 
       display: flex;
 
@@ -2065,128 +1522,94 @@
 
       gap: 7px;
 
-      padding: 0 15px;
-
-      border-bottom:
-
-        1px solid rgba(255,255,255,.07);
+      padding: 0 14px;
 
       background:
+        rgba(255,255,255,.035);
 
-        rgba(255,255,255,.025);
-
+      border-bottom:
+        1px solid rgba(255,255,255,.07);
     }
 
-
     .terminal-dot {
-
       width: 9px;
-
       height: 9px;
 
       border-radius: 50%;
 
-      background: #465066;
-
+      background: #ff5f57;
     }
 
+    .terminal-dot:nth-child(2) {
+      background: #ffbd2e;
+    }
+
+    .terminal-dot:nth-child(3) {
+      background: #28c840;
+    }
 
     .terminal-title {
+      color: #77829a;
 
-      margin-left: 8px;
-
-      color: #748198;
-
-      font-family:
-
-        "Courier New",
-        monospace;
+      font-family: monospace;
 
       font-size: 10px;
 
+      margin-left: 6px;
     }
 
-
     .terminal-body {
-
-      min-height: 350px;
+      min-height: 330px;
 
       padding: 20px;
 
-      font-family:
+      color: #a7ffbf;
 
-        "Courier New",
-        monospace;
+      font-family: monospace;
 
       font-size: 11px;
 
-      color: #91a3bf;
-
+      line-height: 1.8;
     }
-
 
     .terminal-output {
-
-      max-height: 245px;
-
-      overflow-y: auto;
-
       white-space: pre-wrap;
 
-      line-height: 1.7;
+      min-height: 245px;
 
-      margin-bottom: 14px;
-
+      overflow-wrap: anywhere;
     }
 
-
     .terminal-input {
-
       display: flex;
 
       align-items: center;
 
       gap: 8px;
 
+      color: #7fffb0;
     }
-
-
-    .terminal-input > span {
-
-      color: var(--green);
-
-    }
-
 
     .terminal-input input {
-
-      flex: 1;
-
-      min-width: 0;
+      width: 100%;
 
       border: 0;
 
       outline: 0;
 
-      color: #d9e2f0;
-
       background: transparent;
 
-      font-family: inherit;
+      color: #fff;
 
-      font-size: inherit;
-
+      font: inherit;
     }
 
-
     .terminal-help {
-
-      margin-top: 12px;
-
-      color: #56657d;
+      color: #69758b;
 
       font-size: 9px;
 
+      margin-top: 8px;
     }
 
 
@@ -2195,129 +1618,209 @@
     ========================================================= */
 
     .contact-grid {
-
       display: grid;
 
-      grid-template-columns: .8fr 1.2fr;
+      grid-template-columns:
+        .75fr 1.25fr;
 
-      gap: 20px;
-
+      gap: 16px;
     }
-
 
     .contact-intro {
+      padding: 30px;
 
-      padding: 32px;
-
-      border-radius: var(--radius);
-
+      background:
+        linear-gradient(
+          145deg,
+          rgba(91,140,255,.11),
+          rgba(164,108,255,.07)
+        );
     }
-
 
     .contact-intro h3 {
+      font-size: 25px;
 
-      font-size: 23px;
+      line-height: 1.3;
 
-      margin-bottom: 13px;
-
+      margin-bottom: 10px;
     }
 
-
     .contact-intro p {
-
       color: var(--muted);
 
       font-size: 12px;
 
       line-height: 1.9;
 
-      margin-bottom: 25px;
-
+      margin-bottom: 22px;
     }
 
-
     .status {
-
-      display: flex;
+      display: inline-flex;
 
       align-items: center;
 
-      gap: 8px;
+      gap: 7px;
+
+      padding: 8px 11px;
+
+      border-radius: 999px;
 
       color: var(--green);
 
-      font-size: 10px;
+      background:
+        rgba(67,223,134,.06);
 
-      font-weight: 700;
+      border:
+        1px solid rgba(67,223,134,.16);
 
+      font-size: 9px;
+
+      font-weight: 900;
     }
-
-
-    .status i {
-
-      font-size: 7px;
-
-    }
-
 
     .social-grid {
-
       display: grid;
 
       grid-template-columns:
-
         repeat(2, 1fr);
 
-      gap: 12px;
-
+      gap: 10px;
     }
 
-
     .social {
-
-      min-height: 82px;
+      --social: var(--blue);
 
       display: flex;
 
       align-items: center;
 
-      gap: 13px;
+      gap: 11px;
 
-      padding: 15px;
+      min-height: 72px;
 
-      border-radius: 15px;
+      padding: 12px;
 
-      background:
+      border-radius: 17px;
 
-        var(--card);
+      background: var(--card);
 
       border:
-
         1px solid var(--border);
 
-      transition: .25s ease;
+      transition: .3s;
 
+      position: relative;
+
+      overflow: hidden;
     }
 
-
-    .social:hover {
-
+    .social:hover,
+    .social:active {
       transform: translateY(-4px);
 
-      border-color:
+      border-color: var(--social);
 
-        rgba(91,140,255,.28);
-
+      box-shadow:
+        0 18px 50px
+        color-mix(
+          in srgb,
+          var(--social) 10%,
+          transparent
+        );
     }
 
-
     .social-icon {
-
       width: 43px;
-
       height: 43px;
 
-      flex: 0 0 43px;
+      flex-shrink: 0;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 13px;
+
+      color: var(--social);
+
+      background:
+        color-mix(
+          in srgb,
+          var(--social) 9%,
+          transparent
+        );
+
+      transition: .3s;
+    }
+
+    .social:hover .social-icon,
+    .social:active .social-icon {
+      color: white;
+
+      background: var(--social);
+
+      transform:
+        rotate(-5deg)
+        scale(1.05);
+    }
+
+    .social small {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 8px;
+
+      margin-bottom: 2px;
+    }
+
+    .social strong {
+      display: block;
+
+      font-size: 10px;
+
+      overflow-wrap: anywhere;
+    }
+
+    .facebook { --social: #1877f2; }
+    .whatsapp { --social: #25d366; }
+    .telegram { --social: #229ed9; }
+    .instagram { --social: #e4405f; }
+    .linkedin { --social: #0a66c2; }
+    .email { --social: #ffad5a; }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding: 35px 0 calc(35px + var(--safe-bottom));
+
+      text-align: center;
+
+      border-top:
+        1px solid var(--border);
+
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    .footer-icons {
+      display: flex;
+
+      justify-content: center;
+
+      gap: 7px;
+
+      margin-bottom: 15px;
+    }
+
+    .footer-icons a {
+      width: 38px;
+      height: 38px;
 
       display: grid;
 
@@ -2325,86 +1828,103 @@
 
       border-radius: 12px;
 
-      font-size: 18px;
+      background: var(--card-2);
 
+      border:
+        1px solid var(--border);
+
+      transition: .25s;
+    }
+
+    .footer-icons a:hover,
+    .footer-icons a:active {
+      color: white;
+
+      background: var(--gradient);
+
+      border-color: transparent;
+
+      transform: translateY(-3px);
     }
 
 
-    .social small {
+    /* =========================================================
+       BACK TOP
+    ========================================================= */
 
-      display: block;
+    #backTop {
+      position: fixed;
 
-      color: var(--muted);
+      right: 18px;
 
-      font-size: 8px;
+      bottom:
+        calc(18px + var(--safe-bottom));
 
-      margin-bottom: 5px;
+      width: 45px;
+      height: 45px;
 
+      border-radius: 14px;
+
+      border:
+        1px solid var(--border);
+
+      background: var(--card);
+
+      color: var(--text);
+
+      display: grid;
+
+      place-items: center;
+
+      cursor: pointer;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transform: translateY(15px);
+
+      transition: .3s;
+
+      z-index: 4000;
+    }
+
+    #backTop.show {
+      opacity: 1;
+
+      visibility: visible;
+
+      transform: translateY(0);
+    }
+
+    #backTop:hover,
+    #backTop:active {
+      color: white;
+
+      background: var(--gradient);
+
+      border-color: transparent;
     }
 
 
-    .social strong {
+    /* =========================================================
+       REVEAL
+    ========================================================= */
 
-      display: block;
+    .reveal {
+      opacity: 0;
 
-      font-size: 10px;
+      transform: translateY(25px);
 
-      word-break: break-word;
-
+      transition:
+        opacity .7s ease,
+        transform .7s ease;
     }
 
+    .reveal.active {
+      opacity: 1;
 
-    .facebook .social-icon {
-
-      color: #5b8cff;
-
-      background: rgba(91,140,255,.10);
-
-    }
-
-
-    .whatsapp .social-icon {
-
-      color: #43df86;
-
-      background: rgba(67,223,134,.10);
-
-    }
-
-
-    .telegram .social-icon {
-
-      color: #24d9ff;
-
-      background: rgba(36,217,255,.10);
-
-    }
-
-
-    .instagram .social-icon {
-
-      color: #ff5f9e;
-
-      background: rgba(255,95,158,.10);
-
-    }
-
-
-    .linkedin .social-icon {
-
-      color: #5b8cff;
-
-      background: rgba(91,140,255,.10);
-
-    }
-
-
-    .email .social-icon {
-
-      color: #ffad5a;
-
-      background: rgba(255,173,90,.10);
-
+      transform: translateY(0);
     }
 
 
@@ -2413,7 +1933,6 @@
     ========================================================= */
 
     .command-overlay {
-
       position: fixed;
 
       inset: 0;
@@ -2429,7 +1948,6 @@
       padding-top: 110px;
 
       background:
-
         rgba(0,0,0,.55);
 
       backdrop-filter: blur(12px);
@@ -2439,33 +1957,26 @@
       visibility: hidden;
 
       transition: .25s;
-
     }
 
-
     .command-overlay.open {
-
       opacity: 1;
 
       visibility: visible;
-
     }
 
-
     .command {
-
       width: min(92%, 560px);
 
       border-radius: 20px;
 
-      background: #0c111d;
+      background:
+        #0c111d;
 
       border:
-
         1px solid rgba(255,255,255,.11);
 
       box-shadow:
-
         0 35px 120px rgba(0,0,0,.55);
 
       overflow: hidden;
@@ -2473,19 +1984,13 @@
       transform: translateY(-15px);
 
       transition: .25s;
-
     }
-
 
     .command-overlay.open .command {
-
       transform: translateY(0);
-
     }
 
-
     .command-search {
-
       display: flex;
 
       align-items: center;
@@ -2495,21 +2000,14 @@
       padding: 15px;
 
       border-bottom:
-
         1px solid rgba(255,255,255,.07);
-
     }
-
 
     .command-search i {
-
       color: #6f7b91;
-
     }
 
-
     .command-search input {
-
       width: 100%;
 
       border: 0;
@@ -2521,19 +2019,13 @@
       color: white;
 
       font-size: 13px;
-
     }
-
 
     .command-list {
-
       padding: 8px;
-
     }
 
-
     .command-item {
-
       width: 100%;
 
       display: flex;
@@ -2559,196 +2051,20 @@
       font-size: 11px;
 
       transition: .2s;
-
     }
-
 
     .command-item:hover,
     .command-item:active {
-
       color: white;
 
       background:
-
         rgba(91,140,255,.12);
-
     }
 
-
     .command-item i {
-
       width: 24px;
 
       color: var(--blue);
-
-    }
-
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-
-    footer {
-
-      padding:
-
-        35px 0
-        calc(35px + var(--safe-bottom));
-
-      border-top:
-
-        1px solid var(--border);
-
-      text-align: center;
-
-    }
-
-
-    .footer-icons {
-
-      display: flex;
-
-      justify-content: center;
-
-      gap: 8px;
-
-      margin-bottom: 18px;
-
-    }
-
-
-    .footer-icons a {
-
-      width: 38px;
-
-      height: 38px;
-
-      display: grid;
-
-      place-items: center;
-
-      border-radius: 11px;
-
-      color: var(--muted);
-
-      background:
-
-        rgba(255,255,255,.035);
-
-      border:
-
-        1px solid var(--border);
-
-      font-size: 14px;
-
-      transition: .2s;
-
-    }
-
-
-    .footer-icons a:hover {
-
-      color: white;
-
-      background:
-
-        rgba(91,140,255,.10);
-
-      transform: translateY(-3px);
-
-    }
-
-
-    footer p {
-
-      color: var(--muted);
-
-      font-size: 9px;
-
-    }
-
-
-    /* =========================================================
-       REVEAL
-    ========================================================= */
-
-    .reveal {
-
-      opacity: 0;
-
-      transform: translateY(25px);
-
-      transition:
-
-        opacity .7s ease,
-
-        transform .7s ease;
-
-    }
-
-
-    .reveal.visible {
-
-      opacity: 1;
-
-      transform: translateY(0);
-
-    }
-
-
-    /* =========================================================
-       BACK TOP
-    ========================================================= */
-
-    #backTop {
-
-      position: fixed;
-
-      right: 20px;
-
-      bottom: 20px;
-
-      z-index: 7000;
-
-      width: 42px;
-
-      height: 42px;
-
-      display: grid;
-
-      place-items: center;
-
-      border-radius: 13px;
-
-      color: white;
-
-      background: var(--gradient);
-
-      box-shadow:
-
-        0 15px 40px rgba(0,0,0,.30);
-
-      cursor: pointer;
-
-      opacity: 0;
-
-      visibility: hidden;
-
-      transform: translateY(10px);
-
-      transition: .25s ease;
-
-    }
-
-
-    #backTop.show {
-
-      opacity: 1;
-
-      visibility: visible;
-
-      transform: translateY(0);
-
     }
 
 
@@ -2759,7 +2075,6 @@
     @media(max-width: 900px) {
 
       .nav-links {
-
         position: absolute;
 
         top: calc(100% + 9px);
@@ -2779,11 +2094,9 @@
         gap: 3px;
 
         background:
-
           rgba(8,11,20,.94);
 
         border:
-
           1px solid var(--border);
 
         border-radius: 18px;
@@ -2797,281 +2110,161 @@
         transform: translateY(-10px);
 
         transition: .25s;
-
       }
-
-
-      body.light .nav-links {
-
-        background:
-
-          rgba(255,255,255,.94);
-
-      }
-
 
       .nav-links.open {
-
         opacity: 1;
 
         visibility: visible;
 
         transform: translateY(0);
-
       }
 
-
       .nav-links a {
-
         padding: 13px;
 
         border-radius: 11px;
-
       }
-
 
       .nav-links a:hover {
-
         background:
-
           rgba(91,140,255,.08);
-
       }
-
 
       .menu-btn {
-
         display: grid;
-
       }
 
-
       .hero-grid {
-
         grid-template-columns: 1fr;
 
         text-align: center;
-
       }
-
-
-      .eyebrow {
-
-        margin-inline: auto;
-
-      }
-
 
       .hero-description {
-
         margin-inline: auto;
-
       }
-
 
       .buttons,
       .meta {
-
         justify-content: center;
-
       }
-
 
       .visual {
-
         min-height: 430px;
-
       }
-
 
       .about-grid,
       .contact-grid {
-
         grid-template-columns: 1fr;
-
       }
-
     }
 
 
     @media(max-width: 650px) {
 
       .cursor {
-
         display: none;
-
       }
-
 
       section {
-
         padding: 80px 0;
-
       }
-
 
       .hero {
-
         padding-top: 115px;
-
       }
 
-
       .hero h1 {
-
         font-size: 45px;
 
         letter-spacing: -2.5px;
-
       }
-
 
       .hero-role {
-
         font-size: 21px;
-
       }
-
 
       .hero-description {
-
         font-size: 13px;
-
       }
-
 
       .buttons {
-
         flex-direction: column;
-
       }
-
 
       .btn {
-
         width: 100%;
-
       }
-
 
       .meta {
-
         flex-direction: column;
-
       }
-
 
       .meta-item {
-
         justify-content: center;
-
       }
-
 
       .visual {
-
         min-height: 390px;
-
       }
-
 
       .phone {
-
         width: 205px;
-
         height: 400px;
-
       }
-
 
       .orb {
-
         width: 300px;
-
         height: 300px;
-
       }
-
 
       .kotlin-chip {
-
         right: -2px;
-
         top: 230px;
-
       }
-
 
       .android-chip {
-
         right: -3px;
-
         top: 65px;
-
       }
-
 
       .security-chip {
-
         left: -3px;
-
         bottom: 55px;
-
       }
-
 
       .skills-grid {
-
         grid-template-columns: 1fr;
-
       }
-
 
       .security-grid {
-
         grid-template-columns:
-
           repeat(2, 1fr);
-
       }
-
 
       .achievements {
-
         grid-template-columns: 1fr;
-
       }
-
 
       .social-grid {
-
         grid-template-columns: 1fr;
-
       }
-
 
       .about-card {
-
         padding: 24px;
-
       }
 
-
       .terminal-body {
-
         min-height: 310px;
 
         padding: 15px;
 
         font-size: 10px;
-
       }
 
-
       .command-overlay {
-
         padding-top: 80px;
-
       }
 
     }
@@ -3080,49 +2273,30 @@
     @media(max-width: 390px) {
 
       .logo span {
-
         display: none;
-
       }
-
 
       .logo-box {
-
         width: 40px;
-
         height: 40px;
-
       }
-
 
       .hero h1 {
-
         font-size: 40px;
-
       }
-
 
       .phone {
-
         width: 185px;
-
         height: 360px;
-
       }
-
 
       .security-chip,
       .kotlin-chip {
-
         display: none;
-
       }
 
-
       .security-grid {
-
         gap: 7px;
-
       }
 
     }
@@ -3137,7 +2311,6 @@
       *,
       *::before,
       *::after {
-
         scroll-behavior: auto !important;
 
         animation-duration: .01ms !important;
@@ -3145,13 +2318,11 @@
         animation-iteration-count: 1 !important;
 
         transition-duration: .01ms !important;
-
       }
 
     }
 
   </style>
-
 </head>
 
 
@@ -3160,7 +2331,7 @@
 
   <!-- ========================================================
        BOOT SCREEN
-  ======================================================== -->
+  ========================================================= -->
 
   <div id="boot">
 
@@ -3204,7 +2375,7 @@
        NAV
   ========================================================= -->
 
-  <header class="nav" id="navbar">
+  <header class="nav">
 
     <div class="nav-inner">
 
@@ -3223,29 +2394,17 @@
 
       <nav class="nav-links" id="navLinks">
 
-        <a href="#home">
-          Home
-        </a>
+        <a href="#home">Home</a>
 
-        <a href="#about">
-          About
-        </a>
+        <a href="#about">About</a>
 
-        <a href="#skills">
-          Skills
-        </a>
+        <a href="#skills">Skills</a>
 
-        <a href="#projects">
-          Projects
-        </a>
+        <a href="#projects">Projects</a>
 
-        <a href="#terminal">
-          Terminal
-        </a>
+        <a href="#terminal">Terminal</a>
 
-        <a href="#contact">
-          Contact
-        </a>
+        <a href="#contact">Contact</a>
 
       </nav>
 
@@ -3257,31 +2416,23 @@
           id="commandBtn"
           aria-label="Command palette"
         >
-
           <i class="fa-solid fa-terminal"></i>
-
         </button>
-
 
         <button
           class="icon-btn"
           id="themeBtn"
           aria-label="Theme"
         >
-
           <i class="fa-solid fa-moon"></i>
-
         </button>
-
 
         <button
           class="icon-btn menu-btn"
           id="menuBtn"
           aria-label="Menu"
         >
-
           <i class="fa-solid fa-bars"></i>
-
         </button>
 
       </div>
@@ -3331,9 +2482,7 @@
 
             <div class="hero-role">
 
-              <span>
-                Android Developer
-              </span>
+              <span>Android Developer</span>
 
               <br>
 
@@ -3436,13 +2585,9 @@
                 </h3>
 
                 <p>
-
                   Build. Learn. Create.
-
                   <br>
-
                   One line of code at a time.
-
                 </p>
 
                 <div class="code-line"></div>
@@ -3510,17 +2655,13 @@
           </div>
 
           <h2 class="section-title">
-
             Building skills today.
             Creating bigger things tomorrow.
-
           </h2>
 
           <p class="section-text">
-
             A young developer focused on learning,
             experimenting, and turning ideas into technology.
-
           </p>
 
         </div>
@@ -3558,61 +2699,43 @@
 
             <div class="info-row">
 
-              <span>
-                Age
-              </span>
+              <span>Age</span>
 
-              <strong>
-                19
-              </strong>
+              <strong>19</strong>
 
             </div>
 
 
             <div class="info-row">
 
-              <span>
-                Location
-              </span>
+              <span>Location</span>
 
-              <strong>
-                Cairo, Egypt 🇪🇬
-              </strong>
+              <strong>Cairo, Egypt 🇪🇬</strong>
 
             </div>
 
 
             <div class="info-row">
 
-              <span>
-                Education
-              </span>
+              <span>Education</span>
 
-              <strong>
-                Computer Science
-              </strong>
+              <strong>Computer Science</strong>
 
             </div>
 
 
             <div class="info-row">
 
-              <span>
-                Year
-              </span>
+              <span>Year</span>
 
-              <strong>
-                2nd Year
-              </strong>
+              <strong>2nd Year</strong>
 
             </div>
 
 
             <div class="info-row">
 
-              <span>
-                Status
-              </span>
+              <span>Status</span>
 
               <strong class="available">
                 ● Available
@@ -3648,10 +2771,8 @@
           </h2>
 
           <p class="section-text">
-
             Technologies and areas I'm learning,
             practicing, and building with.
-
           </p>
 
         </div>
@@ -3690,41 +2811,15 @@
 
             <div class="tags">
 
-              <span class="tag">
-                Kotlin
-              </span>
-
-              <span class="tag">
-                Java
-              </span>
-
-              <span class="tag">
-                Android Studio
-              </span>
-
-              <span class="tag">
-                Jetpack Compose
-              </span>
-
-              <span class="tag">
-                XML
-              </span>
-
-              <span class="tag">
-                Material Design
-              </span>
-
-              <span class="tag">
-                Firebase
-              </span>
-
-              <span class="tag">
-                Room
-              </span>
-
-              <span class="tag">
-                SQLite
-              </span>
+              <span class="tag">Kotlin</span>
+              <span class="tag">Java</span>
+              <span class="tag">Android Studio</span>
+              <span class="tag">Jetpack Compose</span>
+              <span class="tag">XML</span>
+              <span class="tag">Material Design</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Room</span>
+              <span class="tag">SQLite</span>
 
             </div>
 
@@ -3761,37 +2856,14 @@
 
             <div class="tags">
 
-              <span class="tag">
-                MVVM
-              </span>
-
-              <span class="tag">
-                Clean Architecture
-              </span>
-
-              <span class="tag">
-                REST APIs
-              </span>
-
-              <span class="tag">
-                JSON
-              </span>
-
-              <span class="tag">
-                Retrofit
-              </span>
-
-              <span class="tag">
-                Coroutines
-              </span>
-
-              <span class="tag">
-                Git
-              </span>
-
-              <span class="tag">
-                GitHub
-              </span>
+              <span class="tag">MVVM</span>
+              <span class="tag">Clean Architecture</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">JSON</span>
+              <span class="tag">Retrofit</span>
+              <span class="tag">Coroutines</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
 
             </div>
 
@@ -3828,33 +2900,13 @@
 
             <div class="tags">
 
-              <span class="tag">
-                C++
-              </span>
-
-              <span class="tag">
-                OOP
-              </span>
-
-              <span class="tag">
-                Data Structures
-              </span>
-
-              <span class="tag">
-                Algorithms
-              </span>
-
-              <span class="tag">
-                Debugging
-              </span>
-
-              <span class="tag">
-                Problem Solving
-              </span>
-
-              <span class="tag">
-                Linux
-              </span>
+              <span class="tag">C++</span>
+              <span class="tag">OOP</span>
+              <span class="tag">Data Structures</span>
+              <span class="tag">Algorithms</span>
+              <span class="tag">Debugging</span>
+              <span class="tag">Problem Solving</span>
+              <span class="tag">Linux</span>
 
             </div>
 
@@ -3891,37 +2943,14 @@
 
             <div class="tags">
 
-              <span class="tag">
-                Cybersecurity
-              </span>
-
-              <span class="tag">
-                Ethical Hacking
-              </span>
-
-              <span class="tag">
-                Networking
-              </span>
-
-              <span class="tag">
-                Linux
-              </span>
-
-              <span class="tag">
-                OWASP
-              </span>
-
-              <span class="tag">
-                Web Security
-              </span>
-
-              <span class="tag">
-                Security Analysis
-              </span>
-
-              <span class="tag">
-                Vulnerability Assessment
-              </span>
+              <span class="tag">Cybersecurity</span>
+              <span class="tag">Ethical Hacking</span>
+              <span class="tag">Networking</span>
+              <span class="tag">Linux</span>
+              <span class="tag">OWASP</span>
+              <span class="tag">Web Security</span>
+              <span class="tag">Security Analysis</span>
+              <span class="tag">Vulnerability Assessment</span>
 
             </div>
 
@@ -4077,10 +3106,8 @@
             </h3>
 
             <p>
-
               This space is reserved for Android applications,
               security projects, experiments, and future work.
-
             </p>
 
             <span class="coming">
@@ -4115,10 +3142,8 @@
           </h2>
 
           <p class="section-text">
-
             This section is ready for certifications,
             competitions, projects, and future milestones.
-
           </p>
 
         </div>
@@ -4209,9 +3234,7 @@
           <div class="terminal-bar">
 
             <span class="terminal-dot"></span>
-
             <span class="terminal-dot"></span>
-
             <span class="terminal-dot"></span>
 
             <span class="terminal-title">
@@ -4249,7 +3272,7 @@
             <div class="terminal-help">
 
               Available:
-              help · whoami · skills · projects · contact · clear · neofetch
+              help · whoami · skills · projects · contact · clear
 
             </div>
 
@@ -4297,11 +3320,9 @@
             </h3>
 
             <p>
-
               I'm always interested in learning,
               meeting new people, exploring ideas,
               and working toward better technology.
-
             </p>
 
 
@@ -4327,9 +3348,7 @@
             >
 
               <div class="social-icon">
-
                 <i class="fa-brands fa-facebook-f"></i>
-
               </div>
 
               <div>
@@ -4355,9 +3374,7 @@
             >
 
               <div class="social-icon">
-
                 <i class="fa-brands fa-whatsapp"></i>
-
               </div>
 
               <div>
@@ -4383,9 +3400,7 @@
             >
 
               <div class="social-icon">
-
                 <i class="fa-brands fa-telegram"></i>
-
               </div>
 
               <div>
@@ -4411,9 +3426,7 @@
             >
 
               <div class="social-icon">
-
                 <i class="fa-brands fa-instagram"></i>
-
               </div>
 
               <div>
@@ -4439,9 +3452,7 @@
             >
 
               <div class="social-icon">
-
                 <i class="fa-brands fa-linkedin-in"></i>
-
               </div>
 
               <div>
@@ -4465,9 +3476,7 @@
             >
 
               <div class="social-icon">
-
                 <i class="fa-solid fa-envelope"></i>
-
               </div>
 
               <div>
@@ -4506,79 +3515,58 @@
 
       <div class="footer-icons">
 
-
         <a
           href="https://www.facebook.com/share/1DsBQE5YmH/"
           target="_blank"
           rel="noopener"
         >
-
           <i class="fa-brands fa-facebook-f"></i>
-
         </a>
-
 
         <a
           href="https://wa.me/201027595528"
           target="_blank"
           rel="noopener"
         >
-
           <i class="fa-brands fa-whatsapp"></i>
-
         </a>
-
 
         <a
           href="https://t.me/C_O_N_2"
           target="_blank"
           rel="noopener"
         >
-
           <i class="fa-brands fa-telegram"></i>
-
         </a>
-
 
         <a
           href="https://instagram.com/mhbdllh4861"
           target="_blank"
           rel="noopener"
         >
-
           <i class="fa-brands fa-instagram"></i>
-
         </a>
-
 
         <a
           href="https://www.linkedin.com/in/mohammed-con"
           target="_blank"
           rel="noopener"
         >
-
           <i class="fa-brands fa-linkedin-in"></i>
-
         </a>
 
-
-        <a
-          href="mailto:cconker63@gmail.com"
-        >
+        <a href="mailto:cconker63@gmail.com">
 
           <i class="fa-solid fa-envelope"></i>
 
         </a>
-
 
       </div>
 
 
       <p>
 
-        ©
-
-        <span id="year"></span>
+        © <span id="year"></span>
 
         Mohamed Abdullah Ibrahim
 
@@ -4597,10 +3585,7 @@
        BACK TOP
   ========================================================= -->
 
-  <button
-    id="backTop"
-    aria-label="Back to top"
-  >
+  <button id="backTop">
 
     <i class="fa-solid fa-arrow-up"></i>
 
@@ -4624,8 +3609,7 @@
 
         <input
           id="commandSearch"
-          type="text"
-          placeholder="Search commands..."
+          placeholder="Search or type a command..."
           autocomplete="off"
         >
 
@@ -4634,28 +3618,12 @@
 
       <div class="command-list">
 
-
         <button
           class="command-item"
           data-target="#home"
         >
-
           <i class="fa-solid fa-house"></i>
-
-          Go to Home
-
-        </button>
-
-
-        <button
-          class="command-item"
-          data-target="#about"
-        >
-
-          <i class="fa-solid fa-user"></i>
-
-          About Mohamed
-
+          Go Home
         </button>
 
 
@@ -4663,11 +3631,8 @@
           class="command-item"
           data-target="#skills"
         >
-
           <i class="fa-solid fa-code"></i>
-
-          Technical Skills
-
+          View Skills
         </button>
 
 
@@ -4675,11 +3640,8 @@
           class="command-item"
           data-target="#projects"
         >
-
           <i class="fa-solid fa-rocket"></i>
-
-          Projects
-
+          View Projects
         </button>
 
 
@@ -4687,11 +3649,8 @@
           class="command-item"
           data-target="#terminal"
         >
-
           <i class="fa-solid fa-terminal"></i>
-
-          Interactive Terminal
-
+          Open Terminal
         </button>
 
 
@@ -4699,11 +3658,8 @@
           class="command-item"
           data-target="#contact"
         >
-
           <i class="fa-solid fa-envelope"></i>
-
-          Contact
-
+          Contact Mohamed
         </button>
 
 
@@ -4711,13 +3667,9 @@
           class="command-item"
           id="commandTheme"
         >
-
           <i class="fa-solid fa-circle-half-stroke"></i>
-
           Toggle Theme
-
         </button>
-
 
       </div>
 
@@ -4726,67 +3678,13 @@
   </div>
 
 
-  <!-- ========================================================
-       JAVASCRIPT
-  ========================================================= -->
-
   <script>
-
-    /* =========================================================
-       ELEMENTS
-    ========================================================= */
-
-    const boot =
-      document.getElementById("boot");
-
-    const cursor =
-      document.getElementById("cursor");
-
-    const progress =
-      document.getElementById("progress");
-
-    const navbar =
-      document.getElementById("navbar");
-
-    const navLinks =
-      document.getElementById("navLinks");
-
-    const menuBtn =
-      document.getElementById("menuBtn");
-
-    const themeBtn =
-      document.getElementById("themeBtn");
-
-    const commandBtn =
-      document.getElementById("commandBtn");
-
-    const commandOverlay =
-      document.getElementById("commandOverlay");
-
-    const commandSearch =
-      document.getElementById("commandSearch");
-
-    const commandTheme =
-      document.getElementById("commandTheme");
-
-    const backTop =
-      document.getElementById("backTop");
-
-    const terminalOutput =
-      document.getElementById("terminalOutput");
-
-    const terminalInput =
-      document.getElementById("terminalInput");
-
-    const year =
-      document.getElementById("year");
-
 
     /* =========================================================
        YEAR
     ========================================================= */
 
-    year.textContent =
+    document.getElementById("year").textContent =
       new Date().getFullYear();
 
 
@@ -4798,9 +3696,11 @@
 
       setTimeout(() => {
 
-        boot.classList.add("hide");
+        document
+          .getElementById("boot")
+          .classList.add("hide");
 
-      }, 1800);
+      }, 1400);
 
     });
 
@@ -4809,295 +3709,294 @@
        CURSOR
     ========================================================= */
 
-    if (
-      window.matchMedia(
-        "(pointer:fine)"
-      ).matches
-    ) {
+    const cursor =
+      document.getElementById("cursor");
 
-      document.addEventListener(
-        "mousemove",
-        (e) => {
+    window.addEventListener("mousemove", e => {
 
-          cursor.style.left =
-            e.clientX + "px";
+      cursor.style.left =
+        e.clientX + "px";
 
-          cursor.style.top =
-            e.clientY + "px";
+      cursor.style.top =
+        e.clientY + "px";
 
-        }
-      );
-
-
-      document
-        .querySelectorAll(
-          "a, button, input"
-        )
-        .forEach((element) => {
-
-          element.addEventListener(
-            "mouseenter",
-            () => {
-
-              cursor.classList.add(
-                "active"
-              );
-
-            }
-          );
-
-
-          element.addEventListener(
-            "mouseleave",
-            () => {
-
-              cursor.classList.remove(
-                "active"
-              );
-
-            }
-          );
-
-        });
-
-    }
-
-
-    /* =========================================================
-       SCROLL
-    ========================================================= */
-
-    function handleScroll() {
-
-      const scrollTop =
-        window.scrollY;
-
-      const documentHeight =
-        document.documentElement.scrollHeight
-        - window.innerHeight;
-
-      const percentage =
-        documentHeight > 0
-          ? (scrollTop / documentHeight) * 100
-          : 0;
-
-      progress.style.width =
-        percentage + "%";
-
-
-      if (scrollTop > 30) {
-
-        navbar.classList.add(
-          "scrolled"
-        );
-
-      } else {
-
-        navbar.classList.remove(
-          "scrolled"
-        );
-
-      }
-
-
-      if (scrollTop > 500) {
-
-        backTop.classList.add(
-          "show"
-        );
-
-      } else {
-
-        backTop.classList.remove(
-          "show"
-        );
-
-      }
-
-    }
-
-
-    window.addEventListener(
-      "scroll",
-      handleScroll,
-      {
-        passive: true
-      }
-    );
-
-
-    handleScroll();
-
-
-    /* =========================================================
-       MOBILE MENU
-    ========================================================= */
-
-    menuBtn.addEventListener(
-      "click",
-      () => {
-
-        navLinks.classList.toggle(
-          "open"
-        );
-
-        const icon =
-          menuBtn.querySelector("i");
-
-        if (
-          navLinks.classList.contains(
-            "open"
-          )
-        ) {
-
-          icon.className =
-            "fa-solid fa-xmark";
-
-        } else {
-
-          icon.className =
-            "fa-solid fa-bars";
-
-        }
-
-      }
-    );
-
-
-    navLinks
-      .querySelectorAll("a")
-      .forEach((link) => {
-
-        link.addEventListener(
-          "click",
-          () => {
-
-            navLinks.classList.remove(
-              "open"
-            );
-
-            menuBtn
-              .querySelector("i")
-              .className =
-              "fa-solid fa-bars";
-
-          }
-        );
-
-      });
+    });
 
 
     /* =========================================================
        THEME
     ========================================================= */
 
-    function updateThemeIcon() {
+    const themeBtn =
+      document.getElementById("themeBtn");
+
+
+    function applyTheme() {
+
+      const light =
+        localStorage.getItem("theme")
+        === "light";
+
+      document.body.classList.toggle(
+        "light",
+        light
+      );
+
+      themeBtn.innerHTML = light
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
+
+    }
+
+
+    themeBtn.addEventListener("click", () => {
+
+      const light =
+        document.body.classList.contains("light");
+
+      localStorage.setItem(
+        "theme",
+        light ? "dark" : "light"
+      );
+
+      applyTheme();
+
+    });
+
+
+    applyTheme();
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener("click", () => {
+
+      navLinks.classList.toggle("open");
 
       const icon =
-        themeBtn.querySelector("i");
+        menuBtn.querySelector("i");
 
-      if (
-        document.body.classList.contains(
-          "light"
-        )
-      ) {
+      icon.className =
+        navLinks.classList.contains("open")
+          ? "fa-solid fa-xmark"
+          : "fa-solid fa-bars";
 
-        icon.className =
-          "fa-solid fa-sun";
+    });
+
+
+    navLinks.querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navLinks.classList.remove("open");
+
+          menuBtn.querySelector("i")
+            .className =
+            "fa-solid fa-bars";
+
+        });
+
+      });
+
+
+    /* =========================================================
+       REVEAL
+    ========================================================= */
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add(
+                "active"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: .10
+        }
+      );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach(el => {
+
+        observer.observe(el);
+
+      });
+
+
+    /* =========================================================
+       SCROLL PROGRESS
+    ========================================================= */
+
+    const progress =
+      document.getElementById("progress");
+
+
+    window.addEventListener("scroll", () => {
+
+      const scroll =
+        window.scrollY;
+
+      const total =
+        document.documentElement.scrollHeight
+        - window.innerHeight;
+
+      const percentage =
+        total > 0
+          ? (scroll / total) * 100
+          : 0;
+
+      progress.style.width =
+        percentage + "%";
+
+    });
+
+
+    /* =========================================================
+       BACK TO TOP
+    ========================================================= */
+
+    const backTop =
+      document.getElementById("backTop");
+
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 600) {
+
+        backTop.classList.add("show");
 
       } else {
 
-        icon.className =
-          "fa-solid fa-moon";
+        backTop.classList.remove("show");
 
       }
 
+    });
+
+
+    backTop.addEventListener("click", () => {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+
+    /* =========================================================
+       PHONE PARALLAX
+    ========================================================= */
+
+    const visual =
+      document.querySelector(".visual");
+
+    const phone =
+      document.getElementById("phone");
+
+
+    if (window.innerWidth > 900) {
+
+      visual.addEventListener(
+        "mousemove",
+        e => {
+
+          const rect =
+            visual.getBoundingClientRect();
+
+          const x =
+            e.clientX - rect.left;
+
+          const y =
+            e.clientY - rect.top;
+
+          const centerX =
+            rect.width / 2;
+
+          const centerY =
+            rect.height / 2;
+
+          const rotateY =
+            (x - centerX) / 40;
+
+          const rotateX =
+            (centerY - y) / 40;
+
+          phone.style.animation =
+            "none";
+
+          phone.style.transform =
+            `
+              rotate(-5deg)
+              perspective(900px)
+              rotateY(${7 + rotateY}deg)
+              rotateX(${rotateX}deg)
+              translateY(-5px)
+            `;
+
+        }
+      );
+
+
+      visual.addEventListener(
+        "mouseleave",
+        () => {
+
+          phone.style.animation =
+            "";
+
+          phone.style.transform =
+            "";
+
+        }
+      );
+
     }
-
-
-    function toggleTheme() {
-
-      document.body.classList.toggle(
-        "light"
-      );
-
-      const isLight =
-        document.body.classList.contains(
-          "light"
-        );
-
-      localStorage.setItem(
-        "portfolio-theme",
-        isLight
-          ? "light"
-          : "dark"
-      );
-
-      updateThemeIcon();
-
-    }
-
-
-    const savedTheme =
-      localStorage.getItem(
-        "portfolio-theme"
-      );
-
-
-    if (savedTheme === "light") {
-
-      document.body.classList.add(
-        "light"
-      );
-
-    }
-
-
-    updateThemeIcon();
-
-
-    themeBtn.addEventListener(
-      "click",
-      toggleTheme
-    );
-
-
-    commandTheme.addEventListener(
-      "click",
-      () => {
-
-        toggleTheme();
-
-      }
-    );
 
 
     /* =========================================================
        COMMAND PALETTE
     ========================================================= */
 
-    const commandItems =
-      document.querySelectorAll(
-        ".command-item"
-      );
+    const commandBtn =
+      document.getElementById("commandBtn");
+
+    const commandOverlay =
+      document.getElementById("commandOverlay");
+
+    const commandSearch =
+      document.getElementById("commandSearch");
 
 
     function openCommand() {
 
-      commandOverlay.classList.add(
-        "open"
-      );
-
-      commandSearch.value = "";
-
-      commandItems.forEach(
-        (item) => {
-
-          item.style.display =
-            "flex";
-
-        }
-      );
+      commandOverlay.classList.add("open");
 
       setTimeout(() => {
 
@@ -5110,9 +4009,11 @@
 
     function closeCommand() {
 
-      commandOverlay.classList.remove(
-        "open"
-      );
+      commandOverlay.classList.remove("open");
+
+      commandSearch.value = "";
+
+      filterCommands("");
 
     }
 
@@ -5125,11 +4026,9 @@
 
     commandOverlay.addEventListener(
       "click",
-      (e) => {
+      e => {
 
-        if (
-          e.target === commandOverlay
-        ) {
+        if (e.target === commandOverlay) {
 
           closeCommand();
 
@@ -5139,90 +4038,13 @@
     );
 
 
-    commandItems.forEach(
-      (item) => {
-
-        item.addEventListener(
-          "click",
-          () => {
-
-            const target =
-              item.dataset.target;
-
-            if (!target) {
-
-              closeCommand();
-
-              return;
-
-            }
-
-
-            closeCommand();
-
-
-            const element =
-              document.querySelector(
-                target
-              );
-
-
-            if (element) {
-
-              element.scrollIntoView({
-                behavior: "smooth"
-              });
-
-            }
-
-          }
-        );
-
-      }
-    );
-
-
-    /* =========================================================
-       COMMAND SEARCH
-    ========================================================= */
-
-    commandSearch.addEventListener(
-      "input",
-      (e) => {
-
-        const value =
-          e.target.value
-            .toLowerCase()
-            .trim();
-
-
-        commandItems.forEach(
-          (item) => {
-
-            const text =
-              item.textContent
-                .toLowerCase();
-
-
-            item.style.display =
-              text.includes(value)
-                ? "flex"
-                : "none";
-
-          }
-        );
-
-      }
-    );
-
-
     document.addEventListener(
       "keydown",
-      (e) => {
+      e => {
 
         if (
-          (e.ctrlKey || e.metaKey) &&
-          e.key.toLowerCase() === "k"
+          (e.ctrlKey || e.metaKey)
+          && e.key.toLowerCase() === "k"
         ) {
 
           e.preventDefault();
@@ -5231,14 +4053,96 @@
 
         }
 
-
-        if (
-          e.key === "Escape"
-        ) {
+        if (e.key === "Escape") {
 
           closeCommand();
 
         }
+
+      }
+    );
+
+
+    /* =========================================================
+       COMMAND ITEMS
+    ========================================================= */
+
+    const commandItems =
+      document.querySelectorAll(
+        ".command-item"
+      );
+
+
+    commandItems.forEach(item => {
+
+      item.addEventListener(
+        "click",
+        () => {
+
+          const target =
+            item.dataset.target;
+
+          if (target) {
+
+            closeCommand();
+
+            document
+              .querySelector(target)
+              .scrollIntoView({
+                behavior: "smooth"
+              });
+
+          }
+
+        }
+      );
+
+    });
+
+
+    document
+      .getElementById("commandTheme")
+      .addEventListener(
+        "click",
+        () => {
+
+          themeBtn.click();
+
+        }
+      );
+
+
+    /* =========================================================
+       COMMAND SEARCH
+    ========================================================= */
+
+    function filterCommands(query) {
+
+      const value =
+        query.toLowerCase();
+
+      commandItems.forEach(item => {
+
+        const text =
+          item.textContent.toLowerCase();
+
+        item.style.display =
+          text.includes(value)
+            ? "flex"
+            : "none";
+
+      });
+
+    }
+
+
+    commandSearch.addEventListener(
+      "input",
+      e => {
+
+        filterCommands(
+          e.target.value
+        );
 
       }
     );
@@ -5248,12 +4152,26 @@
        TERMINAL
     ========================================================= */
 
-    const welcome =
+    const terminalOutput =
+      document.getElementById(
+        "terminalOutput"
+      );
 
+    const terminalInput =
+      document.getElementById(
+        "terminalInput"
+      );
+
+
+    const welcome =
 `Mohamed Abdullah OS
 -------------------
+
 Welcome to the interactive portfolio.
-Type "help" to see available commands.`;
+
+Type "help" to see available commands.
+
+`;
 
 
     terminalOutput.textContent =
@@ -5263,7 +4181,7 @@ Type "help" to see available commands.`;
     function terminalPrint(text) {
 
       terminalOutput.textContent +=
-        "\n\n" + text;
+        text + "\n";
 
       terminalOutput.scrollTop =
         terminalOutput.scrollHeight;
@@ -5274,16 +4192,10 @@ Type "help" to see available commands.`;
     function runCommand(command) {
 
       const cmd =
-        command
-          .trim()
-          .toLowerCase();
+        command.trim().toLowerCase();
 
 
-      if (!cmd) {
-
-        return;
-
-      }
+      if (!cmd) return;
 
 
       terminalPrint(
@@ -5291,20 +4203,19 @@ Type "help" to see available commands.`;
       );
 
 
-      switch (cmd) {
-
+      switch(cmd) {
 
         case "help":
 
           terminalPrint(
-`Available commands
+`Available commands:
 
-whoami    → About Mohamed
-skills    → Technical skills
-projects  → Projects
-contact   → Contact information
-clear     → Clear terminal
-neofetch  → System information`
+whoami      → About Mohamed
+skills      → Technical skills
+projects    → Projects
+contact     → Contact information
+clear       → Clear terminal
+neofetch    → System information`
           );
 
           break;
@@ -5315,17 +4226,17 @@ neofetch  → System information`
           terminalPrint(
 `Mohamed Abdullah Ibrahim
 
-Role
+Role:
 Android Developer
 
-Focus
+Focus:
 Android Development
 Cybersecurity
 
-Location
+Location:
 Cairo, Egypt
 
-Education
+Education:
 Computer Science — 2nd Year`
           );
 
@@ -5335,17 +4246,17 @@ Computer Science — 2nd Year`
         case "skills":
 
           terminalPrint(
-`Android
-Kotlin, Java, Jetpack Compose
+`Android:
+Kotlin, Java, Jetpack Compose,
 Firebase, Room, REST APIs
 
-Programming
-C++, OOP, Algorithms
+Programming:
+C++, OOP, Algorithms,
 Data Structures
 
-Cybersecurity
-Linux, Networking
-OWASP, Web Security
+Cybersecurity:
+Linux, Networking,
+OWASP, Web Security,
 Ethical Hacking`
           );
 
@@ -5359,8 +4270,8 @@ Ethical Hacking`
 
 No public projects yet.
 
-Status
-🚀 COMING SOON`
+Status:
+COMING SOON 🚀`
           );
 
           break;
@@ -5371,19 +4282,16 @@ Status
           terminalPrint(
 `CONTACT
 
-WhatsApp
+WhatsApp:
 01027595528
 
-Telegram
+Telegram:
 @C_O_N_2
 
-Instagram
+Instagram:
 @mhbdllh4861
 
-LinkedIn
-Mohammed CON
-
-Email
+Email:
 cconker63@gmail.com`
           );
 
@@ -5395,13 +4303,12 @@ cconker63@gmail.com`
           terminalPrint(
 `MOHAMED@PORTFOLIO
 
-OS       Android / Linux
-Role     Android Developer
-Focus    Cybersecurity
-Location Cairo, Egypt
-Status   Learning & Building
-
-Projects Coming Soon`
+OS        Android / Linux
+Role      Android Developer
+Focus     Cybersecurity
+Location  Cairo, Egypt
+Status    Learning & Building
+Projects  Coming Soon`
           );
 
           break;
@@ -5418,23 +4325,25 @@ Projects Coming Soon`
         default:
 
           terminalPrint(
-`Command not found: ${command}
+            `Command not found: ${command}
 
 Type "help" for available commands.`
           );
 
       }
 
+
+      terminalOutput.scrollTop =
+        terminalOutput.scrollHeight;
+
     }
 
 
     terminalInput.addEventListener(
       "keydown",
-      (e) => {
+      e => {
 
-        if (
-          e.key === "Enter"
-        ) {
+        if (e.key === "Enter") {
 
           runCommand(
             terminalInput.value
@@ -5450,145 +4359,46 @@ Type "help" for available commands.`
 
 
     /* =========================================================
-       REVEAL ANIMATION
+       PHONE TOUCH FEEDBACK
     ========================================================= */
 
-    const revealElements =
-      document.querySelectorAll(
-        ".reveal"
-      );
+    document
+      .querySelectorAll(
+        ".btn, .social, .skill-card, .security-item, .achievement"
+      )
+      .forEach(element => {
 
+        element.addEventListener(
+          "touchstart",
+          () => {
 
-    const revealObserver =
-      new IntersectionObserver(
-        (entries) => {
+            element.style.transform =
+              "scale(.98)";
 
-          entries.forEach(
-            (entry) => {
-
-              if (
-                entry.isIntersecting
-              ) {
-
-                entry.target.classList.add(
-                  "visible"
-                );
-
-                revealObserver.unobserve(
-                  entry.target
-                );
-
-              }
-
-            }
-          );
-
-        },
-        {
-          threshold: .12
-        }
-      );
-
-
-    revealElements.forEach(
-      (element) => {
-
-        revealObserver.observe(
-          element
-        );
-
-      }
-    );
-
-
-    /* =========================================================
-       BACK TO TOP
-    ========================================================= */
-
-    backTop.addEventListener(
-      "click",
-      () => {
-
-        window.scrollTo({
-
-          top: 0,
-
-          behavior: "smooth"
-
-        });
-
-      }
-    );
-
-
-    /* =========================================================
-       PHONE PARALLAX
-    ========================================================= */
-
-    const phone =
-      document.getElementById(
-        "phone"
-      );
-
-
-    if (
-      window.matchMedia(
-        "(pointer:fine)"
-      ).matches
-    ) {
-
-      const visual =
-        document.querySelector(
-          ".visual"
+          },
+          {
+            passive: true
+          }
         );
 
 
-      visual.addEventListener(
-        "mousemove",
-        (e) => {
+        element.addEventListener(
+          "touchend",
+          () => {
 
-          const rect =
-            visual.getBoundingClientRect();
+            element.style.transform =
+              "";
 
+          },
+          {
+            passive: true
+          }
+        );
 
-          const x =
-            (e.clientX - rect.left)
-            / rect.width
-            - .5;
-
-
-          const y =
-            (e.clientY - rect.top)
-            / rect.height
-            - .5;
-
-
-          phone.style.transform =
-
-            `perspective(1000px)
-             rotateY(${x * 12 - 8}deg)
-             rotateX(${y * -8 + 3}deg)
-             translateY(-4px)`;
-
-        }
-      );
-
-
-      visual.addEventListener(
-        "mouseleave",
-        () => {
-
-          phone.style.transform =
-            "";
-
-        }
-      );
-
-    }
+      });
 
 
   </script>
 
 </body>
-
   </html>
